@@ -7,11 +7,15 @@ var bridge_routes=[]
 var blocks=[]
 var crates=[]
 var rng=RandomNumberGenerator.new()
+var ground_material: ShaderMaterial
 
 func build():
 	rng.seed=20261021;_light();_land();await get_tree().process_frame
 	roads=[{"a":Vector2(-150,40),"b":Vector2(230,40),"width":18.0},{"a":Vector2(-95,-270),"b":Vector2(-95,155),"width":16.0},{"a":Vector2(6,12),"b":Vector2(226,160),"width":22.0},{"a":Vector2(90,35),"b":Vector2(90,-250),"width":13.0},{"a":Vector2(-92,-120),"b":Vector2(222,-120),"width":13.0},{"a":Vector2(-94,108),"b":Vector2(225,108),"width":13.0}]
 	for i in range(roads.size()):_road_mesh(i)
+	var segments=PackedVector4Array();var widths=PackedFloat32Array()
+	for road in roads:segments.append(Vector4(road.a.x,road.a.y,road.b.x,road.b.y));widths.append(road.width)
+	ground_material.set_shader_parameter("road_segments",segments);ground_material.set_shader_parameter("road_widths",widths)
 	_bridge();_landmarks();await get_tree().process_frame;_shops();_props();_street_details();StreetDecor.build(self);UrbanFrontage.ground(self);await get_tree().process_frame;_batch();ToonKit.finish(self)
 
 func _light():
@@ -25,11 +29,10 @@ func _light():
 	sun.shadow_enabled=true;sun.directional_shadow_max_distance=115;sun.directional_shadow_mode=DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS;sun.shadow_bias=.25;sun.shadow_normal_bias=2.0;sun.directional_shadow_blend_splits=true;add_child(sun)
 
 func _land():
-	var paving=ShaderMaterial.new();paving.shader=load("res://shaders/pavement.gdshader");ToonKit.mesh(self,ToonKit.rounded(Vector3(440,.8,470),.08),paving,Vector3(50,-.4,-60));ToonKit.solid(self,Vector3(440,.8,470),Vector3(50,-.4,-60))
-	for patch in [[Vector3(-135,.01,-92),Vector3(29,.08,142)],[Vector3(-61,.01,-162),Vector3(48,.08,104)],[Vector3(156,.01,-185),Vector3(152,.08,111)]]:
-		ToonKit.box(self,patch[1],"#4eaa86",patch[0],.03)
+	ground_material=ShaderMaterial.new();ground_material.shader=load("res://shaders/pavement.gdshader");var surface=ToonKit.mesh(self,ToonKit.rounded(Vector3(440,.8,470),.08),ground_material,Vector3(50,-.4,-60));surface.name="ContinuousGround";ToonKit.solid(self,Vector3(440,.8,470),Vector3(50,-.4,-60))
+	ground_material.set_shader_parameter("grass_rects",PackedVector4Array([Vector4(-135,-92,29,142),Vector4(-61,-162,48,104),Vector4(156,-185,152,111),Vector4(104,-80,70,59)]))
 	var plane=PlaneMesh.new();plane.size=Vector2(1300,1500);var water=ShaderMaterial.new();water.shader=load("res://shaders/river.gdshader");ToonKit.mesh(self,plane,water,Vector3(-450,-.65,-80))
-	ToonKit.box(self,Vector3(17,.1,470),"#e4e8e8",Vector3(-161,-.04,-60));ToonKit.box(self,Vector3(1,1.5,470),"#31516a",Vector3(-170,-.4,-60));ToonKit.solid(self,Vector3(1,1.4,470),Vector3(-170,.5,-60));ToonKit.box(self,Vector3(.15,.12,470),"#f0dfba",Vector3(-169.7,1.2,-60))
+	ToonKit.box(self,Vector3(1,1.5,470),"#31516a",Vector3(-170,-.4,-60));ToonKit.solid(self,Vector3(1,1.4,470),Vector3(-170,.5,-60));ToonKit.box(self,Vector3(.15,.12,470),"#f0dfba",Vector3(-169.7,1.2,-60))
 	for z in range(-290,175,5):ToonKit.box(self,Vector3(.1,1.15,.1),"#263957",Vector3(-169.7,.65,z),.02)
 	ToonKit.box(self,Vector3(75,2,1000),"#94b4c5",Vector3(-440,-.3,-80))
 	for i in range(22):
@@ -43,8 +46,8 @@ func _road_mesh(index: int):
 	var g=Node3D.new();var midpoint=(a+b)*.5;g.position=Vector3(midpoint.x,0,midpoint.y);g.rotation.y=atan2(d.x,d.y);add_child(g)
 	# The existing land collider supports asphalt, sidewalk and lawn continuously.
 	# No raised invisible road-base box to catch the bottom of a car.
-	ToonKit.box(g,Vector3(width+7,.06,d.length()+2),"#cdd6df",Vector3(0,-.03,0),.01)
-	ToonKit.box(g,Vector3(width,.014,d.length()+2),"#35455f",Vector3(0,.007,0),.005)
+	# Asphalt and sidewalk are colors of ContinuousGround, not overlapping slabs.
+	# Road crossings therefore have one depth surface while keeping the same collider.
 	for z in range(int(-d.length()/2),int(d.length()/2),2):
 		for side in [-1,1]:
 			var local=Vector3(side*(width/2+.1),0,z+1);var point=g.transform*local
@@ -89,7 +92,6 @@ func _landmarks():
 	for side in [-1,1]:tower(sw+Vector3(side*9.4,112,0),Vector3(4.2,24,18),"#227ca9","#23476c")
 	tower(sw+Vector3(0,133,0),Vector3(23,4,18),"#227ca9","#23476c");pois.append({"name":"环球金融中心","p":Vector2(178,-31),"color":"#5b9da7"})
 	_loft(Vector3(132,0,3));pois.append({"name":"上海中心","p":Vector2(132,3),"color":"#8fc4be"})
-	ToonKit.box(self,Vector3(70,.14,59),"#60b98f",Vector3(104,.04,-80),1.0)
 	for i in range(9):var q=Node3D.new();q.position=Vector3(76+i*7,.17,-54-i*6);q.rotation.y=-.7;add_child(q);ToonKit.box(q,Vector3(7,.05,11),"#f8e9cc",Vector3.ZERO,.02)
 	for x in [78,104,133]:
 		for z in [-60,-93]:tree(Vector3(x,.16,z),1.2)

@@ -1,0 +1,74 @@
+{
+  "checks": [
+    [
+      true,
+      "real low-speed wall contact damages vehicle"
+    ],
+    [
+      true,
+      "fast impact causes more vehicle and occupant damage than slow impact"
+    ],
+    [
+      true,
+      "seated hero takes crash injury despite melee immunity and held guard"
+    ],
+    [
+      true,
+      "holding throttle against wall does not repeatedly drain health"
+    ],
+    [
+      true,
+      "glancing collision uses normal closing speed instead of full driving speed"
+    ],
+    [
+      true,
+      "oncoming cars use relative speed and damage both vehicles"
+    ],
+    [
+      true,
+      "rear-end collision with moving car is milder than oncoming collision"
+    ],
+    [
+      true,
+      "zero-health car loses engine power"
+    ],
+    [
+      true,
+      "hero can leave disabled car safely"
+    ],
+    [
+      true,
+      "vehicle damage and occupant health survive save and load"
+    ],
+    [
+      true,
+      "fatal occupant crash respawns hero on foot without remaining attached to car"
+    ],
+    [
+      true,
+      "driving hit reduces pedestrian health and shows actual target health bar"
+    ],
+    [
+      true,
+      "injured pedestrian remains down two seconds after impact with readable health feedback"
+    ],
+    [
+      true,
+      "a second actual pass can injure a fallen person instead of ignoring downed collision"
+    ],
+    [
+      true,
+      "severe high-speed impact can incapacitate pedestrian without immediate revival"
+    ],
+    [
+      true,
+      "stationary vehicle overlapping a person does not invent impact damage"
+    ],
+    [
+      true,
+      "road intersections share one continuous depth surface with all six road masks"
+    ]
+  ],
+  "failed": 0,
+  "passed": 17
+}

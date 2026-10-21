@@ -6,6 +6,10 @@ __pycache__/
 tools/Godot*
 tools/export-templates/
 tools/xserver/
+tools/Xvfb-local
+tools/.Godot*
+tools/tm/
+tools/xkb/
 tools/*.zip
 tools/library*/
 tools/library_session.py
@@ -14,3 +18,10 @@ tools/final*/
 
 # Restored from the official Noto source by tools/restore_assets.py
 assets/fonts/Chinese.otf
+
+# New native captures are conversation-only; keep originals under builds/.
+docs/verification/**/*.png
+docs/verification/**/*.jpg
+docs/verification/**/*.jpeg
+docs/verification/**/*.mp4
+docs/verification/**/*.webm

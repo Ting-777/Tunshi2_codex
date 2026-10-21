@@ -37,6 +37,10 @@ func _ready():
 	var layer=CanvasLayer.new();add_child(layer);hud=StreetHUD.new();hud.world=self;layer.add_child(hud);_audio()
 	print("SHANGHAI_READY")
 	if capture_mode:paused=false;hud.menu=false;await _capture()
+	elif "--test-impact-only" in OS.get_cmdline_user_args():
+		paused=false;hud.menu=false;var checks=[];await ImpactChecks.run(self,checks);_test_report(checks)
+	elif "--test-vehicle-only" in OS.get_cmdline_user_args():
+		paused=false;hud.menu=false;var checks=[];await VehicleChecks.run(self,checks);_test_report(checks)
 	elif "--test-polish-only" in OS.get_cmdline_user_args():
 		paused=false;hud.menu=false;var checks=[];await PolishChecks.run(self,checks);_test_report(checks)
 	elif "--test-world-only" in OS.get_cmdline_user_args():
@@ -147,7 +151,7 @@ func _process(dt):
 	if not paused:
 		autosave+=dt
 		if autosave>45:save_game(false);autosave=0
-		if player.hp<=0:player.hp=100;player.position=player.home;player.stun=0;player.immunity=2;money=maxi(0,money-50);hud.say("回到街口 · 休息后继续")
+		if player.hp<=0:_respawn_hero()
 		for p in particles.duplicate():
 			p.life-=dt;p.node.position+=p.velocity*dt;p.velocity.y-=dt*7;p.node.scale=Vector3.ONE*maxf(.01,p.life/.32)
 			if p.life<=0:p.node.queue_free();particles.erase(p)
@@ -157,6 +161,12 @@ func _process(dt):
 		steps-=dt
 		if player.speed>1 and player.is_on_floor() and not player.vehicle and steps<=0:sound("step",.3);steps=.29
 	if not fixed_camera:_follow(dt)
+
+func _respawn_hero():
+	if player.vehicle:player.vehicle.driver=null;player.vehicle=null
+	player.hp=100;player.position=player.home;player.velocity=Vector3.ZERO;player.impulse=Vector3.ZERO;player.stun=0;player.knockdown=0;player.immunity=2;player.attack=-1;player.queued="";player.dodge_time=0;player.collision_layer=2;player.collision_mask=7;player.visible=true
+	for action in ["forward","back","left","right","jump","guard"]:Input.action_release(action)
+	money=maxi(0,money-50);hud.say("回到街口 · 休息后继续");_follow(1)
 
 func _follow(dt: float):
 	if hud.menu:camera.position=Vector3(-50,3.3,29.5);camera.look_at(player.position+Vector3.UP*1.4);return
@@ -197,7 +207,7 @@ func melee(actor: StreetActor):
 			impact(a.position+Vector3.UP*1.2,kind not in ["jab","cross"])
 			if actor==player:
 				combo_hits=combo_hits+1 if Time.get_ticks_msec()<combo_expiry else 1;combo_expiry=Time.get_ticks_msec()+2400
-				player.heat=minf(100,player.heat+17);hud.target=a;hud.target_until=Time.get_ticks_msec()+2800;freeze_to=Time.get_ticks_msec()+65;shake=.07 if kind=="jab" else .15
+				player.heat=minf(100,player.heat+17);hud.target=a;hud.target_time=2.8;freeze_to=Time.get_ticks_msec()+65;shake=.07 if kind=="jab" else .15
 	if actor==player:
 		for b in city.crates.duplicate():
 			var d=b.p-player.position
@@ -217,18 +227,49 @@ func near_car():
 	var best=null;var dist=3.5
 	for car in cars:
 		var d=player.position.distance_to(car.position)
-		if d<dist:dist=d;best=car
+		if d>=dist:continue
+		var ray=PhysicsRayQueryParameters3D.create(player.position+Vector3.UP,car.position+Vector3.UP,1)
+		if get_world_3d().direct_space_state.intersect_ray(ray):continue
+		dist=d;best=car
 	return best
+
+func exit_position(car: StreetCar):
+	# Check the hero's actual standing capsule, not a single eye-height ray.
+	var space=get_world_3d().direct_space_state
+	var shape=player.get_child(0) as CollisionShape3D
+	for side in [-1,1]:
+		var p=car.position+car.basis.x*side*1.9
+		var floor_hit=space.intersect_ray(PhysicsRayQueryParameters3D.create(p+Vector3.UP*.55,p-Vector3.UP*.85,1))
+		if floor_hit.is_empty() or floor_hit.normal.y<.7:continue
+		var floor_y=floor_hit.position.y
+		if floor_y-car.position.y>.4 or floor_y-car.position.y<-.65:continue
+		var supported=true
+		for offset in [Vector3.LEFT*.28,Vector3.RIGHT*.28,Vector3.FORWARD*.28,Vector3.BACK*.28]:
+			var foot=Vector3(p.x,floor_y,p.z)+offset
+			var support=space.intersect_ray(PhysicsRayQueryParameters3D.create(foot+Vector3.UP*.3,foot-Vector3.UP*.3,1))
+			if support.is_empty() or support.normal.y<.7 or absf(support.position.y-floor_y)>.22:supported=false;break
+		if not supported:continue
+		p.y=floor_y+.03
+		var query=PhysicsShapeQueryParameters3D.new();query.shape=shape.shape;query.margin=.01;query.collision_mask=7;query.exclude=[player.get_rid(),car.get_rid()]
+		query.transform=Transform3D(Basis.IDENTITY,p+shape.position)
+		var overlaps=space.intersect_shape(query,1)
+		if not overlaps.is_empty():continue
+		# Sweep at the landing height so a modest curb remains a valid exit.
+		query.transform.origin=Vector3(car.position.x,p.y,car.position.z)+shape.position
+		query.motion=Vector3(p.x-car.position.x,0,p.z-car.position.z)
+		var fractions=space.cast_motion(query)
+		if fractions[0]<.999:continue
+		return p
+	return null
 
 func board():
 	if player.vehicle:
 		var car=player.vehicle
 		if absf(car.speed)>3:hud.say("先减速，再下车");return
-		for side in [-1,1]:
-			var p=car.position+car.basis.x*side*1.9+Vector3.UP*.25
-			if get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(car.position+Vector3.UP*1.2,p+Vector3.UP*.8,1)):continue
+		var p=exit_position(car)
+		if p!=null:
 			player.vehicle=null;car.driver=null;player.position=p;player.velocity=Vector3.ZERO;player.collision_layer=2;player.collision_mask=7;player.visible=true;car.door_angle=1;hud.say("下车");return
-		hud.say("车门被挡住了，换个地方停车")
+		hud.say("两侧没有安全落脚点，挪车后再下车")
 	else:
 		var car=near_car()
 		if car:car.driver=player;player.vehicle=car;player.collision_layer=0;player.collision_mask=0;player.visible=false;car.door_angle=1;yaw=car.rotation.y;hud.say("W/S 油门刹车 · A/D 转向 · 空格手刹")
@@ -389,6 +430,8 @@ func _tests():
 			if args[i]=="--capture-output":shot_dir=args[i+1];DirAccess.make_dir_recursive_absolute(shot_dir)
 		await GameplayChecks.run(self,checks,shot_dir)
 	if "--test-polish" in OS.get_cmdline_user_args():await PolishChecks.run(self,checks)
+	if "--test-vehicle" in OS.get_cmdline_user_args():await VehicleChecks.run(self,checks)
+	if "--test-impact" in OS.get_cmdline_user_args():await ImpactChecks.run(self,checks)
 	_test_report(checks)
 
 func _test_report(checks: Array):

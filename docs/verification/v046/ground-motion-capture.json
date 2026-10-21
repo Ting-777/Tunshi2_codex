@@ -1,0 +1,8 @@
+{
+  "camera": "low junction inspection",
+  "frames": 36,
+  "playback_fps": 12,
+  "scene_paused": true,
+  "source": "native Godot viewport",
+  "video_frames_are_unmodified": true
+}

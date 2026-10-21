@@ -4,6 +4,7 @@ builds/
 __pycache__/
 *.pyc
 tools/Godot*
+tools/godot-*/
 tools/export-templates/
 tools/xserver/
 tools/Xvfb-local

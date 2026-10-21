@@ -5,7 +5,7 @@
 Godot 4.5.2 原生陆家嘴室外自由漫游样板。无剧情任务。压缩、手工构建的陆家嘴街区，明快都市卡通画风。保留第一部网页游戏豚师的实际几何与比例，仅调整材质及动画。原来的 Sites 主站与测试站均未修改。
 
 ## Windows 运行
-完整解压 Windows 包到文件夹，双击 Start.cmd 或 Dolphin2.exe。不要在 ZIP 内直接启动；EXE 和 PCK 必须放在一起。使用 Godot Compatibility/OpenGL 渲染，64 位 Windows，显卡驱动需支持 OpenGL 3.3。当前环境只有 Linux 原生运行验证，未在真实 Windows 硬件上完成运行和性能测试。
+完整解压 Windows 包到文件夹，双击 Start.cmd 或 Dolphin2.exe。不要在 ZIP 内直接启动；EXE 和 PCK 必须放在一起。使用 Godot Compatibility/OpenGL 渲染，64 位 Windows，显卡驱动需支持 OpenGL 3.3。2026-10-21 已在 Windows / RTX 4060 Laptop 上完成启动、独立 PCK 完整回归107/107及原生撞击17/17；尚未进行长期游玩和多机型性能验收。
 
 Start.cmd 将日志保存到 %LOCALAPPDATA%\Dolphin2ShanghaiToon\runtime.log。Fresh-Start.cmd 跳过读取旧位置，以街口重新开始；正常游玩后仍会自动保存。存档为本机 Godot user 数据，不含网页游戏存档。
 
@@ -24,7 +24,7 @@ Start.cmd 将日志保存到 %LOCALAPPDATA%\Dolphin2ShanghaiToon\runtime.log。F
 | F5 / F9 / F11 / H | 保存 / 读取 / 全屏 / 操作提示 |
 
 ## 从源码打开
-克隆后先运行 `python3 tools/restore_assets.py`（Windows：`py tools/restore_assets.py`）自动恢复原版 Noto 字体，无需上传文件。然后安装 Godot 4.5.2，导入 project.godot。工程不依赖原网页仓库，assets/original_dolphin.json 已保留实际模型几何。代码和模型均在源码包中，字体和 Godot 许可见 docs。引擎可执行文件及导出模板不放入源码包，需另行安装。
+克隆后先运行 `python3 tools/restore_assets.py`（Windows：`py tools/restore_assets.py`）自动恢复原版 Noto 字体，无需上传文件。然后安装 Godot 4.5.2，导入 project.godot。Windows 可使用新增的 `python tools/run_native.py import`、`python tools/run_native.py run`；引擎放置、独立 PCK 测试与原生截图见 [Windows 开发入口](docs/WINDOWS-DEVELOPMENT.md)。工程不依赖原网页仓库，assets/original_dolphin.json 已保留实际模型几何。代码和模型均在源码包中，字体和 Godot 许可见 docs。引擎可执行文件及导出模板不放入源码包，需另行安装。
 
 ## 当前内容和边界
 包含东方明珠、环形天桥、国金中心、金茂、环球金融中心、上海中心、滨江步道、中心绿地和原创沿街商铺；步行、跳跃、闪避、格挡、近战、热血、主动敌人、车辆、破坏木箱、掉落、地图和存档。不是完整上海，不包含室内、任务、原作全战役或完整交通模拟。角色动作仍使用程序化关节动画，不宣称达到《如龙》成品动作质量。
@@ -39,7 +39,7 @@ Start.cmd 将日志保存到 %LOCALAPPDATA%\Dolphin2ShanghaiToon\runtime.log。F
 
 规则和参考见 [车辆与地面设计](docs/VEHICLE-IMPACT-DESIGN.md)，最终验证见 [验收报告](docs/verification/TEST-REPORT.md)。
 
-最终导出 PCK 独立加载完整回归107/107；同一 PCK 原生 OpenGL 撞击专项17/17，均退出码0。真实 Windows 硬件未测。
+0.4.6 原始 Linux 验收：最终导出 PCK 独立加载完整回归107/107；同一 PCK 原生 OpenGL 撞击专项17/17，均退出码0。本次 Windows 重新导出及硬件验证见验收报告最新章节。
 
 ## 0.4.5 上下车更新
 
@@ -55,4 +55,4 @@ Start.cmd 将日志保存到 %LOCALAPPDATA%\Dolphin2ShanghaiToon\runtime.log。F
 
 近战辅助朝向会跳过墙后的目标，优先朝可触及的人物出招。原版角色几何、地图、四条环道坡道、地面驾驶自由、保存/读取、破坏及 M 地图保留；未增加任务或改变任何 Sites。
 
-以上是0.4.4历史更新，原始验收记录保留在 docs/verification。图形与动作仍为程序化都市卡通样板，不是完整布娃娃物理或《如龙》成品动作系统。当前版本为0.4.6；Windows 实机尚未验证。
+以上是0.4.4历史更新，原始验收记录保留在 docs/verification。图形与动作仍为程序化都市卡通样板，不是完整布娃娃物理或《如龙》成品动作系统。当前游戏版本仍为0.4.6，Windows 本地开发入口不改变玩法与美术。

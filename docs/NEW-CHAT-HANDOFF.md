@@ -2,6 +2,8 @@
 
 仓库：https://github.com/Ting-777/Tunshi2_codex
 
+最新 Windows 接续：main b77ba90 已包含 0.4.6。2026-10-21 在 Windows / RTX 4060 Laptop 上重新恢复、导入和导出 PCK，独立完整回归107/107、同PCK release EXE 原生撞击17/17，均退出0；第31轮四张真实视口图只在对话展示，不入库。新增 tools/run_native.py 支持 Windows 原生运行、测试、截图与独立 PCK 验证，详见 [WINDOWS-DEVELOPMENT.md](WINDOWS-DEVELOPMENT.md) 和验收报告顶部。本次未改游戏玩法、美术或原版模型，版本仍为0.4.6。下文此前的“Windows未测”属于历史轮次，不能套用于本次实测，也不能将单机专项等同于广泛性能验收。
+
 这是《豚师2·上海风云》Godot 原生工程的交接，不是重新开始制作，也不是第一部网页游戏的完整仓库。先读根目录 AGENTS.md、README.md、本文、ART-DIRECTION.md、TUNSHI1-STORY.md、TUNSHI1-GAMEPLAY.md、DEVELOPMENT-LESSONS.md，最后读 WORK-CHECKPOINT.md 与 verification/TEST-REPORT.md。历史记录有旧版本，日期最新且经源码核实的事实优先；不要照着历史待办重复开发。
 
 ## 当前已完成

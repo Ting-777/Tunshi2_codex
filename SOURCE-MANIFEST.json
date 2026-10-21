@@ -1,13 +1,18 @@
 {
-  "version": "0.4.6",
+  "version": "0.4.6-windows-dev",
   "created": "2026-10-21",
   "scope": "native game source, original dolphin geometry, text verification records and chapter I-IV source reference; legacy v044 images already tracked at migration remain unchanged",
   "excluded": "Godot and OS binaries, generated builds/import caches, private upload sessions, new native screenshots/videos and conversation galleries, first-game media/site deployment config",
   "files": {
+    ".gitattributes": {
+      "bytes": 126,
+      "sha256": "93fc1811c9148c27e5b6fcbb12255cfdad79445b150c2abc53b9a24f1d29bb55",
+      "git_blob": "cfa573a45787ece0d79fbe29aded373f65d7dfcc"
+    },
     ".gitignore": {
-      "bytes": 532,
-      "sha256": "63c4feeb305a948b37e76bd615f1ffe89d1301c4ef60ef24487b1b0100e78998",
-      "git_blob": "f20b6c654383bed44e4f31efd20bdf07c70c99ae"
+      "bytes": 547,
+      "sha256": "5bf15f50669275c272a6dae271d5b0fff1233d4e9ec4562e287724ae0c6e9cfe",
+      "git_blob": "36d05c2994f7ec08d8e045a6b6a8cbd73420d932"
     },
     "AGENTS.md": {
       "bytes": 5049,
@@ -15,9 +20,9 @@
       "git_blob": "da674c60b20d04e228498de906dd758d2225b6fb"
     },
     "README.md": {
-      "bytes": 5730,
-      "sha256": "2ab847149b1bd2fa7d68848df6f2cb72597b26a87cfdede46fea50979ac8e9cb",
-      "git_blob": "71b6819914a89a885c37e91cb7eb83e1ee498b51"
+      "bytes": 6098,
+      "sha256": "916c69f34bda7e97fb7592a35fbda0bfa01c4124884faae058c1bf1a65eca23f",
+      "git_blob": "53272254242f018f9312c68943755dd156c093ff"
     },
     "assets/fonts/Chinese.otf": {
       "bytes": 17002248,
@@ -50,9 +55,9 @@
       "git_blob": "0e3ba08d6b2e8cf435241829c96f10b74e4356fe"
     },
     "docs/NEW-CHAT-HANDOFF.md": {
-      "bytes": 7547,
-      "sha256": "e9e65a435bdba91d213c47631eae0d6ca6a130ce52bce76c68791d77329be3bb",
-      "git_blob": "55e7270ce670a51fa31e23b189b4ebe775dc140f"
+      "bytes": 8212,
+      "sha256": "efd18e3c74f94da0f945ef0136cd9539fa0001d455d166b75d1c0d615b97ca01",
+      "git_blob": "c1256f7a8f9eebf0281c16da3c56fd8aa48d749c"
     },
     "docs/NOTO-LICENSE.txt": {
       "bytes": 4301,
@@ -74,10 +79,15 @@
       "sha256": "316857e187b9b08b01e05c37efe2db4508bf2714a40a080aa13336f868e70ab3",
       "git_blob": "b33f89b7ec19ef4cbad6d9317ce409b576d44a7c"
     },
+    "docs/WINDOWS-DEVELOPMENT.md": {
+      "bytes": 3372,
+      "sha256": "78841ad2d81416cb8d1299eeef364258c41696df3455573474ce7dbeba67595e",
+      "git_blob": "c6bc7c0221353b0da977d2a22d7df1254e71f162"
+    },
     "docs/WORK-CHECKPOINT.md": {
-      "bytes": 10287,
-      "sha256": "7d8adbda323d66e4e1e84b26cd7b11143830bf362976748c49b8f5cc8b9820cd",
-      "git_blob": "0fbeebc6fa098cc253671d55fdef3ebccbc70824"
+      "bytes": 11614,
+      "sha256": "867b71901da323bc25a72cf801333716a751b6328e18b63fe4bd60fb456a0570",
+      "git_blob": "96263e967058d68f91a7232f67ac16fe192f5341"
     },
     "docs/original-dolphin-source.js": {
       "bytes": 2345,
@@ -105,9 +115,9 @@
       "git_blob": "43ae0996bfef45131b6fe52761ab7c7fce345ebd"
     },
     "docs/verification/TEST-REPORT.md": {
-      "bytes": 9981,
-      "sha256": "695b51922c15738286aa040729080e2e95bc6e8abc258d13ff813b0ae8360d44",
-      "git_blob": "15f5aa44d3e405b55a58eee09c7686363b71aa24"
+      "bytes": 12609,
+      "sha256": "beef299904415f27f953cf37534eead25ddb7535a4d445133b8fe2146bc97a56",
+      "git_blob": "883fe988bf1adbc7bc892e88e59311d453de5986"
     },
     "docs/verification/baseline-v040/TEST-REPORT.md": {
       "bytes": 3447,
@@ -473,6 +483,46 @@
       "bytes": 6805,
       "sha256": "4bd1bb62d99aee2412e0db31b8e674f73d6bece02eb15c449aef46c9fd941109",
       "git_blob": "364832e7d70d0a486da9ef80eb8e1739a6d7e404"
+    },
+    "docs/verification/windows-20261021/export.log": {
+      "bytes": 3656,
+      "sha256": "179e542b9e1c777dc26fe8a8778064cb663245e01900995f8b1ff636cecfef45",
+      "git_blob": "4cc5923aca37ea475f5ba123b84f4b0d887d2ddb"
+    },
+    "docs/verification/windows-20261021/full-results.json": {
+      "bytes": 8476,
+      "sha256": "d259de947909094ff3a9cafef6b78cc6a441c4551d3b7faba7d48246256c2955",
+      "git_blob": "7bd52b4c840ed0b6afe053c36c9f4d5ab632656f"
+    },
+    "docs/verification/windows-20261021/full-runtime.log": {
+      "bytes": 8154,
+      "sha256": "4cda19dd3c05e3156f5e476639f93b9264985b7710d582760d5bd42f53723b06",
+      "git_blob": "6681332da135e4b05c2a71498b3a586096164616"
+    },
+    "docs/verification/windows-20261021/import.log": {
+      "bytes": 730,
+      "sha256": "b29cdc9c21f68494cc850b8a2db808af00e786fad1988c640db584b3c7096002",
+      "git_blob": "5820f90f4581f8956b7ad7e5767ce34439cf1f7a"
+    },
+    "docs/verification/windows-20261021/native-results.json": {
+      "bytes": 1735,
+      "sha256": "07e8405c7d414470dc5ecb734704a341a6e729128af6438c5a4e1ac30ddd443e",
+      "git_blob": "d4ca9d805bdda255c03825869f273881db9a6a3e"
+    },
+    "docs/verification/windows-20261021/native-runtime.log": {
+      "bytes": 2335,
+      "sha256": "5e8f621cc4a710637a606005751f176c7c62c2c8c16596de4033a28d9872398d",
+      "git_blob": "2ce8ab69dd2b9e936b8b3da6902b9b31ccc25502"
+    },
+    "docs/verification/windows-20261021/restricted-results.json": {
+      "bytes": 8478,
+      "sha256": "a955e4f1dd12960f5027cf94f7936be5d94d763a256eeb0ec1b3248d64587ec9",
+      "git_blob": "f1d71605649a624c55405b4765e7c39b5ed7b6f3"
+    },
+    "docs/verification/windows-20261021/restricted-runtime.log": {
+      "bytes": 8154,
+      "sha256": "c65699e4635dcaebad9cba0f063186b791714cc0f1e5b42bf0edc2e599d403ec",
+      "git_blob": "2d9bfbdef2a3993e8b23d674cf71795d157026ef"
     },
     "export_presets.cfg": {
       "bytes": 1516,
@@ -1410,9 +1460,9 @@
       "git_blob": "823e77277dcac9e9985db1d349d03e02c204d94b"
     },
     "tools/package_source.py": {
-      "bytes": 1040,
-      "sha256": "a1ca76b9f171b12235470c647baefbbd9540db85fedc002637e89017a6234c2f",
-      "git_blob": "54f4f5be9ea85695e2241faa8a86149873fb44ae"
+      "bytes": 1073,
+      "sha256": "80b4dd82e8d731e3f85935e4ee422a07cfae2b0711056d1afb4057cb19bff377",
+      "git_blob": "5b14440c41693ac9a9e3a923e424945655f7e1c2"
     },
     "tools/package_windows.py": {
       "bytes": 1089,
@@ -1423,6 +1473,11 @@
       "bytes": 1057,
       "sha256": "9b87baccb8e3aadf8470382d5122aaa953530c4a87cf2a23d656bfeec1e37ec1",
       "git_blob": "1dc48fb79d644faae5e449a8bb833f84f443b3b7"
+    },
+    "tools/run_native.py": {
+      "bytes": 6908,
+      "sha256": "35e62c4eccf2d7ecc19725ed04685cc8167aa7c407a31c4d2f3b3eae8cef85f7",
+      "git_blob": "d3f5105978e4f5fbe931e3e4604bd5ac27b55ab7"
     },
     "tools/verify_source.py": {
       "bytes": 898,
@@ -1436,5 +1491,6 @@
       "official_url": "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Bold.otf",
       "sha256": "b5f0d1a190a7f9b43c310a8850630af12553df32c4c050543f9059732d9b4c0a"
     }
-  }
+  },
+  "source_base": "b77ba90"
 }

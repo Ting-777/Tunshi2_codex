@@ -1,0 +1,151 @@
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+
+SHANGHAI_READY
+COMBO_CONTACT finish phase=0.33333333333333 hp=77.0 knockdown=1.35
+RAMP_TOP 0 true (-2.467548, 5.640824, 22.5)
+BRIDGE_ASCEND 0 (0.015574, 5.640864, 16.80177) true
+BRIDGE_DESCEND 0 (-29.17797, 0.000799, 22.50036) true
+RAMP_TOP 1 true (32.5, 5.640815, -7.532556)
+BRIDGE_ASCEND 1 (26.8018, 5.640857, -10.01549) true
+BRIDGE_DESCEND 1 (32.50036, -0.006648, 19.17938) true
+RAMP_TOP 2 true (2.467683, 5.640816, -42.5)
+BRIDGE_ASCEND 2 (-0.01548, 5.640856, -36.80177) true
+BRIDGE_DESCEND 2 (29.18261, 0.00063, -42.50035) true
+RAMP_TOP 3 true (-32.5, 5.640816, -12.46758)
+BRIDGE_ASCEND 3 (-26.80177, 5.640873, -9.984417) true
+BRIDGE_DESCEND 3 (-32.50036, 0.000841, -39.17876) true
+BRIDGE_LOOP true (0.187291, 5.640827, 16.98584)
+ROAD_CROSS 0 48.2000198364258 (-60.0, 0.000942, 65.20002)
+ROAD_CROSS 1 48.2000045776367 (-67.8, 0.000941, -250.0)
+ROAD_CROSS 2 48.2064437866211 (123.9419, 0.000943, 121.7108)
+ROAD_CROSS 3 48.1999740600586 (116.2, 0.000942, -210.0)
+ROAD_CROSS 4 48.2001037597656 (145.0, 0.000941, -94.7999)
+ROAD_CROSS 5 48.2000274658203 (170.0, -0.006739, 133.2)
+ROAD_CROSS 6 20.3240356445313 (-167.324, -0.008889, -240.0)
+ROAD_CROSS 7 48.2001495361328 (198.2001, 0.000942, -195.0)
+SOLID_WALL (0.0, -0.000704, 81.52376) speed=0.9
+FLEE 0.71315723657608 -> 7.54563140869141 stun=0.0 pos=(-31.66583, 0.000845, 70.0)
+CAR_PERSON false HP=60.8489880561829 DOWN=3.93663899024328 car=(0.0, 0.000944, 96.36897) person=(0.0, 0.00084, 83.67716)
+CAR_PERSON true HP=30.5072946548462 DOWN=3.84967934211096 car=(0.0, 0.000942, 44.3602) person=(0.0, 0.00084, 55.25031)
+DIRECTIONAL_STAGGER 1 hp=70.0 lean=(0.461779, 0.886995, -0.0)
+DIRECTIONAL_STAGGER -1 hp=70.0 lean=(-0.461779, 0.886995, -0.0)
+OCCLUDED_AIM 100 70.0
+FALL_SUPPORT 0.02500001527369 torso_height=0.29305029852549 direction=(0.0, -0.015646, 1.699928)
+BLOCKED_RECOVERY 2.05214478095374 1.0 false
+TRAFFIC_EVADE false hp=100 position=(-7.647908, 0.000845, 87.90469) car=(-15.0, 0.000941, 105.1917)
+TRAFFIC_EVADE true hp=100 position=(-7.814519, 0.000839, 52.82959) car=(-15.0, 0.000942, 34.80832)
+ORDINARY_EXIT vehicle=<null> visible=true floor=true clear=true position=(-41.9, -0.008812, 70.0) velocity=(0.0, 0.0, 0.0) impulse=(0.0, 0.0, 0.0)
+WALL_DAMAGE low=20.5301333146982/7.2886110375245 high=106.781822178698/46.6335660720904 delta_v=23.2999992370605
+GLANCING_DAMAGE 0.11564583788552 at (-38.94343, 0.000942, 97.45583)
+CAR_V_CAR 137.079337849655 137.079337849655 delta_v=14.0499505996704
+REAR_END_DAMAGE 13.1394663541743 delta_v=7.75015878677368
+PERSON_INJURY hp=62.3383221626282 down=3.07139228105546 position=(-40.0, 0.000828, 83.57745)
+PASS original dolphin hierarchy
+PASS map and world share coordinates
+PASS four independent wheels
+PASS out-of-bounds save fallback
+PASS nonfinite save fallback
+PASS malformed save fallback
+PASS physical sidewalk support
+PASS movement action through physics controller
+PASS board nearest car
+PASS Q inside vehicle does not consume heat
+PASS cornering remains grounded
+PASS wheel clearance above road
+PASS exit car
+PASS animated hand contact damages and builds heat
+PASS enemy HUD tracks only player hit
+PASS M opens map and freezes simulation
+PASS M returns to world
+PASS unrestricted horizontal camera turns
+PASS physical jump
+FAIL saved player position
+PASS saved parked car state
+PASS hostile AI approaches and lands a real attack
+PASS single hostile has readable recovery windows
+PASS held guard reduces an actual enemy strike
+PASS Q during dodge does not consume heat
+PASS dodge grants its brief invulnerability window
+PASS recovery item restores HP and consumes one item
+PASS solid wall blocks melee damage
+PASS strike destroys world crate and records persistence
+PASS world loot pickup credits cash
+PASS broken crate remains absent after reload
+PASS first combo strike makes hand contact
+PASS buffered second attack becomes a cross
+PASS third buffered attack connects and knocks enemy down
+PASS fallen enemy stands and restores body collision
+PASS expired combo returns to first strike
+PASS held guard cannot block an attack from behind
+PASS pedestrian follows an authored outdoor route
+PASS bridge 0 ascent without jumping
+PASS bridge 0 descent to flush ground
+PASS bridge 1 ascent without jumping
+PASS bridge 1 descent to flush ground
+PASS bridge 2 ascent without jumping
+PASS bridge 2 descent to flush ground
+PASS bridge 3 ascent without jumping
+PASS bridge 3 descent to flush ground
+PASS complete footbridge loop has continuous support
+PASS outer railing physically prevents a fall
+PASS inner railing physically prevents a fall
+PASS car freely crosses road 0 and both sidewalks
+PASS car freely crosses road 1 and both sidewalks
+PASS car freely crosses road 2 and both sidewalks
+PASS car freely crosses road 3 and both sidewalks
+PASS car freely crosses road 4 and both sidewalks
+PASS car freely crosses road 5 and both sidewalks
+PASS car enters riverside promenade freely
+PASS car crosses open lawn freely
+PASS visible solid obstacles still stop vehicles
+PASS ordinary pedestrian takes real animated melee contact
+PASS struck pedestrian retreats and flees
+PASS forward car knocks pedestrian down
+PASS forward impact uses travel direction and car continues
+PASS reverse car knocks pedestrian down
+PASS reverse impact uses travel direction and car continues
+PASS vehicle injury keeps surviving pedestrian down beyond two seconds
+PASS surviving civilian gets up and restores collision
+PASS downed civilian does not create enemy cash loot
+PASS melee stagger follows impact from left
+PASS melee stagger follows impact from right
+PASS melee aims at visible reachable target instead of person behind wall
+PASS car impact falls in the direction of travel
+PASS fallen torso settles onto ground instead of remaining in push-up pose
+PASS pedestrian stays down while parked car blocks recovery
+PASS person braces, gets up, then restores standing collision after car moves
+PASS pedestrian notices approaching car and evades without damage
+PASS pedestrian notices reversing car and evades without damage
+PASS parked cars do not repeatedly frighten pedestrians
+PASS E boards a reachable parked car
+PASS ordinary exit has physical support and no body overlap
+PASS adjacent parked car blocks one side and E exits on free side
+PASS both occupied sides keep driver safely seated
+PASS moving a blocking car immediately frees the exit
+PASS low obstacle missed by eye-height ray still blocks standing capsule
+PASS capsule sweep prevents passing through a post between car and landing
+PASS unsupported ledge side is skipped in favor of supported deck
+PASS E refuses both unsupported sides instead of dropping player off a ledge
+PASS normal low curb remains a usable exit
+PASS speed limit still prevents a moving-car exit
+PASS solid wall prevents boarding and hides unreachable E prompt
+PASS boarding works when actual wall is removed
+PASS real low-speed wall contact damages vehicle
+PASS fast impact causes more vehicle and occupant damage than slow impact
+PASS seated hero takes crash injury despite melee immunity and held guard
+PASS holding throttle against wall does not repeatedly drain health
+PASS glancing collision uses normal closing speed instead of full driving speed
+PASS oncoming cars use relative speed and damage both vehicles
+PASS rear-end collision with moving car is milder than oncoming collision
+PASS zero-health car loses engine power
+PASS hero can leave disabled car safely
+FAIL vehicle damage and occupant health survive save and load
+PASS fatal occupant crash respawns hero on foot without remaining attached to car
+PASS driving hit reduces pedestrian health and shows actual target health bar
+PASS injured pedestrian remains down two seconds after impact with readable health feedback
+PASS a second actual pass can injure a fallen person instead of ignoring downed collision
+PASS severe high-speed impact can incapacitate pedestrian without immediate revival
+PASS stationary vehicle overlapping a person does not invent impact damage
+PASS road intersections share one continuous depth surface with all six road masks
+DRAW_CALLS 0.0
+TEST_RESULT 105 passed; 2 failed

@@ -1,4 +1,16 @@
-# 2026-10-21 / 最新0.4.6：撞击伤害与地面接缝
+# 2026-10-21 / Windows 本地恢复与开发入口
+
+从最新 main b77ba90 克隆，初始无本地改动。Python 3.12.0；Godot 4.5.2.stable.official.6ce3de25a，官方 ZIP SHA512 校验通过；Noto 字体与原版豚师 SHA256 均通过。Windows 自动 CRLF 曾导致清单误报，恢复 LF 后原285项检查通过，新增 .gitattributes 固定 LF。
+
+新增 tools/run_native.py：原生启动、导入、测试、截图、PCK导出及独立目录加载；限制输出到ignored builds/、验证引擎版本和实际测试结果、禁止headless截图、保留隔离测试存档。源码包包含新入口和.gitattributes。说明见 WINDOWS-DEVELOPMENT.md。
+
+重新导出的PCK在Windows正常桌面权限下完整107/107，同PCK以已有4.5.2 release EXE在RTX4060 Laptop原生OpenGL撞击17/17，均退出0。第31轮四张截图均为游戏视口捕获，保留builds/round-31-windows-native-impact，在本轮聊天内展示。新PCK哈希及文字证据见verification/TEST-REPORT.md顶部。
+
+最初只读沙盒运行105/107，两项保存读取失败；正常权限同PCK全部通过。如实保留失败结果，不修改玩法绕过。游戏仍0.4.6，原模型、画风及无任务范围保持；没有执行长期游玩或多机型性能验收。下一轮按用户具体反馈继续现有工程。
+
+---
+
+# 2026-10-21 / 历史0.4.6：撞击伤害与地面接缝
 
 恢复main d768642，读取交接与第一部选集、官方字体复原并通过原264项清单；修改前重新回归76/76。实际原版豚师JSON保持SHA256 7333d7666dd647f9fd858b7001bce2821705b9f6134425b0f399faacc451a08e。
 

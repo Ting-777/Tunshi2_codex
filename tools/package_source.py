@@ -5,8 +5,8 @@ with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
  for d in ['scripts','scenes','shaders','assets','docs','tests','launchers','reference']:
   for p in (r/d).rglob('*'):
    if p.is_file() and p.suffix not in ['.import','.pyc']:z.write(p,'dolphin2-shanghai-toon/'+str(p.relative_to(r)))
- for name in ['project.godot','export_presets.cfg','AGENTS.md','README.md','.gitignore','SOURCE-MANIFEST.json']:
+ for name in ['project.godot','export_presets.cfg','AGENTS.md','README.md','.gitignore','.gitattributes','SOURCE-MANIFEST.json']:
   if (r/name).exists():z.write(r/name,'dolphin2-shanghai-toon/'+name)
- for name in ['extract_dolphin.mjs','package_source.py','package_windows.py','capture.py','capture_impact.gd','capture_impact.gd.uid','capture_ground.gd','capture_ground.gd.uid','fetch_templates.py','verify_source.py','restore_assets.py']:
+ for name in ['extract_dolphin.mjs','package_source.py','package_windows.py','capture.py','run_native.py','capture_impact.gd','capture_impact.gd.uid','capture_ground.gd','capture_ground.gd.uid','fetch_templates.py','verify_source.py','restore_assets.py']:
   if (r/'tools'/name).exists():z.write(r/'tools'/name,'dolphin2-shanghai-toon/tools/'+name)
 print(out,out.stat().st_size)

@@ -1,0 +1,5 @@
+# Preserve source-manifest byte hashes on Windows as well as Linux.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.otf binary

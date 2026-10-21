@@ -1,3 +1,42 @@
+# Windows 本地验证 / 2026-10-21
+
+本次从最新main b77ba90克隆并恢复，不改0.4.6玩法、画风或原版豚师几何。
+Python3.12.0；Godot4.5.2.stable.official.6ce3de25a；Windows OpenGL3.3 /
+NVIDIA610.88 / GeForce RTX4060 Laptop GPU。官方引擎ZIP SHA512已校验，
+字体与原模型SHA256保持。恢复LF换行后原285项源码清单通过。
+
+新增Windows可用的tools/run_native.py，支持导入、正常运行、原生或headless测试、
+原生视口截图、PCK导出及独立目录加载。检查实际测试JSON及错误日志，禁止把headless
+作为截图，输出限制在ignored builds/。源码包包含新工具与固定LF的.gitattributes。
+
+| 本次实际检查 | 结果 |
+| --- | --- |
+| 自包含编辑器模式下重新导入 | 退出0，无错误日志 |
+| 最初受限沙盒内源码完整回归 | 105/107，退出1；两项保存读取失败 |
+| 新导出PCK，独立工作目录，正常Windows权限，完整输入/物理回归 | 107/107，退出0 |
+| 同PCK，Windows release EXE，RTX4060原生OpenGL，撞击专项 | 17/17，退出0；第31轮四张真实视口图 |
+| 运行入口校验 | 语法检查通过；拒绝headless截图与builds/以外的输出 |
+
+失败原因为沙盒无法写Godot用户数据目录，同时产生无法创建shader缓存的错误。
+初次导入也因编辑器配置目录受限报错，启用本地_sc_后重新导入无错误。
+完整回归以正常权限复验，保存位置、车辆伤害和人物HP读取均通过，未通过修改游戏逻辑
+绕过。两轮结果保存在[windows-20261021](windows-20261021/full-results.json)，
+并保留restricted-results.json及restricted-runtime.log说明最初失败。
+
+新PCK SHA256：`647f9bdbcd1f74dd5a5ac22693a574baddf275aee22c1501f41ba6a97c7b6b76`。
+原版豚师SHA256：`7333d7666dd647f9fd858b7001bce2821705b9f6134425b0f399faacc451a08e`。
+
+完整PCK回归使用新下载的Windows编辑器可执行文件从独立目录加载；图形专项使用本机
+此前已解压的v046包中的release EXE，其--version同为4.5.2.stable.official.6ce3de25a，
+复制到ignored builds/后显式--main-pack加载上述新PCK，没有使用旧PCK冒充新构建。
+
+第31轮原件位于ignored builds/round-31-windows-native-impact：车辆/乘员伤害、
+路人倒地和真实血条、店面街景、路口低机位四图。均为原生视口捕获，在对话内展示，
+没有将截图、视频或内嵌图片HTML提交GitHub。专项墙体为临时验证夹具。
+本次只做单机启动与上述功能/截图验证，没有长期游玩、帧时间基准或多机型性能验收。
+
+---
+
 # 0.4.6 车辆伤害与地面接缝验收 / 2026-10-21
 
 从 main `d768642670f47e0ee48b792b884ebb00014138ab` 恢复，先读交接与第一部选集、恢复官方字体并通过原264项源码清单；修改前完整回归76/76。继续原生Godot陆家嘴无任务样板，原版豚师几何及既定画风保留。

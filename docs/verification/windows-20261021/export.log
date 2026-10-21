@@ -1,0 +1,58 @@
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+
+[   0% ] first_scan_filesystem | Started 项目初始化 (5 steps)
+[   0% ] first_scan_filesystem | 正在扫描文件结构……
+[  16% ] first_scan_filesystem | 正在加载全局类名……
+[  33% ] first_scan_filesystem | 正在校验 GDExtension……
+[  50% ] first_scan_filesystem | 正在创建自动加载脚本……
+[  66% ] first_scan_filesystem | 正在初始化插件……
+[  83% ] first_scan_filesystem | 正在启动文件扫描……
+[ DONE ] first_scan_filesystem
+
+[   0% ] savepack | Started 打包中 (102 steps)
+[   1% ] savepack | 保存文件：res://.godot/imported/Chinese.otf-1366d598b3177cdbbcc18f4717bd5def.fontdata
+[   1% ] savepack | 保存文件：res://assets/fonts/Chinese.otf.import
+[   4% ] savepack | 保存文件：res://assets/original_dolphin.json
+[   8% ] savepack | 保存文件：res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn
+[  12% ] savepack | 保存文件：res://scripts/actor.gdc
+[  16% ] savepack | 保存文件：res://scripts/bridge.gdc
+[  20% ] savepack | 保存文件：res://scripts/city.gdc
+[  24% ] savepack | 保存文件：res://scripts/decor.gdc
+[  27% ] savepack | 保存文件：res://scripts/frontage.gdc
+[  31% ] savepack | 保存文件：res://scripts/gameplay_checks.gdc
+[  34% ] savepack | 保存文件：res://scripts/hud.gdc
+[  38% ] savepack | 保存文件：res://scripts/impact_checks.gdc
+[  42% ] savepack | 保存文件：res://scripts/kit.gdc
+[  46% ] savepack | 保存文件：res://scripts/main.gdc
+[  50% ] savepack | 保存文件：res://scripts/pearl.gdc
+[  53% ] savepack | 保存文件：res://scripts/polish_checks.gdc
+[  57% ] savepack | 保存文件：res://scripts/vehicle.gdc
+[  61% ] savepack | 保存文件：res://scripts/vehicle_checks.gdc
+[  65% ] savepack | 保存文件：res://shaders/city-sky.gdshader
+[  68% ] savepack | 保存文件：res://shaders/facade.gdshader
+[  72% ] savepack | 保存文件：res://shaders/outline.gdshader
+[  75% ] savepack | 保存文件：res://shaders/pavement.gdshader
+[  79% ] savepack | 保存文件：res://shaders/river.gdshader
+[  83% ] savepack | 保存文件：res://shaders/urban-cel-double.gdshader
+[  87% ] savepack | 保存文件：res://shaders/urban-cel.gdshader
+[  91% ] savepack | 保存文件：res://shaders/urban-light.gdshaderinc
+[  95% ] savepack | 保存文件：res://SOURCE-MANIFEST.json
+[  95% ] savepack | 保存文件：res://scenes/main.tscn.remap
+[  95% ] savepack | 保存文件：res://scripts/actor.gd.remap
+[  95% ] savepack | 保存文件：res://scripts/bridge.gd.remap
+[  95% ] savepack | 保存文件：res://scripts/city.gd.remap
+[  95% ] savepack | 保存文件：res://scripts/decor.gd.remap
+[  95% ] savepack | 保存文件：res://scripts/frontage.gd.remap
+[  95% ] savepack | 保存文件：res://scripts/gameplay_checks.gd.remap
+[  95% ] savepack | 保存文件：res://scripts/hud.gd.remap
+[  95% ] savepack | 保存文件：res://scripts/impact_checks.gd.remap
+[  95% ] savepack | 保存文件：res://scripts/kit.gd.remap
+[  95% ] savepack | 保存文件：res://scripts/main.gd.remap
+[  95% ] savepack | 保存文件：res://scripts/pearl.gd.remap
+[  95% ] savepack | 保存文件：res://scripts/polish_checks.gd.remap
+[  95% ] savepack | 保存文件：res://scripts/vehicle.gd.remap
+[  95% ] savepack | 保存文件：res://scripts/vehicle_checks.gd.remap
+[  95% ] savepack | 保存文件：res://.godot/global_script_class_cache.cfg
+[  95% ] savepack | 保存文件：res://.godot/uid_cache.bin
+[  95% ] savepack | 保存文件：res://project.binary
+[ DONE ] savepack

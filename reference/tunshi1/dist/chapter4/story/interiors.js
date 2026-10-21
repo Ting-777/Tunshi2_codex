@@ -1,0 +1,16 @@
+import {OFFICE,WAREHOUSE,CONTROL} from './missions.js';
+import {addStoryScreen} from './screens.js';
+export function buildStoryRooms({rooms,room,finish,underground,leisurePoints}){
+ const {r:ug,k:uk,b:ub}=underground;
+ const portal=(side,z,name)=>{for(const end of[-1,1]){ub(side*20,-4,z+end*5.5,7,4,7,'#c9bca6',true);ub(side*16.2,-4,z+end*2.2,.2,4,.22,'#738581',true);}ub(side*20,-1.8,z,7.5,.2,4.6,'#c9bca6');uk.text(name,ug.ox+side*16.1,-1.35,z,8,.65,'#344b57','#e7e5ce',side>0?-Math.PI/2:Math.PI/2);};
+ for(const [id,name,side,z]of[[OFFICE,'河东联投 · 商务办公室',1,-48],[CONTROL,'城市广告 · 调度室',-1,-24]]){
+  const o=room({id,name,type:'story-office',at:[-100,-855]},28,24,7,-6),{r,k,b,floor:f}=o,link='c4-'+id;r.storyOnly=true;r.exits=[{at:[r.ox,9],to:'c4_underground',linkId:link,floor:f,out:[-100,-855],name:'E · 返回地下商业街'}];ug.exits.push({at:[ug.ox+side*18,z],to:id,linkId:link,floor:-6,out:[-100,-855],name:'E · '+name});portal(side,z,name);
+  for(const x of[-10,10]){b(x,f+1.3,-6,3,2.6,8,'#56616b',true);for(let y=.5;y<2.5;y+=.55)for(let zz=-9;zz<-3;zz+=.7)k.rounded(.7,.32,.5,'#cbc5aa',r.ox+x,f+y,zz);}
+  if(id===OFFICE){b(0,f+.7,-8,8,1.4,2,'#6f543c',true);b(0,f+1.8,-8,.15,1,.15,'#4e5d64');b(0,f+2.3,-8,2.8,1.5,.16,'#243b45');k.text('河东联投 · 商务办公室',r.ox,f+3.8,-11.7,19,.7,'#4b6269','#efe6c9');for(const x of[-2.6,2.6])b(x,f+1.45,-7.8,1.2,.08,.8,'#ddd7c2');}
+  else{for(const x of[-5,5]){b(x,f+1.6,-8,2.4,3.2,2,'#32454f',true);for(let y=.4;y<3;y+=.45)b(x,f+y,-6.94,2,.15,.07,k.glow('#71a8a6'));}b(0,f+.6,2,5,1.2,1.5,'#627278',true);k.text('城市大屏 · 播放控制',r.ox,f+6.1,-11.7,22,.65,'#28414d','#d5e4d2');b(0,f+4,-11.7,16.4,3.8,.2,'#34464c');const monitor=addStoryScreen(k,{x:r.ox,z:-11.55,y:f+4,w:16,h:3.4});monitor.userData.controlMonitor=true;for(let i=0;i<5;i++)k.beam([r.ox-5+i*2,f+.04,-7],[r.ox-5+i*2,f+.04,0],.025,'#9a8d6b');}
+  r.modelDetail='c4-story-'+id;finish(o);
+ }
+ const o=room({id:WAREHOUSE,name:'天蝎电玩后场 · 收货仓库',type:'warehouse',at:[-300,-441]},28,24,7,0),{r,k,b}=o,ktv=rooms.c4_ktv;r.storyOnly=true;r.exits=[{at:[r.ox,9],to:'c4_ktv',linkId:'c4-ktv-warehouse',floor:0,out:[-300,-441],name:'E · 返回 KTV 后场'},{at:[r.ox,-9],to:'c4_underground',linkId:'c4-warehouse-underground',floor:0,out:[39,-371],name:'E · 货梯下行 / 地下商业街'}];ktv.exits.push({at:[ktv.ox,-12],to:WAREHOUSE,linkId:'c4-ktv-warehouse',floor:0,out:[-300,-441],name:'E · 后场 / 天蝎电玩收货仓库'});ug.exits.push({at:[ug.ox+18,96],to:WAREHOUSE,linkId:'c4-warehouse-underground',floor:-6,out:[39,-371],name:'E · 货梯上行 / 收货仓库'});portal(1,96,'货梯 / KTV后场 / 天蝎电玩收货仓');
+ for(const side of[-1,1])for(const z of[-7,4]){if(side===1&&z===4)continue;b(side*10,1.2,z,4,2.4,4,'#8c795c',true);for(const x of[-1.6,1.6])k.beam([r.ox+side*10+x,0,z-1.6],[r.ox+side*10+x,2.4,z+1.6],.08,'#b5a482');}
+ b(9,1.7,.5,2.5,3.4,1.3,'#333745',true);b(9,2.5,1.2,2.1,1.5,.1,k.glow('#9f7dc2'));b(9,1.3,1.55,2.5,.18,1.2,'#525264');b(8.5,1.55,1.55,.07,.32,.07,'#ded5b7');for(const x of[9.2,9.5,9.8])k.rounded(.2,.07,.2,'#b5c5bd',r.ox+x,1.5,1.55);k.text('旧街机 · 打砖块',r.ox+9,4.25,1.3,5,.6,'#283146','#accde7');leisurePoints.push({id:r.id+':breaker',room:r.id,kind:'breaker',at:[r.ox+9,3.8],floor:0,name:'旧街机 · 打砖块'});r.leisureStations=leisurePoints.filter(p=>p.room===r.id);k.text('货梯 / 地下商业街 / IFS B1',r.ox,5.7,-11.7,22,.65,'#52685d','#e9dcc0');k.text('货梯 ↓ 地下商业街',r.ox,3.5,-11.4,4,.5,'#415958','#e9dcc0');r.modelDetail='c4-story-warehouse';finish(o);
+}

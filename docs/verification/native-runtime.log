@@ -1,0 +1,31 @@
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+     at: get_executable_path (drivers/unix/os_unix.cpp:1136)
+WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
+     at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:364)
+OpenGL API 4.5 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+SHANGHAI_READY
+DIRECTIONAL_STAGGER 1 hp=70.0 lean=(0.461779, 0.886995, -0.0)
+NATIVE_SCREENSHOT /workspace/scratch/f5c35545c4a8/dolphin2-shanghai-toon/builds/round-23-v044-final/01-directed-stagger.png
+DIRECTIONAL_STAGGER -1 hp=70.0 lean=(-0.461779, 0.886995, -0.0)
+OCCLUDED_AIM 100 70.0
+FALL_SUPPORT 0.02499999664724 torso_height=0.2930502796662 direction=(0.0, -0.015646, 1.699928)
+NATIVE_SCREENSHOT /workspace/scratch/f5c35545c4a8/dolphin2-shanghai-toon/builds/round-23-v044-final/02-grounded-fall.png
+BLOCKED_RECOVERY 0.65 1.0 false
+NATIVE_SCREENSHOT /workspace/scratch/f5c35545c4a8/dolphin2-shanghai-toon/builds/round-23-v044-final/03-braced-getup.png
+NATIVE_SCREENSHOT /workspace/scratch/f5c35545c4a8/dolphin2-shanghai-toon/builds/round-23-v044-final/04-step-away-from-car.png
+TRAFFIC_EVADE false hp=100 position=(-7.986495, 0.000845, 87.08775) car=(-15.0, 0.000943, 104.85)
+TRAFFIC_EVADE true hp=100 position=(-7.740793, 0.000845, 51.96505) car=(-15.0, 0.000942, 34.80828)
+PASS melee stagger follows impact from left
+PASS melee stagger follows impact from right
+PASS melee aims at visible reachable target instead of person behind wall
+PASS car impact falls in the direction of travel
+PASS fallen torso settles onto ground instead of remaining in push-up pose
+PASS pedestrian stays down while parked car blocks recovery
+PASS person braces, gets up, then restores standing collision after car moves
+PASS pedestrian notices approaching car and evades without damage
+PASS pedestrian notices reversing car and evades without damage
+PASS parked cars do not repeatedly frighten pedestrians
+DRAW_CALLS 1285.0
+TEST_RESULT 10 passed; 0 failed

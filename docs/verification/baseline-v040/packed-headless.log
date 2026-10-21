@@ -1,0 +1,34 @@
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+
+SHANGHAI_READY
+PASS original dolphin hierarchy
+PASS map and world share coordinates
+PASS four independent wheels
+PASS out-of-bounds save fallback
+PASS nonfinite save fallback
+PASS malformed save fallback
+PASS physical sidewalk support
+PASS movement action through physics controller
+PASS board nearest car
+PASS cornering remains grounded
+PASS wheel clearance above road
+PASS exit car
+PASS animated hand contact damages and builds heat
+PASS enemy HUD tracks only player hit
+PASS M opens map and freezes simulation
+PASS M returns to world
+PASS unrestricted horizontal camera turns
+PASS physical jump
+PASS saved player position
+PASS saved parked car state
+PASS hostile AI approaches and lands a real attack
+PASS single hostile has readable recovery windows
+PASS held guard reduces an actual enemy strike
+PASS dodge grants its brief invulnerability window
+PASS recovery item restores HP and consumes one item
+PASS solid wall blocks melee damage
+PASS strike destroys world crate and records persistence
+PASS world loot pickup credits cash
+PASS broken crate remains absent after reload
+DRAW_CALLS 0.0
+TEST_RESULT 29 passed; 0 failed

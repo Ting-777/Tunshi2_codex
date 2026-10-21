@@ -1,0 +1,46 @@
+{
+  "checks": [
+    [
+      true,
+      "melee stagger follows impact from left"
+    ],
+    [
+      true,
+      "melee stagger follows impact from right"
+    ],
+    [
+      true,
+      "melee aims at visible reachable target instead of person behind wall"
+    ],
+    [
+      true,
+      "car impact falls in the direction of travel"
+    ],
+    [
+      true,
+      "fallen body remains supported by ground"
+    ],
+    [
+      true,
+      "pedestrian stays down while parked car blocks recovery"
+    ],
+    [
+      true,
+      "person braces, gets up, then restores standing collision after car moves"
+    ],
+    [
+      true,
+      "pedestrian notices approaching car and evades without damage"
+    ],
+    [
+      true,
+      "pedestrian notices reversing car and evades without damage"
+    ],
+    [
+      true,
+      "parked cars do not repeatedly frighten pedestrians"
+    ]
+  ],
+  "failed": 0,
+  "passed": 10
+}

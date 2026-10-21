@@ -1,0 +1,243 @@
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+     at: get_executable_path (drivers/unix/os_unix.cpp:1136)
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+     at: get_executable_path (drivers/unix/os_unix.cpp:1136)
+WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
+     at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:364)
+OpenGL API 4.5 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _arch (res://scripts/frontage.gd:33)
+              [2] _coffee (res://scripts/frontage.gd:73)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _arch (res://scripts/frontage.gd:36)
+              [2] _coffee (res://scripts/frontage.gd:73)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _arch (res://scripts/frontage.gd:41)
+              [2] _coffee (res://scripts/frontage.gd:73)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _arch (res://scripts/frontage.gd:33)
+              [2] _coffee (res://scripts/frontage.gd:73)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _arch (res://scripts/frontage.gd:36)
+              [2] _coffee (res://scripts/frontage.gd:73)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _arch (res://scripts/frontage.gd:41)
+              [2] _coffee (res://scripts/frontage.gd:73)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _arch (res://scripts/frontage.gd:33)
+              [2] _coffee (res://scripts/frontage.gd:73)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _arch (res://scripts/frontage.gd:36)
+              [2] _coffee (res://scripts/frontage.gd:73)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _arch (res://scripts/frontage.gd:41)
+              [2] _coffee (res://scripts/frontage.gd:73)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _glazing (res://scripts/frontage.gd:58)
+              [2] _coffee (res://scripts/frontage.gd:79)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _glazing (res://scripts/frontage.gd:58)
+              [2] _coffee (res://scripts/frontage.gd:79)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _glazing (res://scripts/frontage.gd:58)
+              [2] _coffee (res://scripts/frontage.gd:79)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _window (res://scripts/frontage.gd:49)
+              [2] _market (res://scripts/frontage.gd:103)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _window (res://scripts/frontage.gd:49)
+              [2] _market (res://scripts/frontage.gd:103)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _window (res://scripts/frontage.gd:49)
+              [2] _market (res://scripts/frontage.gd:103)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _window (res://scripts/frontage.gd:49)
+              [2] _market (res://scripts/frontage.gd:103)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _glazing (res://scripts/frontage.gd:58)
+              [2] _market (res://scripts/frontage.gd:114)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _glazing (res://scripts/frontage.gd:58)
+              [2] _market (res://scripts/frontage.gd:114)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _glazing (res://scripts/frontage.gd:58)
+              [2] _market (res://scripts/frontage.gd:114)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _vinyl (res://scripts/frontage.gd:137)
+              [2] build (res://scripts/frontage.gd:11)
+              [3] _shops (res://scripts/city.gd:118)
+              [4] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _vinyl (res://scripts/frontage.gd:138)
+              [2] build (res://scripts/frontage.gd:11)
+              [3] _shops (res://scripts/city.gd:118)
+              [4] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _glazing (res://scripts/frontage.gd:58)
+              [2] _vinyl (res://scripts/frontage.gd:151)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _glazing (res://scripts/frontage.gd:58)
+              [2] _vinyl (res://scripts/frontage.gd:151)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] _glazing (res://scripts/frontage.gd:58)
+              [2] _vinyl (res://scripts/frontage.gd:151)
+              [3] build (res://scripts/frontage.gd:11)
+              [4] _shops (res://scripts/city.gd:118)
+              [5] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid call. Nonexistent function 'add_normal' in base 'SurfaceTool'.
+          at: polygon (res://scripts/kit.gd:127)
+          GDScript backtrace (most recent call first):
+              [0] polygon (res://scripts/kit.gd:127)
+              [1] ground (res://scripts/frontage.gd:246)
+              [2] build (res://scripts/city.gd:13)
+SCRIPT ERROR: Invalid assignment of property or key 'rotation' with value of type 'Vector3' on a base object of type 'Nil'.
+          at: ground (res://scripts/frontage.gd:246)
+          GDScript backtrace (most recent call first):
+              [0] ground (res://scripts/frontage.gd:246)
+              [1] build (res://scripts/city.gd:13)
+SHANGHAI_READY
+NATIVE_SCREENSHOT /workspace/scratch/f5c35545c4a8/dolphin2-shanghai-toon/builds/round-12-art-rebuild/01-street.png
+NATIVE_SCREENSHOT /workspace/scratch/f5c35545c4a8/dolphin2-shanghai-toon/builds/round-12-art-rebuild/02-original-dolphin.png
+NATIVE_SCREENSHOT /workspace/scratch/f5c35545c4a8/dolphin2-shanghai-toon/builds/round-12-art-rebuild/03-combat.png
+NATIVE_SCREENSHOT /workspace/scratch/f5c35545c4a8/dolphin2-shanghai-toon/builds/round-12-art-rebuild/04-map.png
+NATIVE_SCREENSHOT /workspace/scratch/f5c35545c4a8/dolphin2-shanghai-toon/builds/round-12-art-rebuild/05-car.png
+NATIVE_SCREENSHOT /workspace/scratch/f5c35545c4a8/dolphin2-shanghai-toon/builds/round-12-art-rebuild/06-riverside.png
+NATIVE_SCREENSHOT /workspace/scratch/f5c35545c4a8/dolphin2-shanghai-toon/builds/round-12-art-rebuild/07-combo-finish.png
+CAPTURE_COMPLETE /workspace/scratch/f5c35545c4a8/dolphin2-shanghai-toon/builds/round-12-art-rebuild

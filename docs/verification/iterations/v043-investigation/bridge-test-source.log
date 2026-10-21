@@ -1,0 +1,33 @@
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+     at: get_executable_path (drivers/unix/os_unix.cpp:1136)
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+
+SHANGHAI_READY
+RAMP_TOP 0 true (-2.467715, 5.640821, 22.5)
+BRIDGE_ASCEND 0 (0.015565, 5.640871, 16.80176) true
+BRIDGE_DESCEND 0 (-29.18903, 0.000805, 22.50034) true
+RAMP_TOP 1 true (32.5, 5.640816, -7.53258)
+BRIDGE_ASCEND 1 (26.8018, 5.640856, -10.01549) true
+BRIDGE_DESCEND 1 (32.50035, 0.000845, 19.18859) true
+RAMP_TOP 2 true (2.467618, 5.640816, -42.5)
+BRIDGE_ASCEND 2 (-0.015485, 5.640839, -36.80178) true
+BRIDGE_DESCEND 2 (29.18804, 0.000519, -42.50035) true
+RAMP_TOP 3 true (-32.5, 5.640827, -12.46759)
+BRIDGE_ASCEND 3 (-26.80178, 5.640871, -9.984421) true
+BRIDGE_DESCEND 3 (-32.50036, 0.000845, -39.17849) true
+BRIDGE_LOOP true (0.187282, 5.640827, 16.98584)
+PASS bridge 0 ascent without jumping
+PASS bridge 0 descent to flush ground
+PASS bridge 1 ascent without jumping
+PASS bridge 1 descent to flush ground
+PASS bridge 2 ascent without jumping
+PASS bridge 2 descent to flush ground
+PASS bridge 3 ascent without jumping
+PASS bridge 3 descent to flush ground
+PASS complete footbridge loop has continuous support
+PASS outer railing physically prevents a fall
+PASS inner railing physically prevents a fall
+DRAW_CALLS 0.0
+TEST_RESULT 11 passed; 0 failed
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object/object.cpp:2514)

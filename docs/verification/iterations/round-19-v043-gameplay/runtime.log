@@ -1,0 +1,103 @@
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+     at: get_executable_path (drivers/unix/os_unix.cpp:1136)
+WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
+     at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:364)
+OpenGL API 4.5 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+SHANGHAI_READY
+COMBO_CONTACT finish phase=0.33333333333333 hp=77.0 knockdown=1.35
+RAMP_TOP 0 true (-2.467548, 5.640824, 22.5)
+BRIDGE_ASCEND 0 (0.015586, 5.640862, 16.80177) true
+NATIVE_SCREENSHOT /workspace/scratch/f5c35545c4a8/dolphin2-shanghai-toon/builds/round-19-v043-gameplay/01-bridge-connected.png
+BRIDGE_DESCEND 0 (-29.19219, 0.000833, 22.50034) true
+RAMP_TOP 1 true (32.5, 5.640815, -7.532556)
+BRIDGE_ASCEND 1 (26.8018, 5.640846, -10.01549) true
+BRIDGE_DESCEND 1 (32.50036, 0.000845, 19.17916) true
+RAMP_TOP 2 true (2.467583, 5.640826, -42.5)
+BRIDGE_ASCEND 2 (-0.015485, 5.640856, -36.80179) true
+BRIDGE_DESCEND 2 (29.17907, 0.000634, -42.50036) true
+RAMP_TOP 3 true (-32.5, 5.640841, -12.46766)
+BRIDGE_ASCEND 3 (-26.80176, 5.640861, -9.984413) true
+BRIDGE_DESCEND 3 (-32.50036, 0.000845, -39.17838) true
+BRIDGE_LOOP true (0.187305, 5.640833, 16.98584)
+NATIVE_SCREENSHOT /workspace/scratch/f5c35545c4a8/dolphin2-shanghai-toon/builds/round-19-v043-gameplay/02-open-landing-rails.png
+ROAD_CROSS 0 47.7999877929688 (-60.0, 0.000942, 64.79999)
+ROAD_CROSS 1 48.2000503540039 (-67.79995, 0.000944, -250.0)
+ROAD_CROSS 2 48.2061920166016 (123.942, 0.000941, 121.7105)
+ROAD_CROSS 3 48.2000198364258 (116.2, 0.000943, -210.0)
+ROAD_CROSS 4 48.2000503540039 (145.0, 0.00094, -94.79995)
+ROAD_CROSS 5 48.2000274658203 (170.0, -0.006739, 133.2)
+SOLID_WALL (0.0, -0.001604, 81.51535) speed=6.83333333333329
+NATIVE_SCREENSHOT /workspace/scratch/f5c35545c4a8/dolphin2-shanghai-toon/builds/round-19-v043-gameplay/03-pedestrian-contact.png
+FLEE 0.71964871883392 -> 7.45734977722168 stun=0.0 pos=(-31.76062, 0.000839, 70.0)
+CAR_PERSON false HP=72.1800000000001 DOWN=1.65 car=(0.0, 0.000942, 96.36897) person=(0.0, 0.05, 82.0)
+NATIVE_SCREENSHOT /workspace/scratch/f5c35545c4a8/dolphin2-shanghai-toon/builds/round-19-v043-gameplay/04-car-knockdown.png
+CAR_PERSON true HP=72.1800000000001 DOWN=1.65 car=(0.0, 0.000942, 43.92043) person=(0.0, 0.05, 58.0)
+NATIVE_SCREENSHOT /workspace/scratch/f5c35545c4a8/dolphin2-shanghai-toon/builds/round-19-v043-gameplay/05-road-and-bridge.png
+PASS original dolphin hierarchy
+PASS map and world share coordinates
+PASS four independent wheels
+PASS out-of-bounds save fallback
+PASS nonfinite save fallback
+PASS malformed save fallback
+PASS physical sidewalk support
+PASS movement action through physics controller
+PASS board nearest car
+PASS Q inside vehicle does not consume heat
+PASS cornering remains grounded
+PASS wheel clearance above road
+PASS exit car
+PASS animated hand contact damages and builds heat
+PASS enemy HUD tracks only player hit
+PASS M opens map and freezes simulation
+PASS M returns to world
+PASS unrestricted horizontal camera turns
+PASS physical jump
+PASS saved player position
+PASS saved parked car state
+PASS hostile AI approaches and lands a real attack
+PASS single hostile has readable recovery windows
+PASS held guard reduces an actual enemy strike
+PASS Q during dodge does not consume heat
+PASS dodge grants its brief invulnerability window
+PASS recovery item restores HP and consumes one item
+PASS solid wall blocks melee damage
+PASS strike destroys world crate and records persistence
+PASS world loot pickup credits cash
+PASS broken crate remains absent after reload
+PASS first combo strike makes hand contact
+PASS buffered second attack becomes a cross
+PASS third buffered attack connects and knocks enemy down
+PASS fallen enemy stands and restores body collision
+PASS expired combo returns to first strike
+PASS held guard cannot block an attack from behind
+PASS pedestrian follows an authored outdoor route
+PASS bridge 0 ascent without jumping
+PASS bridge 0 descent to flush ground
+PASS bridge 1 ascent without jumping
+PASS bridge 1 descent to flush ground
+PASS bridge 2 ascent without jumping
+PASS bridge 2 descent to flush ground
+PASS bridge 3 ascent without jumping
+PASS bridge 3 descent to flush ground
+PASS complete footbridge loop has continuous support
+PASS outer railing physically prevents a fall
+PASS inner railing physically prevents a fall
+PASS car freely crosses road 0 and both sidewalks
+PASS car freely crosses road 1 and both sidewalks
+PASS car freely crosses road 2 and both sidewalks
+PASS car freely crosses road 3 and both sidewalks
+PASS car freely crosses road 4 and both sidewalks
+PASS car freely crosses road 5 and both sidewalks
+FAIL visible solid obstacles still stop vehicles
+PASS ordinary pedestrian takes real animated melee contact
+PASS struck pedestrian retreats and flees
+PASS forward car knocks pedestrian down
+PASS forward impact uses travel direction and car continues
+PASS reverse car knocks pedestrian down
+PASS reverse impact uses travel direction and car continues
+PASS surviving civilian gets up and restores collision
+PASS downed civilian does not create enemy cash loot
+DRAW_CALLS 1524.0
+TEST_RESULT 63 passed; 1 failed

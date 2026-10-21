@@ -1,0 +1,114 @@
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+
+SHANGHAI_READY
+COMBO_CONTACT finish phase=0.33333333333333 hp=77.0 knockdown=1.35
+RAMP_TOP 0 true (-2.467548, 5.640824, 22.5)
+BRIDGE_ASCEND 0 (0.015586, 5.640862, 16.80177) true
+BRIDGE_DESCEND 0 (-29.19219, 0.000833, 22.50034) true
+RAMP_TOP 1 true (32.5, 5.640815, -7.532556)
+BRIDGE_ASCEND 1 (26.80179, 5.640856, -10.01549) true
+BRIDGE_DESCEND 1 (32.50036, -0.006648, 19.17938) true
+RAMP_TOP 2 true (2.467683, 5.640816, -42.5)
+BRIDGE_ASCEND 2 (-0.015475, 5.640856, -36.80175) true
+BRIDGE_DESCEND 2 (29.19101, 0.00055, -42.50034) true
+RAMP_TOP 3 true (-32.5, 5.640813, -12.4676)
+BRIDGE_ASCEND 3 (-26.80177, 5.640871, -9.984411) true
+BRIDGE_DESCEND 3 (-32.50036, -0.007398, -39.17788) true
+BRIDGE_LOOP true (0.187188, 5.640833, 16.98584)
+ROAD_CROSS 0 48.1999969482422 (-60.0, 0.000941, 65.2)
+ROAD_CROSS 1 48.2000503540039 (-67.79995, 0.000944, -250.0)
+ROAD_CROSS 2 48.2061920166016 (123.942, 0.000941, 121.7105)
+ROAD_CROSS 3 48.2000198364258 (116.2, 0.000943, -210.0)
+ROAD_CROSS 4 48.2000503540039 (145.0, 0.00094, -94.79995)
+ROAD_CROSS 5 48.2000274658203 (170.0, -0.006739, 133.2)
+ROAD_CROSS 6 20.3240356445312 (-167.324, -0.000863, -240.0)
+ROAD_CROSS 7 48.1999206542969 (198.1999, 0.000942, -195.0)
+SOLID_WALL (0.0, -0.000705, 81.52376) speed=0.9
+FLEE 0.71319246292114 -> 7.54561614990234 stun=0.0 pos=(-31.66583, 0.000845, 70.0)
+CAR_PERSON false HP=72.1800000000001 DOWN=0.43333333333333 car=(0.0, 0.000942, 96.36897) person=(0.0, 0.00084, 83.6771)
+CAR_PERSON true HP=72.1800000000001 DOWN=0.43333333333333 car=(0.0, 0.000942, 43.63112) person=(0.0, 0.000845, 56.32292)
+DIRECTIONAL_STAGGER 1 hp=70.0 lean=(0.461779, 0.886995, -0.0)
+DIRECTIONAL_STAGGER -1 hp=70.0 lean=(-0.461779, 0.886995, -0.0)
+OCCLUDED_AIM 100 70.0
+FALL_SUPPORT 0.02499996498227 torso_height=0.29305024776841 direction=(0.0, -0.015646, 1.699928)
+BLOCKED_RECOVERY 0.63333333333333 1.0 false
+TRAFFIC_EVADE false hp=100 position=(-7.545849, 0.000843, 87.5644) car=(-15.0, 0.000943, 105.1917)
+TRAFFIC_EVADE true hp=100 position=(-7.590021, 0.000845, 52.61662) car=(-15.0, 0.000942, 34.80828)
+PASS original dolphin hierarchy
+PASS map and world share coordinates
+PASS four independent wheels
+PASS out-of-bounds save fallback
+PASS nonfinite save fallback
+PASS malformed save fallback
+PASS physical sidewalk support
+PASS movement action through physics controller
+PASS board nearest car
+PASS Q inside vehicle does not consume heat
+PASS cornering remains grounded
+PASS wheel clearance above road
+PASS exit car
+PASS animated hand contact damages and builds heat
+PASS enemy HUD tracks only player hit
+PASS M opens map and freezes simulation
+PASS M returns to world
+PASS unrestricted horizontal camera turns
+PASS physical jump
+PASS saved player position
+PASS saved parked car state
+PASS hostile AI approaches and lands a real attack
+PASS single hostile has readable recovery windows
+PASS held guard reduces an actual enemy strike
+PASS Q during dodge does not consume heat
+PASS dodge grants its brief invulnerability window
+PASS recovery item restores HP and consumes one item
+PASS solid wall blocks melee damage
+PASS strike destroys world crate and records persistence
+PASS world loot pickup credits cash
+PASS broken crate remains absent after reload
+PASS first combo strike makes hand contact
+PASS buffered second attack becomes a cross
+PASS third buffered attack connects and knocks enemy down
+PASS fallen enemy stands and restores body collision
+PASS expired combo returns to first strike
+PASS held guard cannot block an attack from behind
+PASS pedestrian follows an authored outdoor route
+PASS bridge 0 ascent without jumping
+PASS bridge 0 descent to flush ground
+PASS bridge 1 ascent without jumping
+PASS bridge 1 descent to flush ground
+PASS bridge 2 ascent without jumping
+PASS bridge 2 descent to flush ground
+PASS bridge 3 ascent without jumping
+PASS bridge 3 descent to flush ground
+PASS complete footbridge loop has continuous support
+PASS outer railing physically prevents a fall
+PASS inner railing physically prevents a fall
+PASS car freely crosses road 0 and both sidewalks
+PASS car freely crosses road 1 and both sidewalks
+PASS car freely crosses road 2 and both sidewalks
+PASS car freely crosses road 3 and both sidewalks
+PASS car freely crosses road 4 and both sidewalks
+PASS car freely crosses road 5 and both sidewalks
+PASS car enters riverside promenade freely
+PASS car crosses open lawn freely
+PASS visible solid obstacles still stop vehicles
+PASS ordinary pedestrian takes real animated melee contact
+PASS struck pedestrian retreats and flees
+PASS forward car knocks pedestrian down
+PASS forward impact uses travel direction and car continues
+PASS reverse car knocks pedestrian down
+PASS reverse impact uses travel direction and car continues
+PASS surviving civilian gets up and restores collision
+PASS downed civilian does not create enemy cash loot
+PASS melee stagger follows impact from left
+PASS melee stagger follows impact from right
+PASS melee aims at visible reachable target instead of person behind wall
+PASS car impact falls in the direction of travel
+PASS fallen torso settles onto ground instead of remaining in push-up pose
+PASS pedestrian stays down while parked car blocks recovery
+PASS person braces, gets up, then restores standing collision after car moves
+PASS pedestrian notices approaching car and evades without damage
+PASS pedestrian notices reversing car and evades without damage
+PASS parked cars do not repeatedly frighten pedestrians
+DRAW_CALLS 0.0
+TEST_RESULT 76 passed; 0 failed

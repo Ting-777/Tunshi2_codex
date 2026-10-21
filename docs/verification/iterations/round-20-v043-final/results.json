@@ -1,0 +1,70 @@
+{
+  "checks": [
+    [
+      true,
+      "bridge 0 ascent without jumping"
+    ],
+    [
+      true,
+      "bridge 0 descent to flush ground"
+    ],
+    [
+      true,
+      "outer railing physically prevents a fall"
+    ],
+    [
+      true,
+      "inner railing physically prevents a fall"
+    ],
+    [
+      true,
+      "car freely crosses road 0 and both sidewalks"
+    ],
+    [
+      true,
+      "car enters riverside promenade freely"
+    ],
+    [
+      true,
+      "car crosses open lawn freely"
+    ],
+    [
+      true,
+      "visible solid obstacles still stop vehicles"
+    ],
+    [
+      true,
+      "ordinary pedestrian takes real animated melee contact"
+    ],
+    [
+      true,
+      "struck pedestrian retreats and flees"
+    ],
+    [
+      true,
+      "forward car knocks pedestrian down"
+    ],
+    [
+      true,
+      "forward impact uses travel direction and car continues"
+    ],
+    [
+      true,
+      "reverse car knocks pedestrian down"
+    ],
+    [
+      true,
+      "reverse impact uses travel direction and car continues"
+    ],
+    [
+      true,
+      "surviving civilian gets up and restores collision"
+    ],
+    [
+      true,
+      "downed civilian does not create enemy cash loot"
+    ]
+  ],
+  "failed": 0,
+  "passed": 16
+}

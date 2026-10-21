@@ -1,0 +1,63 @@
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started Registering global classes... (4 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | ShanghaiCity[39m[0m
+[  20% ] [90m[1mupdate_scripts_classes[22m | UrbanFrontage[39m[0m
+[  40% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  60% ] [90m[1mupdate_scripts_classes[22m | OrientalPearl[39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1msavepack[22m | Started Packing (102 steps)[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/Chinese.otf-1366d598b3177cdbbcc18f4717bd5def.fontdata[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/fonts/Chinese.otf.import[39m[0m
+[   6% ] [90m[1msavepack[22m | Storing File: res://assets/original_dolphin.json[39m[0m
+[  11% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn[39m[0m
+[  16% ] [90m[1msavepack[22m | Storing File: res://scripts/actor.gdc[39m[0m
+[  21% ] [90m[1msavepack[22m | Storing File: res://scripts/city.gdc[39m[0m
+[  26% ] [90m[1msavepack[22m | Storing File: res://scripts/decor.gdc[39m[0m
+[  31% ] [90m[1msavepack[22m | Storing File: res://scripts/frontage.gdc[39m[0m
+[  35% ] [90m[1msavepack[22m | Storing File: res://scripts/hud.gdc[39m[0m
+[  40% ] [90m[1msavepack[22m | Storing File: res://scripts/kit.gdc[39m[0m
+[  45% ] [90m[1msavepack[22m | Storing File: res://scripts/main.gdc[39m[0m
+[  50% ] [90m[1msavepack[22m | Storing File: res://scripts/pearl.gdc[39m[0m
+[  55% ] [90m[1msavepack[22m | Storing File: res://scripts/vehicle.gdc[39m[0m
+[  60% ] [90m[1msavepack[22m | Storing File: res://shaders/city-sky.gdshader[39m[0m
+[  65% ] [90m[1msavepack[22m | Storing File: res://shaders/facade.gdshader[39m[0m
+[  69% ] [90m[1msavepack[22m | Storing File: res://shaders/outline.gdshader[39m[0m
+[  74% ] [90m[1msavepack[22m | Storing File: res://shaders/pavement.gdshader[39m[0m
+[  79% ] [90m[1msavepack[22m | Storing File: res://shaders/river.gdshader[39m[0m
+[  84% ] [90m[1msavepack[22m | Storing File: res://shaders/urban-cel-double.gdshader[39m[0m
+[  89% ] [90m[1msavepack[22m | Storing File: res://shaders/urban-cel.gdshader[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://shaders/urban-light.gdshaderinc[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://scenes/main.tscn.remap[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://scripts/actor.gd.remap[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://scripts/city.gd.remap[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://scripts/decor.gd.remap[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://scripts/frontage.gd.remap[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://scripts/hud.gd.remap[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://scripts/kit.gd.remap[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://scripts/main.gd.remap[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://scripts/pearl.gd.remap[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://scripts/vehicle.gd.remap[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://.godot/global_script_class_cache.cfg[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://.godot/uid_cache.bin[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://project.binary[39m[0m
+[92m[ DONE ][39m [1msavepack[22m
+[0m
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+     at: get_executable_path (drivers/unix/os_unix.cpp:1136)
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+     at: get_executable_path (drivers/unix/os_unix.cpp:1136)
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+     at: get_executable_path (drivers/unix/os_unix.cpp:1136)
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+     at: get_executable_path (drivers/unix/os_unix.cpp:1136)

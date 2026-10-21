@@ -1,0 +1,50 @@
+{
+  "checks": [
+    [
+      true,
+      "bridge 0 ascent without jumping"
+    ],
+    [
+      true,
+      "bridge 0 descent to flush ground"
+    ],
+    [
+      true,
+      "bridge 1 ascent without jumping"
+    ],
+    [
+      true,
+      "bridge 1 descent to flush ground"
+    ],
+    [
+      true,
+      "bridge 2 ascent without jumping"
+    ],
+    [
+      true,
+      "bridge 2 descent to flush ground"
+    ],
+    [
+      true,
+      "bridge 3 ascent without jumping"
+    ],
+    [
+      true,
+      "bridge 3 descent to flush ground"
+    ],
+    [
+      true,
+      "complete footbridge loop has continuous support"
+    ],
+    [
+      true,
+      "outer railing physically prevents a fall"
+    ],
+    [
+      true,
+      "inner railing physically prevents a fall"
+    ]
+  ],
+  "failed": 0,
+  "passed": 11
+}

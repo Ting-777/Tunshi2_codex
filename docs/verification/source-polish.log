@@ -1,0 +1,24 @@
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+     at: get_executable_path (drivers/unix/os_unix.cpp:1136)
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+
+SHANGHAI_READY
+DIRECTIONAL_STAGGER 1 hp=70.0 lean=(0.461779, 0.886995, -0.0)
+DIRECTIONAL_STAGGER -1 hp=70.0 lean=(-0.461779, 0.886995, -0.0)
+OCCLUDED_AIM 100 70.0
+FALL_SUPPORT 0.02499999664724 torso_height=0.2930502796662 direction=(0.0, -0.015646, 1.699928)
+BLOCKED_RECOVERY 0.63333333333333 1.0 false
+TRAFFIC_EVADE false hp=100 position=(-7.935246, 0.000845, 87.13268) car=(-15.0, 0.000943, 105.1917)
+TRAFFIC_EVADE true hp=100 position=(-7.736644, 0.000845, 51.96957) car=(-15.0, 0.000942, 34.80828)
+PASS melee stagger follows impact from left
+PASS melee stagger follows impact from right
+PASS melee aims at visible reachable target instead of person behind wall
+PASS car impact falls in the direction of travel
+PASS fallen torso settles onto ground instead of remaining in push-up pose
+PASS pedestrian stays down while parked car blocks recovery
+PASS person braces, gets up, then restores standing collision after car moves
+PASS pedestrian notices approaching car and evades without damage
+PASS pedestrian notices reversing car and evades without damage
+PASS parked cars do not repeatedly frighten pedestrians
+DRAW_CALLS 0.0
+TEST_RESULT 10 passed; 0 failed

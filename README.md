@@ -24,7 +24,7 @@ Start.cmd 将日志保存到 %LOCALAPPDATA%\Dolphin2ShanghaiToon\runtime.log。F
 | F5 / F9 / F11 / H | 保存 / 读取 / 全屏 / 操作提示 |
 
 ## 从源码打开
-安装 Godot 4.5.2，导入 project.godot。工程不依赖原网页仓库，assets/original_dolphin.json 已保留实际模型几何。代码和模型均在源码包中，字体和 Godot 许可见 docs。引擎可执行文件及导出模板不放入源码包，需另行安装。
+克隆后先运行 `python3 tools/restore_assets.py`（Windows：`py tools/restore_assets.py`）自动恢复原版 Noto 字体，无需上传文件。然后安装 Godot 4.5.2，导入 project.godot。工程不依赖原网页仓库，assets/original_dolphin.json 已保留实际模型几何。代码和模型均在源码包中，字体和 Godot 许可见 docs。引擎可执行文件及导出模板不放入源码包，需另行安装。
 
 ## 当前内容和边界
 包含东方明珠、环形天桥、国金中心、金茂、环球金融中心、上海中心、滨江步道、中心绿地和原创沿街商铺；步行、跳跃、闪避、格挡、近战、热血、主动敌人、车辆、破坏木箱、掉落、地图和存档。不是完整上海，不包含室内、任务、原作全战役或完整交通模拟。角色动作仍使用程序化关节动画，不宣称达到《如龙》成品动作质量。

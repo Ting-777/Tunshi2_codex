@@ -1,13 +1,13 @@
 {
   "version": "0.4.4",
   "created": "2026-10-21",
-  "scope": "portable native source, complete source-package assets and verification history, chapter I-IV reference selection",
-  "excluded": "Godot and OS binaries, generated builds/import caches, private upload sessions, first-game media and site deployment configuration",
+  "scope": "all native game source, original dolphin geometry, latest four native screenshots, historical text reports, chapter I-IV source reference",
+  "excluded": "Godot and OS binaries, generated builds/import caches, private upload sessions, first-game media/site deployment config, historical iteration screenshots",
   "files": {
     ".gitignore": {
-      "bytes": 173,
-      "sha256": "7dd973f1368ad6662cd538bf9d26a5e466943b74acd31e59db1577d7e317be10",
-      "git_blob": "4885b42928276aa92739dfd4c749bc99be31e00d"
+      "bytes": 267,
+      "sha256": "3c928380022ff4b892b6f3ae405f4bc037cefcf1a84196d985a3e5949034738d",
+      "git_blob": "cb81a53f53278616c5c868af0dcf376840c385af"
     },
     "AGENTS.md": {
       "bytes": 3921,
@@ -15,9 +15,9 @@
       "git_blob": "4401b0de6e4e641548287981f0ae81b75584ce06"
     },
     "README.md": {
-      "bytes": 3878,
-      "sha256": "416c92c4dfb3831196719302f3be777ebb0717a81935159205eebc3d2518375d",
-      "git_blob": "51d5d666f5020fc3168985ab1e61d36b0b1c166c"
+      "bytes": 4034,
+      "sha256": "a363843b7d82c6bd47c47b2f8314ffe3109c8c4fcc75d3eddd3ac6d1785de225",
+      "git_blob": "fa193b5733d6a22d2450e2c21b9514b6621ee1f3"
     },
     "assets/fonts/Chinese.otf": {
       "bytes": 17002248,
@@ -50,9 +50,9 @@
       "git_blob": "0e3ba08d6b2e8cf435241829c96f10b74e4356fe"
     },
     "docs/NEW-CHAT-HANDOFF.md": {
-      "bytes": 5215,
-      "sha256": "5c5717e03a44d3bb670ccb87a9f1b930b368755fa3da2d8d5a1344d8c12f4b19",
-      "git_blob": "bdab5f7b371ce3a63a21d0d464a7188896328c1a"
+      "bytes": 5956,
+      "sha256": "5e66a93dffa3de6094e22178eb8f8a135bd189d5147becab346d9eb875d0bd56",
+      "git_blob": "0db0d3af1b2205fe3f226afe790e306307395ce3"
     },
     "docs/NOTO-LICENSE.txt": {
       "bytes": 4301,
@@ -103,96 +103,6 @@
       "bytes": 4163,
       "sha256": "0f4069645c187bab1103200bfbb5f945742dd5f4bf6200556afa95f6bccaf873",
       "git_blob": "743b1549cbb60ec0961d25a4d988357618d2f78c"
-    },
-    "docs/verification/baseline-v040/01-street.jpg": {
-      "bytes": 153637,
-      "sha256": "472b80123f88d8a67829643dcad92f5c7001a3a43d4b0912cd9b29814ac50c0d",
-      "git_blob": "c8bbc6057484f231a916af9b6ece5a32bfcb8ae5"
-    },
-    "docs/verification/baseline-v040/01-street.png": {
-      "bytes": 483676,
-      "sha256": "0e6b06c068d170250cd791d39ba8ed40febfe73fef0fe2e8c7c1b57b12e9930e",
-      "git_blob": "3ec9d495224e23432afb02d112c204ef50754649"
-    },
-    "docs/verification/baseline-v040/02-original-dolphin.jpg": {
-      "bytes": 108835,
-      "sha256": "dceb876a328673723f0e46f7f884a76b320b0b48070c81e851c007bbde181430",
-      "git_blob": "b409d674d2df111dbbb6027692ff02f8ac76fda4"
-    },
-    "docs/verification/baseline-v040/02-original-dolphin.png": {
-      "bytes": 418964,
-      "sha256": "cdc87af8f5f0c2b37af54602647c231c9fcf6e234e9ba1abe4bfe047ee7ec68d",
-      "git_blob": "cce285dead220c07be4915ae4826b6369125fb9a"
-    },
-    "docs/verification/baseline-v040/03-combat.jpg": {
-      "bytes": 132802,
-      "sha256": "2f00452676d9b215fd859d3e25e0ce732a8bd706a763e93255c7734a332e74bb",
-      "git_blob": "2f8b47a1970d4ada76ccfeffdf5bbb1dff877074"
-    },
-    "docs/verification/baseline-v040/03-combat.png": {
-      "bytes": 363900,
-      "sha256": "ce82cb1482826064e52fe8ffbcf30c2875a387ab3ead61e624fec4809d89e885",
-      "git_blob": "c16a7fac8966172bffe91333bbbccaf4463d667f"
-    },
-    "docs/verification/baseline-v040/04-map.jpg": {
-      "bytes": 66781,
-      "sha256": "8edc84fa2dff78a08c7a964df391c5b6fd81b09967d40a1994d47f5351a1f33e",
-      "git_blob": "2538b9ba1e74cebc404f5e7251514ea6e26e6260"
-    },
-    "docs/verification/baseline-v040/04-map.png": {
-      "bytes": 78971,
-      "sha256": "47174bf7765c0b119aec2058dd82cae5a81da5f64f669959fdb02614dd5c57b9",
-      "git_blob": "2b8a167ab4e3d0f5965463e1b79f1b2abd5d98d4"
-    },
-    "docs/verification/baseline-v040/05-car.jpg": {
-      "bytes": 124104,
-      "sha256": "178669f164712f96fbc88b665b4af9ee25d55058e2580bdd6c5eb829f8acf7cd",
-      "git_blob": "a732d7413e93b884b5640f260e33fdbb37594057"
-    },
-    "docs/verification/baseline-v040/05-car.png": {
-      "bytes": 337809,
-      "sha256": "7b491c791852333c153385904558d65e07f6773aa7c1b8c6d25829e90fcd2d79",
-      "git_blob": "219898005b33f611f40c35e120b9d5471dad083f"
-    },
-    "docs/verification/baseline-v040/06-riverside.jpg": {
-      "bytes": 114347,
-      "sha256": "47e9c1fce5686c6cdd5ecfc573caf2b420a922b27bbbbf3ebbeb3d8d571125ef",
-      "git_blob": "19715b859289eb17d5be846cc86e513066998dfa"
-    },
-    "docs/verification/baseline-v040/06-riverside.png": {
-      "bytes": 364188,
-      "sha256": "e192694fff25974a8b05858d5155d270a9f28b896e52f5cef1354ea8093a9d69",
-      "git_blob": "934515cb634cf96aa2bf241a6ad23190127f9999"
-    },
-    "docs/verification/baseline-v040/07-combo-finish.jpg": {
-      "bytes": 126005,
-      "sha256": "c389dd291178aa8eed9d75732c6d6043e2e2f43c830641695063580ca80dee00",
-      "git_blob": "95c443c7167a7d27ba333afe39c2086adbbb98cc"
-    },
-    "docs/verification/baseline-v040/07-combo-finish.png": {
-      "bytes": 434558,
-      "sha256": "cc9b82acf15e7e67a923d9cd141aff1d1a16be05116e367e674996be258a664d",
-      "git_blob": "841c92420d4eb63b39c483a3f590e711e1d4db33"
-    },
-    "docs/verification/baseline-v040/08-frontage.jpg": {
-      "bytes": 168556,
-      "sha256": "649169e6c35cc70bcb85b23c87068091c416433d7fe9122396bc3c00311438f6",
-      "git_blob": "cb543cc5f2b0e6d31591ac74580893c7c1da6bc1"
-    },
-    "docs/verification/baseline-v040/08-frontage.png": {
-      "bytes": 563072,
-      "sha256": "a2c26d07786b53394990c0ae5aedf355a34c78b49eb4e10ca5b398be59fcdf50",
-      "git_blob": "fa3065e43e0bb79d71f18a85c928f5fadf3dab43"
-    },
-    "docs/verification/baseline-v040/09-boulevard.jpg": {
-      "bytes": 150558,
-      "sha256": "ae544f787b3bd7cc7878f9423a68e1ef36cd8e78361d7c57bfbaacbf5125bb10",
-      "git_blob": "d802b4f6a3f919d1736a14f490cea24c4ab3de32"
-    },
-    "docs/verification/baseline-v040/09-boulevard.png": {
-      "bytes": 512666,
-      "sha256": "24d083f329bb04ae5ce7af62cba43c9c4e7cdd43683d322f740550c624587f32",
-      "git_blob": "487f2fbcf1d4491d88551ddb6e074b19304dd351"
     },
     "docs/verification/baseline-v040/TEST-REPORT.md": {
       "bytes": 3447,
@@ -254,56 +164,6 @@
       "sha256": "e7dbcefa227d3d349fc72606785f77c4f27439df9c73438685c00a3961bb86c0",
       "git_blob": "6aaa190316dc287ac95aefba4b5edc24e3dbe562"
     },
-    "docs/verification/baseline-v041/01-pearl-whole.jpg": {
-      "bytes": 106812,
-      "sha256": "13567c293b6eb8586558a37cd46994b63d88fec729bfac95605ab958bb3f709d",
-      "git_blob": "9e8a12bc084ec93414fd505c2cc377b0e66b69eb"
-    },
-    "docs/verification/baseline-v041/01-pearl-whole.png": {
-      "bytes": 490303,
-      "sha256": "05134b89d9f9343abb78da03d432fe084c4b361859dcaa5430c6543d896416cd",
-      "git_blob": "299bb424aee234c512ceffaa40a21e4aebe6b1c0"
-    },
-    "docs/verification/baseline-v041/02-pearl-lower.jpg": {
-      "bytes": 107176,
-      "sha256": "5d6802b0acc05632b432316e16e23d1b8da0ee8c212f7dae9a5fb89d6db86589",
-      "git_blob": "76babde7a16e13188dc68a24703117bb6eb76a0b"
-    },
-    "docs/verification/baseline-v041/02-pearl-lower.png": {
-      "bytes": 620545,
-      "sha256": "4c5b88ff26f245cfacca1325e5dd6b2763bb4d61fa708fb616247f04f4b2848f",
-      "git_blob": "3dd82fa3c83e6abd1ac2f17ef4894c0020a07a50"
-    },
-    "docs/verification/baseline-v041/03-pearl-upper.jpg": {
-      "bytes": 97475,
-      "sha256": "afa75d542de52be2aa96d33ffb9e77ff518bde0f1bc44c36a9539a999b79fd23",
-      "git_blob": "690686b47b1d36a44b88bb9659750c02a7d4b867"
-    },
-    "docs/verification/baseline-v041/03-pearl-upper.png": {
-      "bytes": 600474,
-      "sha256": "b92975be2a4fa6c4a1ad54b996fc2653558cce2f77488b22bfc3221393c463dc",
-      "git_blob": "b14796dfe4d8faffa11f4a9ae60b3f5285dc9567"
-    },
-    "docs/verification/baseline-v041/04-pearl-arrival.jpg": {
-      "bytes": 117165,
-      "sha256": "a68bc551fc49ea1cc5a456b6109bb41f270bc307da50828dea5b57d0a2e1e3dc",
-      "git_blob": "51d1c59f3e5a19426f10b8a5f92b2957b3f42994"
-    },
-    "docs/verification/baseline-v041/04-pearl-arrival.png": {
-      "bytes": 395625,
-      "sha256": "7f241617f9b23851d05653ba6dad606f931a6eb2cc97c59b5ce036253df934da",
-      "git_blob": "ddf915077e75632246f9619b6bc9701b59b30008"
-    },
-    "docs/verification/baseline-v041/05-pearl-skyline.jpg": {
-      "bytes": 118347,
-      "sha256": "5fb52f45b6c3a94367474f4f60b947d2881a596a3a80e68f3620724bd3c5f73e",
-      "git_blob": "9eb77993e93133d6e4a29d1aa1047823c06fb918"
-    },
-    "docs/verification/baseline-v041/05-pearl-skyline.png": {
-      "bytes": 391824,
-      "sha256": "f7f08ce4e5f9b3317a270799dad477a569b6f9746a97f10e181354e988bccda7",
-      "git_blob": "5f87d1e185440789c59a29be4fbf3045f4612a5b"
-    },
     "docs/verification/baseline-v041/TEST-REPORT.md": {
       "bytes": 3027,
       "sha256": "094e8a765e7b46a273da4470ded7179ef9a1a66b9b334b6113492429888b980a",
@@ -324,46 +184,6 @@
       "sha256": "0067998b48b61ec9582c782a8ea3e9509e875cd1c48e50e289e433807e18728a",
       "git_blob": "ef72d44cf4b1a675c013914e18d1e63771bf17cb"
     },
-    "docs/verification/baseline-v042/01-street-clean.jpg": {
-      "bytes": 151355,
-      "sha256": "b17b10824ae35fdcd3c4a2aaf5af379b816ec2188f0229358fd63da9a62d1fbc",
-      "git_blob": "024da8d42cc4b1213dd2903da43be7d79702f03e"
-    },
-    "docs/verification/baseline-v042/01-street-clean.png": {
-      "bytes": 520458,
-      "sha256": "65ea9614278f8e52de1c944e16d561382b2c5dafcaca0bfdfb7a05833716aa25",
-      "git_blob": "281c57371150036c958132bd8ae3a0fab8631702"
-    },
-    "docs/verification/baseline-v042/02-store-windows.jpg": {
-      "bytes": 136663,
-      "sha256": "e8a0e929b196aa43ee3ebd3d0d82c26791f5e8eab8b327fb837e4a5dacbb8617",
-      "git_blob": "e335110b90358bae8b1e3217d75fc12df6af9039"
-    },
-    "docs/verification/baseline-v042/02-store-windows.png": {
-      "bytes": 322584,
-      "sha256": "65f8fce0b7ca219c183a62d75cea60df8c414a1430912fda3b63b5c6c17c0d5f",
-      "git_blob": "4f67ba77967bff4cfc4283103b18b5a795064b30"
-    },
-    "docs/verification/baseline-v042/03-entrance-clean.jpg": {
-      "bytes": 96856,
-      "sha256": "6118cc705486762811e100a72680d74cfa2b07df3078ca7d2c8a9ff8e0685c31",
-      "git_blob": "242715ad86640f7f58629d6f38731e2f501c1473"
-    },
-    "docs/verification/baseline-v042/03-entrance-clean.png": {
-      "bytes": 371142,
-      "sha256": "35ac54ffa2b48ca445cb5461d784d43880054908f56fc2a283799993bca54325",
-      "git_blob": "40fc4c9118871a8c4a245aebfeffa8bed85f45c4"
-    },
-    "docs/verification/baseline-v042/04-skyline-clean.jpg": {
-      "bytes": 110413,
-      "sha256": "14bedd52f8c7178fbedbd2f477e8757ddacd7f7b70845fa8525fa830c516043c",
-      "git_blob": "9b8b606d13a2668c959b58eb3955c9277f8e310f"
-    },
-    "docs/verification/baseline-v042/04-skyline-clean.png": {
-      "bytes": 432872,
-      "sha256": "c95ae87ca6bcc99b43d90e01677d0c98798b6bb3941938c1ece7e7d3a028a556",
-      "git_blob": "30265b949cebd3c28edb13ec6bb1aa340929f94d"
-    },
     "docs/verification/baseline-v042/TEST-REPORT.md": {
       "bytes": 2434,
       "sha256": "2a18ee212aa4bf71dab0672f07546ee78a9d2f5b454f11db4c3dc4c999ea71f5",
@@ -378,31 +198,6 @@
       "bytes": 72,
       "sha256": "77c04064f43fc7f89cce87f09400260ed264443bb3ccfed821c00c6dc5d6327b",
       "git_blob": "3276a3c3f4d0d4d5bea2bcabe2fc2dfe7964c94c"
-    },
-    "docs/verification/baseline-v043/01-bridge-connected.png": {
-      "bytes": 538921,
-      "sha256": "28cca284d8e078b2e5a6d204bd7cedc4693b56263ace55c3a91c5e46bf2d9b40",
-      "git_blob": "7992d32663b4fd49b55650cffb9fc9730d81b7ea"
-    },
-    "docs/verification/baseline-v043/02-open-landing-rails.png": {
-      "bytes": 550683,
-      "sha256": "53907d343354be2bb3f4310119dcb554f33f1f57418bc929e9510e8b3711f614",
-      "git_blob": "063d4303fd36bb525f2d76cb8475a09e32a0538e"
-    },
-    "docs/verification/baseline-v043/03-pedestrian-contact.png": {
-      "bytes": 473925,
-      "sha256": "8aa8d7f7a1640409530332415ddf98aa895c5992e0fdd1126ffdf6794f68f05d",
-      "git_blob": "6a63b1b62a6f5362759c87126402b3006ecc6496"
-    },
-    "docs/verification/baseline-v043/04-car-knockdown.png": {
-      "bytes": 376503,
-      "sha256": "c9935f129a2e4fce49199ac66de45435bb0e6ddedd00ba902754fb1a4107d8f5",
-      "git_blob": "b0b16ba18d51405c9d8478ab536e2fa5a6bfba52"
-    },
-    "docs/verification/baseline-v043/05-road-and-bridge.png": {
-      "bytes": 518172,
-      "sha256": "3911bf76629dcfc5b5f498a0ae89683a3bcfff99198dc080fdc2d6e93d5395ef",
-      "git_blob": "04e77572fee126b78fdf7ce323aef25c19218217"
     },
     "docs/verification/baseline-v043/TEST-REPORT.md": {
       "bytes": 4482,
@@ -464,310 +259,25 @@
       "sha256": "86df54cba4e34135439c27e8b9eb554a80753992596883cdcf6f5b50a4d7a055",
       "git_blob": "a48468fce0634213684c446e97b30fca3406a9b4"
     },
-    "docs/verification/iterations/round-12-art-rebuild/01-street.jpg": {
-      "bytes": 150616,
-      "sha256": "95c91a9275d559536fe304ee7c46ab1e4c51f1b0167bbd9c92ad5e3f8cef2888",
-      "git_blob": "3b8850bb294126a9c345111307f3ca37bf926ac6"
-    },
-    "docs/verification/iterations/round-12-art-rebuild/01-street.png": {
-      "bytes": 480738,
-      "sha256": "a6f615ac64eb6719651abe328e2b08af0b0cb4cd96c93ccca201187ede4a8f14",
-      "git_blob": "526fc47cd5a94dace091889d4efd465ed5a289f3"
-    },
-    "docs/verification/iterations/round-12-art-rebuild/02-original-dolphin.jpg": {
-      "bytes": 102153,
-      "sha256": "d00b727596c2d196ef647fe3c178110a441bc20dfe8378538fe027e8199d0e92",
-      "git_blob": "015b9af4b300e51d0e2c4dba3d5218ae350b5895"
-    },
-    "docs/verification/iterations/round-12-art-rebuild/02-original-dolphin.png": {
-      "bytes": 394274,
-      "sha256": "12a7c30c5c3f7da22a52ef176668dacff4b9bfa596aa7353e3b87785c7448654",
-      "git_blob": "48560363aa5686687217a821f731f524b2d964a1"
-    },
-    "docs/verification/iterations/round-12-art-rebuild/03-combat.jpg": {
-      "bytes": 130714,
-      "sha256": "b10ac274f78ef94854f6a57d73acdd544858a62b997e8fb08800f686a2cac319",
-      "git_blob": "37f288d4f7e15bb96fc27f85c275c65d299d2d68"
-    },
-    "docs/verification/iterations/round-12-art-rebuild/03-combat.png": {
-      "bytes": 365882,
-      "sha256": "345736eb512b059121d1b4900ff0810a80df54fab2e2d551b5a377ca5a2af449",
-      "git_blob": "ad530fb1f81792d5b74eb89c1d6a31d0334648e7"
-    },
-    "docs/verification/iterations/round-12-art-rebuild/04-map.jpg": {
-      "bytes": 62477,
-      "sha256": "f3bde60bcc99c4cbab1da909052b067d1469929b2d7dd5640b5dbe200d05291d",
-      "git_blob": "fdc0876b5df604d1a999c979cb4eaf83df925ca4"
-    },
-    "docs/verification/iterations/round-12-art-rebuild/04-map.png": {
-      "bytes": 78303,
-      "sha256": "fbeb75011508e7cd449ede58407f1fe48d1d1e888abdb814a33fb88b0ca3f224",
-      "git_blob": "fe67b91ad40ce012de3e44e7816356b020545020"
-    },
-    "docs/verification/iterations/round-12-art-rebuild/05-car.jpg": {
-      "bytes": 124615,
-      "sha256": "35cf19413fbd8cd9aa308ef358499dddfae5cbefc37c30092046cc748be45a5e",
-      "git_blob": "14a56856efa90fbffd377da037a7300fe6da2d1e"
-    },
-    "docs/verification/iterations/round-12-art-rebuild/05-car.png": {
-      "bytes": 337567,
-      "sha256": "5550c8e1f5b37a52058be72cdab2d137df772e10ccc7d72c605210be8b15a11c",
-      "git_blob": "f19cc3f9a631ae105d20f34991758f8fceafbc66"
-    },
-    "docs/verification/iterations/round-12-art-rebuild/06-riverside.jpg": {
-      "bytes": 111302,
-      "sha256": "7818d6bb706e5502c5970764e86a916a34f3943c9785eddedce880e2d0e49735",
-      "git_blob": "25d4769036d4c12845b03087e40c94713b76353a"
-    },
-    "docs/verification/iterations/round-12-art-rebuild/06-riverside.png": {
-      "bytes": 370498,
-      "sha256": "65bf7948f72920395b75d6a2224f2d4f3d65dcffeae718ac9f4f8584229a6c5d",
-      "git_blob": "89835caf237012a485e0b60988755968c0732c96"
-    },
-    "docs/verification/iterations/round-12-art-rebuild/07-combo-finish.jpg": {
-      "bytes": 123768,
-      "sha256": "53eecfe0cca29039885b421f033e07fa925ccbaefd5479b62048bb6dd989996a",
-      "git_blob": "37a1fc0ff585b7c7f41e0c39aa4803071c1cc250"
-    },
-    "docs/verification/iterations/round-12-art-rebuild/07-combo-finish.png": {
-      "bytes": 441935,
-      "sha256": "b1cf1aeb2f04f7ebd3f4c080fd8381db2fdbae480c921bf7b116653840a8a45a",
-      "git_blob": "93880fbfdc9183d61716ae1042c82d6f7f12c756"
-    },
     "docs/verification/iterations/round-12-art-rebuild/runtime.log": {
       "bytes": 14510,
       "sha256": "9217b7bc59c96f82fea2d90419c4e67d08f7430a1dd90dd0f656c96b796bd5b1",
       "git_blob": "2e905cc7420a48ee59130c93241fc1beaa87f595"
-    },
-    "docs/verification/iterations/round-13-art-refine/01-street.jpg": {
-      "bytes": 152589,
-      "sha256": "1d0fe4daca6c3f26cc451b924e3d80c6e24360ea229144c1b25557f227d96dd2",
-      "git_blob": "f46e594e239e0c615b3195dcc0bd092769ed38ab"
-    },
-    "docs/verification/iterations/round-13-art-refine/01-street.png": {
-      "bytes": 481368,
-      "sha256": "372aad1f9dc20bd68019e798a646c4b39ef30d39bb0653515a465e3166900798",
-      "git_blob": "aeb8d8d1deed6965ccbc4f0f98ac7659025f7c1a"
-    },
-    "docs/verification/iterations/round-13-art-refine/02-original-dolphin.jpg": {
-      "bytes": 102671,
-      "sha256": "212a0fa030004fa071e2d390d414e5ce72493104f4af3f859224bc2270a82147",
-      "git_blob": "c36cb23a7f43a666cda138ee6bbba8c3b3f5d7d4"
-    },
-    "docs/verification/iterations/round-13-art-refine/02-original-dolphin.png": {
-      "bytes": 394636,
-      "sha256": "80ba37454c25ae39a47e45f8cfc91ac6bd6d80275470f5f38cc79ee954df3a2c",
-      "git_blob": "fd3b5a599678f1f88dee162e746df299c7529525"
-    },
-    "docs/verification/iterations/round-13-art-refine/03-combat.jpg": {
-      "bytes": 132695,
-      "sha256": "ac2f1771020d7ca78c15712ce4e98a494ffcaa2ac0276f061f1bd5552c4562da",
-      "git_blob": "46d03e4464fd808d8a798dc4e03d42c846228beb"
-    },
-    "docs/verification/iterations/round-13-art-refine/03-combat.png": {
-      "bytes": 362828,
-      "sha256": "b91f9bbd86086f67d5068b8747b5b32e434e732bc37da25989fd4fdf1192a60b",
-      "git_blob": "38057851c143ac24c4f1ab57359acec910adac2d"
-    },
-    "docs/verification/iterations/round-13-art-refine/04-map.jpg": {
-      "bytes": 66781,
-      "sha256": "8edc84fa2dff78a08c7a964df391c5b6fd81b09967d40a1994d47f5351a1f33e",
-      "git_blob": "2538b9ba1e74cebc404f5e7251514ea6e26e6260"
-    },
-    "docs/verification/iterations/round-13-art-refine/04-map.png": {
-      "bytes": 78971,
-      "sha256": "47174bf7765c0b119aec2058dd82cae5a81da5f64f669959fdb02614dd5c57b9",
-      "git_blob": "2b8a167ab4e3d0f5965463e1b79f1b2abd5d98d4"
-    },
-    "docs/verification/iterations/round-13-art-refine/05-car.jpg": {
-      "bytes": 122478,
-      "sha256": "63bb0b0383a272abe14b351fe560be4ae6d3e5844dba8743eccc2b1fc1c159b2",
-      "git_blob": "42933c132b42dc157f5fe2529c489252f50e6621"
-    },
-    "docs/verification/iterations/round-13-art-refine/05-car.png": {
-      "bytes": 334749,
-      "sha256": "234d3e6bf406f90cc2b601b5908b50e27dc2b2c6cc81c87b5e8ee98d14e7a72c",
-      "git_blob": "4b00c9022fb8f6029e5a9a9356667b04add6c799"
-    },
-    "docs/verification/iterations/round-13-art-refine/06-riverside.jpg": {
-      "bytes": 107591,
-      "sha256": "75808d7baa892ad0a819a74babb73a470a3b9abc998777a3747c079ed2c71570",
-      "git_blob": "5d439a11311ec9167318d9e20e36243213c0ba00"
-    },
-    "docs/verification/iterations/round-13-art-refine/06-riverside.png": {
-      "bytes": 337379,
-      "sha256": "0e8e49c984bf62dc1ab2dc701d610e265b8ccd94bfd5bb184060797934049ba1",
-      "git_blob": "baeaedca2b4d29852ff9e22cb7189c9c4fe321b7"
-    },
-    "docs/verification/iterations/round-13-art-refine/07-combo-finish.jpg": {
-      "bytes": 124858,
-      "sha256": "226b7d74fa889dabff4716431541c63a210b6b71b60f53431649bbbadb038000",
-      "git_blob": "fbe720ca79be5ad1676390c116aa813001ad6696"
-    },
-    "docs/verification/iterations/round-13-art-refine/07-combo-finish.png": {
-      "bytes": 435270,
-      "sha256": "78304ea368338fe0c276f0487b8025204c70412a6c9a8cd4d232c8f549144218",
-      "git_blob": "1fc18115615a25f50088ff208774d108d4abf217"
-    },
-    "docs/verification/iterations/round-13-art-refine/08-frontage.jpg": {
-      "bytes": 164548,
-      "sha256": "188ded40343e3123420eb6c0d2b585acc4caba49e918a0129df098d272463074",
-      "git_blob": "49e6f1c1cb7fc2ca6eb1d3fcdf15edc97109f187"
-    },
-    "docs/verification/iterations/round-13-art-refine/08-frontage.png": {
-      "bytes": 558129,
-      "sha256": "272643cd4c30f530c4606363529cad4415603489707a3a1d48f0b4cb0217708f",
-      "git_blob": "0de31753d47728f10ee148ee88bf6da4ff77dd9e"
-    },
-    "docs/verification/iterations/round-13-art-refine/09-boulevard.jpg": {
-      "bytes": 148665,
-      "sha256": "f4afba646d2de2f1d280e4ab0bb65a0494487012efa43a1f79bdb5a441ae0e89",
-      "git_blob": "80f4918ae4f3039aaa931c892f8fc65e361f48b8"
-    },
-    "docs/verification/iterations/round-13-art-refine/09-boulevard.png": {
-      "bytes": 509648,
-      "sha256": "62a6e91df227474b3a9bc62b9770bdddf42a2a2eb3a29a270c22ce11d753010e",
-      "git_blob": "18076f4ed94b3f98de5cbb3a593e4861111de961"
     },
     "docs/verification/iterations/round-13-art-refine/runtime.log": {
       "bytes": 1801,
       "sha256": "8481932e46fe46556530976705f4221de30fa4cb807ef5ea61a61f5692a46e41",
       "git_blob": "8e43e29aabea592c9a1e0dfc461ddaba0dea9a30"
     },
-    "docs/verification/iterations/round-15-pearl-detail/01-pearl-whole.jpg": {
-      "bytes": 107669,
-      "sha256": "25f7eb5c1fef376ab291e71fedfc244a5a4d238a59bca656eab3d086c667d6cf",
-      "git_blob": "7338b01e85644354f99bb8d3f9b89a85168ea5a7"
-    },
-    "docs/verification/iterations/round-15-pearl-detail/01-pearl-whole.png": {
-      "bytes": 520695,
-      "sha256": "2c22be3b9652bf0f13cf6a90b26833ddc79e51fa69fb1c6c02f94ac816fd8a90",
-      "git_blob": "f9e78dc8a18b0af30bee17062f017da5a9f0017f"
-    },
-    "docs/verification/iterations/round-15-pearl-detail/02-pearl-lower.jpg": {
-      "bytes": 108929,
-      "sha256": "b32e3408c2685aa29d5b33d801f46fa0c94fe2094e0ff1c6c8b17d3d470add18",
-      "git_blob": "682e135318adb3f3512735e5c81555966fa7a165"
-    },
-    "docs/verification/iterations/round-15-pearl-detail/02-pearl-lower.png": {
-      "bytes": 625707,
-      "sha256": "7c1f8cca4225cdf31abf86707d42b5ecc69fb1a1e56f2264be8851a7fa3a37f7",
-      "git_blob": "2316d093c2583b7e2975e666a128b964e91305de"
-    },
-    "docs/verification/iterations/round-15-pearl-detail/03-pearl-upper.jpg": {
-      "bytes": 99256,
-      "sha256": "c1b2a30949a0c30512f5552de45db47808a3985812029429cd8a8f2c0d770556",
-      "git_blob": "0ae4c9b6f6927c846900238dd68bd7a220cd368a"
-    },
-    "docs/verification/iterations/round-15-pearl-detail/03-pearl-upper.png": {
-      "bytes": 611489,
-      "sha256": "8080a1dae35ab33d8d83b26bfdaa7e2e9ef7baf143e16aec62d4bc1222c86aed",
-      "git_blob": "b0ff0a308f318438027b986cedfde0417cd06926"
-    },
-    "docs/verification/iterations/round-15-pearl-detail/04-pearl-arrival.jpg": {
-      "bytes": 118651,
-      "sha256": "ceab2c77bfc0db8967b91bbcb989a41325606d9d405c6611e410b43780853ef6",
-      "git_blob": "7aca4a6ed58c181fc2e08679516f6b63580d952c"
-    },
-    "docs/verification/iterations/round-15-pearl-detail/04-pearl-arrival.png": {
-      "bytes": 395659,
-      "sha256": "f5f063e3d89df9309f322bd74fe0e7516b8387bd724a5f56ab37d4d9d9a008d7",
-      "git_blob": "b00ce8063e30d4530626193e92c767b8d0aee255"
-    },
-    "docs/verification/iterations/round-15-pearl-detail/05-pearl-skyline.jpg": {
-      "bytes": 115422,
-      "sha256": "df2dd1b4766d91c42ff66165dfde83cb212ee7c018e82b55c67ea364e9245975",
-      "git_blob": "c8dbfbffe218965a3d1a527b02cc512c85a16710"
-    },
-    "docs/verification/iterations/round-15-pearl-detail/05-pearl-skyline.png": {
-      "bytes": 381892,
-      "sha256": "de214c90c2bf6050fb31536990c68ef6c1c8d5d4b8889ca6796e09c400c859f0",
-      "git_blob": "a2cd5b81a32a336bfdbac129e89a212a9e75d7ee"
-    },
     "docs/verification/iterations/round-15-pearl-detail/runtime.log": {
       "bytes": 1368,
       "sha256": "92598a59871644ed3d5b8c8679e1947dc6d1599be549bd60ce7fb0c60f66fca3",
       "git_blob": "7954fb26278812cde24e3c1fbca96f286b42e063"
     },
-    "docs/verification/iterations/round-16-pearl-refine/01-pearl-whole.jpg": {
-      "bytes": 106826,
-      "sha256": "0b61a41307dee453c1cab4aff645b800d59fa426e831fed74285db17cc30ea78",
-      "git_blob": "9ca8230db41d0f649460af67b6e96ceba0012f73"
-    },
-    "docs/verification/iterations/round-16-pearl-refine/01-pearl-whole.png": {
-      "bytes": 490495,
-      "sha256": "b381f0529d6113e00db295034200e003431455b284b0c0b9ff7b9cb4ead889e5",
-      "git_blob": "32d63646337992a8c7112deac7d663e927d17e73"
-    },
-    "docs/verification/iterations/round-16-pearl-refine/02-pearl-lower.jpg": {
-      "bytes": 107121,
-      "sha256": "750ccdb3d059ecb9e2dc1d7747fd22ec2b24e4ffda3b61769120ada12c0161ae",
-      "git_blob": "4ac3b6d5d969e21df57a4a4cec75114187a146ee"
-    },
-    "docs/verification/iterations/round-16-pearl-refine/02-pearl-lower.png": {
-      "bytes": 620506,
-      "sha256": "198f9e51ff8f752365a92ec27291365bd7b45b703050483a6f1688e63cea0682",
-      "git_blob": "e7f5b7c0a4e0b2602e6385509f92edd86a88e576"
-    },
-    "docs/verification/iterations/round-16-pearl-refine/03-pearl-upper.jpg": {
-      "bytes": 97540,
-      "sha256": "e5c72fb1c7a30597f10eaa6fb21b68d8907b09ad688c537810d8c9d8215a893e",
-      "git_blob": "4ff3f55092d9dad4f38d2cb062fa67404c1534d7"
-    },
-    "docs/verification/iterations/round-16-pearl-refine/03-pearl-upper.png": {
-      "bytes": 600663,
-      "sha256": "2ca208babdd5bbdcd08e11f5b75964ce0169a69e623315daf121599f69e51c7c",
-      "git_blob": "f85976a108431e206f29a378f863571592be406b"
-    },
-    "docs/verification/iterations/round-16-pearl-refine/04-pearl-arrival.jpg": {
-      "bytes": 118304,
-      "sha256": "2330e9e5b81f4f1ed098b0ed745e9879efc87b072068e9b25859a70096c55b41",
-      "git_blob": "f2cfe15324dd60c3e589fff8e2b52cb9f06a3f17"
-    },
-    "docs/verification/iterations/round-16-pearl-refine/04-pearl-arrival.png": {
-      "bytes": 396960,
-      "sha256": "ae30d49c5cdf03df7c434069e654711cc6d6f0e1474b134c7c1b4f95976a80f3",
-      "git_blob": "b9f10741b3b2ecf95ecc538ba3beac812c39e026"
-    },
-    "docs/verification/iterations/round-16-pearl-refine/05-pearl-skyline.jpg": {
-      "bytes": 118409,
-      "sha256": "51000f27e6f7e7fb304b839d807fcde62277af1a4c28eaaf0e1f5a38ec5c1007",
-      "git_blob": "bb68e8ff3346f3085a670381eea507f1ce800a94"
-    },
-    "docs/verification/iterations/round-16-pearl-refine/05-pearl-skyline.png": {
-      "bytes": 392201,
-      "sha256": "934afb339971f4905bddc829d4996e1589dbf173ec443cad0a7f77c9141e8059",
-      "git_blob": "04cb27896abc1bfe31e3549f9431d2c6915c31fd"
-    },
     "docs/verification/iterations/round-16-pearl-refine/runtime.log": {
       "bytes": 1368,
       "sha256": "b3f4d2c2b90e379aa2fc51af3ef27836d34f095e64efe825744944ba99a48073",
       "git_blob": "338807d254d2deb87adc056e17aba5abdede0742"
-    },
-    "docs/verification/iterations/round-19-v043-gameplay/01-bridge-connected.png": {
-      "bytes": 538168,
-      "sha256": "e041e6f37923768c209a56bd3701a43a593e84f058c07b91220d4c56e9efa14c",
-      "git_blob": "442cc1b07dbc3875c8dd33ee2d8dcb8e8b0edbfd"
-    },
-    "docs/verification/iterations/round-19-v043-gameplay/02-open-landing-rails.png": {
-      "bytes": 550553,
-      "sha256": "ba3ee62ca500e34fef49107e07e24f8aa12d568bf8e1f2b5d2d5d5f196ffce5e",
-      "git_blob": "272028a6db25ba89006ca5477b81287c8b0602ec"
-    },
-    "docs/verification/iterations/round-19-v043-gameplay/03-pedestrian-contact.png": {
-      "bytes": 337625,
-      "sha256": "4376dde0edf2be9cfbbb5ea7f60a4c61fe1768965c6dd8eb15071fc07c0b4cfe",
-      "git_blob": "f0cd5f5c886d044459728a7fe680bab135a51730"
-    },
-    "docs/verification/iterations/round-19-v043-gameplay/04-car-knockdown.png": {
-      "bytes": 351771,
-      "sha256": "ae4301807b02bd0c74ad220f728f998af473234ac4035e76f0caacc5dd068a52",
-      "git_blob": "f1255e9ff71fff814dcc18d175e73234d24a3a9c"
-    },
-    "docs/verification/iterations/round-19-v043-gameplay/05-road-and-bridge.png": {
-      "bytes": 517743,
-      "sha256": "83ca44f58095d4910da346c874dafc89854f451da701e20ba05851cec1c5fb13",
-      "git_blob": "727c0fb56f6f3e639b8494b564d18a382386cead"
     },
     "docs/verification/iterations/round-19-v043-gameplay/results.json": {
       "bytes": 4540,
@@ -784,31 +294,6 @@
       "sha256": "f6bd6585d1d98491541c0009fbf96fbe319e0be6c6ee94a046e73ce770768225",
       "git_blob": "f2878652f72fa9935ee4d28adefc6e6172887eb6"
     },
-    "docs/verification/iterations/round-20-v043-final/01-bridge-connected.png": {
-      "bytes": 538921,
-      "sha256": "28cca284d8e078b2e5a6d204bd7cedc4693b56263ace55c3a91c5e46bf2d9b40",
-      "git_blob": "7992d32663b4fd49b55650cffb9fc9730d81b7ea"
-    },
-    "docs/verification/iterations/round-20-v043-final/02-open-landing-rails.png": {
-      "bytes": 550683,
-      "sha256": "53907d343354be2bb3f4310119dcb554f33f1f57418bc929e9510e8b3711f614",
-      "git_blob": "063d4303fd36bb525f2d76cb8475a09e32a0538e"
-    },
-    "docs/verification/iterations/round-20-v043-final/03-pedestrian-contact.png": {
-      "bytes": 473925,
-      "sha256": "8aa8d7f7a1640409530332415ddf98aa895c5992e0fdd1126ffdf6794f68f05d",
-      "git_blob": "6a63b1b62a6f5362759c87126402b3006ecc6496"
-    },
-    "docs/verification/iterations/round-20-v043-final/04-car-knockdown.png": {
-      "bytes": 437773,
-      "sha256": "ad419d64f8e2ac9165ec56b4cf4a5df5c08a248135d1de326a4b6f04c2f0237b",
-      "git_blob": "58243923e6683b4ece921d7ae3b0374cd863323e"
-    },
-    "docs/verification/iterations/round-20-v043-final/05-road-and-bridge.png": {
-      "bytes": 518172,
-      "sha256": "3911bf76629dcfc5b5f498a0ae89683a3bcfff99198dc080fdc2d6e93d5395ef",
-      "git_blob": "04e77572fee126b78fdf7ce323aef25c19218217"
-    },
     "docs/verification/iterations/round-20-v043-final/results.json": {
       "bytes": 1251,
       "sha256": "b9ce32e7823286146f295555ba4178eab25c8ecf944fb7aeef8d643a2620df59",
@@ -824,11 +309,6 @@
       "sha256": "f6bd6585d1d98491541c0009fbf96fbe319e0be6c6ee94a046e73ce770768225",
       "git_blob": "f2878652f72fa9935ee4d28adefc6e6172887eb6"
     },
-    "docs/verification/iterations/round-21-car-impact/01-car-impact-visible.png": {
-      "bytes": 376503,
-      "sha256": "c9935f129a2e4fce49199ac66de45435bb0e6ddedd00ba902754fb1a4107d8f5",
-      "git_blob": "b0b16ba18d51405c9d8478ab536e2fa5a6bfba52"
-    },
     "docs/verification/iterations/round-21-car-impact/results.json": {
       "bytes": 157,
       "sha256": "d9d627e5254baf60eb375d0d09ab3bfd4f45a3a0de390066214c2dbacac871be",
@@ -843,26 +323,6 @@
       "bytes": 1482,
       "sha256": "f6bd6585d1d98491541c0009fbf96fbe319e0be6c6ee94a046e73ce770768225",
       "git_blob": "f2878652f72fa9935ee4d28adefc6e6172887eb6"
-    },
-    "docs/verification/iterations/round-22-v044-reactions/01-directed-stagger.png": {
-      "bytes": 468497,
-      "sha256": "3cd67ee69dd37d2c3a707780016c2c35e046063fb80288c264aa88d56de3226c",
-      "git_blob": "6375728fa62bf20a13371b806837522e24488ac0"
-    },
-    "docs/verification/iterations/round-22-v044-reactions/02-grounded-fall.png": {
-      "bytes": 379207,
-      "sha256": "c951ae1a20cea293af44f014206dd20203ed3b31f4fd9a32840efcda013e092d",
-      "git_blob": "23f07c5e0010dfdca29abc47afe372a114be27fc"
-    },
-    "docs/verification/iterations/round-22-v044-reactions/03-braced-getup.png": {
-      "bytes": 357699,
-      "sha256": "cc0c32bf5e2639b3e7dde4eeee18425fbfab6bfc1a4c201ecad6658523c96cf0",
-      "git_blob": "280ec47c9436e6a272282fc4958f794c416c028f"
-    },
-    "docs/verification/iterations/round-22-v044-reactions/04-step-away-from-car.png": {
-      "bytes": 423103,
-      "sha256": "0a450c13526ab02b3de6e4b777e4e47632d2b1b9f4fecbbe2a856a9ffef10acf",
-      "git_blob": "ac837736177348f68dcfbd74bc4866e7c1a5549a"
     },
     "docs/verification/iterations/round-22-v044-reactions/results.json": {
       "bytes": 912,
@@ -1845,9 +1305,9 @@
       "git_blob": "823e77277dcac9e9985db1d349d03e02c204d94b"
     },
     "tools/package_source.py": {
-      "bytes": 952,
-      "sha256": "d5042a66d310d13bfee9c35036869ef04342b937d4e8e533b5b90a13ada31e37",
-      "git_blob": "c0c940a89363ddf7bc51c27658018d6bf5210743"
+      "bytes": 972,
+      "sha256": "d6d68ae6fcfa205297013a9dd82f35d05f14fdd2d2b11155561e2160d378675c",
+      "git_blob": "b50c1c665c20b42f2f4dd2c8cfc773edc269cee3"
     },
     "tools/package_windows.py": {
       "bytes": 1089,
@@ -1858,6 +1318,18 @@
       "bytes": 898,
       "sha256": "b0bfbbad10a4a38908b1cdf8ad9a87ad28404161238ba430cea55baaac540468",
       "git_blob": "51f893c5ceeac078ce320b34df4f0cd2f8050511"
+    },
+    "tools/restore_assets.py": {
+      "bytes": 1057,
+      "sha256": "9b87baccb8e3aadf8470382d5122aaa953530c4a87cf2a23d656bfeec1e37ec1",
+      "git_blob": "1dc48fb79d644faae5e449a8bb833f84f443b3b7"
+    }
+  },
+  "restored_assets": {
+    "assets/fonts/Chinese.otf": {
+      "command": "python3 tools/restore_assets.py",
+      "official_url": "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Bold.otf",
+      "sha256": "b5f0d1a190a7f9b43c310a8850630af12553df32c4c050543f9059732d9b4c0a"
     }
   }
 }

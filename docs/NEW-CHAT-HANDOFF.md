@@ -16,7 +16,7 @@
 
 ## 恢复工程
 
-1. 克隆此仓库。保留全部普通源文件，尤其字体、JSON、着色器和 .uid；不需要之前的聊天 ZIP。
+1. 克隆此仓库，先运行 `python3 tools/restore_assets.py`（Windows 可用 `py tools/restore_assets.py`）。脚本从 Noto 官方源码恢复原版字体，并校验固定 SHA256；不需要之前的聊天 ZIP，也不需要用户上传文件。保留 JSON、着色器和 .uid。
 2. 使用 Godot **4.5.2**，导入根目录 project.godot。首次导入会生成 .godot，无需迁入缓存。
 3. 无显示设备时可运行 `godot --headless --editor --path . --import`，然后 `godot --headless --path . -- --test --test-world --test-polish`。战斗验证按真实时间运行，不使用 --fixed-fps；hitstop 有真实毫秒计时。
 4. 原生图形验证需要图形环境；本轮使用 Xvfb + Mesa llvmpipe。tools/capture.py 保留实际截图工作流，具体本地工具路径须按当前环境调整。不要伪造截图，也不要把 headless 当成视觉验收。
@@ -38,3 +38,7 @@ reference/tunshi1 保存本对话已有的第一部源码与开发说明选集�
 新对话可直接粘贴：
 
 > 继续 https://github.com/Ting-777/Tunshi2_codex 。先恢复 main 最新源码，读取 AGENTS.md、docs/NEW-CHAT-HANDOFF.md、docs/ART-DIRECTION.md，以及 docs/TUNSHI1-STORY.md、docs/TUNSHI1-GAMEPLAY.md、docs/DEVELOPMENT-LESSONS.md。当前是 Godot 原生《豚师2·上海风云》0.4.4 陆家嘴无任务样板。延续既有工程、原版豚师模型和明快都市卡通风格，不触碰任何第一部 Sites。每轮实际截图都展示给我，再按我这次提出的具体要求继续。
+
+## GitHub 资源范围
+
+全部游戏脚本、场景、着色器、原版角色 JSON、最新四张原生截图、验收文字记录及第一部只读选集已迁入。17 MB 的标准 Noto 字体用 tools/restore_assets.py 从官方源恢复，字节校验与原工程一致，不再通过聊天工具传大文件。历史迭代截图未逐张迁入；旧验收报告提及的 baseline/iterations 图片属于原始归档，不能据仓库路径声称它们仍可打开。引擎与导出模板仍需另装。SOURCE-MANIFEST.json 用于还原字体后的源码完整性核对。

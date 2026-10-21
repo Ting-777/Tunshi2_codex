@@ -11,3 +11,6 @@ tools/library*/
 tools/library_session.py
 tools/final*/
 .DS_Store
+
+# Restored from the official Noto source by tools/restore_assets.py
+assets/fonts/Chinese.otf

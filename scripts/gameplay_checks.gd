@@ -13,6 +13,7 @@ static func walk(w: Node3D,target: Vector3,limit: int=700) -> bool:
 
 static func reset_hero(w: Node3D,p: Vector3):
 	w.player.position=p;w.player.velocity=Vector3.ZERO;w.player.stun=0;w.player.immunity=0;w.player.knockdown=0;w.player.attack=-1;w.player.queued="";w.player.dodge_time=0;w.player.hp=100;w.player.collision_layer=2;w.player.collision_mask=7;w.player.vehicle=null;w.player.visible=true
+	w.player.impulse=Vector3.ZERO;w.player.fall_amount=0;w.player.crouch=false
 
 static func run(w: Node3D,checks: Array,shots: String=""):
 	w.fixed_camera=true
@@ -83,7 +84,11 @@ static func run(w: Node3D,checks: Array,shots: String=""):
 		checks.append([civilian.hp<100 and civilian.knockdown>0,"reverse car knocks pedestrian down" if reverse else "forward car knocks pedestrian down"])
 		checks.append([(car.position.z-civilian.position.z)*sign_value>2 and (civilian.position.z-(70+sign_value*12))*sign_value>.1 and absf(civilian.position.z-(70+sign_value*12))<6,"reverse impact uses travel direction and car continues" if reverse else "forward impact uses travel direction and car continues"]);print("CAR_PERSON ",reverse," HP=",civilian.hp," DOWN=",civilian.knockdown," car=",car.position," person=",civilian.position)
 		car.speed=0;car.driver=null;w.player.vehicle=null;car.collision_layer=0;car.position=Vector3(210,.2,145)
-	reset_hero(w,Vector3(-5,.05,58));civilian.frozen=false;await w._ticks(130);checks.append([civilian.hp>0 and civilian.knockdown<=0 and civilian.collision_layer==2,"surviving civilian gets up and restores collision"])
+	reset_hero(w,Vector3(-5,.05,58));civilian.frozen=false;await w._ticks(120);checks.append([civilian.hp>0 and civilian.knockdown>0,"vehicle injury keeps surviving pedestrian down beyond two seconds"])
+	for i in range(600):
+		if civilian.knockdown<=0 and civilian.fall_amount<.01:break
+		await w._ticks(1)
+	checks.append([civilian.hp>0 and civilian.knockdown<=0 and civilian.collision_layer==2,"surviving civilian gets up and restores collision"])
 	civilian.frozen=true;civilian.hp=10;civilian.immunity=0;civilian.knockdown=0;civilian.position=Vector3(-3.5,.05,58);w.player.rotation.y=PI/2;w.player.attack=-1;w.player.stun=0;var cash_drops=w.drops.size();w.player.strike("heavy");await w._ticks(35);checks.append([civilian.hp==0 and w.drops.size()==cash_drops,"downed civilian does not create enemy cash loot"])
 	if shots!="":
 		w.paused=true;w.hud.photo=true;w.camera.position=Vector3(-47,3,62);w.camera.look_at(Vector3(3,4,2));await w._shot(shots+"/05-road-and-bridge.png");w.paused=false

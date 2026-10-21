@@ -9,7 +9,7 @@ Current scope: a native Godot Lujiazui outdoor sample, no missions; bright urban
 
 The hero must use the FIRST WEB GAME'S actual dolphin constructor/geometry. Do not redesign its silhouette, face, snout, eyes, belly, flippers, dorsal fin or proportions. Only modest shading and color changes are authorized. assets/original_dolphin.json is extracted from the readonly original game.js. Preserve docs/original-dolphin-source.js and the source commit provenance.
 
-User requests every actual native capture round be shown directly in conversation. Do not substitute generated imagery or a web mockup for native screenshots. Fix observed failures, verify exported PCK independently, preserve source checkpoints before long tests. State Windows hardware verification limits plainly. This is an outdoor sample, not a finished campaign or a certified commercial release.
+User requests every actual native capture round be shown directly in conversation. New screenshots and videos must NOT be uploaded to GitHub or added to the repository. Keep captures under ignored builds/ and display genuine captures in an embedded conversation gallery; ordinary sandbox image links did not load in the user's client. Only code and text verification records belong in new commits. Do not substitute generated imagery or a web mockup for native screenshots. Fix observed failures, verify exported PCK independently, preserve source checkpoints before long tests. State Windows hardware verification limits plainly. This is an outdoor sample, not a finished campaign or a certified commercial release.
 
 The work environment was reset mid-development. Files in this branch were reconstructed from the current conversation's code record, with physics input sampled every physics tick and automated checks waiting for physics frames. Previously displayed screenshots belong to the earlier temporary build; regenerated captures must be labeled with their new round.
 
@@ -26,3 +26,9 @@ Read docs/ART-DIRECTION.md together with this section before future visual work.
 ## Gameplay preference / 2026-10-21
 
 Ground-level driving is free across roads, sidewalks, lawn and public plazas. Do not confine vehicles to road lanes with invisible barriers. Preserve collision with actual visible walls, buildings and physical structures. Ordinary pedestrians are part of the same interaction world: melee and moving vehicles can hit them, with readable flinch, retreat, fleeing, knockdown and recovery; do not implement them as invulnerable scenery. Preserve the original hero and no-mission scope.
+
+## Vehicle injury and ground continuity / 2026-10-21
+
+Vehicle collisions must cause real, readable injuries to pedestrians and seated occupants. Show vehicle condition; use relative closing speed and impact direction, distinguish glancing contact from frontal impact, and avoid repeated damage from merely holding throttle against a wall. Injured people must not immediately stand back up; prone people remain real vehicle targets. Preserve safe exit and damage persistence. Read docs/VEHICLE-IMPACT-DESIGN.md before changing these rules.
+
+Resolve ground seam flicker by removing coplanar competing surfaces, including junction asphalt, pavement/lawn overlaps and raised paint strips. Check actual native low-angle moving views as well as screenshots. Keep broad color planes and restrained functional markings.

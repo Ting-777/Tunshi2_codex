@@ -7,6 +7,12 @@ var paint="#df8659"
 var speed=0.0
 var steer=0.0
 var hp=180.0
+var max_hp=180.0
+var collision_cooldowns={}
+var pedestrian_contacts={}
+var damage_flash=0.0
+var last_impact_speed=0.0
+var last_damage=0.0
 var wheels=[]
 var rolls=[]
 var door: Node3D
@@ -17,7 +23,7 @@ func _ready():
 	collision_layer=4;collision_mask=5;floor_snap_length=.4
 	var col=CollisionShape3D.new();var shape=BoxShape3D.new();shape.size=Vector3(1.86,.8,4.35);col.shape=shape;col.position.y=.4;add_child(col)
 	var roof=CollisionShape3D.new();var cabin=BoxShape3D.new();cabin.size=Vector3(1.55,.65,1.65);roof.shape=cabin;roof.position=Vector3(0,1.335,-.2);add_child(roof)
-	pedestrian_sweep=ShapeCast3D.new();var sweep_shape=BoxShape3D.new();sweep_shape.size=Vector3(1.96,1.5,4.45);pedestrian_sweep.shape=sweep_shape;pedestrian_sweep.collision_mask=2;pedestrian_sweep.max_results=16;pedestrian_sweep.enabled=false;add_child(pedestrian_sweep)
+	pedestrian_sweep=ShapeCast3D.new();var sweep_shape=BoxShape3D.new();sweep_shape.size=Vector3(1.96,1.7,4.45);pedestrian_sweep.shape=sweep_shape;pedestrian_sweep.collision_mask=8;pedestrian_sweep.collide_with_areas=true;pedestrian_sweep.collide_with_bodies=false;pedestrian_sweep.max_results=16;pedestrian_sweep.enabled=false;add_child(pedestrian_sweep)
 	_build();ToonKit.outline(self);ToonKit.finish(self)
 
 func _build():
@@ -54,38 +60,75 @@ func _pane(points: Array):
 
 func _physics_process(dt):
 	if not world or world.paused:return
+	damage_flash=maxf(0,damage_flash-dt)
 	var throttle=0.0;var turn=0.0
 	if driver:
 		throttle=Input.get_action_strength("forward")-Input.get_action_strength("back");turn=Input.get_action_strength("left")-Input.get_action_strength("right")
-		if throttle!=0:speed=move_toward(speed,throttle*26,dt*(11 if speed*throttle<0 else 6))
+		var condition=clampf(hp/max_hp,.0,1.0);var power=0.0 if hp<=0 else lerpf(.55,1.0,minf(condition*3,1))
+		if throttle!=0 and hp>0:speed=move_toward(speed,throttle*26*power,dt*(11 if speed*throttle<0 else 6)*power)
 		else:speed=move_toward(speed,0,dt*2.6)
 		if Input.is_action_pressed("jump"):speed=move_toward(speed,0,dt*24)
 	else:speed=move_toward(speed,0,dt*6)
 	steer=move_toward(steer,turn,dt*4);rotation.y+=steer*clampf(speed/7,-1,1)*dt*.85/(1+absf(speed)*.025);rotation.x=0;rotation.z=0
-	var previous=global_position;var forward=Vector3(sin(rotation.y),0,cos(rotation.y));velocity.x=forward.x*speed;velocity.z=forward.z*speed;velocity.y=-1 if is_on_floor() else velocity.y-20*dt;move_and_slide()
+	var previous=global_position;var forward=Vector3(sin(rotation.y),0,cos(rotation.y));velocity.x=forward.x*speed;velocity.z=forward.z*speed;velocity.y=-1 if is_on_floor() else velocity.y-20*dt
+	var incoming=Vector3(velocity.x,0,velocity.z);move_and_slide();var blocked=false
 	for i in range(get_slide_collision_count()):
 		var hit=get_slide_collision(i)
 		if absf(hit.get_normal().y)<.3:
-			hp=maxf(0,hp-absf(speed)*dt*.3);speed=move_toward(speed,0,dt*50)
+			blocked=true;_solid_impact(hit,incoming)
+	if blocked:speed=Vector3(velocity.x,0,velocity.z).dot(forward)
 	var travelled=global_position-previous;travelled.y=0
 	if absf(speed)>1 and absf(travelled.dot(forward))<absf(speed)*dt*.2:speed=0
-	_hit_pedestrians(previous)
+	_hit_pedestrians(previous,dt)
 	for i in range(wheels.size()):wheels[i].rotation.y=steer*.4 if wheels[i].position.z>0 else 0;rolls[i].rotation.x+=speed*dt/.435
 	door_angle=move_toward(door_angle,0,dt*2);door.rotation.y=-door_angle
 	if driver:driver.position=position
 	if position.y< -5:position=Vector3(-45,.3,40);speed=0;velocity=Vector3.ZERO
 
-func _hit_pedestrians(previous: Vector3):
-	if absf(speed)<3:return
+func _solid_impact(hit: KinematicCollision3D,incoming: Vector3):
+	var other=hit.get_collider();var relative=incoming-hit.get_collider_velocity();relative.y=0
+	var impact_speed=maxf(0,-relative.dot(hit.get_normal()))
+	if impact_speed<=2:return
+	var key=hit.get_collider_id();var tick=Engine.get_physics_frames()
+	if tick-int(collision_cooldowns.get(key,-1000))<24:return
+	collision_cooldowns[key]=tick
+	var share=.5 if other is StreetCar else 1.0
+	_take_collision_damage(impact_speed*share,hit.get_position(),hit.get_normal())
+	if other is StreetCar:
+		other.collision_cooldowns[get_instance_id()]=tick
+		other._take_collision_damage(impact_speed*.5,hit.get_position(),-hit.get_normal())
+
+func _take_collision_damage(delta_v: float,point: Vector3,normal: Vector3):
+	var damage=clampf(pow(maxf(delta_v-2,0),1.6)*.8,0,160)
+	if damage<=0:return
+	last_impact_speed=delta_v;last_damage=damage;hp=maxf(0,hp-damage);damage_flash=.5
+	world.impact(point,true)
+	if driver:
+		var injury=clampf(pow(maxf(delta_v-4,0),1.5)*.55,0,100)
+		if injury>0:driver.hurt(injury,Vector3.ZERO,true)
+		world.shake=maxf(world.shake,minf(.3,delta_v*.012))
+		world.hud.say("车辆受损 · 车内也会受伤" if hp>0 else "车辆失去动力 · E 下车")
+
+func _hit_pedestrians(previous: Vector3,dt: float):
+	var actual=global_position-previous;actual.y=0
+	var travel_speed=actual.length()/maxf(dt,.0001)
+	if travel_speed<2.5:return
 	# Sweep only the distance the car really travelled, after solid-world collision.
-	pedestrian_sweep.global_transform=Transform3D(global_basis,previous+Vector3.UP*.85)
+	pedestrian_sweep.global_transform=Transform3D(global_basis,previous+Vector3.UP*.8)
 	pedestrian_sweep.target_position=global_basis.inverse()*(global_position-previous)
 	pedestrian_sweep.force_shapecast_update()
-	var travel=Vector3(sin(rotation.y),0,cos(rotation.y))*signf(speed)
+	var travel=actual.normalized();var tick=Engine.get_physics_frames()
 	for i in range(pedestrian_sweep.get_collision_count()):
-		var person=pedestrian_sweep.get_collider(i)
-		if not person is StreetActor or person==driver or person.hp<=0 or person.knockdown>0:continue
+		var area=pedestrian_sweep.get_collider(i);var person=area.get_parent() if area is Area3D else null
+		if not person is StreetActor or person==driver or person.hp<=0:continue
+		var key=person.get_instance_id();var last=int(pedestrian_contacts.get(key,-1000));pedestrian_contacts[key]=tick
+		if tick-last<8:continue
 		var origin=global_position+Vector3.UP*.9
-		if world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(origin,person.global_position+Vector3.UP*.9,1)):continue
-		if person.hurt(clampf(absf(speed)*2.6,10,70),travel*minf(absf(speed)*.75,12),true):
-			world.impact(person.position+Vector3.UP*.8,true);speed*=.94
+		if world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(origin,area.global_position,1)):continue
+		var closing=maxf(0,(actual/dt-person.get_real_velocity()).dot(travel))
+		if closing<2.5:continue
+		var damage=clampf((closing-2)*4.5,5,110)
+		if person.hurt(damage,travel*minf(closing*.75,12),true):
+			world.impact(person.position+Vector3.UP*.65,true);speed*=.94
+			if driver==world.player:world.hud.target=person;world.hud.target_time=8.0
+			hp=maxf(0,hp-minf(8,closing*.2));damage_flash=.25

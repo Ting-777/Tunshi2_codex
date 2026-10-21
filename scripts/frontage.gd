@@ -236,8 +236,8 @@ static func tree(city: Node3D,p: Vector3,size: float):
 
 static func ground(city: Node3D):
 	# Street edge: two contrasting stone bands, tactile paving and drain grates.
-	for z in [28.1,51.9]:
-		ToonKit.box(city,Vector3(365,.02,.27),"#f3c65b",Vector3(35,.13,z-.72),.003)
+	# Paint shares the ground's depth surface and is interrupted by crossing roads.
+	city.ground_material.set_shader_parameter("curb_bands",PackedVector4Array([Vector4(35,27.38,365,.27),Vector4(35,51.18,365,.27)]))
 	for x in range(-140,216,12):
 		for z in [27.6,52.4]:
 			ToonKit.box(city,Vector3(.8,.02,.38),"#466079",Vector3(x,.025,z),.01)

@@ -45,11 +45,13 @@ static func run(w: Node3D,checks: Array):
 	car.position=Vector3(person.position.x,.025,person.position.z+.2);car.speed=0;car.velocity=Vector3.ZERO;await w._ticks(150)
 	checks.append([person.knockdown>.45 and person.fall_amount>.95 and person.collision_layer==0,"pedestrian stays down while parked car blocks recovery"])
 	print("BLOCKED_RECOVERY ",person.knockdown," ",person.fall_amount," ",person.can_stand())
-	Input.action_press("forward");var brace_shown=false
-	for i in range(140):
+	Input.action_press("forward");var brace_shown=false;var moved_clear=false
+	for i in range(600):
 		await w._ticks(1)
+		if not moved_clear and car.position.distance_to(person.position)>9:Input.action_release("forward");car.speed=0;moved_clear=true
 		if not brace_shown and person.fall_amount>.35 and person.fall_amount<.7 and person.knockdown<.45:
 			brace_shown=true;await picture(w,out,"03-braced-getup",Vector3(-6,1.7,87),Vector3(0,.9,84.3))
+		if brace_shown and person.knockdown<=0 and person.fall_amount<.01:break
 	Input.action_release("forward");car.speed=0
 	checks.append([brace_shown and person.knockdown<=0 and person.fall_amount<.01 and person.collision_layer==2,"person braces, gets up, then restores standing collision after car moves"])
 	person.frozen=true;car.driver=null;w.player.vehicle=null;car.position=Vector3(210,.1,145);car.collision_layer=0

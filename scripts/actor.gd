@@ -49,6 +49,7 @@ var traffic_evade=0.0
 var traffic_direction=Vector3.ZERO
 var traffic_scan=0.0
 var pose_support=[]
+var vehicle_hurtbox: Area3D
 static var original_meshes={}
 
 func _ready():
@@ -62,6 +63,8 @@ func _ready():
 	else:_human()
 	for group in [body]+arms+elbows+legs+knees:ToonKit.merge_direct(group)
 	ToonKit.outline(rig);ToonKit.finish(rig,true);home=position
+	vehicle_hurtbox=Area3D.new();vehicle_hurtbox.collision_layer=8;vehicle_hurtbox.collision_mask=0;vehicle_hurtbox.monitoring=false;add_child(vehicle_hurtbox)
+	var hit_shape=CollisionShape3D.new();hit_shape.shape=shape.duplicate();vehicle_hurtbox.add_child(hit_shape);_sync_vehicle_hurtbox()
 	if not hero:
 		for n in rig.find_children("*","MeshInstance3D",true,false):
 			var bounds=n.get_aabb();var points=PackedVector3Array()
@@ -119,8 +122,8 @@ func strike(value: String="jab"):
 	if hero:world.aim_assist()
 
 func hurt(amount: float,direction: Vector3,vehicle_hit: bool=false):
-	if hp<=0 or immunity>0:return false
-	if hero and Input.is_action_pressed("guard"):
+	if hp<=0 or (immunity>0 and not vehicle_hit):return false
+	if hero and not vehicle_hit and Input.is_action_pressed("guard"):
 		var facing=Vector3(sin(rotation.y),0,cos(rotation.y))
 		if facing.dot(-direction.normalized())>.05:amount*=.3;guard_flash=.22;heat=minf(100,heat+5)
 	reaction_direction=(global_basis.inverse()*direction).normalized();reaction_direction.y=0
@@ -131,13 +134,14 @@ func hurt(amount: float,direction: Vector3,vehicle_hit: bool=false):
 			panic=8;threat=position-direction.normalized()*2
 			world.alarm_pedestrians(position,threat)
 		if vehicle_hit:
-			knockdown=1.65;stun=1.65;immunity=.75;collision_layer=0;collision_mask=1
+			knockdown=clampf(3.0+amount*.055,3.0,8.5);stun=knockdown;immunity=.75;collision_layer=0;collision_mask=1
 		if hp<=0:
 			down_time=18;collision_layer=0;collision_mask=1
 			if not friendly:world.loot(position)
-	return true
+	_sync_vehicle_hurtbox();return true
 
 func _physics_process(dt):
+	_sync_vehicle_hurtbox()
 	if not world or world.paused or frozen:return
 	traffic_evade=maxf(0,traffic_evade-dt);traffic_scan-=dt;panic=maxf(0,panic-dt);clock+=dt;stun=maxf(0,stun-dt);immunity=maxf(0,immunity-dt);guard_flash=maxf(0,guard_flash-dt);knockdown=maxf(0,knockdown-dt)
 	if not hero:
@@ -241,6 +245,15 @@ func pose():
 		for i in range(2):elbows[i].rotation.x=-.95
 	if knockdown>0:body.position.y-=.24;body.rotation.x=-.25
 	if not hero:pose_recovery()
+	_sync_vehicle_hurtbox()
+
+func _sync_vehicle_hurtbox():
+	if not vehicle_hurtbox:return
+	vehicle_hurtbox.collision_layer=8 if hp>0 and not vehicle and (collision_layer==2 or knockdown>0 or fall_amount>.05) else 0
+	if hero:vehicle_hurtbox.position=Vector3.UP*1.06;vehicle_hurtbox.quaternion=Quaternion.IDENTITY
+	else:
+		vehicle_hurtbox.quaternion=rig.quaternion
+		vehicle_hurtbox.position=rig.position+rig.quaternion*Vector3.UP*.975
 
 func can_stand() -> bool:
 	var shape=CapsuleShape3D.new();shape.radius=.29;shape.height=1.85

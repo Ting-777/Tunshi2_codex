@@ -1,0 +1,362 @@
+{
+  "checks": [
+    [
+      true,
+      "original dolphin hierarchy"
+    ],
+    [
+      true,
+      "map and world share coordinates"
+    ],
+    [
+      true,
+      "four independent wheels"
+    ],
+    [
+      true,
+      "out-of-bounds save fallback"
+    ],
+    [
+      true,
+      "nonfinite save fallback"
+    ],
+    [
+      true,
+      "malformed save fallback"
+    ],
+    [
+      true,
+      "physical sidewalk support"
+    ],
+    [
+      true,
+      "movement action through physics controller"
+    ],
+    [
+      true,
+      "board nearest car"
+    ],
+    [
+      true,
+      "Q inside vehicle does not consume heat"
+    ],
+    [
+      true,
+      "cornering remains grounded"
+    ],
+    [
+      true,
+      "wheel clearance above road"
+    ],
+    [
+      true,
+      "exit car"
+    ],
+    [
+      true,
+      "animated hand contact damages and builds heat"
+    ],
+    [
+      true,
+      "enemy HUD tracks only player hit"
+    ],
+    [
+      true,
+      "M opens map and freezes simulation"
+    ],
+    [
+      true,
+      "M returns to world"
+    ],
+    [
+      true,
+      "unrestricted horizontal camera turns"
+    ],
+    [
+      true,
+      "physical jump"
+    ],
+    [
+      true,
+      "saved player position"
+    ],
+    [
+      true,
+      "saved parked car state"
+    ],
+    [
+      true,
+      "hostile AI approaches and lands a real attack"
+    ],
+    [
+      true,
+      "single hostile has readable recovery windows"
+    ],
+    [
+      true,
+      "held guard reduces an actual enemy strike"
+    ],
+    [
+      true,
+      "Q during dodge does not consume heat"
+    ],
+    [
+      true,
+      "dodge grants its brief invulnerability window"
+    ],
+    [
+      true,
+      "recovery item restores HP and consumes one item"
+    ],
+    [
+      true,
+      "solid wall blocks melee damage"
+    ],
+    [
+      true,
+      "strike destroys world crate and records persistence"
+    ],
+    [
+      true,
+      "world loot pickup credits cash"
+    ],
+    [
+      true,
+      "broken crate remains absent after reload"
+    ],
+    [
+      true,
+      "first combo strike makes hand contact"
+    ],
+    [
+      true,
+      "buffered second attack becomes a cross"
+    ],
+    [
+      true,
+      "third buffered attack connects and knocks enemy down"
+    ],
+    [
+      true,
+      "fallen enemy stands and restores body collision"
+    ],
+    [
+      true,
+      "expired combo returns to first strike"
+    ],
+    [
+      true,
+      "held guard cannot block an attack from behind"
+    ],
+    [
+      true,
+      "pedestrian follows an authored outdoor route"
+    ],
+    [
+      true,
+      "bridge 0 ascent without jumping"
+    ],
+    [
+      true,
+      "bridge 0 descent to flush ground"
+    ],
+    [
+      true,
+      "bridge 1 ascent without jumping"
+    ],
+    [
+      true,
+      "bridge 1 descent to flush ground"
+    ],
+    [
+      true,
+      "bridge 2 ascent without jumping"
+    ],
+    [
+      true,
+      "bridge 2 descent to flush ground"
+    ],
+    [
+      true,
+      "bridge 3 ascent without jumping"
+    ],
+    [
+      true,
+      "bridge 3 descent to flush ground"
+    ],
+    [
+      true,
+      "complete footbridge loop has continuous support"
+    ],
+    [
+      true,
+      "outer railing physically prevents a fall"
+    ],
+    [
+      true,
+      "inner railing physically prevents a fall"
+    ],
+    [
+      true,
+      "car freely crosses road 0 and both sidewalks"
+    ],
+    [
+      true,
+      "car freely crosses road 1 and both sidewalks"
+    ],
+    [
+      true,
+      "car freely crosses road 2 and both sidewalks"
+    ],
+    [
+      true,
+      "car freely crosses road 3 and both sidewalks"
+    ],
+    [
+      true,
+      "car freely crosses road 4 and both sidewalks"
+    ],
+    [
+      true,
+      "car freely crosses road 5 and both sidewalks"
+    ],
+    [
+      true,
+      "car enters riverside promenade freely"
+    ],
+    [
+      true,
+      "car crosses open lawn freely"
+    ],
+    [
+      true,
+      "visible solid obstacles still stop vehicles"
+    ],
+    [
+      true,
+      "ordinary pedestrian takes real animated melee contact"
+    ],
+    [
+      true,
+      "struck pedestrian retreats and flees"
+    ],
+    [
+      true,
+      "forward car knocks pedestrian down"
+    ],
+    [
+      true,
+      "forward impact uses travel direction and car continues"
+    ],
+    [
+      true,
+      "reverse car knocks pedestrian down"
+    ],
+    [
+      true,
+      "reverse impact uses travel direction and car continues"
+    ],
+    [
+      true,
+      "surviving civilian gets up and restores collision"
+    ],
+    [
+      true,
+      "downed civilian does not create enemy cash loot"
+    ],
+    [
+      true,
+      "melee stagger follows impact from left"
+    ],
+    [
+      true,
+      "melee stagger follows impact from right"
+    ],
+    [
+      true,
+      "melee aims at visible reachable target instead of person behind wall"
+    ],
+    [
+      true,
+      "car impact falls in the direction of travel"
+    ],
+    [
+      true,
+      "fallen torso settles onto ground instead of remaining in push-up pose"
+    ],
+    [
+      true,
+      "pedestrian stays down while parked car blocks recovery"
+    ],
+    [
+      true,
+      "person braces, gets up, then restores standing collision after car moves"
+    ],
+    [
+      true,
+      "pedestrian notices approaching car and evades without damage"
+    ],
+    [
+      true,
+      "pedestrian notices reversing car and evades without damage"
+    ],
+    [
+      true,
+      "parked cars do not repeatedly frighten pedestrians"
+    ],
+    [
+      true,
+      "E boards a reachable parked car"
+    ],
+    [
+      false,
+      "ordinary exit has physical support and no body overlap"
+    ],
+    [
+      true,
+      "adjacent parked car blocks one side and E exits on free side"
+    ],
+    [
+      true,
+      "both occupied sides keep driver safely seated"
+    ],
+    [
+      true,
+      "moving a blocking car immediately frees the exit"
+    ],
+    [
+      true,
+      "low obstacle missed by eye-height ray still blocks standing capsule"
+    ],
+    [
+      true,
+      "capsule sweep prevents passing through a post between car and landing"
+    ],
+    [
+      true,
+      "unsupported ledge side is skipped in favor of supported deck"
+    ],
+    [
+      true,
+      "E refuses both unsupported sides instead of dropping player off a ledge"
+    ],
+    [
+      true,
+      "normal low curb remains a usable exit"
+    ],
+    [
+      true,
+      "speed limit still prevents a moving-car exit"
+    ],
+    [
+      true,
+      "solid wall prevents boarding and hides unreachable E prompt"
+    ],
+    [
+      true,
+      "boarding works when actual wall is removed"
+    ]
+  ],
+  "failed": 1,
+  "passed": 88
+}

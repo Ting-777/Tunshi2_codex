@@ -7,7 +7,7 @@ var map_open=false
 var help=false
 var photo=false
 var target: StreetActor
-var target_until=0
+var target_time=0.0
 var notice=""
 var notice_until=0
 const INK=Color("#202a48")
@@ -15,7 +15,9 @@ const PAPER=Color("#fff1d5")
 const ORANGE=Color("#ffca43")
 
 func _ready():mouse_filter=Control.MOUSE_FILTER_IGNORE
-func _process(_dt):queue_redraw()
+func _process(dt):
+	if world and not world.paused:target_time=maxf(0,target_time-dt)
+	queue_redraw()
 func say(value: String):notice=value;notice_until=Time.get_ticks_msec()+3400
 func panel(r: Rect2,color: Color=INK):
 	var cut=9.0;draw_colored_polygon(PackedVector2Array([r.position,r.position+Vector2(r.size.x,0),r.end-Vector2(0,cut),r.end-Vector2(cut,0),r.position+Vector2(0,r.size.y)]),color)
@@ -27,17 +29,22 @@ func _draw():
 	if menu:
 		draw_rect(Rect2(0,0,580,900),Color(.07,.17,.22,.94));txt("DOLPHIN  2",Vector2(65,112),28,ORANGE);txt("豚师2",Vector2(58,240),94);txt("上海风云",Vector2(65,303),48);draw_line(Vector2(65,340),Vector2(480,340),ORANGE,4);txt("陆家嘴  /  LUJIAZUI",Vector2(65,393),27);txt("沿江兜风，拐进街头。",Vector2(65,452),23,Color("#b6cebe"));txt("原生 Godot · 都市卡通版 · 无剧情自由漫游",Vector2(65,502),17,Color("#b6cebe"));panel(Rect2(65,615,385,70),ORANGE);txt("开始漫游    →",Vector2(106,661),29,INK);txt("点击或按 Enter 开始",Vector2(65,724),19);txt("WASD 移动   鼠标视角   M 地图",Vector2(65,812),18);return
 	panel(Rect2(30,26,315,76));draw_rect(Rect2(30,26,6,76),ORANGE);txt("豚师2  ·  上海风云",Vector2(53,58),23);txt("LUJIAZUI  /  陆家嘴",Vector2(53,86),16,Color("#c5d8ed"));panel(Rect2(1300,26,270,62));txt("¥ "+str(world.money)+"   M 地图",Vector2(1320,65),22)
-	panel(Rect2(30,116,250,57));txt("豚师",Vector2(45,139),15);draw_rect(Rect2(45,149,218,8),Color("#4d5876"));draw_rect(Rect2(45,149,218*world.player.hp/100,8),Color("#5fe1bc"));panel(Rect2(30,180,250,46));txt("热血",Vector2(45,202),14,ORANGE);draw_rect(Rect2(93,191,170,9),Color("#4d5876"));draw_rect(Rect2(93,191,170*world.player.heat/100,9),ORANGE)
+	panel(Rect2(30,116,250,57));txt("豚师  "+str(int(ceil(world.player.hp)))+" / 100",Vector2(45,139),15);draw_rect(Rect2(45,149,218,8),Color("#4d5876"));draw_rect(Rect2(45,149,218*world.player.hp/100,8),Color("#5fe1bc"));panel(Rect2(30,180,250,46));txt("热血",Vector2(45,202),14,ORANGE);draw_rect(Rect2(93,191,170,9),Color("#4d5876"));draw_rect(Rect2(93,191,170*world.player.heat/100,9),ORANGE)
 	_minimap()
 	if Time.get_ticks_msec()<world.combo_expiry:
 		panel(Rect2(30,238,250,69));txt(str(world.combo_hits)+"  连击",Vector2(46,272),27,ORANGE);txt("三段连打 · 收招击倒",Vector2(46,294),14)
 	if world.player.guard_flash>0:txt("格挡",Vector2(728,720),26,ORANGE)
-	if is_instance_valid(target) and Time.get_ticks_msec()<target_until:
+	if is_instance_valid(target) and target_time>0:
 		panel(Rect2(625,33,350,60));txt("路人" if target.friendly else "重拳打手" if target.role=="bruiser" else "街头打手",Vector2(643,58),18);draw_rect(Rect2(643,70,314,7),Color("#485d60"));draw_rect(Rect2(643,70,314*target.hp/target.max_hp,7),ORANGE)
 	if Time.get_ticks_msec()<notice_until:
 		var w=ToonKit.font().get_string_size(notice,HORIZONTAL_ALIGNMENT_LEFT,-1,20).x+46;panel(Rect2(800-w/2,117,w,46));txt(notice,Vector2(823-w/2,147),20)
 	if world.player.vehicle:
-		panel(Rect2(1300,710,270,115));txt(str(int(absf(world.player.vehicle.speed)*3.6))+" km/h",Vector2(1320,754),36);txt("W/S 油门刹车 · A/D 转向",Vector2(1320,784),15);txt("空格 手刹 · E 下车",Vector2(1320,808),15)
+		var car=world.player.vehicle;var ratio=clampf(car.hp/car.max_hp,0,1)
+		panel(Rect2(1280,668,290,157));txt(str(int(absf(car.speed)*3.6))+" km/h",Vector2(1300,708),34)
+		txt("车况  "+str(int(ceil(car.hp)))+" / "+str(int(car.max_hp)),Vector2(1300,736),17,ORANGE if ratio>.3 else Color("#ff806a"))
+		draw_rect(Rect2(1300,746,248,10),Color("#48576d"));draw_rect(Rect2(1300,746,248*ratio,10),Color("#5fe1bc") if ratio>.5 else ORANGE if ratio>.25 else Color("#ff806a"))
+		txt("W/S 油门刹车 · A/D 转向" if car.hp>0 else "失去动力 · 停稳后下车",Vector2(1300,784),15);txt("空格 手刹 · E 下车",Vector2(1300,808),15)
+		if car.damage_flash>0:draw_rect(Rect2(0,0,1600,900),Color(1,.22,.12,minf(.14,car.damage_flash*.28)))
 	elif world.near_car():panel(Rect2(626,742,348,47));txt("E  上车 · 沿江兜风",Vector2(665,774),22)
 	if help:
 		panel(Rect2(1185,120,385,410));txt("操作",Vector2(1210,158),26,ORANGE);var lines=["WASD  移动    鼠标  视角","空格  跳跃    X  蹲下","左键  连击    R 重击    F 踢击","右键 / G 闪避    B 格挡","Q 热血爆发    E 上下车","M 地图    1 恢复体力","F5 保存    F9 读取","Esc 暂停    F11 全屏"]

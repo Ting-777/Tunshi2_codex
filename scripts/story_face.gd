@@ -82,21 +82,19 @@ func _patch(parent: Node3D,points: PackedVector2Array,color: String,offset: floa
 func _eye(side: int):
 	var center=Vector3(side*.139,.078,0)
 	var eye=_detail("EyeLeft" if side<0 else "EyeRight");eye.position=center;eyes.append(eye)
-	var width=.105 if role!="pange" else .108
-	var height=.045 if role!="pange" else .041
+	# Soft oval contours and a generous iris keep the expression friendly.
+	# Every layer follows the head surface, so a large iris cannot sink into
+	# the sclera when the face turns. No pointed corners or upward eye slant.
+	var width=.076 if role!="pange" else .078
+	var height=.061
 	for layer in range(2):
-		var outline=1.12 if layer==0 else 1.0;var points=PackedVector2Array()
-		for i in range(17):
-			var u=i/16.0;var x=(u*2-1)*width*outline
-			points.append(Vector2(center.x+x,center.y+sin(PI*u)*height*outline+side*x*.055))
-		for i in range(16,-1,-1):
-			var u=i/16.0;var x=(u*2-1)*width*outline
-			points.append(Vector2(center.x+x,center.y-sin(PI*u)*height*.69*outline+side*x*.055))
-		_patch(eye,points,"#634d43" if layer==0 else "#f9f3e6",.010+layer*.003,center)
-	var iris_center=_front(center.x,center.y+.002,.020)-center
-	ToonKit.orb(eye,Vector3(.031,.031,.007),"#664a35" if role=="xuanshen" else "#4b4939",iris_center)
-	ToonKit.orb(eye,Vector3(.016,.022,.004),"#222c32",iris_center+Vector3(0,0,.006))
-	ToonKit.orb(eye,Vector3(.008,.008,.003),"#fff8e7",iris_center+Vector3(-.008,.011,.011))
+		var outline=1.07 if layer==0 else 1.0
+		_patch(eye,_oval(Vector2(center.x,center.y),Vector2(width,height)*outline),"#8a6758" if layer==0 else "#fff5e4",.010+layer*.003,center)
+	var iris_center=Vector2(center.x,center.y-.003)
+	_patch(eye,_oval(iris_center,Vector2(.047,.052)),"#69523d" if role=="xuanshen" else "#435562",.018,center)
+	_patch(eye,_oval(iris_center,Vector2(.028,.037)),"#202e37",.021,center)
+	_patch(eye,_oval(iris_center+Vector2(-.012,.018),Vector2(.012,.013)),"#fffbed",.024,center)
+	_patch(eye,_oval(iris_center+Vector2(.013,-.017),Vector2(.0045,.0045)),"#e9f2e7",.025,center)
 	var lid=_detail("ClosedLidLeft" if side<0 else "ClosedLidRight");closed_lids.append(lid);lid.visible=false
 	var points=PackedVector2Array()
 	for edge in [1,-1]:
@@ -105,16 +103,23 @@ func _eye(side: int):
 			points.append(Vector2(center.x+x,center.y-.010*sin(PI*t)+edge*.0035*sin(PI*t)))
 	_patch(lid,points,"#73564b",.016)
 
+func _oval(center: Vector2,radius: Vector2) -> PackedVector2Array:
+	var points=PackedVector2Array()
+	for i in range(48):
+		var angle=TAU*i/48.0
+		points.append(center+Vector2(cos(angle),sin(angle))*radius)
+	return points
+
 func _brow(side: int):
 	var origin=Vector3(side*.139,.173,0)
 	var brow=_detail("BrowLeft" if side<0 else "BrowRight");brow.position=origin;brows.append(brow)
-	var points=PackedVector2Array();var width=.109;var thickness=.020 if role=="pange" else .015
+	var points=PackedVector2Array();var width=.089;var thickness=.013 if role=="pange" else .011
 	for edge in [1,-1]:
 		for j in range(13):
 			var u=(j if edge==1 else 12-j)/12.0;var x=(u*2-1)*width
-			var arch=sin(PI*u)*.020+side*x*(.12 if role=="xuanshen" else .025)
-			points.append(Vector2(origin.x+x,origin.y+arch+edge*thickness*(.3+.7*sin(PI*u))))
-	_patch(brow,points,"#3c3433",.013,origin)
+			var arch=sin(PI*u)*.012+side*x*(.015 if role=="xuanshen" else 0.0)
+			points.append(Vector2(origin.x+x,origin.y+arch+edge*thickness*(.5+.5*sin(PI*u))))
+	_patch(brow,points,"#59473e",.013,origin)
 
 func _mouth_mesh(opening: float,width_scale: float) -> ArrayMesh:
 	var v=PackedVector3Array();var n=PackedVector3Array();var indices=PackedInt32Array();var colors=PackedColorArray()
@@ -171,7 +176,7 @@ func _glasses_and_headphones(head: Node3D):
 			var cy=.041 if corner<2 else -.041
 			for j in range(5):
 				var angle=(corner*PI/2)+j*PI/8
-				points.append(_front(side*.139+cx+.035*cos(angle),.079+cy+.026*sin(angle),.040))
+				points.append(_front(side*.139+cx+.035*cos(angle),.079+cy+.034*sin(angle),.040))
 		for i in range(points.size()):ToonKit.rod(frames,points[i],points[(i+1)%points.size()],.009,"#343b42")
 		ToonKit.rod(frames,_front(side*.252,.10,.034),Vector3(side*.345,.10,-.025),.009,"#343b42")
 		ToonKit.orb(head,Vector3(.065,.145,.125),"#38414b",Vector3(side*.355,.068,-.016))

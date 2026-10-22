@@ -1,7 +1,7 @@
 {
-  "version": "0.5.2-cast-faces",
+  "version": "0.5.3-round-eyes",
   "created": "2026-10-22",
-  "scope": "finished-game character face refinement; enclosed voiced prologue and preserved Lujiazui free roam",
+  "scope": "soft rounded cartoon eyes for the human cast; voiced prologue and preserved Lujiazui free roam",
   "excluded": "Godot and OS binaries, generated builds/import caches, private upload sessions, new native screenshots/videos and conversation galleries, first-game media/site deployment config",
   "files": {
     ".gitattributes": {
@@ -20,19 +20,19 @@
       "git_blob": "66bf513dc249fa494f3f90601f84f145c31c34aa"
     },
     "AGENTS.md": {
-      "bytes": 10891,
-      "sha256": "e6fbbb8bdc83ca7219384afa694137148a7689555e08dfe7c654620b116986d0",
-      "git_blob": "f8a3ed9ed4c13dd78dcdc6d686b46ce226f0df75"
+      "bytes": 11355,
+      "sha256": "17f4c9a0ad7d06f6b4070da4655bafb0ae8ba36c78299c28f7164579ee208c6b",
+      "git_blob": "a1f16dfe8cbada46478e824b54a5dd49387ce713"
     },
     "README.md": {
-      "bytes": 8095,
-      "sha256": "bcfb34e5f4ca486aabcd43f5a7f376aaaae7a912af41f0244030c7c6122c58b4",
-      "git_blob": "83367a1ddc607b018b980a77f196d70a330dd801"
+      "bytes": 8376,
+      "sha256": "5473be8f0829bb580abae46cc9d8d62c8a04377782cb74e2403e7ba92e70697d",
+      "git_blob": "5e737ac9d3487ab591a0cc0cbd8736ae765d7087"
     },
     "VERSION": {
       "bytes": 6,
-      "sha256": "26e0ab83aa1ff6bd0ae3882787a92663aa19db128e1241ffc99375fb9ca0c121",
-      "git_blob": "cb0c939a936f142669d38cf1ece330266d730965"
+      "sha256": "27ecff1fcdaf65ab46c1bb99c1072d6d134a0e8dd97dd95cfa88696b9ed453b2",
+      "git_blob": "be14282b7fffb9ba95d51c6546ed9816dc8f3ff8"
     },
     "assets/dialogue/prologue.json": {
       "bytes": 4212,
@@ -330,9 +330,9 @@
       "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
     },
     "docs/ART-DIRECTION.md": {
-      "bytes": 2307,
-      "sha256": "1e918f4764a1546efc6d3947411bbb9d1d6f0166a9ae898d4a296fb6fc74ff89",
-      "git_blob": "cd278090f8264fa1f84ef2846b705834dc5097f7"
+      "bytes": 2670,
+      "sha256": "98b6337ae26f7c47077633cef92bcd7458de9c67ac344a4e1596e4a094713b5b",
+      "git_blob": "f35af07869e6d76db59daa0cbc38e95d431830c7"
     },
     "docs/DEVELOPMENT-LESSONS.md": {
       "bytes": 4746,
@@ -345,9 +345,9 @@
       "git_blob": "0e3ba08d6b2e8cf435241829c96f10b74e4356fe"
     },
     "docs/NEW-CHAT-HANDOFF.md": {
-      "bytes": 13619,
-      "sha256": "f4d61c7b67b407779546927ecaa7beca36f8cc7e2a7938aac93c92629ecfb95f",
-      "git_blob": "11f7c366e99fdef0a2ebe44e8bcde37be9a9607b"
+      "bytes": 14313,
+      "sha256": "70b268d873e2fafbdf567aaf6a67b39bb40f13e9970308a43782fdd745f1fefc",
+      "git_blob": "340913bfbb427f6f48ccf74ff2483b0f886cf403"
     },
     "docs/NOTO-LICENSE.txt": {
       "bytes": 4301,
@@ -355,14 +355,14 @@
       "git_blob": "d952d62c065f3f35fb83a173496e90b21525aef3"
     },
     "docs/PROLOGUE.md": {
-      "bytes": 7599,
-      "sha256": "48538636962e4794af4b698ea1405a80512f39e954a4e50003d66b9b0d0306c4",
-      "git_blob": "f9469be14c2c10339d1a48fdb682afe8df949bac"
+      "bytes": 8027,
+      "sha256": "c3d3431d3b540f159a31fbe59a830f1c49c5029d6897b641b09dca9daeabda13",
+      "git_blob": "2853a67109a16a99d721d23dca60c47ef7b53e8d"
     },
     "docs/RELEASE-NOTES.md": {
-      "bytes": 1247,
-      "sha256": "3ab7fef0f12cfa32e6ac9f37a911849d81e8019a9cca235ea9f5780fbbae21d2",
-      "git_blob": "16538af8a7900e3e3a36c9d3adf40fe1c27c355f"
+      "bytes": 954,
+      "sha256": "31f49ec1c64e8a86f8aabb4f0b25f53abb28eb3bb191e1c9e4d8d504802333e7",
+      "git_blob": "2b2f14da26f2e76bf72cf97ae0c2317c24ec657b"
     },
     "docs/STORY-OUTLINE.md": {
       "bytes": 21340,
@@ -390,9 +390,9 @@
       "git_blob": "d8433ca06091956440d930d7ca2c81c885468766"
     },
     "docs/WORK-CHECKPOINT.md": {
-      "bytes": 16492,
-      "sha256": "f161438f3dff4b9cf983f1dda0f5ec389efa2c70ab51df9340890816ad1278bb",
-      "git_blob": "ce6a8385cc5b7906452cfabd5f5b2a97b27a63e4"
+      "bytes": 17244,
+      "sha256": "0ebbe1f04e8c5d4fa068b8885348f73f4887f511f33534add42834c8652d057d",
+      "git_blob": "d60eb39639ced9fb8b9b7a50fe1373ba65daa1fb"
     },
     "docs/original-dolphin-source.js": {
       "bytes": 2345,
@@ -420,9 +420,9 @@
       "git_blob": "43ae0996bfef45131b6fe52761ab7c7fce345ebd"
     },
     "docs/verification/TEST-REPORT.md": {
-      "bytes": 21573,
-      "sha256": "302a374a50bd451139da6cf67bab3e428272b87cf07a3c07841bb027790cd248",
-      "git_blob": "03a121269e33aaaf98658f53185849560e838936"
+      "bytes": 22464,
+      "sha256": "81e8eb3070732f6089a7a50ebc15b1a1cbde8f5a4f1b3e6733b25e0ed0691a3d",
+      "git_blob": "ab91cb0ab44c7a384122ef9fb929e98237917205"
     },
     "docs/verification/baseline-v040/TEST-REPORT.md": {
       "bytes": 3447,
@@ -914,6 +914,11 @@
       "sha256": "12761262ea7ea71f15ded32e7f19059a2e8745ad78f03101b1494b3f215a5c5b",
       "git_blob": "7b5a23b72fe3e7a2749bb762135825245eded18b"
     },
+    "docs/verification/v053/internal-eye-review.log": {
+      "bytes": 775,
+      "sha256": "52a6f137b434d1c1f80179175ff8f18152749466cc97cabacd7e7f0ff38519e9",
+      "git_blob": "400869eeba48d54893849fdf8a58d2ce3242976f"
+    },
     "docs/verification/windows-20261021/export.log": {
       "bytes": 3656,
       "sha256": "179e542b9e1c777dc26fe8a8778064cb663245e01900995f8b1ff636cecfef45",
@@ -956,8 +961,8 @@
     },
     "export_presets.cfg": {
       "bytes": 1602,
-      "sha256": "4ed1c4b11cc708c20a8be682525116cbf1666bd405d87129bc5860bfa3014954",
-      "git_blob": "801004917344b5890ead7c4090c37b1a4ce1afcf"
+      "sha256": "1862cadbfa31fa4c13db10924baec1888784f43d4a4e613a18bf86fc740d8de3",
+      "git_blob": "c756e9613dccf3d384cd0978fadf1ffa5e88799f"
     },
     "launchers/Fresh-Start.cmd": {
       "bytes": 43,
@@ -971,8 +976,8 @@
     },
     "project.godot": {
       "bytes": 709,
-      "sha256": "d46e8fbe6a502ec3faabdc09c8d6640f9160516cda269aeb17cac0c13c95e84b",
-      "git_blob": "4ccab87362dfb97b7939137e848d8782cf8badae"
+      "sha256": "8fe2cf56a447458cc97cd79f8390dc3268746b52f4c6463d33790aae2cf23f18",
+      "git_blob": "9816b18d7741aecb23b6f612d91e043b33dfb917"
     },
     "reference/tunshi1/.gdignore": {
       "bytes": 0,
@@ -1806,8 +1811,8 @@
     },
     "scripts/prologue_hud.gd": {
       "bytes": 7285,
-      "sha256": "8154d1015cd8547675eb7c3fb61b2ac5443f8e264a17a9b2ed85e2a98314fbe5",
-      "git_blob": "301194479ab1ffc928d8ba543cbb6ab3b05e6fcb"
+      "sha256": "5f1c7af02d58617040a006fadab1276526d1743dec4c6a7019ca5f944fee792f",
+      "git_blob": "0675065969dcf20242e786223b92297970ddf45c"
     },
     "scripts/prologue_hud.gd.uid": {
       "bytes": 19,
@@ -1845,9 +1850,9 @@
       "git_blob": "745a70de3af703fc106aaeb62931ae06619c35cc"
     },
     "scripts/story_face.gd": {
-      "bytes": 10229,
-      "sha256": "f94ef1704106dbba86be8a07462f6c5cb972a7751e0be0925b2b8ef68cb7b20b",
-      "git_blob": "378717633da2adb10fe7cc4bec711b241d6fe37f"
+      "bytes": 10448,
+      "sha256": "e855d3e3d1d0a586715ac9b50a853f2c6bb2d771fcd5a3fce365410c4f308c4a",
+      "git_blob": "f2f1fcb4927381f37d088b61d037f8f5c0571e69"
     },
     "scripts/story_face.gd.uid": {
       "bytes": 20,

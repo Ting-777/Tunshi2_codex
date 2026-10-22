@@ -109,7 +109,7 @@ func _menu():
 	for i in range(buttons.size()):
 		var rect=Rect2(63,466+i*77,475,62);panel(rect,ORANGE if i==0 else Color("#3a4e64"));txt(buttons[i][0],rect.position+Vector2(24,41),25,INK if i==0 else PAPER)
 	txt("W/S 选择 · Enter 确定 · 支持鼠标",Vector2(64,824),17)
-	txt("0.5.2 · 原生 Godot · Windows / Linux",Vector2(64,861),15,Color("#91b5bd"))
+	txt("0.5.3 · 原生 Godot · Windows / Linux",Vector2(64,861),15,Color("#91b5bd"))
 	draw_circle(Vector2(555,497+world.menu_selection*77),8,ORANGE)
 
 func menu_click(p: Vector2):

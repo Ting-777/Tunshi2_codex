@@ -1,0 +1,47 @@
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+     at: get_executable_path (drivers/unix/os_unix.cpp:1136)
+WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
+     at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:364)
+OpenGL API 4.5 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+PROLOGUE_READY
+NATIVE_SCREENSHOT /workspace/scratch/3d92bbc90dae/Tunshi2_codex/builds/prologue-round-35/00-title.png
+NATIVE_SCREENSHOT /workspace/scratch/3d92bbc90dae/Tunshi2_codex/builds/prologue-round-35/01-eight-newborns.png
+NATIVE_SCREENSHOT /workspace/scratch/3d92bbc90dae/Tunshi2_codex/builds/prologue-round-35/02-moving-the-yellow-car.png
+NATIVE_SCREENSHOT /workspace/scratch/3d92bbc90dae/Tunshi2_codex/builds/prologue-round-35/03-first-family-photo.png
+NATIVE_SCREENSHOT /workspace/scratch/3d92bbc90dae/Tunshi2_codex/builds/prologue-round-35/04-eight-boys-at-home.png
+NATIVE_SCREENSHOT /workspace/scratch/3d92bbc90dae/Tunshi2_codex/builds/prologue-round-35/05-shanghai-invitation.png
+NATIVE_SCREENSHOT /workspace/scratch/3d92bbc90dae/Tunshi2_codex/builds/prologue-round-35/06-prologue-complete.png
+PASS title does not create story progress
+PASS dialogue freezes movement
+PASS eight separately numbered newborn models
+PASS distant interaction cannot complete nursery objective
+PASS hospital wall blocks interaction with the queen behind it
+PASS prologue uses actual movement input and collisions
+PASS E at nursery counts all eight and starts family dialogue
+PASS birth leads to playable departure courtyard
+PASS luggage cannot skip making room for the family vehicle
+PASS ordinary E boarding uses existing safe vehicle controller
+PASS real courtyard wall impact injures both car and seated hero
+PASS mechanic rescue recovers a damaged car without skipping the objective
+PASS real throttle and handbrake reach the marked parking space
+PASS parking requires leaving the car
+PASS stopped safe exit completes parking objective
+PASS pickup visibly transfers the luggage to the hero
+PASS mid-carry checkpoint restores a recoverable bag and parked car
+PASS loading changes the visible world and unlocks the photograph
+PASS all eight actual babies join the family photograph
+PASS photo stages the hero, family and dedicated camera
+PASS years-later transition replaces eight newborns with eight schoolboys
+PASS Shanghai invitation waits for time with the children
+PASS three distinct family conversations unlock the telephone
+PASS repeated family conversation cannot duplicate progress
+PASS remote friends invite the family without teleporting into the home
+PASS prologue completes and persists only after the family promise
+PASS completed checkpoint resumes the home with all eight children
+PASS pause menu stops actual movement input
+PASS automated story checks preserve the normal player save
+PASS original hero geometry remains byte-identical
+DRAW_CALLS 936.0
+TEST_RESULT 30 passed; 0 failed

@@ -2,6 +2,8 @@
 
 本轮用户明确要求按照章节大纲和角色图完成序章，并要求以后每次开发后发布 Windows 可直接运行的 GitHub Release。此授权已覆盖序章的剧情、医院/家中场景；下面旧的“无任务、无室内”范围属于历史。第一部 Sites 仍不改动。
 
+已完成合并PR #2，游戏提交5f07df1；[Windows直接运行包v0.5.0](https://github.com/Ting-777/Tunshi2_codex/releases/tag/v0.5.0)已发布。Windows main CI完整107/107、序章30/30、解压EXE30/30；最终Linux PCK原生序章30/30。公开ZIP重新下载、SHA256/CRC/PE/PCK均核对通过。新序章没有GPU实机广泛验收，详见验收报告顶部。
+
 当前入口 scenes/boot.tscn：正常启动进入序章标题，可开始/继续序章，也可单独进入原陆家嘴漫游。漫游暂停按 T 返回序章标题。原 --test/--capture 参数继续进入漫游专项；序章用 --test --test-prologue。完整流程、存档、角色图转译和验收边界见 [PROLOGUE.md](PROLOGUE.md)，全篇剧情见 [STORY-OUTLINE.md](STORY-OUTLINE.md)。
 
 保留原版豚师 JSON。听歌、攀哥、炫神以及八子依据本对话角色图制作程序化模型；八子婴儿与长大造型均实际存在。序章是长沙出生、挪车搬行李、合照、数年后陪孩子和上海邀约；第一章尚未开发。原有107项战斗/车辆/地面回归保留。

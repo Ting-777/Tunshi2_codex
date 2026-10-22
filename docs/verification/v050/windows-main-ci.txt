@@ -1,0 +1,14 @@
+Windows main CI: https://github.com/Ting-777/Tunshi2_codex/actions/runs/39715226123
+Source: 5f07df17fcdc711861fb4223498dd04b2ce80666
+Official GitHub job log excerpts (no screenshots):
+2026-10-22T03:09:19.3885624Z Godot 4.5.2 verified and ready.
+2026-10-22T03:09:20.1311796Z Original Noto Sans CJK SC Bold font restored; SHA256 verified.
+2026-10-22T03:09:29.0295012Z import: exit 0; evidence: D:\a\Tunshi2_codex\Tunshi2_codex\builds\ci-import
+2026-10-22T03:09:34.0215403Z export: exit 0; evidence: D:\a\Tunshi2_codex\Tunshi2_codex\builds\ci-pack
+2026-10-22T03:12:35.4588523Z Tests: 107 passed, 0 failed
+2026-10-22T03:12:35.4589067Z test: exit 0; evidence: D:\a\Tunshi2_codex\Tunshi2_codex\builds\ci-full
+2026-10-22T03:12:45.8926656Z Tests: 30 passed, 0 failed
+2026-10-22T03:12:45.8929796Z test: exit 0; evidence: D:\a\Tunshi2_codex\Tunshi2_codex\builds\ci-prologue
+2026-10-22T03:12:52.5424368Z D:\a\Tunshi2_codex\Tunshi2_codex\builds\artifacts\Dolphin2-Shanghai-Windows-v0.5.0.zip (49084540 bytes; SHA256 4623459d222500cd4a190120de2d1aec8daa2f9d2530f8e4555fc61cb9943435)
+2026-10-22T03:13:03.2762986Z Unpacked Windows EXE: 30 passed; automatic PCK discovery verified.
+2026-10-22T03:13:12.6359631Z https://github.com/Ting-777/Tunshi2_codex/releases/tag/v0.5.0

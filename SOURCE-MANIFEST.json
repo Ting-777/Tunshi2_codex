@@ -1,7 +1,7 @@
 {
-  "version": "0.4.6-windows-dev",
-  "created": "2026-10-21",
-  "scope": "native game source, original dolphin geometry, text verification records and chapter I-IV source reference; legacy v044 images already tracked at migration remain unchanged",
+  "version": "0.5.0-prologue",
+  "created": "2026-10-22",
+  "scope": "playable Changsha prologue and Lujiazui free roam; native source, original hero geometry, text verification and historical chapter I-IV references",
   "excluded": "Godot and OS binaries, generated builds/import caches, private upload sessions, new native screenshots/videos and conversation galleries, first-game media/site deployment config",
   "files": {
     ".gitattributes": {
@@ -9,20 +9,30 @@
       "sha256": "93fc1811c9148c27e5b6fcbb12255cfdad79445b150c2abc53b9a24f1d29bb55",
       "git_blob": "cfa573a45787ece0d79fbe29aded373f65d7dfcc"
     },
+    ".github/workflows/windows-release.yml": {
+      "bytes": 3660,
+      "sha256": "67af421e29d00cae85b84c037311ba245100da4b1d8a364adb1480fd0d3f2f4a",
+      "git_blob": "365fda333ab5f4c6cdcad6e7b9879668e3eb2f9e"
+    },
     ".gitignore": {
       "bytes": 547,
       "sha256": "5bf15f50669275c272a6dae271d5b0fff1233d4e9ec4562e287724ae0c6e9cfe",
       "git_blob": "36d05c2994f7ec08d8e045a6b6a8cbd73420d932"
     },
     "AGENTS.md": {
-      "bytes": 5049,
-      "sha256": "d6a2a1bd25cc5043f2bda0f2db5006676f35bf7ef95a54846a511bdb6e62f4ee",
-      "git_blob": "da674c60b20d04e228498de906dd758d2225b6fb"
+      "bytes": 7361,
+      "sha256": "e108164c67dd7ddb49a1c1b2f96f308acfa30a951a5cc684e252ec66704f5787",
+      "git_blob": "e385a0cc88281779714b95d8bf8dec84f8818cf0"
     },
     "README.md": {
-      "bytes": 6098,
-      "sha256": "916c69f34bda7e97fb7592a35fbda0bfa01c4124884faae058c1bf1a65eca23f",
-      "git_blob": "53272254242f018f9312c68943755dd156c093ff"
+      "bytes": 7300,
+      "sha256": "3b4d07877f7f0295ed53af50aa2f1f5e86c334b8ebc853f50032e9cdfd595820",
+      "git_blob": "a040e56021b56c7e17bc0d5a6d10fd82b01e972d"
+    },
+    "VERSION": {
+      "bytes": 6,
+      "sha256": "a0ad50640139a524f86591157145bf1d4674ea9c065bfea21558f0f7b04430c8",
+      "git_blob": "8f0916f768f0487bcf8d33827ce2c8dcecb645c1"
     },
     "assets/fonts/Chinese.otf": {
       "bytes": 17002248,
@@ -55,14 +65,29 @@
       "git_blob": "0e3ba08d6b2e8cf435241829c96f10b74e4356fe"
     },
     "docs/NEW-CHAT-HANDOFF.md": {
-      "bytes": 8212,
-      "sha256": "efd18e3c74f94da0f945ef0136cd9539fa0001d455d166b75d1c0d615b97ca01",
-      "git_blob": "c1256f7a8f9eebf0281c16da3c56fd8aa48d749c"
+      "bytes": 10158,
+      "sha256": "6dca1a506556915eff00b0360b21b8c16fb1c5b484d618158951cc2e93e7b7b1",
+      "git_blob": "f19ab4c6afd0097491a0dd7ad51d6929866d3b86"
     },
     "docs/NOTO-LICENSE.txt": {
       "bytes": 4301,
       "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
       "git_blob": "d952d62c065f3f35fb83a173496e90b21525aef3"
+    },
+    "docs/PROLOGUE.md": {
+      "bytes": 4276,
+      "sha256": "ca66e5059db2140e37e6f8cbf3ee1112f73121fbe11c58e32624696de56c168b",
+      "git_blob": "2a00bef0459352450590953ae76ef2c9fb53b47f"
+    },
+    "docs/RELEASE-NOTES.md": {
+      "bytes": 1134,
+      "sha256": "8930f36a962e1bc87914da99288dd16d28b7ab82bea6366787f124dc6c8d4db6",
+      "git_blob": "29b06ad86b83697b92bc938c0747a3e909e54ff4"
+    },
+    "docs/STORY-OUTLINE.md": {
+      "bytes": 21340,
+      "sha256": "4971861228b050714f3bdb66684e6428640ae7d9b5d2528023eaab49e0b05d57",
+      "git_blob": "03d170dec09d0624b8f9d836fa9e6626e7a62203"
     },
     "docs/TUNSHI1-GAMEPLAY.md": {
       "bytes": 8005,
@@ -80,14 +105,14 @@
       "git_blob": "b33f89b7ec19ef4cbad6d9317ce409b576d44a7c"
     },
     "docs/WINDOWS-DEVELOPMENT.md": {
-      "bytes": 3372,
-      "sha256": "78841ad2d81416cb8d1299eeef364258c41696df3455573474ce7dbeba67595e",
-      "git_blob": "c6bc7c0221353b0da977d2a22d7df1254e71f162"
+      "bytes": 4882,
+      "sha256": "837f05c951c7acca55bd899b0dd130954dde7e6bc7067d63b03c2611c07d1d05",
+      "git_blob": "d8433ca06091956440d930d7ca2c81c885468766"
     },
     "docs/WORK-CHECKPOINT.md": {
-      "bytes": 11614,
-      "sha256": "867b71901da323bc25a72cf801333716a751b6328e18b63fe4bd60fb456a0570",
-      "git_blob": "96263e967058d68f91a7232f67ac16fe192f5341"
+      "bytes": 13251,
+      "sha256": "3d3ba1fe573a2c69c2d178812a92c8dae259b81a1a03ff5edf81103839e129ca",
+      "git_blob": "7c8d33773ec7d32bfcbd6f020645e3a9dec3d788"
     },
     "docs/original-dolphin-source.js": {
       "bytes": 2345,
@@ -115,9 +140,9 @@
       "git_blob": "43ae0996bfef45131b6fe52761ab7c7fce345ebd"
     },
     "docs/verification/TEST-REPORT.md": {
-      "bytes": 12609,
-      "sha256": "beef299904415f27f953cf37534eead25ddb7535a4d445133b8fe2146bc97a56",
-      "git_blob": "883fe988bf1adbc7bc892e88e59311d453de5986"
+      "bytes": 16223,
+      "sha256": "93d89e50a9ef96bdc0bbc07a33d7dc5108ecee46be5185d8272b08729d3f56ec",
+      "git_blob": "204deef1260f58a7b1753ea68de78b4666afeb8e"
     },
     "docs/verification/baseline-v040/TEST-REPORT.md": {
       "bytes": 3447,
@@ -484,6 +509,61 @@
       "sha256": "4bd1bb62d99aee2412e0db31b8e674f73d6bece02eb15c449aef46c9fd941109",
       "git_blob": "364832e7d70d0a486da9ef80eb8e1739a6d7e404"
     },
+    "docs/verification/v050/download-verification.txt": {
+      "bytes": 339,
+      "sha256": "a9520be9fa45c212dc03ca810b69f20681f64d69bfdb1092dfb9bfd0bf200966",
+      "git_blob": "d685abf2ee6cefeb500d8b2753971b3ae5b5da7c"
+    },
+    "docs/verification/v050/export.log": {
+      "bytes": 7670,
+      "sha256": "9dffb83b5a78d23f364d9db944487f6f383128891e9c72d9486db1450195b153",
+      "git_blob": "c699c1d6e53cc12e4d2db364e889b0a9e2d54c57"
+    },
+    "docs/verification/v050/final-native-results.json": {
+      "bytes": 2630,
+      "sha256": "c270d1bc183b3d4824f60e7a547df0964bb09553dd104957d6e9e3697487c3f3",
+      "git_blob": "8eebb63109af29f3deed0d458453cd9b10af0797"
+    },
+    "docs/verification/v050/final-native.log": {
+      "bytes": 3103,
+      "sha256": "0dee3a1c72536e7678fe1d75f2546478c5c60e560e3b32217ddd63254ab5d505",
+      "git_blob": "67588688dc3e0f414ec127844c7885142970644b"
+    },
+    "docs/verification/v050/packed-full-results.json": {
+      "bytes": 8476,
+      "sha256": "d259de947909094ff3a9cafef6b78cc6a441c4551d3b7faba7d48246256c2955",
+      "git_blob": "7bd52b4c840ed0b6afe053c36c9f4d5ab632656f"
+    },
+    "docs/verification/v050/packed-full.log": {
+      "bytes": 8154,
+      "sha256": "2da82d8194969bd29a17f176df2e1e7ca080bb0323340d477282a9204e20a3b1",
+      "git_blob": "9a11a66d5a5d94db1cd24f6ceb07a14f576831a9"
+    },
+    "docs/verification/v050/prologue-source-results.json": {
+      "bytes": 2630,
+      "sha256": "c270d1bc183b3d4824f60e7a547df0964bb09553dd104957d6e9e3697487c3f3",
+      "git_blob": "8eebb63109af29f3deed0d458453cd9b10af0797"
+    },
+    "docs/verification/v050/prologue-source.log": {
+      "bytes": 1874,
+      "sha256": "82b350f7cb0f2c4dbb4246981527e8143d796cd237f92a24fd248bd2e2241cbb",
+      "git_blob": "14d1dea46ee283621fcdfb71aac822470d3fd15f"
+    },
+    "docs/verification/v050/release.json": {
+      "bytes": 795,
+      "sha256": "b84198db204d93954dd4288e7fcc0e23e6400f6362e653c3b574e9da245b744a",
+      "git_blob": "96b0e3c3aaa958cdcd78853879f679d20f0b2d30"
+    },
+    "docs/verification/v050/windows-main-ci.txt": {
+      "bytes": 1257,
+      "sha256": "44c5abdada2f12e2467aea4dd42b13ddf0dea7c93d549aa1f1088f743b833847",
+      "git_blob": "a30d3651098c793336aba5cb7137c6d1faf8e4a0"
+    },
+    "docs/verification/v050/windows-pr-ci.txt": {
+      "bytes": 1164,
+      "sha256": "ccd0ea55be5ef68dbd2d9ad20249283ee0e7f1c1dbcf20d0366b5bd41119c49f",
+      "git_blob": "d5d6bac617f0edda35551684ebb5c2e344a3abd1"
+    },
     "docs/verification/windows-20261021/export.log": {
       "bytes": 3656,
       "sha256": "179e542b9e1c777dc26fe8a8778064cb663245e01900995f8b1ff636cecfef45",
@@ -526,8 +606,8 @@
     },
     "export_presets.cfg": {
       "bytes": 1516,
-      "sha256": "c3cb01c26cc6d2ed8eaa8fe394e8b3287ef4a6a5965deb11c4095d2c0c909115",
-      "git_blob": "7a8e7f55920872191378e4a47d913a4a5038f12b"
+      "sha256": "a1a0dbfad53b54795a0fc0ead1c0ff4f8d110c34754c7c56f0182f56b6876306",
+      "git_blob": "e535e40ac6c26b7e78ba832164f80662f270989a"
     },
     "launchers/Fresh-Start.cmd": {
       "bytes": 43,
@@ -540,9 +620,9 @@
       "git_blob": "f79b76107684a2b82a6aa0d6a32faa5b18f2ae4c"
     },
     "project.godot": {
-      "bytes": 705,
-      "sha256": "2b5ff3ebd9776c3e25645bf6d94e4f4f9639a4c8338f5c3b41ca67caa05b3de3",
-      "git_blob": "f35cd8f0d0588105d3233565a11f690af1b18821"
+      "bytes": 709,
+      "sha256": "f76a159dc28ce6d1ca1a730e39652ec88b1e83f0f24218bb684f81bf8a63190b",
+      "git_blob": "2248beb790c437a41749ca80550143de21047fcc"
     },
     "reference/tunshi1/.gdignore": {
       "bytes": 0,
@@ -1199,10 +1279,20 @@
       "sha256": "a159fd1a6f05daf480ec1ec3b6c277c60dabbf3a96162af271d4cbb8079c4e1c",
       "git_blob": "8445ac749ddca6bfcdc524cb1683988e1c2fc705"
     },
+    "scenes/boot.tscn": {
+      "bytes": 159,
+      "sha256": "467693ddd2dbafbd4242cb618ce8912d4e34a75b437b48a60f05b9a1f7cd01fe",
+      "git_blob": "dcd54e00f5e069f55ea21b4f6d6dfbc7d67225fe"
+    },
     "scenes/main.tscn": {
       "bytes": 161,
       "sha256": "983a6baf8671ea401fea5df501ca170bd7c1b8bfec2bfff37b0525f51557e140",
       "git_blob": "7458abc5687bc2b4b5ff2a784ff7f6e2eb9a0625"
+    },
+    "scenes/prologue.tscn": {
+      "bytes": 166,
+      "sha256": "e1df012946b2d25d317bd1c5dbba59906d78ef4118f0479081d54b73b16b37f8",
+      "git_blob": "b4626905d5bcb9f4714bfc3e85363c4feeac5654"
     },
     "scripts/actor.gd": {
       "bytes": 16325,
@@ -1213,6 +1303,16 @@
       "bytes": 20,
       "sha256": "f19ec24b8962ab954b45725ed70fba65cda6ddf8f42cf13facc4103c893303eb",
       "git_blob": "50d9e8e63cf2ab9f0635af89ee3da3cd9d37662d"
+    },
+    "scripts/boot.gd": {
+      "bytes": 345,
+      "sha256": "412d525cdbf8b8724320b58aad5ea005c7d5c836001fca97f6b765c4c012f06e",
+      "git_blob": "b21297d2e76946d8147bee9bf19e4dc87ff1227b"
+    },
+    "scripts/boot.gd.uid": {
+      "bytes": 20,
+      "sha256": "056d376bb81cbcbe0abb169999d80b73b5ab9d9e945c644a754764173b43d7ef",
+      "git_blob": "bebdb0495f70ee3aa315e3cefac5b734e65aaae5"
     },
     "scripts/bridge.gd": {
       "bytes": 4619,
@@ -1265,9 +1365,9 @@
       "git_blob": "af2a3d8c1b07a3c688fd56607f9fae943fbdf5e1"
     },
     "scripts/hud.gd": {
-      "bytes": 8333,
-      "sha256": "164883201c4cdd863679f9e082e07514204fff63cd620cc3248d43aa9a6f324b",
-      "git_blob": "d9684203334952e53d0770efd9be14540cbe9327"
+      "bytes": 8388,
+      "sha256": "cdb89a447a0ac15021d2f586d6b10b1218b6d62176333636c0a3ca5c50a7c2a5",
+      "git_blob": "f89e0520c7c7bed5cf1df5e9880cdce1d50ffeb8"
     },
     "scripts/hud.gd.uid": {
       "bytes": 20,
@@ -1295,9 +1395,9 @@
       "git_blob": "9230143d0f8f41af44940aa563819b4df00635d5"
     },
     "scripts/main.gd": {
-      "bytes": 33145,
-      "sha256": "fb35f0e3a9c22f53b574ddb7e843090a5706b198d9eaca94146f42c26250699f",
-      "git_blob": "530f84551ea7402ff582fa28b771e58e74e16ce0"
+      "bytes": 33420,
+      "sha256": "af8e9a8d89cc36870f03b0b3e443b3e11f6efe111522f6843424b1e583fcad0e",
+      "git_blob": "abb5be0444b676030266e01c021f952fa88142e4"
     },
     "scripts/main.gd.uid": {
       "bytes": 20,
@@ -1323,6 +1423,56 @@
       "bytes": 20,
       "sha256": "b3b340922d278b2163167b6fc417af380afde7480b194371b0c98c7114d73a6d",
       "git_blob": "57f3716bf5c7562d1320ab05180dc7973784ca5b"
+    },
+    "scripts/prologue.gd": {
+      "bytes": 17809,
+      "sha256": "3c4fb1ecdcc2a9f3c6e1ffabb2d7f5d5d028e0fa570285d9788b0cf673c99b05",
+      "git_blob": "9f3ee5e59aca89b0fb80143d39518983b45ec02a"
+    },
+    "scripts/prologue.gd.uid": {
+      "bytes": 19,
+      "sha256": "51020ad834535593539deec5d0890f5b940ba171bbf32018a58f4d8a6140f87e",
+      "git_blob": "b50f6390c3a58d01f82e9e1a46d7eb168ca639fb"
+    },
+    "scripts/prologue_checks.gd": {
+      "bytes": 6732,
+      "sha256": "cccb03dbc3e3516720febbc82c8a11f0c4e68c056c86a5b8fc5afaeded803a54",
+      "git_blob": "bba33783ec253c63900ba5af45d84bbbaa9bb7fc"
+    },
+    "scripts/prologue_checks.gd.uid": {
+      "bytes": 20,
+      "sha256": "7fad7c9217e5ed1833e562b353be27357531efad4d57a7692633bce39444f0bd",
+      "git_blob": "4d397a232c021664a243ade572a47982b0204c2a"
+    },
+    "scripts/prologue_hud.gd": {
+      "bytes": 4313,
+      "sha256": "2553955c067f9e66057a2a337e8579f650623d7a1c2c8f09a8704ec034e5c0c7",
+      "git_blob": "a1a7d7ac1383996ade972cdde7b59a23834600d2"
+    },
+    "scripts/prologue_hud.gd.uid": {
+      "bytes": 19,
+      "sha256": "213ce79aa24fcd6eca4a418d9f86a2bface08bc897b7ef4270b16058081c7208",
+      "git_blob": "46c2f2cadb8f0dd8b328e84ed67ca0aedef3dd24"
+    },
+    "scripts/prologue_set.gd": {
+      "bytes": 8432,
+      "sha256": "855dc8a823efea322c2c362fad6fe4371f3a6d10f5b9c8d8acb9747339cbdc4d",
+      "git_blob": "a69f4a77eaba8282357f5c74d67d063d4478ddef"
+    },
+    "scripts/prologue_set.gd.uid": {
+      "bytes": 20,
+      "sha256": "ec374d385b3f882a7671a44ecda3b69a60b68d42af91b41264afaf3cd791802a",
+      "git_blob": "5d2fe897f192e3ea56ea5b183a09f62d9b52adbc"
+    },
+    "scripts/story_cast.gd": {
+      "bytes": 5365,
+      "sha256": "63d725ca987323648628b95f470c0ef180a6b328de2217f6cd3499a76672196b",
+      "git_blob": "bd954168abf87d48a9a935ff0039c12947cfd50f"
+    },
+    "scripts/story_cast.gd.uid": {
+      "bytes": 19,
+      "sha256": "db579b0ea806c911a313a4bd13ae95f778d6903df08a547fd42b62f8e4a39e50",
+      "git_blob": "503df2103ab364d5713e6b8c19d72a3b532de549"
     },
     "scripts/vehicle.gd": {
       "bytes": 8976,
@@ -1425,9 +1575,9 @@
       "git_blob": "515d91b18ee38bfab250f375fe7979e43a77d2ff"
     },
     "tools/capture.py": {
-      "bytes": 4156,
-      "sha256": "32332e384e7f9c4e9e4d2cdef806943fed67080638883cd50dd1dbce4a42a4e8",
-      "git_blob": "1da86ae61a9e4ccebe8f594b2736efd682870b8e"
+      "bytes": 4296,
+      "sha256": "c1ec92ac59ba4849a7b86ae7721ed11752781e9bf4c3c71718fbf3a44d2b867b",
+      "git_blob": "34be67a44d61761fcb20fc7961d31efad30b331d"
     },
     "tools/capture_ground.gd": {
       "bytes": 1132,
@@ -1454,6 +1604,11 @@
       "sha256": "2fa9da71279111bbd3d870da54369eba3719e71a0b71806661701b7cd7ae834b",
       "git_blob": "435b6e72e04ac622671350e22a32735e1ff019aa"
     },
+    "tools/fetch_engine.py": {
+      "bytes": 2258,
+      "sha256": "a88423e7e6f2e67578e5aef0859d4851ca60b73d40d499ff22f5cfc512bfa28c",
+      "git_blob": "93e0d1f037f5f7f9546d82b9a185917d5146d1ef"
+    },
     "tools/fetch_templates.py": {
       "bytes": 1680,
       "sha256": "fc277f85ef2a87e636ffbef9d3fbd355faefe2459616fb29d405d9890aa87807",
@@ -1465,9 +1620,9 @@
       "git_blob": "5b14440c41693ac9a9e3a923e424945655f7e1c2"
     },
     "tools/package_windows.py": {
-      "bytes": 1089,
-      "sha256": "fd6d904eda0b02d16d2c57728dbe992584a12e14c849ac09f58d13181c249eab",
-      "git_blob": "15eb72c39dbe9ee8b2a93bab0f7246aa8e8a8ed2"
+      "bytes": 2281,
+      "sha256": "5318495b7429224fdde7baa1e8b9e298e51ddbe0cc1d1bc31a982938d1f21b1b",
+      "git_blob": "d3d5a83d3ed93e3731ee78937dad974ba2a639dc"
     },
     "tools/restore_assets.py": {
       "bytes": 1057,
@@ -1475,22 +1630,19 @@
       "git_blob": "1dc48fb79d644faae5e449a8bb833f84f443b3b7"
     },
     "tools/run_native.py": {
-      "bytes": 6908,
-      "sha256": "35e62c4eccf2d7ecc19725ed04685cc8167aa7c407a31c4d2f3b3eae8cef85f7",
-      "git_blob": "d3f5105978e4f5fbe931e3e4604bd5ac27b55ab7"
+      "bytes": 7004,
+      "sha256": "f1eb7d5498f7b2f88d3dc1aef95ec61a6c9109793588f721257af8bc316da593",
+      "git_blob": "1d5da0883ec3fe4ca0e574f5570ed6b0b1bc74bd"
     },
     "tools/verify_source.py": {
       "bytes": 898,
       "sha256": "b0bfbbad10a4a38908b1cdf8ad9a87ad28404161238ba430cea55baaac540468",
       "git_blob": "51f893c5ceeac078ce320b34df4f0cd2f8050511"
+    },
+    "tools/verify_windows_zip.py": {
+      "bytes": 1195,
+      "sha256": "6dfb5539f99b3bc4a07c5c81c7b4b0353c94dad17d17def01a3ed33609fad768",
+      "git_blob": "a06f7a64c98f820021c09b62aa31c43c6d3b5afe"
     }
-  },
-  "restored_assets": {
-    "assets/fonts/Chinese.otf": {
-      "command": "python3 tools/restore_assets.py",
-      "official_url": "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Bold.otf",
-      "sha256": "b5f0d1a190a7f9b43c310a8850630af12553df32c4c050543f9059732d9b4c0a"
-    }
-  },
-  "source_base": "b77ba90"
+  }
 }

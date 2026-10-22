@@ -1,0 +1,35 @@
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+
+PROLOGUE_READY
+PASS title does not create story progress
+PASS dialogue freezes movement
+PASS eight separately numbered newborn models
+PASS distant interaction cannot complete nursery objective
+PASS hospital wall blocks interaction with the queen behind it
+PASS prologue uses actual movement input and collisions
+PASS E at nursery counts all eight and starts family dialogue
+PASS birth leads to playable departure courtyard
+PASS luggage cannot skip making room for the family vehicle
+PASS ordinary E boarding uses existing safe vehicle controller
+PASS real courtyard wall impact injures both car and seated hero
+PASS mechanic rescue recovers a damaged car without skipping the objective
+PASS real throttle and handbrake reach the marked parking space
+PASS parking requires leaving the car
+PASS stopped safe exit completes parking objective
+PASS pickup visibly transfers the luggage to the hero
+PASS mid-carry checkpoint restores a recoverable bag and parked car
+PASS loading changes the visible world and unlocks the photograph
+PASS all eight actual babies join the family photograph
+PASS photo stages the hero, family and dedicated camera
+PASS years-later transition replaces eight newborns with eight schoolboys
+PASS Shanghai invitation waits for time with the children
+PASS three distinct family conversations unlock the telephone
+PASS repeated family conversation cannot duplicate progress
+PASS remote friends invite the family without teleporting into the home
+PASS prologue completes and persists only after the family promise
+PASS completed checkpoint resumes the home with all eight children
+PASS pause menu stops actual movement input
+PASS automated story checks preserve the normal player save
+PASS original hero geometry remains byte-identical
+DRAW_CALLS 0.0
+TEST_RESULT 30 passed; 0 failed

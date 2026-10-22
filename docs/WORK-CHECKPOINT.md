@@ -1,3 +1,15 @@
+# 2026-10-22 / 0.5.0 可玩序章与 Windows Release
+
+从main7854ca5恢复，字体恢复与原296项清单先通过。按用户新授权实现长沙序章，原版豚师JSON完全不变；三位朋友及八子按角色图制作程序化造型，小朋友沿用粉色王冠/蝴蝶结家庭形象。剧情总纲入库为STORY-OUTLINE.md，实现边界见PROLOGUE.md。出生、挪车、搬行李、合照、数年后八子生活、上海邀约均可连续操作；第一章未做。
+
+原独立PCK完整107/107、源码序章30/30、最终PCK原生OpenGL序章30/30。Windows PR CI再次独立PCK107/107及30/30，解压后EXE自动找到PCK并通过30/30。PR #2已合并main5f07df1。main Windows再次验证通过并已发布[v0.5.0](https://github.com/Ting-777/Tunshi2_codex/releases/tag/v0.5.0)，公开ZIP重新下载校验通过。 详细证据见verification/TEST-REPORT.md顶部和v050。
+
+第32–35轮各7张真实原生截图均在本轮聊天内展示，不上传GitHub、Release或源码；图集是工作区根目录dolphin-prologue-latest.html和dolphin-prologue-rounds.html，非工程依赖。Reload the full visualize skill before creating or updating a visualization.
+
+后续每轮完成更新VERSION、project.godot/export版本和RELEASE-NOTES.md，合并main后必须等待Windows构建/回归/发布成功并给用户可直接运行ZIP。已加入自动工作流及AGENTS要求。故事档、漫游档和两套测试档彼此分开。标题可进入漫游，漫游暂停T回序章标题。不要因旧文档的“无任务”限制撤销用户本轮明确要求的剧情开发；第一部Sites继续不变。
+
+---
+
 # 2026-10-21 / Windows 本地恢复与开发入口
 
 从最新 main b77ba90 克隆，初始无本地改动。Python 3.12.0；Godot 4.5.2.stable.official.6ce3de25a，官方 ZIP SHA512 校验通过；Noto 字体与原版豚师 SHA256 均通过。Windows 自动 CRLF 曾导致清单误报，恢复 LF 后原285项检查通过，新增 .gitattributes 固定 LF。

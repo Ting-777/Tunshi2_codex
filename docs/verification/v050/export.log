@@ -1,0 +1,135 @@
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+   at: get_executable_path (drivers/unix/os_unix.cpp:1136)
+
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+   at: get_executable_path (drivers/unix/os_unix.cpp:1136)
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+   at: get_executable_path (drivers/unix/os_unix.cpp:1136)
+[   0% ] first_scan_filesystem | Started Project initialization (5 steps)
+[   0% ] first_scan_filesystem | Scanning file structure...
+[  16% ] first_scan_filesystem | Loading global class names...
+[  33% ] first_scan_filesystem | Verifying GDExtensions...
+[  50% ] first_scan_filesystem | Creating autoload scripts...
+[  66% ] first_scan_filesystem | Initializing plugins...
+[  83% ] first_scan_filesystem | Starting file scan...
+[ DONE ] first_scan_filesystem
+
+[   0% ] _update_scan_actions | Started Scanning actions... (14 steps)
+[   0% ] _update_scan_actions | 00-title.jpg
+[   6% ] _update_scan_actions | 00-title.png
+[  13% ] _update_scan_actions | 01-eight-newborns.jpg
+[  20% ] _update_scan_actions | 01-eight-newborns.png
+[  26% ] _update_scan_actions | 02-moving-the-yellow-car.jpg
+[  33% ] _update_scan_actions | 02-moving-the-yellow-car.png
+[  40% ] _update_scan_actions | 03-first-family-photo.jpg
+[  46% ] _update_scan_actions | 03-first-family-photo.png
+[  53% ] _update_scan_actions | 04-eight-boys-at-home.jpg
+[  60% ] _update_scan_actions | 04-eight-boys-at-home.png
+[  66% ] _update_scan_actions | 05-shanghai-invitation.jpg
+[  73% ] _update_scan_actions | 05-shanghai-invitation.png
+[  80% ] _update_scan_actions | 06-prologue-complete.jpg
+[  86% ] _update_scan_actions | 06-prologue-complete.png
+[ DONE ] _update_scan_actions
+
+[   0% ] reimport | Started (Re)Importing Assets (14 steps)
+[   0% ] reimport | Preparing files to reimport...
+[   6% ] reimport | Preparing files to reimport...
+[  13% ] reimport | Preparing files to reimport...
+[  20% ] reimport | Preparing files to reimport...
+[  26% ] reimport | Preparing files to reimport...
+[  33% ] reimport | Preparing files to reimport...
+[  40% ] reimport | Preparing files to reimport...
+[  46% ] reimport | Preparing files to reimport...
+[  53% ] reimport | Preparing files to reimport...
+[  60% ] reimport | Preparing files to reimport...
+[  66% ] reimport | Preparing files to reimport...
+[  73% ] reimport | Preparing files to reimport...
+[  80% ] reimport | Preparing files to reimport...
+[  86% ] reimport | Preparing files to reimport...
+[   0% ] reimport | Executing pre-reimport operations...
+[   0% ] reimport | 00-title.jpg
+[   6% ] reimport | 00-title.png
+[  13% ] reimport | 01-eight-newborns.jpg
+[  20% ] reimport | 01-eight-newborns.png
+[  26% ] reimport | 02-moving-the-yellow-car.jpg
+[  33% ] reimport | 02-moving-the-yellow-car.png
+[  40% ] reimport | 03-first-family-photo.jpg
+[  46% ] reimport | 03-first-family-photo.png
+[  53% ] reimport | 04-eight-boys-at-home.jpg
+[  60% ] reimport | 04-eight-boys-at-home.png
+[  66% ] reimport | 05-shanghai-invitation.jpg
+[  73% ] reimport | 05-shanghai-invitation.png
+[  80% ] reimport | 06-prologue-complete.jpg
+[  86% ] reimport | 06-prologue-complete.png
+[  93% ] reimport | Finalizing Asset Import...
+[ DONE ] reimport
+
+[   0% ] reimport | Started (Re)Importing Assets (14 steps)
+[   0% ] reimport | Executing post-reimport operations...
+[ DONE ] reimport
+
+[   0% ] savepack | Started Packing (102 steps)
+[   1% ] savepack | Storing File: res://.godot/imported/Chinese.otf-1366d598b3177cdbbcc18f4717bd5def.fontdata
+[   1% ] savepack | Storing File: res://assets/fonts/Chinese.otf.import
+[   3% ] savepack | Storing File: res://assets/original_dolphin.json
+[   6% ] savepack | Storing File: res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn
+[   9% ] savepack | Storing File: res://shaders/urban-light.gdshaderinc
+[  12% ] savepack | Storing File: res://scripts/story_cast.gdc
+[  15% ] savepack | Storing File: res://shaders/facade.gdshader
+[  18% ] savepack | Storing File: res://shaders/city-sky.gdshader
+[  21% ] savepack | Storing File: res://shaders/river.gdshader
+[  24% ] savepack | Storing File: res://scripts/decor.gdc
+[  27% ] savepack | Storing File: res://.godot/exported/133200997/export-bf165fa0e2913fd6b827b85076c6c54e-prologue.scn
+[  30% ] savepack | Storing File: res://scripts/pearl.gdc
+[  33% ] savepack | Storing File: res://scripts/boot.gdc
+[  35% ] savepack | Storing File: res://scripts/prologue_checks.gdc
+[  38% ] savepack | Storing File: res://shaders/outline.gdshader
+[  41% ] savepack | Storing File: res://scripts/frontage.gdc
+[  44% ] savepack | Storing File: res://scripts/bridge.gdc
+[  47% ] savepack | Storing File: res://scripts/prologue_set.gdc
+[  50% ] savepack | Storing File: res://scripts/actor.gdc
+[  52% ] savepack | Storing File: res://scripts/prologue.gdc
+[  55% ] savepack | Storing File: res://scripts/impact_checks.gdc
+[  58% ] savepack | Storing File: res://scripts/prologue_hud.gdc
+[  61% ] savepack | Storing File: res://shaders/urban-cel.gdshader
+[  64% ] savepack | Storing File: res://scripts/city.gdc
+[  66% ] savepack | Storing File: res://.godot/exported/133200997/export-c3c40bb4d42d26c7c74cc88080d6723d-boot.scn
+[  69% ] savepack | Storing File: res://scripts/polish_checks.gdc
+[  72% ] savepack | Storing File: res://shaders/pavement.gdshader
+[  75% ] savepack | Storing File: res://scripts/vehicle.gdc
+[  78% ] savepack | Storing File: res://scripts/gameplay_checks.gdc
+[  81% ] savepack | Storing File: res://scripts/vehicle_checks.gdc
+[  84% ] savepack | Storing File: res://scripts/kit.gdc
+[  87% ] savepack | Storing File: res://shaders/urban-cel-double.gdshader
+[  90% ] savepack | Storing File: res://SOURCE-MANIFEST.json
+[  93% ] savepack | Storing File: res://scripts/hud.gdc
+[  96% ] savepack | Storing File: res://scripts/main.gdc
+[  96% ] savepack | Storing File: res://scenes/main.tscn.remap
+[  96% ] savepack | Storing File: res://scripts/story_cast.gd.remap
+[  96% ] savepack | Storing File: res://scripts/decor.gd.remap
+[  96% ] savepack | Storing File: res://scenes/prologue.tscn.remap
+[  96% ] savepack | Storing File: res://scripts/pearl.gd.remap
+[  96% ] savepack | Storing File: res://scripts/boot.gd.remap
+[  96% ] savepack | Storing File: res://scripts/prologue_checks.gd.remap
+[  96% ] savepack | Storing File: res://scripts/frontage.gd.remap
+[  96% ] savepack | Storing File: res://scripts/bridge.gd.remap
+[  96% ] savepack | Storing File: res://scripts/prologue_set.gd.remap
+[  96% ] savepack | Storing File: res://scripts/actor.gd.remap
+[  96% ] savepack | Storing File: res://scripts/prologue.gd.remap
+[  96% ] savepack | Storing File: res://scripts/impact_checks.gd.remap
+[  96% ] savepack | Storing File: res://scripts/prologue_hud.gd.remap
+[  96% ] savepack | Storing File: res://scripts/city.gd.remap
+[  96% ] savepack | Storing File: res://scenes/boot.tscn.remap
+[  96% ] savepack | Storing File: res://scripts/polish_checks.gd.remap
+[  96% ] savepack | Storing File: res://scripts/vehicle.gd.remap
+[  96% ] savepack | Storing File: res://scripts/gameplay_checks.gd.remap
+[  96% ] savepack | Storing File: res://scripts/vehicle_checks.gd.remap
+[  96% ] savepack | Storing File: res://scripts/kit.gd.remap
+[  96% ] savepack | Storing File: res://scripts/hud.gd.remap
+[  96% ] savepack | Storing File: res://scripts/main.gd.remap
+[  96% ] savepack | Storing File: res://.godot/global_script_class_cache.cfg
+[  96% ] savepack | Storing File: res://.godot/uid_cache.bin
+[  96% ] savepack | Storing File: res://project.binary
+[ DONE ] savepack
+

@@ -1,0 +1,126 @@
+{
+  "checks": [
+    [
+      true,
+      "title does not create story progress"
+    ],
+    [
+      true,
+      "dialogue freezes movement"
+    ],
+    [
+      true,
+      "eight separately numbered newborn models"
+    ],
+    [
+      true,
+      "distant interaction cannot complete nursery objective"
+    ],
+    [
+      true,
+      "hospital wall blocks interaction with the queen behind it"
+    ],
+    [
+      true,
+      "prologue uses actual movement input and collisions"
+    ],
+    [
+      true,
+      "E at nursery counts all eight and starts family dialogue"
+    ],
+    [
+      true,
+      "birth leads to playable departure courtyard"
+    ],
+    [
+      true,
+      "luggage cannot skip making room for the family vehicle"
+    ],
+    [
+      true,
+      "ordinary E boarding uses existing safe vehicle controller"
+    ],
+    [
+      true,
+      "real courtyard wall impact injures both car and seated hero"
+    ],
+    [
+      true,
+      "mechanic rescue recovers a damaged car without skipping the objective"
+    ],
+    [
+      true,
+      "real throttle and handbrake reach the marked parking space"
+    ],
+    [
+      true,
+      "parking requires leaving the car"
+    ],
+    [
+      true,
+      "stopped safe exit completes parking objective"
+    ],
+    [
+      true,
+      "pickup visibly transfers the luggage to the hero"
+    ],
+    [
+      true,
+      "mid-carry checkpoint restores a recoverable bag and parked car"
+    ],
+    [
+      true,
+      "loading changes the visible world and unlocks the photograph"
+    ],
+    [
+      true,
+      "all eight actual babies join the family photograph"
+    ],
+    [
+      true,
+      "photo stages the hero, family and dedicated camera"
+    ],
+    [
+      true,
+      "years-later transition replaces eight newborns with eight schoolboys"
+    ],
+    [
+      true,
+      "Shanghai invitation waits for time with the children"
+    ],
+    [
+      true,
+      "three distinct family conversations unlock the telephone"
+    ],
+    [
+      true,
+      "repeated family conversation cannot duplicate progress"
+    ],
+    [
+      true,
+      "remote friends invite the family without teleporting into the home"
+    ],
+    [
+      true,
+      "prologue completes and persists only after the family promise"
+    ],
+    [
+      true,
+      "completed checkpoint resumes the home with all eight children"
+    ],
+    [
+      true,
+      "pause menu stops actual movement input"
+    ],
+    [
+      true,
+      "automated story checks preserve the normal player save"
+    ],
+    [
+      true,
+      "original hero geometry remains byte-identical"
+    ]
+  ],
+  "failed": 0,
+  "passed": 30
+}

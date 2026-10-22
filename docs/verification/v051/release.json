@@ -1,0 +1,20 @@
+{
+  "tag": "v0.5.1",
+  "url": "https://github.com/Ting-777/Tunshi2_codex/releases/tag/v0.5.1",
+  "source": "135db900b8099550faf27efbf25d8d2676dc6dc9",
+  "prerelease": true,
+  "assets": [
+    {
+      "name": "Dolphin2-Shanghai-Windows-v0.5.1.sha256",
+      "size": 104,
+      "url": "https://github.com/Ting-777/Tunshi2_codex/releases/download/v0.5.1/Dolphin2-Shanghai-Windows-v0.5.1.sha256",
+      "digest": "sha256:fb333f755306bb0f1f9c235d0b628e2a70ba576220fc8002d4e539ff2f483b2f"
+    },
+    {
+      "name": "Dolphin2-Shanghai-Windows-v0.5.1.zip",
+      "size": 50363525,
+      "url": "https://github.com/Ting-777/Tunshi2_codex/releases/download/v0.5.1/Dolphin2-Shanghai-Windows-v0.5.1.zip",
+      "digest": "sha256:4886b2e796145f462ed9a42af3e78572e500cd46b8948d1d3f1ec75c4ac3f3d5"
+    }
+  ]
+}

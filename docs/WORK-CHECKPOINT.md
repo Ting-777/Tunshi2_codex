@@ -1,3 +1,15 @@
+# 2026-10-22 / 0.5.1 室内、引导、配音与演出
+
+从main038bb2e恢复，先读交接及第一部资料并恢复官方Noto字体。按用户四项反馈补齐医院与家中实体屋顶、灯具、分区和家具；医院/儿童房自动玻璃门与玄关旋转木门有真实碰撞。任务显示世界位置、距离和屏幕外方向，跨室内外先引导经过门。54段中文TTS随包离线播放，V开关、C自动对白。开场起身、出院、集合、挥手合照/快门、成长蒙太奇和全家出发有镜头及角色动作，支持跳过与暂停，禁止保存半截转场。原版豚师JSON字节不变，原陆家嘴与0.5.0序章检查点保留。
+
+源码序章51/51，最终独立PCK原生OpenGL序章51/51（PCK SHA256 d55ab01c1b77ea9511c36a9ce280279cd61c33d9b572d9c93b2ac12180eb6683）。54个MP3全部完成解码与非静音检查。Windows PR CI完整107/107、序章51/51、解压EXE51/51，通过后PR #3合并main135db900b8099550faf27efbf25d8d2676dc6dc9。main同样全部通过并发布[v0.5.1](https://github.com/Ting-777/Tunshi2_codex/releases/tag/v0.5.1)，公开ZIP已重新下载核对哈希、CRC、x64 PE、PCK和版本。详细证据见验收报告顶部及verification/v051。
+
+第36–38轮各12张真实原生截图在本轮聊天图集展示：第36轮点光叠加泛白，已修正室内shader；第37轮光照正确，随后补严儿童房隔墙、将幼子放卧并错开目标标签；第38轮为最终导出PCK。新增截图、视频、图集都未上传GitHub或Release；原始捕获只在ignored builds/。图集为工作区根目录dolphin-prologue-v051-latest.html与dolphin-prologue-v051-rounds.html，前者另含实际游戏语音试听。Reload the full visualize skill before creating or updating a visualization.
+
+第一章仍未制作。此次Windows证据为无显示CI，图形证据为Linux Xvfb/Mesa软件渲染，不声称通过新版本Windows显卡实机或广泛性能验收。下一轮继续既有画风、原模型和用户具体反馈；不得依据下方旧“无配音、无室内”记录删除新功能。每轮结束仍须提供Windows Release。
+
+---
+
 # 2026-10-22 / 0.5.0 可玩序章与 Windows Release
 
 从main7854ca5恢复，字体恢复与原296项清单先通过。按用户新授权实现长沙序章，原版豚师JSON完全不变；三位朋友及八子按角色图制作程序化造型，小朋友沿用粉色王冠/蝴蝶结家庭形象。剧情总纲入库为STORY-OUTLINE.md，实现边界见PROLOGUE.md。出生、挪车、搬行李、合照、数年后八子生活、上海邀约均可连续操作；第一章未做。

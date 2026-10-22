@@ -1,0 +1,14 @@
+# Windows PR CI / v0.5.1
+Run: https://github.com/Ting-777/Tunshi2_codex/actions/runs/39720733525
+Source: 4f9298145c84f99137a7b1e02653313bf0a30c58
+Result: success; headless Windows runner, not GPU hardware verification.
+
+2026-10-22T04:09:42.5860108Z import: exit 0; evidence: D:\a\Tunshi2_codex\Tunshi2_codex\builds\ci-import
+2026-10-22T04:09:48.2317332Z export: exit 0; evidence: D:\a\Tunshi2_codex\Tunshi2_codex\builds\ci-pack
+2026-10-22T04:12:49.5090781Z Tests: 107 passed, 0 failed
+2026-10-22T04:12:49.5091605Z test: exit 0; evidence: D:\a\Tunshi2_codex\Tunshi2_codex\builds\ci-full
+2026-10-22T04:13:16.3823917Z Tests: 51 passed, 0 failed
+2026-10-22T04:13:16.3824657Z test: exit 0; evidence: D:\a\Tunshi2_codex\Tunshi2_codex\builds\ci-prologue
+2026-10-22T04:13:23.3911839Z D:\a\Tunshi2_codex\Tunshi2_codex\builds\artifacts\Dolphin2-Shanghai-Windows-v0.5.1.zip (50363525 bytes; SHA256 4ad94796bce84c7323a1c6756c8f5529ad0bf7a32787ec502029f7ee83776116)
+2026-10-22T04:13:50.4794513Z Unpacked Windows EXE: 51 passed; automatic PCK discovery verified.
+

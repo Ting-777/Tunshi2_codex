@@ -2,7 +2,9 @@
 
 用户指出0.5.0室内过于简陋、缺屋顶与门，目标不明、无配音、转场硬切。本轮实现实体天花板与完整室内，医院自动门和玄关木门、儿童睡眠区；带距离/屏幕边缘箭头的目标点、先经过门口的跨室内外指引；54段随包离线中文TTS；起身、集合、合照、成长和出发的镜头与角色动作。E/Enter跳过、Esc暂停，V配音、C自动对白。原版豚师几何与陆家嘴系统保留。
 
-新检查51项，见PROLOGUE.md；Windows发布前仍需CI完整107项、序章51项和解压EXE51项全部通过。新增MP3是用户要求的游戏语音资源，允许随源码和PCK提交；截图/视频仍只在对话展示，不入库。下面0.5.0记录保留作历史，不能据旧文档删除本轮功能。
+PR #3已合并，游戏提交135db900b8099550faf27efbf25d8d2676dc6dc9；[Windows直接运行包v0.5.1](https://github.com/Ting-777/Tunshi2_codex/releases/tag/v0.5.1)已发布。Windows PR与main均完整107/107、序章51/51、解压EXE51/51；最终本地PCK原生序章51/51，第38轮12张实拍。公开ZIP重新下载校验通过；详见verification/TEST-REPORT.md顶部及v051。此版尚未做Windows GPU硬件验收。
+
+51项序章检查见PROLOGUE.md。新增MP3是用户要求的游戏语音资源，允许随源码和PCK提交；第36–38轮各12张截图仍只在对话图集展示，不入库或Release。下一轮先恢复最新main和字体，再继续用户具体反馈。下面0.5.0记录保留作历史，不能据旧文档删除本轮功能。Reload the full visualize skill before creating or updating a visualization.
 
 ---
 

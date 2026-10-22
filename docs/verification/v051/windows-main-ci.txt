@@ -1,0 +1,15 @@
+# Windows main release / v0.5.1
+Run: https://github.com/Ting-777/Tunshi2_codex/actions/runs/39721259021
+Source: 135db900b8099550faf27efbf25d8d2676dc6dc9
+Result: success; headless Windows runner, not GPU hardware verification.
+
+2026-10-22T04:15:10.7650396Z import: exit 0; evidence: D:\a\Tunshi2_codex\Tunshi2_codex\builds\ci-import
+2026-10-22T04:15:16.3196729Z export: exit 0; evidence: D:\a\Tunshi2_codex\Tunshi2_codex\builds\ci-pack
+2026-10-22T04:18:17.6951119Z Tests: 107 passed, 0 failed
+2026-10-22T04:18:17.6953505Z test: exit 0; evidence: D:\a\Tunshi2_codex\Tunshi2_codex\builds\ci-full
+2026-10-22T04:18:44.5524385Z Tests: 51 passed, 0 failed
+2026-10-22T04:18:44.5525131Z test: exit 0; evidence: D:\a\Tunshi2_codex\Tunshi2_codex\builds\ci-prologue
+2026-10-22T04:18:51.3400563Z D:\a\Tunshi2_codex\Tunshi2_codex\builds\artifacts\Dolphin2-Shanghai-Windows-v0.5.1.zip (50363525 bytes; SHA256 4886b2e796145f462ed9a42af3e78572e500cd46b8948d1d3f1ec75c4ac3f3d5)
+2026-10-22T04:19:18.4953326Z Unpacked Windows EXE: 51 passed; automatic PCK discovery verified.
+2026-10-22T04:19:27.9130842Z https://github.com/Ting-777/Tunshi2_codex/releases/tag/v0.5.1
+

@@ -1,0 +1,5 @@
+Public Release ZIP downloaded from https://github.com/Ting-777/Tunshi2_codex/releases/download/v0.5.1/Dolphin2-Shanghai-Windows-v0.5.1.zip
+Bytes: 50363525
+SHA256: 4886b2e796145f462ed9a42af3e78572e500cd46b8948d1d3f1ec75c4ac3f3d5
+Matches published checksum asset and GitHub asset digests: PASS
+ZIP CRC, Windows x64 PE, PCK header, version 0.5.1, launchers and absence of screenshots/videos/galleries: PASS

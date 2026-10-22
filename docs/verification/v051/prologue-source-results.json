@@ -1,0 +1,210 @@
+{
+  "checks": [
+    [
+      true,
+      "title does not create story progress"
+    ],
+    [
+      true,
+      "all 54 authored Chinese voice clips are bundled and load offline"
+    ],
+    [
+      true,
+      "dialogue freezes movement"
+    ],
+    [
+      true,
+      "new game begins with a staged hospital wake-up"
+    ],
+    [
+      true,
+      "opening camera stays under the physical ceiling"
+    ],
+    [
+      true,
+      "spoken dialogue starts an actual AudioStreamPlayer"
+    ],
+    [
+      true,
+      "pause freezes dialogue timing and audio playback together"
+    ],
+    [
+      true,
+      "skipping a line stops the old voice before the new one"
+    ],
+    [
+      true,
+      "automatic dialogue advance follows the spoken clip duration"
+    ],
+    [
+      true,
+      "hospital has a real solid ceiling rather than an open roof"
+    ],
+    [
+      true,
+      "the first objective identifies the actual nursery location"
+    ],
+    [
+      true,
+      "eight separately numbered newborn models"
+    ],
+    [
+      true,
+      "distant interaction cannot complete nursery objective"
+    ],
+    [
+      true,
+      "hospital wall blocks interaction with the queen behind it"
+    ],
+    [
+      true,
+      "prologue uses actual movement input and collisions"
+    ],
+    [
+      true,
+      "E at nursery counts all eight and starts family dialogue"
+    ],
+    [
+      true,
+      "birth leads to playable departure courtyard"
+    ],
+    [
+      true,
+      "interior navigation leads through the hospital exit before the car"
+    ],
+    [
+      true,
+      "closed glass door has a matching physical collision"
+    ],
+    [
+      true,
+      "proximity opens the real sliding panels and walking crosses the doorway"
+    ],
+    [
+      true,
+      "hospital door closes after the player clears its safety zone"
+    ],
+    [
+      true,
+      "luggage cannot skip making room for the family vehicle"
+    ],
+    [
+      true,
+      "ordinary E boarding uses existing safe vehicle controller"
+    ],
+    [
+      true,
+      "driving guidance switches to the blue parking space"
+    ],
+    [
+      true,
+      "real courtyard wall impact injures both car and seated hero"
+    ],
+    [
+      true,
+      "mechanic rescue recovers a damaged car without skipping the objective"
+    ],
+    [
+      true,
+      "real throttle and handbrake reach the marked parking space"
+    ],
+    [
+      true,
+      "parking requires leaving the car"
+    ],
+    [
+      true,
+      "stopped safe exit completes parking objective"
+    ],
+    [
+      true,
+      "pickup visibly transfers the luggage to the hero"
+    ],
+    [
+      true,
+      "mid-carry checkpoint restores a recoverable bag and parked car"
+    ],
+    [
+      true,
+      "loading changes the visible world and unlocks the photograph"
+    ],
+    [
+      true,
+      "all eight actual babies join the family photograph"
+    ],
+    [
+      true,
+      "family photo moves the camera and animates the actors"
+    ],
+    [
+      true,
+      "photo stages the hero, family and dedicated camera"
+    ],
+    [
+      true,
+      "the family photograph flows into a timed years-passing sequence"
+    ],
+    [
+      true,
+      "growth montage stages all eight younger children in their sleeping room"
+    ],
+    [
+      true,
+      "pause freezes the transition animation as well as gameplay"
+    ],
+    [
+      true,
+      "saving cannot commit a half-finished growth transition"
+    ],
+    [
+      true,
+      "years-later transition replaces eight newborns with eight schoolboys"
+    ],
+    [
+      true,
+      "the family home has its own solid ceiling"
+    ],
+    [
+      true,
+      "all unfinished family conversations have visible objective locations"
+    ],
+    [
+      true,
+      "Shanghai invitation waits for time with the children"
+    ],
+    [
+      true,
+      "three distinct family conversations unlock the telephone"
+    ],
+    [
+      true,
+      "repeated family conversation cannot duplicate progress"
+    ],
+    [
+      true,
+      "remote friends invite the family without teleporting into the home"
+    ],
+    [
+      true,
+      "prologue completes and persists only after the family promise"
+    ],
+    [
+      true,
+      "completed checkpoint resumes the home with all eight children"
+    ],
+    [
+      true,
+      "pause menu stops actual movement input"
+    ],
+    [
+      true,
+      "automated story checks preserve the normal player save"
+    ],
+    [
+      true,
+      "original hero geometry remains byte-identical"
+    ]
+  ],
+  "failed": 0,
+  "passed": 51
+}

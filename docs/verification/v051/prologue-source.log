@@ -1,0 +1,56 @@
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+
+PROLOGUE_READY
+PASS title does not create story progress
+PASS all 54 authored Chinese voice clips are bundled and load offline
+PASS dialogue freezes movement
+PASS new game begins with a staged hospital wake-up
+PASS opening camera stays under the physical ceiling
+PASS spoken dialogue starts an actual AudioStreamPlayer
+PASS pause freezes dialogue timing and audio playback together
+PASS skipping a line stops the old voice before the new one
+PASS automatic dialogue advance follows the spoken clip duration
+PASS hospital has a real solid ceiling rather than an open roof
+PASS the first objective identifies the actual nursery location
+PASS eight separately numbered newborn models
+PASS distant interaction cannot complete nursery objective
+PASS hospital wall blocks interaction with the queen behind it
+PASS prologue uses actual movement input and collisions
+PASS E at nursery counts all eight and starts family dialogue
+PASS birth leads to playable departure courtyard
+PASS interior navigation leads through the hospital exit before the car
+PASS closed glass door has a matching physical collision
+PASS proximity opens the real sliding panels and walking crosses the doorway
+PASS hospital door closes after the player clears its safety zone
+PASS luggage cannot skip making room for the family vehicle
+PASS ordinary E boarding uses existing safe vehicle controller
+PASS driving guidance switches to the blue parking space
+PASS real courtyard wall impact injures both car and seated hero
+PASS mechanic rescue recovers a damaged car without skipping the objective
+PASS real throttle and handbrake reach the marked parking space
+PASS parking requires leaving the car
+PASS stopped safe exit completes parking objective
+PASS pickup visibly transfers the luggage to the hero
+PASS mid-carry checkpoint restores a recoverable bag and parked car
+PASS loading changes the visible world and unlocks the photograph
+PASS all eight actual babies join the family photograph
+PASS family photo moves the camera and animates the actors
+PASS photo stages the hero, family and dedicated camera
+PASS the family photograph flows into a timed years-passing sequence
+PASS growth montage stages all eight younger children in their sleeping room
+PASS pause freezes the transition animation as well as gameplay
+PASS saving cannot commit a half-finished growth transition
+PASS years-later transition replaces eight newborns with eight schoolboys
+PASS the family home has its own solid ceiling
+PASS all unfinished family conversations have visible objective locations
+PASS Shanghai invitation waits for time with the children
+PASS three distinct family conversations unlock the telephone
+PASS repeated family conversation cannot duplicate progress
+PASS remote friends invite the family without teleporting into the home
+PASS prologue completes and persists only after the family promise
+PASS completed checkpoint resumes the home with all eight children
+PASS pause menu stops actual movement input
+PASS automated story checks preserve the normal player save
+PASS original hero geometry remains byte-identical
+DRAW_CALLS 0.0
+TEST_RESULT 51 passed; 0 failed

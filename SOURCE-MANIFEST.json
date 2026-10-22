@@ -345,9 +345,9 @@
       "git_blob": "0e3ba08d6b2e8cf435241829c96f10b74e4356fe"
     },
     "docs/NEW-CHAT-HANDOFF.md": {
-      "bytes": 11019,
-      "sha256": "9375272abf8d0cbc100abdedabc14ed074151739024af2bbe9bcc836efe4eb62",
-      "git_blob": "2fc39be1bc78fefab22044b17ddbdce246de35e7"
+      "bytes": 11542,
+      "sha256": "359a393e1c4ed7d86eea95dcf0bff6e2d6621005d6b047fe20a382ac6860c616",
+      "git_blob": "733fb46280125c666c8926f53024f8043abd1cfd"
     },
     "docs/NOTO-LICENSE.txt": {
       "bytes": 4301,
@@ -390,9 +390,9 @@
       "git_blob": "d8433ca06091956440d930d7ca2c81c885468766"
     },
     "docs/WORK-CHECKPOINT.md": {
-      "bytes": 13251,
-      "sha256": "3d3ba1fe573a2c69c2d178812a92c8dae259b81a1a03ff5edf81103839e129ca",
-      "git_blob": "7c8d33773ec7d32bfcbd6f020645e3a9dec3d788"
+      "bytes": 15390,
+      "sha256": "45f2b73a9023966fec0f0df8c926af18c826c17c435f4d4f4693cc110133a413",
+      "git_blob": "e226dab8a5c32c8c974e21d885cca7b65586a2e7"
     },
     "docs/original-dolphin-source.js": {
       "bytes": 2345,
@@ -420,9 +420,9 @@
       "git_blob": "43ae0996bfef45131b6fe52761ab7c7fce345ebd"
     },
     "docs/verification/TEST-REPORT.md": {
-      "bytes": 16223,
-      "sha256": "93d89e50a9ef96bdc0bbc07a33d7dc5108ecee46be5185d8272b08729d3f56ec",
-      "git_blob": "204deef1260f58a7b1753ea68de78b4666afeb8e"
+      "bytes": 19620,
+      "sha256": "e93f37ce01f173f71545a54f26fed5fe2c47e70500c9e5e6a7ccc27a532f9f8b",
+      "git_blob": "36b83796de5f69b1b2f7c4a7f243a4b1bc90a9b1"
     },
     "docs/verification/baseline-v040/TEST-REPORT.md": {
       "bytes": 3447,
@@ -843,6 +843,56 @@
       "bytes": 1164,
       "sha256": "ccd0ea55be5ef68dbd2d9ad20249283ee0e7f1c1dbcf20d0366b5bd41119c49f",
       "git_blob": "d5d6bac617f0edda35551684ebb5c2e344a3abd1"
+    },
+    "docs/verification/v051/download-verification.txt": {
+      "bytes": 404,
+      "sha256": "599b1aa27724908ec1117f3e54e8725edc2ac99970f9563bf526e76c81570257",
+      "git_blob": "18a6a33690cd64b748366eea1e058714efa31031"
+    },
+    "docs/verification/v051/export.log": {
+      "bytes": 17026,
+      "sha256": "6a056fa42e11555128176ba2b8528f71b0e33e9a4c03b19d02cc0c39df75cd1b",
+      "git_blob": "77d4ecf7ab858ae9883564c2c535e718110d5551"
+    },
+    "docs/verification/v051/final-native-results.json": {
+      "bytes": 4544,
+      "sha256": "b4bac368ada9ff1f5069467ec896ba36353c07f6e72b6f2d427da81b5734a727",
+      "git_blob": "87ba7ea27a5deeb3616265132362eb10993e7475"
+    },
+    "docs/verification/v051/final-native.log": {
+      "bytes": 5007,
+      "sha256": "d604a35599e455ea8a4a09a6c13a658dcae1f6fd9fa12efdc6d6f605b0ba9c7a",
+      "git_blob": "14b444f1ff6feea05c8dcb4a90f11cc749865a5d"
+    },
+    "docs/verification/v051/prologue-source-results.json": {
+      "bytes": 4544,
+      "sha256": "b4bac368ada9ff1f5069467ec896ba36353c07f6e72b6f2d427da81b5734a727",
+      "git_blob": "87ba7ea27a5deeb3616265132362eb10993e7475"
+    },
+    "docs/verification/v051/prologue-source.log": {
+      "bytes": 3200,
+      "sha256": "de82a078b4381933ac45092eaf2a319d9917dd8d34df8d6af041af5298cb6cec",
+      "git_blob": "7aff7268e0df70d335f494e3a0d6bbfe756afd0d"
+    },
+    "docs/verification/v051/release.json": {
+      "bytes": 795,
+      "sha256": "7becd2ea15ceecf5d950ceb37783d91e3fa1fc6d503bf849c89e42f30d804094",
+      "git_blob": "bdf9123231bf0315be0e03ebb0a80ea28015192e"
+    },
+    "docs/verification/v051/voice-signal-check.json": {
+      "bytes": 3782,
+      "sha256": "f65352b72235d759bdd19a65e78a03484e230fe836b9908f08a57c4616d0487c",
+      "git_blob": "6269c7709229cd92119d96e1a4c174e3769b70b4"
+    },
+    "docs/verification/v051/windows-main-ci.txt": {
+      "bytes": 1148,
+      "sha256": "dfc5e29ce55e1f90b11e1ec84ba7639ab15aeb8bff495f6167625ece8f853599",
+      "git_blob": "01a21349b17470815aab2da9ad139e05568dc2be"
+    },
+    "docs/verification/v051/windows-pr-ci.txt": {
+      "bytes": 1050,
+      "sha256": "358b86988b19d96d6f55e107fd5c385fc54996dbe9dc0273ffec5121e6c62f97",
+      "git_blob": "be0955b369146ab7f3bb2dd0beaaac01d412a370"
     },
     "docs/verification/windows-20261021/export.log": {
       "bytes": 3656,

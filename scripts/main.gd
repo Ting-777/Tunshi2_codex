@@ -118,6 +118,10 @@ func _unhandled_input(event):
 func look(delta: Vector2):yaw-=delta.x*.0035;pitch=clampf(pitch+delta.y*.0028,-.23,1.05)
 
 func _key(key: int):
+	if key==KEY_T and paused:
+		save_game(false);Engine.time_scale=1.0
+		for action in ["forward","back","left","right","jump","guard"]:Input.action_release(action)
+		Input.mouse_mode=Input.MOUSE_MODE_VISIBLE;get_tree().change_scene_to_file("res://scenes/prologue.tscn");return
 	if key==KEY_F11:DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if DisplayServer.window_get_mode()==DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_FULLSCREEN);return
 	if key==KEY_M and not hud.menu:hud.map_open=not hud.map_open;paused=hud.map_open;Input.mouse_mode=Input.MOUSE_MODE_VISIBLE if paused else Input.MOUSE_MODE_CAPTURED;return
 	if key==KEY_ESCAPE:

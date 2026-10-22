@@ -51,7 +51,7 @@ func _draw():
 		for i in range(lines.size()):txt(lines[i],Vector2(1210,200+i*34),18)
 	panel(Rect2(440,839,720,35));txt("左键 连击   R 重击   F 踢击   G 闪避   E 上下车   M 地图   H 操作",Vector2(461,863),16)
 	if world.paused and not world.capture_mode:
-		draw_rect(Rect2(0,0,1600,900),Color(0,.06,.1,.55));panel(Rect2(545,330,510,200));txt("休息一下",Vector2(688,397),38);txt("按 Esc 或点击继续",Vector2(674,460),23)
+		draw_rect(Rect2(0,0,1600,900),Color(0,.06,.1,.55));panel(Rect2(545,330,510,240));txt("休息一下",Vector2(688,397),38);txt("按 Esc 或点击继续",Vector2(674,460),23);txt("T 返回序章标题",Vector2(697,518),21,ORANGE)
 
 func _minimap():
 	var outer=Rect2(30,633,214,190);panel(outer);var rect=Rect2(39,642,196,172);draw_rect(rect,Color("#d3dfe8"));var center=Vector2(world.player.position.x,world.player.position.z);var scale_value=1.9

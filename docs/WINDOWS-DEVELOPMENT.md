@@ -1,3 +1,17 @@
+# 0.5.0 Windows 成品包与后续发布
+
+直接游玩从 [Releases](https://github.com/Ting-777/Tunshi2_codex/releases) 下载 Windows ZIP，完整解压，双击 Start.cmd。无需开发环境。
+
+每轮开发更新 VERSION、project.godot、export_presets.cfg 与 RELEASE-NOTES.md。main 游戏源码变化会触发 Tested Windows release 工作流：恢复 SHA512 验证的 Godot 4.5.2 与官方模板、恢复原字体、导入、导出 PCK、在独立目录完成原107项回归及序章30项、打包并在 Windows 上运行解压后的 EXE。任一项失败均停止发布。ZIP 只放 EXE、PCK、启动器、说明及许可，不放截图。
+
+序章验证：`python tools/run_native.py test --suite prologue --headless --output builds/story-check`。原生截图加 `--shots`；独立 PCK 加 `--pack builds/windows-pck/Dolphin2.pck`。自动检查使用隔离存档，不读写正常序章或漫游存档。
+
+本地打包：`python tools/package_windows.py --pack builds/windows-pck/Dolphin2.pck`。在 Windows 上用 `python tools/verify_windows_zip.py builds/artifacts/Dolphin2-Shanghai-Windows-v0.5.0.zip` 验证解压后的 EXE 自动发现 PCK。可用 `python tools/fetch_engine.py --templates` 从官方源下载并校验引擎和模板；二进制不提交。工作流首次使用 vVERSION，已存在则创建新 build 标签，保留先前包。自动 Windows 验证是无显示模式，不等于多显卡原生画面验收。
+
+以下为 0.4.6 Windows 开发与硬件验收历史。
+
+---
+
 # Windows 本地开发与验证
 
 本轮在 Windows 上恢复 main b77ba90，使用 Python 3.12.0、Godot

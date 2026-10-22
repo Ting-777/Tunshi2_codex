@@ -42,7 +42,8 @@ with (out/'xvfb.log').open('w') as log:
   if script:cmd+=['--','--fresh','--impact-output',str(out)]
   elif '--test' in sys.argv:
    cmd+=['--','--test','--test-result',str(out/'results.json')]
-   if '--impact' in sys.argv:cmd+=['--test-impact-only']+(['--no-capture'] if '--no-shots' in sys.argv else ['--capture-output',str(out)])
+   if '--prologue' in sys.argv:cmd+=['--test-prologue']+(['--no-capture'] if '--no-shots' in sys.argv else ['--capture-output',str(out)])
+   elif '--impact' in sys.argv:cmd+=['--test-impact-only']+(['--no-capture'] if '--no-shots' in sys.argv else ['--capture-output',str(out)])
    elif '--vehicle' in sys.argv:cmd+=['--test-vehicle-only']+(['--no-capture'] if '--no-shots' in sys.argv else ['--capture-output',str(out)])
    elif '--polish' in sys.argv:cmd+=['--test-polish-only','--capture-output',str(out)]
    elif '--world' in sys.argv:cmd+=(['--test-world-only','--test-native-fast'] if '--quick' in sys.argv else ['--test-world'])+['--capture-output',str(out)]

@@ -1,15 +1,19 @@
-# 豚师2 · 上海风云 / 都市卡通版 0.4.6
+# 豚师2 · 上海风云 / 序章版 0.5.0
 
 新对话接续请先读 [交接入口](docs/NEW-CHAT-HANDOFF.md)。第一部背景已整理为 [剧情与人物](docs/TUNSHI1-STORY.md)、[玩法](docs/TUNSHI1-GAMEPLAY.md)、[开发经验](docs/DEVELOPMENT-LESSONS.md)，并保留原始源码选集与证据范围。克隆仓库即可恢复源码，不依赖旧对话 ZIP。
 
-Godot 4.5.2 原生陆家嘴室外自由漫游样板。无剧情任务。压缩、手工构建的陆家嘴街区，明快都市卡通画风。保留第一部网页游戏豚师的实际几何与比例，仅调整材质及动画。原来的 Sites 主站与测试站均未修改。
+Godot 4.5.2 原生游戏。新增可玩序章《一个都不少》：长沙医院、全家出院合照、数年后的家中生活与上海邀约；原陆家嘴自由漫游保留为独立入口。压缩、手工构建的陆家嘴街区，明快都市卡通画风。保留第一部网页游戏豚师的实际几何与比例，仅调整材质及动画。原来的 Sites 主站与测试站均未修改。
 
 ## Windows 运行
-完整解压 Windows 包到文件夹，双击 Start.cmd 或 Dolphin2.exe。不要在 ZIP 内直接启动；EXE 和 PCK 必须放在一起。使用 Godot Compatibility/OpenGL 渲染，64 位 Windows，显卡驱动需支持 OpenGL 3.3。2026-10-21 已在 Windows / RTX 4060 Laptop 上完成启动、独立 PCK 完整回归107/107及原生撞击17/17；尚未进行长期游玩和多机型性能验收。
+从 [GitHub Releases](https://github.com/Ting-777/Tunshi2_codex/releases) 下载最新 Windows ZIP（无需 Python 或 Godot），完整解压后双击 Start.cmd 或 Dolphin2.exe。不要在 ZIP 内直接启动；EXE 和 PCK 必须放在一起。使用 Godot Compatibility/OpenGL 渲染，64 位 Windows，显卡驱动需支持 OpenGL 3.3。0.5.0 的 Windows 发布流程会先完成独立 PCK 回归与解压后的 EXE 检查，成功后才发布。CI 为无显示运行；0.4.6 的 RTX 4060 Laptop 实测是历史证据，不等同于新序章的 GPU 验收。
 
-Start.cmd 将日志保存到 %LOCALAPPDATA%\Dolphin2ShanghaiToon\runtime.log。Fresh-Start.cmd 跳过读取旧位置，以街口重新开始；正常游玩后仍会自动保存。存档为本机 Godot user 数据，不含网页游戏存档。
+Start.cmd 将日志保存到 %LOCALAPPDATA%\Dolphin2ShanghaiToon\runtime.log。标题可开始/继续序章或进入漫游。序章检查点与原漫游存档分开，重玩序章不会覆盖漫游存档。Fresh-Start.cmd 的 --fresh 只影响漫游旧位置；序章重玩请使用标题按钮。存档为本机 Godot user 数据，不含网页游戏存档。
 
-## 操作
+## 序章操作
+
+WASD 移动/驾驶，鼠标视角，E 互动/上下车，空格跳跃/手刹，R 请炫神挪车，F5 保存检查点，F9 读取，Esc 暂停，H 帮助。对话用 E、Enter 或点击继续。新游戏先到婴儿篮旁看看八兄弟，再与小朋友说话。车停稳并下车后才算挪好位置。
+
+## 陆家嘴漫游操作
 
 | 按键 | 功能 |
 | --- | --- |
@@ -27,11 +31,15 @@ Start.cmd 将日志保存到 %LOCALAPPDATA%\Dolphin2ShanghaiToon\runtime.log。F
 克隆后先运行 `python3 tools/restore_assets.py`（Windows：`py tools/restore_assets.py`）自动恢复原版 Noto 字体，无需上传文件。然后安装 Godot 4.5.2，导入 project.godot。Windows 可使用新增的 `python tools/run_native.py import`、`python tools/run_native.py run`；引擎放置、独立 PCK 测试与原生截图见 [Windows 开发入口](docs/WINDOWS-DEVELOPMENT.md)。工程不依赖原网页仓库，assets/original_dolphin.json 已保留实际模型几何。代码和模型均在源码包中，字体和 Godot 许可见 docs。引擎可执行文件及导出模板不放入源码包，需另行安装。
 
 ## 当前内容和边界
-包含东方明珠、环形天桥、国金中心、金茂、环球金融中心、上海中心、滨江步道、中心绿地和原创沿街商铺；步行、跳跃、闪避、格挡、近战、热血、主动敌人、车辆、破坏木箱、掉落、地图和存档。不是完整上海，不包含室内、任务、原作全战役或完整交通模拟。角色动作仍使用程序化关节动画，不宣称达到《如龙》成品动作质量。
+包含东方明珠、环形天桥、国金中心、金茂、环球金融中心、上海中心、滨江步道、中心绿地和原创沿街商铺；步行、跳跃、闪避、格挡、近战、热血、主动敌人、车辆、破坏木箱、掉落、地图和存档。另有独立长沙序章场景和生活互动；第一章、后续上海剧情、完整上海和完整交通模拟尚未实现。角色动作仍使用程序化关节动画，不宣称达到《如龙》成品动作质量。
 
 所有截图来自原生 Godot OpenGL 运行；截图验证模式固定镜头与测试人物位置，正常游戏采用跟随镜头和主动 AI。截图不是生成图片。按用户要求，新增截图与视频只在对话内展示，不上传仓库；仓库保存代码与文字验收记录。验证细节见 docs/verification/TEST-REPORT.md。
 
-## 0.4.6 本轮更新
+## 0.5.0 本轮更新
+
+[序章实现说明](docs/PROLOGUE.md)记录连续剧情、角色图造型、检查点与测试范围。八子有八只婴儿篮和八个白衫红领巾模型，三个家庭交流场景后接到攀哥邀请。保留第一部原始豚师、既定卡通光照和原有车辆伤害。Windows Release 自动打包与发布见 `.github/workflows/windows-release.yml`，新截图不入库、不进发布包。
+
+## 0.4.6 历史更新
 
 车辆显示180点车况，实体撞击按相对法向接近速度结算车体与车内豚师的伤害；正撞、擦碰、追尾及相向碰撞区别处理，顶墙持续踩油门不重复扣血。车况归零后失去动力，可停稳下车；保存保留车况与人物HP，致命车内撞击会正确脱离车辆并返回街口。
 
@@ -55,4 +63,4 @@ Start.cmd 将日志保存到 %LOCALAPPDATA%\Dolphin2ShanghaiToon\runtime.log。F
 
 近战辅助朝向会跳过墙后的目标，优先朝可触及的人物出招。原版角色几何、地图、四条环道坡道、地面驾驶自由、保存/读取、破坏及 M 地图保留；未增加任务或改变任何 Sites。
 
-以上是0.4.4历史更新，原始验收记录保留在 docs/verification。图形与动作仍为程序化都市卡通样板，不是完整布娃娃物理或《如龙》成品动作系统。当前游戏版本仍为0.4.6，Windows 本地开发入口不改变玩法与美术。
+以上是0.4.4历史更新，原始验收记录保留在 docs/verification。图形与动作仍为程序化都市卡通样板，不是完整布娃娃物理或《如龙》成品动作系统。以上为0.4.6时期的历史结论；当前游戏版本为0.5.0序章开发版。

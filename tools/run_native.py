@@ -70,6 +70,8 @@ def build_command(args, godot, output):
         user_args = ['--test', '--test-result', str(output / 'results.json')]
         if args.suite == 'full':
             user_args += ['--test-world', '--test-polish', '--test-vehicle', '--test-impact']
+        elif args.suite == 'prologue':
+            user_args += ['--test-prologue']
         else:
             user_args += [f'--test-{args.suite}-only']
         user_args += ['--capture-output', str(output)] if args.shots else ['--no-capture']
@@ -84,7 +86,7 @@ def main(argv=None):
     parser.add_argument('--godot')
     parser.add_argument('--pack', type=Path, help='Verify an exported PCK from an isolated directory')
     parser.add_argument('--output', type=Path, default=ROOT / 'builds/native-local')
-    parser.add_argument('--suite', choices=['full', 'impact', 'vehicle', 'polish', 'world'], default='full')
+    parser.add_argument('--suite', choices=['full', 'impact', 'vehicle', 'polish', 'world', 'prologue'], default='full')
     parser.add_argument('--headless', action='store_true')
     parser.add_argument('--shots', action='store_true', help='Capture actual viewport during tests')
     parser.add_argument('--fresh', action='store_true', help='Skip loading normal save when playing')

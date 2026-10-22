@@ -1,8 +1,8 @@
 config_version=5
 [application]
 config/name="豚师2 · 上海风云"
-config/version="0.4.6-toon"
-run/main_scene="res://scenes/main.tscn"
+config/version="0.5.0-prologue"
+run/main_scene="res://scenes/boot.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 [display]
 window/size/viewport_width=1600

@@ -1,0 +1,83 @@
+name: Tested Windows release
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'scenes/**'
+      - 'assets/**'
+      - 'shaders/**'
+      - 'launchers/**'
+      - 'tools/**'
+      - 'project.godot'
+      - 'export_presets.cfg'
+      - 'VERSION'
+      - '.github/workflows/windows-release.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: windows-release-${{ github.event.pull_request.number || 'main' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Restore verified engine, runtime and font
+        run: |
+          python tools/fetch_engine.py --templates
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python tools/restore_assets.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Import and export exact release pack
+        run: |
+          python tools/run_native.py import --output builds/ci-import
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python tools/run_native.py export --output builds/ci-pack
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Independent PCK regression on Windows
+        run: |
+          python tools/run_native.py test --pack builds/ci-pack/Dolphin2.pck --headless --output builds/ci-full
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python tools/run_native.py test --pack builds/ci-pack/Dolphin2.pck --suite prologue --headless --output builds/ci-prologue
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Package and run the unpacked Windows EXE
+        run: |
+          python tools/package_windows.py --pack builds/ci-pack/Dolphin2.pck
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $zip = Get-ChildItem builds/artifacts/*.zip | Select-Object -First 1
+          python tools/verify_windows_zip.py $zip.FullName
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Publish Windows ZIP and checksum
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $version = (Get-Content VERSION).Trim()
+          $tag = "v$version"
+          gh release view $tag --repo $env:GITHUB_REPOSITORY 2>$null
+          if ($LASTEXITCODE -eq 0) { $tag = "v$version-build.$env:GITHUB_RUN_NUMBER" }
+          $body = Get-Content docs/RELEASE-NOTES.md -Raw
+          $body += "`n`nSource commit: $env:GITHUB_SHA`nWindows runner: complete PCK regression and unpacked EXE prologue checks passed. No screenshots are uploaded."
+          Set-Content builds/release-notes.md $body -Encoding utf8
+          $assets = Get-ChildItem builds/artifacts/*.zip,builds/artifacts/*.sha256 | ForEach-Object { $_.FullName }
+          gh release create $tag @assets --repo $env:GITHUB_REPOSITORY --target $env:GITHUB_SHA --title "豚师2 · 序章 $version" --notes-file builds/release-notes.md --prerelease
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Keep text verification logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-verification-${{ github.sha }}
+          path: |
+            builds/ci-*/runtime.log
+            builds/ci-*/results.json
+            builds/artifacts/unpacked-check/runtime.log
+            builds/artifacts/unpacked-check/results.json

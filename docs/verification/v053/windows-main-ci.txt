@@ -1,0 +1,15 @@
+# Windows main release / v0.5.3
+Run: https://github.com/Ting-777/Tunshi2_codex/actions/runs/39742278734
+Source: 8bc7f8f8439489b60696195c651a84f659bc1a73
+Result: success; published ZIP digest matches CI packaging record. No duplicate local full-suite or public ZIP download check. Windows runner is headless, not GPU hardware verification.
+
+2026-10-22T07:42:14.4156940Z import: exit 0; evidence: D:\a\Tunshi2_codex\Tunshi2_codex\builds\ci-import
+2026-10-22T07:42:19.5817366Z export: exit 0; evidence: D:\a\Tunshi2_codex\Tunshi2_codex\builds\ci-pack
+2026-10-22T07:45:21.0677259Z Tests: 107 passed, 0 failed
+2026-10-22T07:45:21.0678012Z test: exit 0; evidence: D:\a\Tunshi2_codex\Tunshi2_codex\builds\ci-full
+2026-10-22T07:45:48.0214812Z Tests: 51 passed, 0 failed
+2026-10-22T07:45:48.0215550Z test: exit 0; evidence: D:\a\Tunshi2_codex\Tunshi2_codex\builds\ci-prologue
+2026-10-22T07:45:54.7693534Z D:\a\Tunshi2_codex\Tunshi2_codex\builds\artifacts\Dolphin2-Shanghai-Windows-v0.5.3.zip (50374956 bytes; SHA256 4f4e843a46a6dc095aba8a228d78ec031961564173309a00ad08e1968b2f6cb5)
+2026-10-22T07:46:21.9859531Z Unpacked Windows EXE: 51 passed; automatic PCK discovery verified.
+2026-10-22T07:46:30.4326526Z https://github.com/Ting-777/Tunshi2_codex/releases/tag/v0.5.3
+

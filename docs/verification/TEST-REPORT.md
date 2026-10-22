@@ -4,7 +4,9 @@
 
 本地必要复查：Godot4.5.2 / 原生OpenGL / Xvfb / Mesa llvmpipe，实际医院内查看三人正面、侧面、闭眼与正常游玩距离，退出0，无脚本错误；镜框未遮住眼睛，侧转虹膜完整，闭眼没有残留眼白。文字日志见v053/internal-eye-review.log。截图只作内部复查，未输出图集或上传仓库/Release；未重复本地全套回归。
 
-Windows独立PCK与解压EXE验证交给main发布CI一次完成，结果待发布后补录。无本版Windows GPU硬件结论。
+Windows独立PCK与解压EXE验证交给main发布CI一次完成，游戏提交8bc7f8f8439489b60696195c651a84f659bc1a73，运行[39742278734](https://github.com/Ting-777/Tunshi2_codex/actions/runs/39742278734)成功：完整107/107、序章51/51、解压EXE51/51，退出0，自动寻找同目录PCK。摘要见v053/windows-main-ci.txt，无本版Windows GPU硬件结论。
+
+[v0.5.3 Windows Release](https://github.com/Ting-777/Tunshi2_codex/releases/tag/v0.5.3)已发布，ZIP为50,374,956字节，SHA256为4f4e843a46a6dc095aba8a228d78ec031961564173309a00ad08e1968b2f6cb5。发布资产摘要与CI实际打包记录一致，附独立SHA256资源；元数据见v053/release.json。CI已实际解压ZIP并启动EXE，本轮没有再次下载公开ZIP重复CRC/PE检查，未把历史下载验证当成本轮结果。
 
 ---
 

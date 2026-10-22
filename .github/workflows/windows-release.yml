@@ -1,5 +1,6 @@
 name: Tested Windows release
 on:
+  pull_request:
   push:
     branches: [main]
     paths:
@@ -56,6 +57,7 @@ jobs:
           python tools/verify_windows_zip.py $zip.FullName
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Publish Windows ZIP and checksum
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

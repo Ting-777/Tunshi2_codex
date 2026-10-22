@@ -20,9 +20,9 @@
       "git_blob": "66bf513dc249fa494f3f90601f84f145c31c34aa"
     },
     "AGENTS.md": {
-      "bytes": 8973,
-      "sha256": "22c161563be97bd2cb43bd11d78f3618428acbe431febff068a35cbadf81d4bc",
-      "git_blob": "dfe2073f0a50e9984eb63f3ca5917ece3df5dbec"
+      "bytes": 10317,
+      "sha256": "e9e509ed2663c7c5121afc7fa618f5633458e1bee93d2e1a99c8ceffe0e722c2",
+      "git_blob": "3af39e882238d2ef4d239f1c6c84011019c0a31d"
     },
     "README.md": {
       "bytes": 7789,
@@ -330,9 +330,9 @@
       "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
     },
     "docs/ART-DIRECTION.md": {
-      "bytes": 1055,
-      "sha256": "138d5241e31a31fb3fc371b3ac269135eaa25c30af2b8199e8e71491b31dc283",
-      "git_blob": "b27497f03307fcd31d84ca0e87f81ca60b8d7313"
+      "bytes": 1852,
+      "sha256": "dc506b303605d6394ab67ecb742896a01c8cca5c57a2350e549622215a500047",
+      "git_blob": "5c051d632d6538232da027f48194022e58470303"
     },
     "docs/DEVELOPMENT-LESSONS.md": {
       "bytes": 4746,
@@ -345,9 +345,9 @@
       "git_blob": "0e3ba08d6b2e8cf435241829c96f10b74e4356fe"
     },
     "docs/NEW-CHAT-HANDOFF.md": {
-      "bytes": 11542,
-      "sha256": "359a393e1c4ed7d86eea95dcf0bff6e2d6621005d6b047fe20a382ac6860c616",
-      "git_blob": "733fb46280125c666c8926f53024f8043abd1cfd"
+      "bytes": 12131,
+      "sha256": "5ffc4c32d484a1ece7944804502843fe693ba99a954bd3cdb318f27b4c00014d",
+      "git_blob": "2e578235732292f88095f697dd9f7b384b1901ed"
     },
     "docs/NOTO-LICENSE.txt": {
       "bytes": 4301,

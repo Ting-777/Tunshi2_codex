@@ -4,7 +4,9 @@
 
 本地仅进行与改动相关的原生图形/行为检查：Godot4.5.2 / OpenGL / Xvfb / Mesa llvmpipe，在实际医院环境查看近景、侧面、闭眼、说话和正常游玩距离；验证暂停保持面部状态、已结束对白收口、活动对白改变口型，退出0。文字日志见[v052/internal-face-review.log](v052/internal-face-review.log)。修正了初检的鼻部投影黑块、闭眼残留白线及耳机头梁表面方向。捕获仅内部使用，未输出图集，未上传仓库或Release。
 
-完整107项与序章51项回归、独立PCK及解压EXE验证交给main Windows发布CI执行一次；未再本地反复跑整套或开启重复PR流程。Windows发布结果待CI完成后补录。
+完整107项与序章51项回归、独立PCK及解压EXE验证交给main Windows发布CI执行一次；未再本地反复跑整套或开启重复PR流程。游戏提交efd76b47c675f55394785e0a6ab2105598c9c3ad，运行[39724938183](https://github.com/Ting-777/Tunshi2_codex/actions/runs/39724938183)成功：完整107/107、序章51/51、解压EXE51/51，退出0且自动寻找同目录PCK。摘要见v052/windows-main-ci.txt。
+
+[v0.5.2 Windows Release](https://github.com/Ting-777/Tunshi2_codex/releases/tag/v0.5.2)已发布，ZIP为50,374,626字节，SHA256 eaec5712c2fa4e8f5cc0d73408e0935f0f216ae80a551a6f5690e9378d2d7020。已从公开发布页重新下载ZIP，核对独立校验文件和资源摘要、ZIP CRC、x64 PE、PCK头、版本与启动器，以及不含截图/视频/图集；见v052/release.json和download-verification.txt。
 
 边界：面部动作是程序化说话/眨眼，不是逐音素唇形或真人动捕。图形证据为Linux软件渲染，Windows CI不等于GPU硬件验收。没有新增剧情、重做豚师或改第一部Sites。
 

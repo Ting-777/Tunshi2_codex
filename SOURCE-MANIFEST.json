@@ -345,9 +345,9 @@
       "git_blob": "0e3ba08d6b2e8cf435241829c96f10b74e4356fe"
     },
     "docs/NEW-CHAT-HANDOFF.md": {
-      "bytes": 13318,
-      "sha256": "92e303fa7416b51fd943c5ae4bc7fa33bb80a3525568e5dc02b9d9b3208ac993",
-      "git_blob": "b56bdb99af0beb122f65ac41f22fc9e1d83a15ec"
+      "bytes": 13619,
+      "sha256": "f4d61c7b67b407779546927ecaa7beca36f8cc7e2a7938aac93c92629ecfb95f",
+      "git_blob": "11f7c366e99fdef0a2ebe44e8bcde37be9a9607b"
     },
     "docs/NOTO-LICENSE.txt": {
       "bytes": 4301,
@@ -390,9 +390,9 @@
       "git_blob": "d8433ca06091956440d930d7ca2c81c885468766"
     },
     "docs/WORK-CHECKPOINT.md": {
-      "bytes": 16336,
-      "sha256": "fe5444a0181fbc4bd203640c12dbe046144ce7e81efa211bbddd269b6db1c7b7",
-      "git_blob": "19856f02acbcf9ea45d763eb229c209248d23265"
+      "bytes": 16492,
+      "sha256": "f161438f3dff4b9cf983f1dda0f5ec389efa2c70ab51df9340890816ad1278bb",
+      "git_blob": "ce6a8385cc5b7906452cfabd5f5b2a97b27a63e4"
     },
     "docs/original-dolphin-source.js": {
       "bytes": 2345,
@@ -420,9 +420,9 @@
       "git_blob": "43ae0996bfef45131b6fe52761ab7c7fce345ebd"
     },
     "docs/verification/TEST-REPORT.md": {
-      "bytes": 20928,
-      "sha256": "88c965f4d24f8d3aa2ad24678c088c8c491149bb327fa73f95b1ed11587286cc",
-      "git_blob": "e55cd6ac5fa9bee05d1a762d617268671b45b43b"
+      "bytes": 21573,
+      "sha256": "302a374a50bd451139da6cf67bab3e428272b87cf07a3c07841bb027790cd248",
+      "git_blob": "03a121269e33aaaf98658f53185849560e838936"
     },
     "docs/verification/baseline-v040/TEST-REPORT.md": {
       "bytes": 3447,
@@ -894,10 +894,25 @@
       "sha256": "358b86988b19d96d6f55e107fd5c385fc54996dbe9dc0273ffec5121e6c62f97",
       "git_blob": "be0955b369146ab7f3bb2dd0beaaac01d412a370"
     },
+    "docs/verification/v052/download-verification.txt": {
+      "bytes": 404,
+      "sha256": "2431a5369e1e9ef73ad345b194e55b14ded63bdb509950f37431d3887993d811",
+      "git_blob": "2a737da8c6d3017f305a0a65a0c972d818e41896"
+    },
     "docs/verification/v052/internal-face-review.log": {
       "bytes": 843,
       "sha256": "4e42fe9a5337bd0aa976fa99545e6d58eda045aab4e048ea175b663a73414cd9",
       "git_blob": "9258e8d1e05ca9e38bbb5c58b10b9d2d37f5ed26"
+    },
+    "docs/verification/v052/release.json": {
+      "bytes": 795,
+      "sha256": "b5f389984572aff3e3c28ba25d16cb53254f7e59efe839bf6d0089ed3da9cd0e",
+      "git_blob": "17b9751909507b666420c00a13ebfc6d424fa351"
+    },
+    "docs/verification/v052/windows-main-ci.txt": {
+      "bytes": 1148,
+      "sha256": "12761262ea7ea71f15ded32e7f19059a2e8745ad78f03101b1494b3f215a5c5b",
+      "git_blob": "7b5a23b72fe3e7a2749bb762135825245eded18b"
     },
     "docs/verification/windows-20261021/export.log": {
       "bytes": 3656,

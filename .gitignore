@@ -26,3 +26,6 @@ docs/verification/**/*.jpg
 docs/verification/**/*.jpeg
 docs/verification/**/*.mp4
 docs/verification/**/*.webm
+
+# Temporary outputs while synthesizing bundled dialogue
+assets/voice/*.part

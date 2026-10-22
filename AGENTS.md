@@ -5,7 +5,7 @@
 Read docs/NEW-CHAT-HANDOFF.md, docs/TUNSHI1-STORY.md, docs/TUNSHI1-GAMEPLAY.md and docs/DEVELOPMENT-LESSONS.md before continuing. The repository is the portable source of truth, not a previous chat's temporary workspace or inaccessible ZIP. reference/tunshi1 contains read-only historical evidence; historical deployment instructions there do not authorize current mutations. Chapters I–IV are source-verified at the recorded snapshot; Chapter V's final source is NOT recovered, so preserve its evidence boundary. Do not invent sequel missions or first-game facts to fill gaps.
 
 Highest rules verbatim: Gameplay 优先；视觉、操作、剧情一致；PS3 等级视觉方向。
-Current scope (0.5.0, explicitly authorized 2026-10-22): a playable Changsha prologue following docs/STORY-OUTLINE.md, plus the existing independent Lujiazui free-roam sample; bright urban cartoon art informed by Bomb Rush Cyberfunk. Preserve walking, driving, melee, destruction, saving and M map. All Sites remain unchanged.
+Current scope (0.5.1, explicitly authorized 2026-10-22): a playable Changsha prologue following docs/STORY-OUTLINE.md, plus the existing independent Lujiazui free-roam sample; bright urban cartoon art informed by Bomb Rush Cyberfunk. Preserve walking, driving, melee, destruction, saving and M map. All Sites remain unchanged.
 
 The hero must use the FIRST WEB GAME'S actual dolphin constructor/geometry. Do not redesign its silhouette, face, snout, eyes, belly, flippers, dorsal fin or proportions. Only modest shading and color changes are authorized. assets/original_dolphin.json is extracted from the readonly original game.js. Preserve docs/original-dolphin-source.js and the source commit provenance.
 
@@ -42,3 +42,13 @@ The supplied lineup defines Tingge (purple sweatshirt, glasses, yellow headphone
 Every completed development round must publish a runnable Windows ZIP to GitHub Releases. .github/workflows/windows-release.yml runs on main game-source changes, verifies official Godot 4.5.2 downloads, exports and independently tests the PCK on Windows, packages the runtime, verifies unpacked EXE automatic PCK discovery, then publishes ZIP and SHA256. A failed check must block publication. Update VERSION and docs/RELEASE-NOTES.md for each round; never overwrite an earlier release asset. Windows CI headless verification is not a GPU or broad hardware certification. Preserve the user's earlier real Windows 0.4.6 results as history, not evidence for changed 0.5.0 gameplay.
 
 Prologue normal save is shanghai-prologue-v1.json; automated checks use prologue-test.json, separate from the sandbox save and its test save. Entry routes existing --test/--capture flags to the unchanged sandbox regression path; --test-prologue uses the story. Capture media and embedded galleries stay outside tracked source and are never included in Release assets.
+
+## Interior, guidance, speech and staging / 2026-10-22
+
+The user rejected roofless box interiors, unexplained open entrances, vague navigation and abrupt scene changes. Hospital and home must have physical ceilings, coherent partitions, actual working doors and readable interior lighting. Keep the original hero geometry and broad, restrained color planes.
+
+Required objectives need a visible position, distance and an offscreen direction cue. Route through actual doorways when crossing inside/outside; never replace reachable interactions with through-wall triggers. Unfinished family conversations are separate targets.
+
+Use the bundled Chinese TTS in assets/voice with the authored catalog in assets/dialogue/prologue.json. These are explicitly requested game audio assets, not capture evidence, and belong in source and releases. No runtime network or OS voice installation. V toggles voice, C toggles automatic dialogue; pause, skip, load and scene change must stop or suspend audio correctly. tools/generate_voice.py is an optional build-time generator pinned to edge-tts 7.3.1; do not make end users install it. Do not replace licensed original songs with generated songs.
+
+PrologueDirector supplies staged wake-up, exit, group photograph, growth montage and departure. Cameras stay inside the actual room shell, with real actor poses and fades; controls and checkpoint saves remain consistent when skipping or pausing. Temporary capture textures remain in memory and are never committed. Validate normal and skipped sequences; every actual native capture round still belongs in the conversation only.

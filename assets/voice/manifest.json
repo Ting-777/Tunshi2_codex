@@ -1,0 +1,488 @@
+{
+  "12a41dde812ad243556d": {
+    "speaker": "豚师",
+    "text": "八个……只有我玩明白了。就是现在有一点困告。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 4.728,
+    "sha256": "69364b3c6be44996e8af8dc39de738bab4ac1ea505e29ea20ae6a34162b8a044"
+  },
+  "57479b5d0573813b6611": {
+    "speaker": "小朋友",
+    "text": "先看看孩子。炫神在门口折腾车，我们今天回家。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "+0%",
+    "pitch": "+2Hz",
+    "duration": 5.472,
+    "sha256": "f7aa52ed68ac8f344dc17c35f8c96ca935f63d9f347a9445d9873ebf94261604"
+  },
+  "a1921f91af48dba8429f": {
+    "speaker": "小朋友",
+    "text": "醒了？八子计划完成了。你自己生的八个儿子，一个都不少。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "+0%",
+    "pitch": "+2Hz",
+    "duration": 6.432,
+    "sha256": "710605fa06b4f8898a87e5e262cfc5630a338090ebc4fb337abcb6da6a33862b"
+  },
+  "fb7ddda770a832065c58": {
+    "speaker": "听歌",
+    "text": "是日，八子俱全。豚师，你往旁边一点，别把老八挡住。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-4%",
+    "pitch": "+0Hz",
+    "duration": 6.792,
+    "sha256": "2ac7c655480df84610ad48059884c2fc701f894ee562eea4a70151c7f639d77a"
+  },
+  "3d24ea012140bde16fec": {
+    "speaker": "攀哥",
+    "text": "一、二、三、四……八。等一下，我从这头再数一遍。",
+    "voice": "zh-CN-YunxiNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "duration": 6.888,
+    "sha256": "ccd734831f7e02bcfac7d40ae8da559e807218cefefe5678af709ff3d5384265"
+  },
+  "3c1c604ea65d5c7b6149": {
+    "speaker": "炫神",
+    "text": "一次解决！我是说八子计划。不是说接人的车。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+7%",
+    "pitch": "+2Hz",
+    "duration": 5.184,
+    "sha256": "0d92d39895c115d60d656ca7bf7ce3fa1d8220f0ba6002f8561a70560c760553"
+  },
+  "9c27cdbe4886efbeffb8": {
+    "speaker": "小朋友",
+    "text": "你去把黄色小车挪到院子后面的蓝色车位。全家车停不进来，行李也还在门边。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "+0%",
+    "pitch": "+2Hz",
+    "duration": 7.512,
+    "sha256": "19855b0bb89bf73a544d6026fa2e7d159ec7066ebeffa3e6fd31c48c77099181"
+  },
+  "c223fd0b09b415f848a5": {
+    "speaker": "豚师",
+    "text": "那岂不是起飞。小朋友，我们怎么把他们带回去？",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 5.256,
+    "sha256": "24a9508f813404c6b7d86f8e250e6ddc119837f1f8683e4a4712a57d3eb1282c"
+  },
+  "48d6cb3c660f8bb9ae14": {
+    "speaker": "炫神",
+    "text": "放心，我又叫了一辆大车。小黄只负责拉东西，不把八个儿子叠着放。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+7%",
+    "pitch": "+2Hz",
+    "duration": 6.816,
+    "sha256": "2242f38a66c693f2e20e81636cad2a4623548b1d61bb4ac1b55a8fc35c036d3c"
+  },
+  "44da20f32c0ef4a39fc9": {
+    "speaker": "小朋友",
+    "text": "本宫也想。先干活。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "+0%",
+    "pitch": "+2Hz",
+    "duration": 3.048,
+    "sha256": "2518c82f5d20b7ea2aa5b7aa3a5971b0d4da6619be8ecae33bbddf7ac7dce6b8"
+  },
+  "d6f5aa853c09f2d6c9d3": {
+    "speaker": "豚师",
+    "text": "本来还想坐着指挥一下。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 2.664,
+    "sha256": "d5d389c215e7fc02a00b75bdd63628911c9a0ba218f0f0ff3c2069953c05fd2a"
+  },
+  "209392ede6681d9498de": {
+    "speaker": "小朋友",
+    "text": "先看看孩子，再收拾东西。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "+0%",
+    "pitch": "+2Hz",
+    "duration": 3.0,
+    "sha256": "add3a72c7b6059069b283e89dc9a13b764cff0e5dbd7b5e0a56a971574778fd0"
+  },
+  "e47a2cd1e58fad1c652a": {
+    "speaker": "豚师",
+    "text": "这次认真看。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 1.872,
+    "sha256": "60eb78d02cd419b184be7aa2640e2f5b4abfb218200fa3a4ccfa5134b9f5e1b1"
+  },
+  "e758dbf975d57650fb21": {
+    "speaker": "小朋友",
+    "text": "他们最近总凑在一起排节目。你答应看的，可别看一半又困告了。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "+0%",
+    "pitch": "+2Hz",
+    "duration": 6.528,
+    "sha256": "4bb7427650e5331aaafbaf7b8123be09050181c65fb70da9c345fdebd37b2ba2"
+  },
+  "6bfe7111d9442a4f482f": {
+    "speaker": "听歌",
+    "text": "我带了相机。先拍一张，再挑一张没闭眼的。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-4%",
+    "pitch": "+0Hz",
+    "duration": 5.304,
+    "sha256": "f06b4d7d15d15734f61dc437314f584a4a86965556c6f6d9d0d2d72bde80ebd7"
+  },
+  "80cf20c0cc10ecbde0db": {
+    "speaker": "攀哥",
+    "text": "我已经数过两遍了。你困归困，回家路上不能再少一个。",
+    "voice": "zh-CN-YunxiNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "duration": 5.856,
+    "sha256": "fce84d67965fcb35d2a0983c34588dbd4745558d94013db57e0935d364293302"
+  },
+  "dee1bba486c0899d25be": {
+    "speaker": "豚师",
+    "text": "我也算在里面？",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 1.872,
+    "sha256": "df39296482f4978788a1710ab994b5f46825da42489684a188b291262d669413"
+  },
+  "e397899a5844bc86e689": {
+    "speaker": "豚师",
+    "text": "这个计划可能比八子计划难。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 3.168,
+    "sha256": "6768515f46e45147a7b9dc5f86cc34e11e0584465943dee506c3d2d0bfa348e1"
+  },
+  "3ed4d8030dad79f53a4c": {
+    "speaker": "攀哥",
+    "text": "你最容易忘。",
+    "voice": "zh-CN-YunxiNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "duration": 2.016,
+    "sha256": "8ae2be92b58a23aa58d2c08c3572039153573ff4635d3f7c5b39452ff5fa84bd"
+  },
+  "5d3788e0d335766c5b92": {
+    "speaker": "豚师",
+    "text": "你当年也是这么说的。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 2.256,
+    "sha256": "16af9fe9f19189653b10a8dffdfaeb8113a597b2a7ead5108f336666b1989d25"
+  },
+  "b4a4090ac6bbeb8d152f": {
+    "speaker": "炫神",
+    "text": "黄色的，能开就行。但八个儿子，真装不下。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+7%",
+    "pitch": "+2Hz",
+    "duration": 5.184,
+    "sha256": "728ae739e465a0e7bf80a58bcdb3d091b8a55eaa59d33da4a8a4eea73964ebab"
+  },
+  "5bd4f5849b007c71a3cd": {
+    "speaker": "攀哥",
+    "text": "行李装好了。小朋友和孩子坐大车，咱们分开走。",
+    "voice": "zh-CN-YunxiNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "duration": 5.16,
+    "sha256": "ead5e66ad1d6059954919b723ef80f3f1d6808e153b505599f67af637f2a0bbb"
+  },
+  "dee10e0df2ed88fec6ce": {
+    "speaker": "豚师",
+    "text": "我一直在这儿搬东西。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 2.28,
+    "sha256": "f64793074237651b822a154417f12059e16ced94ff7ace79a89947d50d1db9f1"
+  },
+  "586812befa835018e935": {
+    "speaker": "听歌",
+    "text": "先别走！第一次合照，还差摄影师……也差豚师。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-4%",
+    "pitch": "+0Hz",
+    "duration": 5.904,
+    "sha256": "9052e352b0c0f72f7fffb4dd53ae7e0f3c8ab3a0b32479952b3265267f08c915"
+  },
+  "c1d841eeedaffe279bc7": {
+    "speaker": "攀哥",
+    "text": "一到八，全部拍进去了。这张就叫《八子俱全》。",
+    "voice": "zh-CN-YunxiNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "duration": 5.424,
+    "sha256": "d11509b2b9716054d1d3f95c59a2364669afceba4cf7f83ce985a417e4279393"
+  },
+  "b6973bb36f6b0c71cd6e": {
+    "speaker": "听歌",
+    "text": "看镜头！八个都在……豚师，你醒一下。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-4%",
+    "pitch": "+0Hz",
+    "duration": 5.184,
+    "sha256": "584f819e28b63aa2c634c350182ba59616c06a2782b207134e29a5ea2ff4df8c"
+  },
+  "1405594e9ee64fd2c589": {
+    "speaker": "豚师",
+    "text": "醒着。只有我……困告明白了。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 3.624,
+    "sha256": "29d732615bfa9e640da90489d29981e2790bc413f46db74092ccf23058a7591d"
+  },
+  "23917e040bd46d539db2": {
+    "speaker": "小朋友",
+    "text": "八个儿子都会走、会说话了。就是有些话，跟他们爸爸学得太快。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "+0%",
+    "pitch": "+2Hz",
+    "duration": 6.336,
+    "sha256": "f44226454b19b1b43ae6c173c7076d7aee3d950aec13000ad2662f39fbe59577"
+  },
+  "8882f9af20bc0e9e1a71": {
+    "speaker": "老三",
+    "text": "那岂不是起飞！",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 2.112,
+    "sha256": "210551f178836c7d3486a210d281299ef9f65d1a860886f9be997f14e9f74247"
+  },
+  "d5ef5c3e4a837563ce77": {
+    "speaker": "几年以后",
+    "text": "八只篮子换成了八张小床。家里总算不用一整夜轮流醒，换成了白天一起闹。",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "duration": 7.704,
+    "sha256": "4430ebfd4f19a2fa35bf2cea444c5740de78a42a30de0459ae8948c8b51341fb"
+  },
+  "28307f7c8eb9eb1f279e": {
+    "speaker": "豚师",
+    "text": "这个我可没教。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 1.92,
+    "sha256": "7c3df31add09640778bf6721beabe13bb4c3a5959f49fdb1145d97ae06e217fa"
+  },
+  "b4fd8e595e7d31a36355": {
+    "speaker": "老大",
+    "text": "我演爸爸。我最大，这个不用争。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 4.08,
+    "sha256": "b630ed1770e65d1ae01e17b774a1a2dcbf14e0dc1502d22f729323cc7bfe113a"
+  },
+  "380546e6a0741a88f51b": {
+    "speaker": "老二",
+    "text": "我画了上海！这些高楼先放椅子上，别踩我的江。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 5.256,
+    "sha256": "f43fb3dd5d90732d87da510c3d2f3c2d9118935d368a1a313c5e3c16720b753f"
+  },
+  "42e091a815b94329be08": {
+    "speaker": "豚师",
+    "text": "爸爸也不是每天都打架。先别拿弟弟练。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 4.608,
+    "sha256": "4b4d345a042cf1999004f25151b59f2d74eba623223a171b88984bba39d9d175"
+  },
+  "4166773ac10d978bedc3": {
+    "speaker": "老四",
+    "text": "听歌叔叔说，可以先来一段音乐。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 3.48,
+    "sha256": "f0bdac5c06040575439a1993289433caaf9ce59c58feb0e09a6dfdd693f618c0"
+  },
+  "ba1d55255f24c04a6dc3": {
+    "speaker": "老三",
+    "text": "那我演爸爸打架的时候！",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 2.616,
+    "sha256": "822867f6d1820b7f38cd3152eab8178abf85bfe2209164e9fbd222d5981fc71e"
+  },
+  "5d6871c30c469af9c65d": {
+    "speaker": "老五",
+    "text": "那什么时候演到吃饭？",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 2.424,
+    "sha256": "b78de42d30b18bee46ae71be377689d9e14d5f923aa17c37dc3792b485f6c50d"
+  },
+  "fbeb69adbe8ec352168e": {
+    "speaker": "豚师",
+    "text": "别提前吃完就行。也给爸爸留一点。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 3.96,
+    "sha256": "8f57b1a7f317a7d4a33ead0ada7f67372535460325ab1ccf26df28b9a1afb6ce"
+  },
+  "6b2c7cb5830c7cc393c5": {
+    "speaker": "老六",
+    "text": "我记得攀哥喜欢吃这个。我们带一盒去。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 4.56,
+    "sha256": "da906334b8364656e764e60658fe2f9690f02f390e45c30a1c7684d0279fd256"
+  },
+  "82e4234a0b5c462545ec": {
+    "speaker": "豚师",
+    "text": "攀哥教你的？",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 1.872,
+    "sha256": "b1eae48e6a77fafeeee4a2fdfb5b593c6e699ccfe2f2ee1f9f8e8c7541e5963f"
+  },
+  "6b6e4c63703c4ab7d46d": {
+    "speaker": "老八",
+    "text": "你先坐。你刚才又站着睡了。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 3.648,
+    "sha256": "7421f9eabd8e54565fa69285f0d7bbb80137d2e6ac2094a9f4ea5e4545a534a6"
+  },
+  "3cc061d6d1d62de01606": {
+    "speaker": "老七",
+    "text": "一、二……八。爸爸，我数完了，你还要不要再数一遍？",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 6.36,
+    "sha256": "0b00d1c2a761bd15ab48bfc2805189d7cc8c8a56630b789d72de667e1259462f"
+  },
+  "41222b8063f4a19878d8": {
+    "speaker": "攀哥 · 电话",
+    "text": "生日快到了，来上海住一阵？房间都收拾好了。象象说，来多少人都得先吃饭。",
+    "voice": "zh-CN-YunxiNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "duration": 8.304,
+    "sha256": "51c13891bde12faa911a44749bd75eceb29237034839e5a75422bb5f9a908ff2"
+  },
+  "5c6834d99a2e5b7b73e0": {
+    "speaker": "豚师",
+    "text": "没有睡。我在想，去上海带你们看什么。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 4.32,
+    "sha256": "4c6316d4fc0e1cd5b678a90fe0c3883f889911733ae694bcb8fca3ca0e89146e"
+  },
+  "65f8d77b322a0ecc3159": {
+    "speaker": "炫神 · 电话",
+    "text": "这次车我提前改好了！十个人，真能坐。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+7%",
+    "pitch": "+2Hz",
+    "duration": 4.536,
+    "sha256": "8fdd38ff19e8fbe9a30835d0e6ddfb1878dd40faa555b636ee9e35d89dd7e7d0"
+  },
+  "0f2d704f910899405a97": {
+    "speaker": "听歌 · 电话",
+    "text": "我准备节目。你们慢慢来，别又把自己落在车上。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-4%",
+    "pitch": "+0Hz",
+    "duration": 5.472,
+    "sha256": "34c73049e60860416d7b8cdd72f0262de3afce8ddf4466d900c55b167643cb1f"
+  },
+  "8155b0c2b94ca0902ff6": {
+    "speaker": "豚师",
+    "text": "好。爸爸这次从第一幕看到最后一幕。再带你们好好逛上海。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 6.888,
+    "sha256": "e1d4feff6546eb53f63dab92fcb78d00a87ec9902f84a3f925d24a8e6369605d"
+  },
+  "748f349185a777fbf79f": {
+    "speaker": "老大",
+    "text": "我们也有节目！讲爸爸以前的故事。现在还不能告诉你。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 6.216,
+    "sha256": "9c720220ff4fce5001aaa8ac2c6a9dff0711bc9535ddca772fa49df73461c036"
+  },
+  "3d27da1d8046b1e6baeb": {
+    "speaker": "小朋友",
+    "text": "人都齐了？那就出发。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "+0%",
+    "pitch": "+2Hz",
+    "duration": 3.0,
+    "sha256": "70778cc2c344756d72ee8c4c015345bef2d44718911b3e1d7e6bd2ab0c8dd22a"
+  },
+  "8fe239f13d127d5bc00e": {
+    "speaker": "老八",
+    "text": "合照我收好了。你困了，到了上海再睡。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 4.704,
+    "sha256": "73b752eba637db62cf0146ba1a0398234b8d3d73999b9f1144163204d5483906"
+  },
+  "27997db761be5bb320e0": {
+    "speaker": "老七",
+    "text": "一、二……八。爸爸，这次你也站过来。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 5.136,
+    "sha256": "f9b7eadd9c32cd857f6b3651a5f03bbbce8846fb3de9b3bbc9fdede337c759d8"
+  },
+  "110b052a478815cdb754": {
+    "speaker": "旁白",
+    "text": "一开始，八个人轮流醒，几个大人轮流困。",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "duration": 4.488,
+    "sha256": "57874970b2dc3bf57c0e6a475fb41f30b7251e5ff58a30714fb89cf7edab825f"
+  },
+  "87b5b5a7572c7472cee3": {
+    "speaker": "豚师",
+    "text": "齐了。一个都不少。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 2.808,
+    "sha256": "ea3cbe68ee21104ee3265d76857f87c76137f8af321ca026620824ee0cba3f5b"
+  },
+  "8953f71734d852638f83": {
+    "speaker": "旁白",
+    "text": "后来，篮子换成了小床。八个儿子有了八个主意。",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "duration": 5.544,
+    "sha256": "0b0fa06496f549f744b90a4100bd2f6aa2832a0771db3ccd0c49891641f98fd1"
+  }
+}

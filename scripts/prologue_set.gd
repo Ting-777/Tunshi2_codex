@@ -97,7 +97,12 @@ static func home(root: Node3D):
 	block(root,Vector3(3,.75,1),"#a77e5f",Vector3(-11,.48,6))
 	ToonKit.box(root,Vector3(.5,.07,.9),"#334456",Vector3(-11,.91,6))
 	ToonKit.text(root,"长沙 · 家",Vector3(0,4.3,-12.6),.008,"#845c49")
-	ToonKit.text(root,"八子俱全",Vector3(-11,2.8,12),.006,"#fff1d3").rotation.y=PI
+	# The keepsake lives on the back wall, outside every playable camera path.
+	# A floating front-wall label previously crossed the follow camera at the phone.
+	ToonKit.box(root,Vector3(3.3,1.8,.12),"#926649",Vector3(7.9,3.4,-12.65))
+	ToonKit.box(root,Vector3(3.05,1.55,.14),"#f1e1bf",Vector3(7.9,3.4,-12.63))
+	for i in range(8):ToonKit.orb(root,Vector3(.21,.20,.05),"#62b7d4",Vector3(6.85+(i%4)*.7,3.1+(i/4)*.6,-12.52))
+	ToonKit.text(root,"八子俱全",Vector3(7.9,4.55,-12.5),.0038,"#805f4b")
 	block(root,Vector3(6,3.5,.4),"#659792",Vector3(0,1.75,12.8))
 	for i in range(3):suitcase(root,Vector3(8+i*1.1,0,9),["#bc7356","#7da6ab","#c7a55f"][i])
 	# The children's play has actual props: a hand-drawn river, building blocks,

@@ -13,14 +13,20 @@ var clock=0.0
 var animated=true
 var gesture="idle"
 var walk_legs=[]
+var face: StoryFace
+var stage_world: Node
 
 func build(role: String,index: int=0):
 	kind=role;number=index;rig=Node3D.new();add_child(rig)
+	stage_world=get_parent()
+	while stage_world and not ("pause_menu" in stage_world):stage_world=stage_world.get_parent()
 	if role in ["son","baby","queen"]:_dolphin(role,index)
 	else:_human(role)
 	for n in rig.find_children("*","Node3D",true,false):
 		if not n is MeshInstance3D:ToonKit.merge_direct(n)
-	ToonKit.merge_direct(rig);ToonKit.outline(rig);ToonKit.finish(rig,true)
+	ToonKit.merge_direct(rig);ToonKit.outline(rig)
+	if face:face.refine_outlines()
+	ToonKit.finish(rig,true)
 	for name_value in ["leg0","leg1"]:
 		var leg=rig.find_child(name_value,true,false)
 		if leg:walk_legs.append(leg)
@@ -67,33 +73,32 @@ func _human(role: String):
 	body=Node3D.new();rig.add_child(body)
 	ToonKit.box(body,Vector3(.82,.89,.46),shirt,Vector3(0,1.24,0),.17)
 	ToonKit.cyl(body,.13,.19,skin,Vector3(0,1.74,0))
-	ToonKit.orb(body,Vector3(.34,.38,.28),skin,Vector3(0,2.02,0))
-	ToonKit.orb(body,Vector3(.35,.20,.29),"#252a35",Vector3(0,2.25,-.03))
+	if role in ["tingge","pange","xuanshen"]:
+		face=StoryFace.new();body.add_child(face);face.position.y=2.03;face.build(role)
+	else:
+		ToonKit.orb(body,Vector3(.34,.38,.28),skin,Vector3(0,2.02,0))
+		ToonKit.orb(body,Vector3(.35,.20,.29),"#252a35",Vector3(0,2.25,-.03))
 	for s in [-1,1]:
-		ToonKit.orb(body,Vector3(.045,.055,.023),"#252a35",Vector3(s*.12,2.03,.267))
+		if not face:ToonKit.orb(body,Vector3(.045,.055,.023),"#252a35",Vector3(s*.12,2.03,.267))
 		var arm=Node3D.new();arm.position=Vector3(s*.47,1.62,0);body.add_child(arm);arms.append(arm)
 		ToonKit.orb(arm,Vector3(.15,.35,.17),shirt,Vector3(s*.025,-.28,0));ToonKit.orb(arm,Vector3(.13,.14,.13),skin,Vector3(s*.025,-.62,.02))
 		ToonKit.box(rig,Vector3(.28,.64,.34),"#29364e",Vector3(s*.21,.51,0),.09);ToonKit.box(rig,Vector3(.31,.17,.49),"#f3edda" if role=="xuanshen" else "#283141",Vector3(s*.21,.15,.08),.07)
-	ToonKit.orb(body,Vector3(.09,.035,.023),"#975c51",Vector3(0,1.86,.258))
-	if role=="tingge":
-		for s in [-1,1]:
-			ToonKit.ring(body,.115,.035,.035,"#252a35",Vector3(s*.14,2.04,.283)).rotation.x=PI/2
-			ToonKit.orb(body,Vector3(.09,.16,.15),"#f2c747",Vector3(s*.36,2.09,0))
-		ToonKit.box(body,Vector3(.12,.035,.03),"#252a35",Vector3(0,2.06,.30),.01)
-		ToonKit.ring(body,.35,.045,.10,"#efc442",Vector3(0,2.12,-.02)).rotation.x=PI/2
-	elif role=="pange":
+	if not face:ToonKit.orb(body,Vector3(.09,.035,.023),"#975c51",Vector3(0,1.86,.258))
+	if role=="pange":
 		ToonKit.box(body,Vector3(.29,.80,.05),"#f4e8cd",Vector3(0,1.27,.239),.03)
-		ToonKit.orb(body,Vector3(.32,.16,.29),"#252a35",Vector3(-.08,2.25,.03))
 	elif role=="xuanshen":
-		for i in range(5):
-			var spike=ToonKit.cyl(body,.12,.39+(2-abs(i-2))*.08,"#252a35",Vector3((i-2)*.12,2.44,-.01),0,6);spike.rotation.z=(2-i)*.17
 		ToonKit.polygon(body,PackedVector2Array([Vector2(.03,.29),Vector2(-.18,-.01),Vector2(-.02,-.01),Vector2(-.09,-.28),Vector2(.20,.08),Vector2(.04,.08)]),"#ffe05a",Vector3(0,1.29,.244))
-	else:
+	elif role!="tingge":
 		ToonKit.orb(body,Vector3(.45,.46,.31),"#eee7d6",Vector3(0,1.12,.12));ToonKit.cyl(body,.54,.08,"#dcb778",Vector3(0,2.30,0));ToonKit.cyl(body,.34,.24,"#e8c98b",Vector3(0,2.45,0));ToonKit.cyl(body,.35,.08,"#bc4948",Vector3(0,2.38,0));ToonKit.orb(body,Vector3(.10,.11,.025),"#252a35",Vector3(.13,2.04,.29))
 
 func _process(dt):
 	if not animated or not body:return
+	if stage_world and stage_world.pause_menu:return
 	clock+=dt;body.position.y=sin(clock*1.8+number)*.013
+	if face:
+		var speaking=gesture=="talk"
+		if speaking and stage_world and not stage_world.dialogue.is_empty():speaking=stage_world.line_time<stage_world.voice.duration
+		face.animate(dt,speaking,gesture=="wave")
 	for i in range(arms.size()):arms[i].rotation.x=sin(clock*1.7+number+i*.4)*.045;arms[i].rotation.z=0
 	if gesture=="talk":
 		body.rotation.x=sin(clock*4)*.025

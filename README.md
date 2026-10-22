@@ -1,11 +1,11 @@
-# 豚师2 · 上海风云 / 序章版 0.5.1
+# 豚师2 · 上海风云 / 序章版 0.5.2
 
 新对话接续请先读 [交接入口](docs/NEW-CHAT-HANDOFF.md)。第一部背景已整理为 [剧情与人物](docs/TUNSHI1-STORY.md)、[玩法](docs/TUNSHI1-GAMEPLAY.md)、[开发经验](docs/DEVELOPMENT-LESSONS.md)，并保留原始源码选集与证据范围。克隆仓库即可恢复源码，不依赖旧对话 ZIP。
 
 Godot 4.5.2 原生游戏。新增可玩序章《一个都不少》：长沙医院、全家出院合照、数年后的家中生活与上海邀约；原陆家嘴自由漫游保留为独立入口。压缩、手工构建的陆家嘴街区，明快都市卡通画风。保留第一部网页游戏豚师的实际几何与比例，仅调整材质及动画。原来的 Sites 主站与测试站均未修改。
 
 ## Windows 运行
-从 [GitHub Releases](https://github.com/Ting-777/Tunshi2_codex/releases) 下载最新 Windows ZIP（无需 Python 或 Godot），完整解压后双击 Start.cmd 或 Dolphin2.exe。不要在 ZIP 内直接启动；EXE 和 PCK 必须放在一起。使用 Godot Compatibility/OpenGL 渲染，64 位 Windows，显卡驱动需支持 OpenGL 3.3。0.5.0 的 Windows 发布流程会先完成独立 PCK 回归与解压后的 EXE 检查，成功后才发布。CI 为无显示运行；0.4.6 的 RTX 4060 Laptop 实测是历史证据，不等同于新序章的 GPU 验收。
+从 [GitHub Releases](https://github.com/Ting-777/Tunshi2_codex/releases) 下载最新 Windows ZIP（无需 Python 或 Godot），完整解压后双击 Start.cmd 或 Dolphin2.exe。不要在 ZIP 内直接启动；EXE 和 PCK 必须放在一起。使用 Godot Compatibility/OpenGL 渲染，64 位 Windows，显卡驱动需支持 OpenGL 3.3。Windows 发布流程会先完成独立 PCK 回归与解压后的 EXE 检查，成功后才发布。CI 为无显示运行；0.4.6 的 RTX 4060 Laptop 实测是历史证据，不等同于新序章的 GPU 验收。
 
 Start.cmd 将日志保存到 %LOCALAPPDATA%\Dolphin2ShanghaiToon\runtime.log。标题可开始/继续序章或进入漫游。序章检查点与原漫游存档分开，重玩序章不会覆盖漫游存档。Fresh-Start.cmd 的 --fresh 只影响漫游旧位置；序章重玩请使用标题按钮。存档为本机 Godot user 数据，不含网页游戏存档。
 
@@ -33,9 +33,13 @@ WASD 移动/驾驶，鼠标视角，E 互动/上下车，空格跳跃/手刹，R
 ## 当前内容和边界
 包含东方明珠、环形天桥、国金中心、金茂、环球金融中心、上海中心、滨江步道、中心绿地和原创沿街商铺；步行、跳跃、闪避、格挡、近战、热血、主动敌人、车辆、破坏木箱、掉落、地图和存档。另有独立长沙序章场景和生活互动；第一章、后续上海剧情、完整上海和完整交通模拟尚未实现。角色动作仍使用程序化关节动画，不宣称达到《如龙》成品动作质量。
 
-所有截图来自原生 Godot OpenGL 运行；截图验证模式固定镜头与测试人物位置，正常游戏采用跟随镜头和主动 AI。截图不是生成图片。按用户要求，新增截图与视频只在对话内展示，不上传仓库；仓库保存代码与文字验收记录。验证细节见 docs/verification/TEST-REPORT.md。
+按用户最新要求，默认不输出截图，仅在明确要求时展示真实引擎画面；内部按需复查美术效果，新增截图、视频和图集不上传仓库或Release。验证按改动范围进行，详见 docs/verification/TEST-REPORT.md。
 
-## 0.5.1 本轮更新
+## 0.5.2 本轮更新
+
+重做听歌、攀哥、炫神的脸型、眼白/虹膜、眼睑、眉形、立体鼻部与唇形，加入错时眨眼及多种说话口型。保留紫衣黄耳机眼镜、绿外套、橙色闪电衣刺头等标志；暂停冻结人物动画，语音结束后收口。原版豚师、八子和小朋友造型保留。角色图作为设计方向，不逐笔照搬简笔画五官。
+
+## 0.5.1 历史更新
 
 医院和家中补齐天花板、室内照明、完整墙体、自动玻璃门和玄关木门；儿童睡眠区独立。目标点附距离和屏幕边缘方向，跨室内外先引向门。54段中文TTS随游戏附带，V开关配音、C开关自动对白，暂停/跳句与音频同步。新增起身、集合合照、八子成长和出发演出，均可跳过。
 

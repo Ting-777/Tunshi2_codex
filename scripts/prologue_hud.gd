@@ -2,8 +2,9 @@ extends StreetHUD
 
 func _draw():
 	if not world or not world.player or photo:return
-	if menu or (world.paused and world.dialogue.is_empty()):
+	if menu or world.pause_menu:
 		_menu();return
+	if world.director.active():_cinema();return
 	panel(Rect2(30,26,385,83));draw_rect(Rect2(30,26,6,83),ORANGE)
 	txt("序章  /  一个都不少",Vector2(53,60),26)
 	txt("长沙 · 晴川医院" if world.phase<3 else "几年后 · 长沙的家",Vector2(53,91),17,Color("#b6d8ce"))
@@ -11,8 +12,13 @@ func _draw():
 	for i in range(8):
 		var p=Vector2(1149+i*50,84);draw_circle(p,12,Color(StoryCast.BADGES[i]));txt(str(i+1),p+Vector2(-5,6),15,Color.WHITE)
 	if world.dialogue.is_empty():
-		panel(Rect2(30,126,530,78));txt(world.objective(),Vector2(49,157),21)
+		panel(Rect2(30,126,530,110));txt(world.objective(),Vector2(49,157),21)
 		txt(world.subobjective(),Vector2(49,185),16,Color("#b6d8ce"))
+		var targets=world.navigation_targets()
+		if not targets.is_empty():
+			var target=targets[0];var distance=Vector2(world.player.position.x-target.p.x,world.player.position.z-target.p.z).length()
+			txt("目标："+target.label+" · "+str(int(ceil(distance)))+" 米",Vector2(49,216),18,Color("#82ccef"))
+		_markers(targets)
 		var h=world.nearest_hotspot()
 		if world.player.vehicle:
 			panel(Rect2(1125,670,445,155));var car=world.player.vehicle
@@ -29,7 +35,8 @@ func _draw():
 		txt(line[0],Vector2(180,688),25,ORANGE)
 		var text_lines=_wrap_text(line[1],1200,27)
 		for i in range(text_lines.size()):txt(text_lines[i],Vector2(180,734+i*38),27)
-		txt("E / Enter / 点击 继续",Vector2(1198,811),17,Color("#b6d8ce"))
+		txt("配音中" if world.voice.player.playing and world.voice.enabled else "对白",Vector2(180,812),16,Color("#82ccef"))
+		txt("E 继续 · V 配音"+("开" if world.voice.enabled else "关")+" · C 自动"+("开" if world.auto_dialogue else "关")+" · Esc 暂停",Vector2(820,811),16,Color("#b6d8ce"))
 	if Time.get_ticks_msec()<notice_until:
 		var w=ToonKit.font().get_string_size(notice,HORIZONTAL_ALIGNMENT_LEFT,-1,20).x+46;panel(Rect2(800-w/2,227,w,46));txt(notice,Vector2(823-w/2,257),20)
 	if help:
@@ -37,6 +44,41 @@ func _draw():
 		txt("走近人物或物品，看到 E 提示再互动。",Vector2(1034,218),20)
 		txt("车要停稳、下车，才算腾好位置。",Vector2(1034,253),20)
 		txt("R 可请炫神帮忙挪车；H 收起帮助。",Vector2(1034,288),20)
+
+func _markers(targets: Array):
+	var labels=[]
+	for i in range(targets.size()):
+		var target=targets[i];var p3=target.p+Vector3.UP*2.6
+		var point=world.camera.unproject_position(p3);var behind=world.camera.is_position_behind(p3)
+		if behind:point=Vector2(800,450)-(point-Vector2(800,450))
+		var off=behind or not Rect2(75,265,1450,385).has_point(point)
+		point=Vector2(clampf(point.x,80,1520),clampf(point.y,270,640))
+		var color=Color("#77cff4") if i==0 else Color("#b3d6e3")
+		var r=10.0 if i==0 else 7.0
+		if off:
+			var direction=(point-Vector2(800,450)).normalized();var side=Vector2(-direction.y,direction.x)
+			draw_colored_polygon(PackedVector2Array([point+direction*14,point-direction*9+side*9,point-direction*9-side*9]),color)
+		else:draw_colored_polygon(PackedVector2Array([point+Vector2(0,-r),point+Vector2(r,0),point+Vector2(0,r),point+Vector2(-r,0)]),color)
+		var dist=Vector2(world.player.position.x-target.p.x,world.player.position.z-target.p.z).length()
+		var label=target.label+" · "+str(int(ceil(dist)))+"m"
+		var size_value=17 if i==0 else 15;var width=ToonKit.font().get_string_size(label,HORIZONTAL_ALIGNMENT_LEFT,-1,size_value).x+24
+		var x=clampf(point.x-width/2,30,1570-width);var y=point.y+16
+		for rect in labels:
+			if Rect2(x,y,width,31).intersects(rect.grow(5)):y=rect.end.y+8
+		if y>point.y+20:draw_line(point+Vector2(0,12),Vector2(x+width/2,y),color,1.5)
+		labels.append(Rect2(x,y,width,31));panel(Rect2(x,y,width,31),Color("#253149"));txt(label,Vector2(x+12,y+22),size_value,color)
+
+func _cinema():
+	var d=world.director
+	draw_rect(Rect2(0,0,1600,65),Color("#111b29"));draw_rect(Rect2(0,835,1600,65),Color("#111b29"))
+	if d.show_photo and d.shot_texture:
+		draw_rect(Rect2(0,0,1600,900),Color("#243449"));draw_rect(Rect2(200,105,1200,695),PAPER);draw_texture_rect(d.shot_texture,Rect2(220,125,1160,652),false)
+	var width=ToonKit.font().get_string_size(d.caption,HORIZONTAL_ALIGNMENT_LEFT,-1,27).x
+	panel(Rect2(770-width/2,776,width+60,51),Color("#253149"))
+	txt(d.caption,Vector2(800-width/2,812),27)
+	txt("E / Enter 跳过演出 · Esc 暂停",Vector2(1250,875),16)
+	if d.dark>0:draw_rect(Rect2(0,0,1600,900),Color(0,0,0,d.dark))
+	if d.flash>0:draw_rect(Rect2(0,0,1600,900),Color(1,1,1,d.flash))
 
 func _wrap_text(value: String,width: float,size_value: int) -> Array:
 	var lines=[];var current=""
@@ -62,11 +104,12 @@ func _menu():
 	txt("序章  ·  一个都不少",Vector2(64,335),29)
 	txt("八只篮子，一张合照。",Vector2(64,383),22,Color("#b6d8ce"))
 	txt("从长沙的家，出发去上海。",Vector2(64,418),22,Color("#b6d8ce"))
+	txt("V 配音："+("开" if world.voice.enabled else "关")+"    C 自动对白："+("开" if world.auto_dialogue else "关"),Vector2(64,447),17,Color("#82ccef"))
 	var buttons=menu_buttons()
 	for i in range(buttons.size()):
 		var rect=Rect2(63,466+i*77,475,62);panel(rect,ORANGE if i==0 else Color("#3a4e64"));txt(buttons[i][0],rect.position+Vector2(24,41),25,INK if i==0 else PAPER)
 	txt("W/S 选择 · Enter 确定 · 支持鼠标",Vector2(64,824),17)
-	txt("0.5.0 · 原生 Godot · Windows / Linux",Vector2(64,861),15,Color("#91b5bd"))
+	txt("0.5.1 · 原生 Godot · Windows / Linux",Vector2(64,861),15,Color("#91b5bd"))
 	draw_circle(Vector2(555,497+world.menu_selection*77),8,ORANGE)
 
 func menu_click(p: Vector2):

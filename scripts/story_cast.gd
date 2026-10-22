@@ -11,6 +11,8 @@ var kind=""
 var number=0
 var clock=0.0
 var animated=true
+var gesture="idle"
+var walk_legs=[]
 
 func build(role: String,index: int=0):
 	kind=role;number=index;rig=Node3D.new();add_child(rig)
@@ -19,6 +21,9 @@ func build(role: String,index: int=0):
 	for n in rig.find_children("*","Node3D",true,false):
 		if not n is MeshInstance3D:ToonKit.merge_direct(n)
 	ToonKit.merge_direct(rig);ToonKit.outline(rig);ToonKit.finish(rig,true)
+	for name_value in ["leg0","leg1"]:
+		var leg=rig.find_child(name_value,true,false)
+		if leg:walk_legs.append(leg)
 	if role!="baby":
 		var solid=StaticBody3D.new();solid.collision_layer=1;solid.collision_mask=0;add_child(solid)
 		var col=CollisionShape3D.new();var shape=CapsuleShape3D.new();shape.radius=.23 if role=="son" else .37;shape.height=1.30 if role=="son" else 2.25;col.shape=shape;col.position.y=shape.height/2;solid.add_child(col)
@@ -89,4 +94,17 @@ func _human(role: String):
 func _process(dt):
 	if not animated or not body:return
 	clock+=dt;body.position.y=sin(clock*1.8+number)*.013
-	for i in range(arms.size()):arms[i].rotation.x=sin(clock*1.7+number+i*.4)*.045
+	for i in range(arms.size()):arms[i].rotation.x=sin(clock*1.7+number+i*.4)*.045;arms[i].rotation.z=0
+	if gesture=="talk":
+		body.rotation.x=sin(clock*4)*.025
+		if arms.size()>0:arms[0].rotation.x=-.55+sin(clock*3)*.18
+	elif gesture=="wave":
+		body.rotation.x=0
+		if arms.size()>1:arms[1].rotation.z=-.9;arms[1].rotation.x=-.8+sin(clock*6)*.25
+	elif gesture=="walk":
+		for i in range(walk_legs.size()):walk_legs[i].rotation.x=sin(clock*8+i*PI)*.6
+		for i in range(arms.size()):arms[i].rotation.x=-sin(clock*8+i*PI)*.35
+	else:
+		body.rotation.x=0
+		for arm in arms:arm.rotation.z=0
+		for leg in walk_legs:leg.rotation.x=0

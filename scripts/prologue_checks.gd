@@ -5,6 +5,14 @@ static func ticks(w,n: int):
 
 static func finish(w):
 	var guard=0
+	while (not w.dialogue.is_empty() or w.director.active()) and guard<80:
+		if w.director.active():w.director.skip()
+		else:w._key(KEY_E)
+		guard+=1
+	await ticks(w,3)
+
+static func lines_only(w):
+	var guard=0
 	while not w.dialogue.is_empty() and guard<40:w._key(KEY_E);guard+=1
 	await ticks(w,3)
 
@@ -25,11 +33,35 @@ static func run(w):
 	var checks=[]
 	var normal="user://shanghai-prologue-v1.json";var old_hash=FileAccess.get_sha256(normal) if FileAccess.file_exists(normal) else ""
 	checks.append([w.hud.menu and not w.tutorial_started,"title does not create story progress"])
+	var bundled=true;var unique={}
+	for line in w.voice.all_lines():
+		var key=w.voice.key_for(line);unique[key]=true
+		var path="res://assets/voice/"+key+".mp3"
+		if not ResourceLoader.exists(path):bundled=false
+		else:
+			var stream=load(path)
+			if not stream is AudioStreamMP3 or stream.get_length()<.3:bundled=false
+	checks.append([bundled and unique.size()==54,"all 54 authored Chinese voice clips are bundled and load offline"])
 	await shot(w,"00-title")
 	w.menu_action("new")
 	var p=w.player.position;Input.action_press("forward");await ticks(w,15);Input.action_release("forward")
 	checks.append([w.player.position.distance_to(p)<.1 and w.paused,"dialogue freezes movement"])
+	checks.append([w.director.kind=="wake","new game begins with a staged hospital wake-up"])
+	await ticks(w,45);await shot(w,"00b-hospital-wake-up")
+	checks.append([w.camera.position.y<4.5,"opening camera stays under the physical ceiling"])
+	w.director.skip();await ticks(w,5)
+	checks.append([w.voice.player.playing and w.voice.duration>.5,"spoken dialogue starts an actual AudioStreamPlayer"])
+	var line_time=w.line_time;w._key(KEY_ESCAPE);await ticks(w,12)
+	checks.append([w.pause_menu and w.voice.player.stream_paused and is_equal_approx(w.line_time,line_time),"pause freezes dialogue timing and audio playback together"])
+	w._key(KEY_ESCAPE);var old_key=w.voice.current_key;w._key(KEY_E);await ticks(w,3)
+	checks.append([not w.pause_menu and w.voice.current_key!=old_key and w.voice.player.get_playback_position()<.3,"skipping a line stops the old voice before the new one"])
+	var old_index=w.line_index;w.line_time=w.voice.duration+.64;await ticks(w,5)
+	checks.append([w.line_index==old_index+1,"automatic dialogue advance follows the spoken clip duration"])
 	await finish(w)
+	await go(w,Vector3(0,.12,-5));p=w.player.position
+	var roof=w.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(Vector3(0,2.5,-5),Vector3(0,6,-5),1))
+	checks.append([not roof.is_empty() and roof.position.y>4.7 and roof.normal.y<-.9,"hospital has a real solid ceiling rather than an open roof"])
+	checks.append([w.navigation_targets()[0].id=="babies","the first objective identifies the actual nursery location"])
 	checks.append([w.babies.size()==8,"eight separately numbered newborn models"])
 	w._key(KEY_E)
 	checks.append([not w.babies_seen,"distant interaction cannot complete nursery objective"])
@@ -41,13 +73,22 @@ static func run(w):
 	# Walk the last metres into the clear central aisle, then use the ordinary E path.
 	await go(w,Vector3(0,.12,-12));w._key(KEY_E)
 	checks.append([w.babies_seen and not w.dialogue.is_empty(),"E at nursery counts all eight and starts family dialogue"])
-	w.fixed_camera=true;w.camera.position=Vector3(14,9,-1);w.camera.look_at(Vector3(0,1,-12));await shot(w,"01-eight-newborns");w.fixed_camera=false
+	w.fixed_camera=true;w.camera.position=Vector3(11.8,3.2,-6.1);w.camera.look_at(Vector3(0,1,-13.2));await shot(w,"01-eight-newborns");w.fixed_camera=false
 	await finish(w);await go(w,Vector3(0,.12,-16));w._key(KEY_E);await finish(w)
 	checks.append([w.phase==1 and not w.parked,"birth leads to playable departure courtyard"])
+	checks.append([w.navigation_targets()[0].id=="door","interior navigation leads through the hospital exit before the car"])
+	await go(w,Vector3(0,.12,-5));await ticks(w,45)
+	var closed=w.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(Vector3(.35,1,-1),Vector3(.35,1,1),1))
+	checks.append([not closed.is_empty() and closed.collider is AnimatableBody3D,"closed glass door has a matching physical collision"])
+	await go(w,Vector3(0,.12,-2));Input.action_press("back");await ticks(w,40);Input.action_release("back")
+	checks.append([w.player.position.z>.3 and w.room.door.opened>.5,"proximity opens the real sliding panels and walking crosses the doorway"])
+	await go(w,Vector3(-5,0,9));await ticks(w,48)
+	checks.append([w.room.door.opened<.05,"hospital door closes after the player clears its safety zone"])
 	await go(w,Vector3(-7,0,-2));w._key(KEY_E)
 	checks.append([not w.carrying,"luggage cannot skip making room for the family vehicle"])
 	w.rescue_car();await ticks(w,4);w._key(KEY_E)
 	checks.append([w.player.vehicle==w.cars[0],"ordinary E boarding uses existing safe vehicle controller"])
+	checks.append([w.navigation_targets()[0].id=="parking","driving guidance switches to the blue parking space"])
 	w.cars[0].position=Vector3(0,.06,20);Input.action_press("forward");await ticks(w,120);Input.action_release("forward")
 	checks.append([w.cars[0].hp<180 and w.player.hp<100,"real courtyard wall impact injures both car and seated hero"])
 	w._key(KEY_R);await ticks(w,5)
@@ -72,15 +113,35 @@ static func run(w):
 	checks.append([w.loaded and w.phase==2 and not w.carrying,"loading changes the visible world and unlocks the photograph"])
 	checks.append([w.babies.size()==8 and w.babies.all(func(b):return b.global_position.z>2),"all eight actual babies join the family photograph"])
 	await go(w,Vector3(0,0,8.5));w._key(KEY_E)
+	var photo_start=w.camera.position;await ticks(w,75)
+	checks.append([w.director.kind=="photo" and w.camera.position.distance_to(photo_start)>.2 and w.cast.tingge.gesture=="wave","family photo moves the camera and animates the actors"])
+	await shot(w,"03a-photo-performance");await ticks(w,155)
 	checks.append([w.photo_camera and w.after_dialogue=="home","photo stages the hero, family and dedicated camera"])
-	await shot(w,"03-first-family-photo");await finish(w)
+	await shot(w,"03-first-family-photo");await lines_only(w)
+	checks.append([w.director.kind=="years" and w.phase==2,"the family photograph flows into a timed years-passing sequence"])
+	await ticks(w,205)
+	checks.append([w.phase==3 and w.sons.size()==8 and w.sons[0].rig.scale.x<.3,"growth montage stages all eight younger children in their sleeping room"])
+	await shot(w,"03b-years-passing")
+	var elapsed=w.director.elapsed;w._key(KEY_ESCAPE);await ticks(w,10)
+	checks.append([is_equal_approx(w.director.elapsed,elapsed),"pause freezes the transition animation as well as gameplay"])
+	w._key(KEY_ESCAPE);w.save_story()
+	checks.append([w.saved_phase()==2,"saving cannot commit a half-finished growth transition"])
+	for i in range(600):
+		await ticks(w,1)
+		if w.director.elapsed>w.director.baby_end+.9:break
+	await shot(w,"03c-eight-growing-boys");w.director.skip();await finish(w)
 	checks.append([w.phase==3 and w.sons.size()==8,"years-later transition replaces eight newborns with eight schoolboys"])
+	roof=w.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(Vector3(0,2.5,8),Vector3(0,6,8),1))
+	checks.append([not roof.is_empty() and roof.position.y>4.7,"the family home has its own solid ceiling"])
+	checks.append([w.navigation_targets().size()==3,"all unfinished family conversations have visible objective locations"])
 	checks.append([not w.hot.any(func(h):return h.id=="phone"),"Shanghai invitation waits for time with the children"])
 	for i in range(3):
 		await go(w,[Vector3(-4,0,3),Vector3(1,0,3),Vector3(7,0,3)][i]);w._key(KEY_E)
 		if i==0:
-			w.fixed_camera=true;w.camera.position=Vector3(10,7,13);w.camera.look_at(Vector3(1,.8,3));await shot(w,"04-eight-boys-at-home");w.fixed_camera=false
+			w.fixed_camera=true;w.camera.position=Vector3(11.8,3.1,10.8);w.camera.look_at(Vector3(.8,1.1,2.7));await shot(w,"04-eight-boys-at-home");w.fixed_camera=false
 		await finish(w)
+		if i==0:
+			w.fixed_camera=true;w.camera.position=Vector3(-9,2.7,11);w.camera.look_at(Vector3(3,1.2,3));await shot(w,"04b-family-objective-markers");w.fixed_camera=false
 	checks.append([w.groups.size()==3 and w.hot.any(func(h):return h.id=="phone"),"three distinct family conversations unlock the telephone"])
 	await go(w,Vector3(-4,0,3));w._key(KEY_E);await finish(w)
 	checks.append([w.groups.size()==3,"repeated family conversation cannot duplicate progress"])

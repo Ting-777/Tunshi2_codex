@@ -1,0 +1,42 @@
+{
+  "checks": [
+    [
+      true,
+      "dialogue advance moves one spoken line without skipping the entire birthday or starting combat"
+    ],
+    [
+      true,
+      "birthday welcome returns to a separate playable rehearsal instead of a surprise fight"
+    ],
+    [
+      true,
+      "stage aisle and normal E interaction lead to three real cardboard practice targets"
+    ],
+    [
+      true,
+      "birthday rehearsal uses actual physically connected combat against a paper prop"
+    ],
+    [
+      true,
+      "a low-scoring rehearsal still continues to dinner without awarding a false main completion"
+    ],
+    [
+      true,
+      "birthday dinner leaves Pange visibly at the service entrance and does not spawn the evacuation battle"
+    ],
+    [
+      true,
+      "a dinner checkpoint restores the unresolved doorstep meeting without replaying the outing"
+    ],
+    [
+      true,
+      "player walks out through the real door to witness why Carry's people want SN and confront Pange"
+    ],
+    [
+      true,
+      "only the witnessed confrontation hands over to an evacuation with a cause recorded in the story recap"
+    ]
+  ],
+  "failed": 0,
+  "passed": 9
+}

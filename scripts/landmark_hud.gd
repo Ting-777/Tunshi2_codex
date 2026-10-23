@@ -3,11 +3,12 @@ extends RefCounted
 
 static func draw(h):
 	var q=h.world.quests
+	if q.journal and q.journal_page==1:recap(h);return
 	if q.journal:
 		h.draw_rect(Rect2(0,0,1600,900),Color(.03,.07,.12,.9));h.panel(Rect2(250,120,1100,660))
 		h.txt("陆家嘴任务日志",Vector2(295,180),34,h.ORANGE)
 		h.txt("可用天赋点 %d · T 打开天赋树"%h.world.talents.available(),Vector2(875,180),21,h.ORANGE)
-		h.txt("W/S 选择 · Enter 追踪 · J / Esc 返回 · 支线可以稍后再来",Vector2(295,222),19)
+		h.txt("W/S 选择 · Enter 追踪 · J / Esc 返回 · Tab 剧情回顾",Vector2(295,222),19)
 		var details=["带八子登高，用观景镜辨认地标，然后拍全家合照。","帮听歌重现四拍节奏，让孩子们听见上海。","沿中庭八个平台送达包裹，记录自己的最好成绩。","豚师旧东家自由伞总部。重走访客安保训练，取回纪念章。"]
 		for i in range(4):
 			var key=q.KEYS[i];var y=252+i*112
@@ -47,10 +48,19 @@ static func draw(h):
 	if q.flash>0:h.draw_rect(Rect2(0,0,1600,900),Color(1,1,.93,q.flash*.6))
 
 static func photo(h):
- h.draw_rect(Rect2(0,0,1600,65),Color("#152235"));h.draw_rect(Rect2(0,835,1600,65),Color("#152235"))
- h.txt("八个，一个都不少 · 上海中心",Vector2(56,44),25,h.ORANGE)
- if h.world.bark_text!="":
-  h.panel(Rect2(190,720,1220,99));h.txt(h.world.bark_speaker,Vector2(215,751),20,h.ORANGE)
-  h.txt(h.world.bark_text,Vector2(215,791),25)
- var q=h.world.quests
- if q.flash>0:h.draw_rect(Rect2(0,0,1600,900),Color(1,1,.93,q.flash*.6))
+	h.draw_rect(Rect2(0,0,1600,65),Color("#152235"));h.draw_rect(Rect2(0,835,1600,65),Color("#152235"))
+	h.txt("八个，一个都不少 · 上海中心",Vector2(56,44),25,h.ORANGE)
+	if h.world.bark_text!="":
+		h.panel(Rect2(190,720,1220,99));h.txt(h.world.bark_speaker,Vector2(215,751),20,h.ORANGE)
+		h.txt(h.world.bark_text,Vector2(215,791),25)
+	var q=h.world.quests
+	if q.flash>0:h.draw_rect(Rect2(0,0,1600,900),Color(1,1,.93,q.flash*.6))
+
+static func recap(h):
+	h.draw_rect(Rect2(0,0,1600,900),Color(.03,.07,.12,.94));h.panel(Rect2(240,100,1120,700))
+	h.txt("第一章 · 已经发生的事",Vector2(280,159),32,h.ORANGE);h.txt("Tab 返回任务 · J / Esc 继续游戏",Vector2(280,202),20)
+	var y=250
+	for record in h.world.story.recap():
+		var lines=h._wrap_text(record,1010,19)
+		for line in lines:h.txt(line,Vector2(280,y),19);y+=28
+		y+=16

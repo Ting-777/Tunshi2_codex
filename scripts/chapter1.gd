@@ -1,6 +1,7 @@
 extends "res://scripts/main.gd"
 
 # Self-contained chapter slot; prologue/free-roam saves remain independent.
+var story: ChapterOneStory
 var quests: LandmarkQuests
 var stage=0
 var pause_menu=false
@@ -30,6 +31,8 @@ var cargo_last_yaw=0.0
 var encounter_root: Node3D
 var fighters=[]
 var staff=[]
+var boss: ChapterBoss
+var boss_state=0
 var battle_time=0.0
 var reinforcement_wave=0
 var failed_reason=""
@@ -72,6 +75,7 @@ func _ready():
 	voice=StoryVoice.new();voice.catalog_path="res://assets/dialogue/chapter1.json";add_child(voice)
 	director=ChapterOneDirector.new();director.world=self;add_child(director);director.completed.connect(_sequence_done)
 	quests=LandmarkQuests.new();add_child(quests);quests.setup(self)
+	story=ChapterOneStory.new();add_child(story);story.setup(self)
 	_pedestrians()
 	for a in people+[player]+cast.values()+sons:_actor_light(a)
 	# Keep the family entrance calm; unrelated pedestrians are not random attackers.
@@ -90,6 +94,10 @@ func _audio():
 	for i in range(7700):
 		var t=i/22050.0;var sample=int(sin(TAU*(660 if t<.12 else 880)*t)*exp(-t*9)*14000);data.append(sample&255);data.append((sample>>8)&255)
 	var wav=AudioStreamWAV.new();wav.format=AudioStreamWAV.FORMAT_16_BITS;wav.mix_rate=22050;wav.data=data;sounds["shutter"]=wav
+	var sting=PackedByteArray()
+	for i in range(33075):
+		var t=i/22050.0;var envelope=minf(1,t*45)*exp(-t*3.5);var f=86+120*exp(-t*12);var value=int((sin(TAU*f*t)*.55+sin(TAU*129*t)*.2+sin(TAU*173*t)*.15)*envelope*22000);sting.append(value&255);sting.append((value>>8)&255)
+	var music=AudioStreamWAV.new();music.format=AudioStreamWAV.FORMAT_16_BITS;music.mix_rate=22050;music.data=sting;sounds["boss_sting"]=music
 
 func _actor_light(a: Node3D):
 	PrologueSet.local_lighting(a)
@@ -99,7 +107,7 @@ func _story_collision(a: StoryCast,value: bool):
 	for n in a.find_children("*","StaticBody3D",true,false):n.collision_layer=1 if value else 0
 
 func new_chapter():
-	quests.reset()
+	quests.reset();story.reset()
 	director.cancel();voice.stop();bark_queue=[];bark_text="";stage=0;arrival_seen=false;phone_heard=false;race_active=false;race_replay=false;race_result=0;cake_quality=100;cake_best=-1;race_best=0;money=1200;medicine=3;broken=[];failed_reason="";pause_menu=false
 	_clear_encounter();_restore_hero(START);van.position=CAR_START;van.rotation=Vector3.ZERO;van.hp=van.max_hp;van.speed=0;van.velocity=Vector3.ZERO;van.set_occupied(false)
 	if van.cargo:van.cargo.free();van.cargo=null
@@ -141,13 +149,16 @@ func _ending_cast(restore_player: bool=false):
 	if restore_player:_restore_hero(ChapterOneSet.HALL+Vector3(0,.2,6));player.rotation.y=PI
 
 func _sequence_done(kind: String):
+	if story.sequence_done(kind):_follow(1);Input.mouse_mode=Input.MOUSE_MODE_CAPTURED;return
 	match kind:
 		"arrival":arrival_seen=true;_place_for_stage();save_story();hud.say("老三要在天桥上比一圈 · 走近起点按 E")
-		"party":reward_task("c1.m4");stage=4;_start_battle();save_story();bark_group("attack")
+		"boss_intro":boss_state=2;boss.frozen=false;boss.fought=true;paused=false;save_story();hud.say("沈铁川 · B挡连拳，G躲冲肩，跳跃或后撤避扫踢")
+		"boss_outro":boss_state=3;director.start("ending");return
 		"ending":reward_task("c1.m5");stage=5;_clear_encounter();_place_for_stage();save_story();hud.say("第一章完成 · 八个，一个都不少")
 	_follow(1);Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 
 func _speaker_pose(who: String):
+	who=who.split(" · ")[0]
 	var roles={"小朋友":"queen","攀哥":"pange","听歌":"tingge","炫神":"xuanshen","象象":"xiangxiang"}
 	if roles.has(who):cast[roles[who]].gesture="talk"
 	var names=["老大","老二","老三","老四","老五","老六","老七","老八"]
@@ -157,7 +168,7 @@ func cast_is_speaking(role: String,number: int) -> bool:
 	var names={"queen":"小朋友","pange":"攀哥","tingge":"听歌","xuanshen":"炫神","xiangxiang":"象象"}
 	var who=names.get(role,"")
 	if role=="son":who=["老大","老二","老三","老四","老五","老六","老七","老八"][number-1]
-	if director.active():return director.speaker==who and director.current>=0 and director.elapsed<director.events[director.current].end-.5
+	if director and director.active():return director.speaker.split(" · ")[0]==who and director.current>=0 and director.elapsed<director.events[director.current].end-.5
 	return bark_speaker==who and bark_elapsed<voice.duration
 
 func bark_group(group: String):
@@ -218,8 +229,9 @@ func _draw_race_gate():
 	ToonKit.finish(gates_visual)
 
 func navigation_targets() -> Array:
-	if director.active() or pause_menu or failed_reason!="":return []
+	if director.active() or pause_menu or failed_reason!="" or (stage==4 and boss_state>0):return []
 	if quests and not quests.targets().is_empty():return quests.targets()
+	if story and not story.targets().is_empty():return story.targets()
 	if race_active:return race_targets()
 	match stage:
 		0:return [{"label":"老三 · 天桥竞速起点","p":RACE_START}]
@@ -245,13 +257,17 @@ func navigation_targets() -> Array:
 	return []
 
 func objective() -> String:
+	if stage==4 and boss_state>0:return "章底对决 · 击败沈铁川"
 	if failed_reason!="":return failed_reason
 	if quests and quests.objective()!="":return quests.objective()
+	if story and story.objective()!="":return story.objective()
 	if race_active:return "和老三比一圈 · "+str(mini(race_step+1,4))+" / 4"
 	if stage==4 and staff.all(func(a):return a.evacuated):return "人员已撤离 · 清掉院内剩余打手"
 	return ["先和老三在天桥上比一圈","到中心绿地取生日蛋糕","把全家和蛋糕送到滨江","进会客厅，看八兄弟的节目","护送工作人员撤到南侧接应车","第一章完成 · 八个，一个都不少"][stage]
 func subobjective() -> String:
+	if stage==4 and boss_state>0:return "B挡连拳，G侧闪冲肩 · 扫踢后撤或跳起 · 攻击落空后反击"
 	if quests and quests.objective()!="":return quests.hint()
+	if story and story.objective()!="":return story.hint()
 	if race_active:return "南侧上桥，任选半圈，北侧下桥 · 成绩不影响主线"
 	return ["起点就在南坡道脚下 · 走近 E 开始","蓝色全家车已停在取货处附近","路线自选 · 急转和碰撞影响蛋糕，低分仍可继续","车停稳，下车从正门进去","关后勤门可挡增援 · R/F破防，G躲冲撞","攀哥被带走了 · 下一站南京路"][stage]
 
@@ -263,9 +279,9 @@ func nearest_hotspot() -> Dictionary:
 	var targets=[]
 	if stage==0 and not race_active:targets.append({"id":"race","label":"和老三比一圈","p":RACE_START,"radius":3.2})
 	if stage==1 and quests.main_done():targets.append({"id":"cake","label":"把蛋糕装进全家车","p":ChapterOneSet.BAKERY,"radius":3.3})
-	if stage in [1,2,3,5] and not race_active:targets.append({"id":"race_again","label":"再比一圈 · 刷新最好成绩","p":RACE_START,"radius":3.0})
-	if stage==3:targets.append({"id":"party","label":"坐下来，看孩子们的节目","p":ChapterOneSet.HALL+Vector3(0,.16,5.5),"radius":3.3})
-	if stage==4:targets.append({"id":"gate","label":"打开后勤门" if not venue.gate.requested_open else "关闭后勤门","p":ChapterOneSet.SWITCH,"radius":2.5})
+	if stage in [1,2,3,5] and not race_active and not (stage==3 and story.birthday in [2,4]):targets.append({"id":"race_again","label":"再比一圈 · 刷新最好成绩","p":RACE_START,"radius":3.0})
+	if stage==3:targets.append_array(story.hotspots())
+	if stage==4 and boss_state==0:targets.append({"id":"gate","label":"打开后勤门" if not venue.gate.requested_open else "关闭后勤门","p":ChapterOneSet.SWITCH,"radius":2.5})
 	if stage in [0,1,3,5]:
 		var p=sons[0].position if stage<3 else cast.queen.position
 		targets.append({"id":"family","label":"听听他们在聊什么","p":p,"radius":2.7})
@@ -275,13 +291,14 @@ func nearest_hotspot() -> Dictionary:
 		if d<h.radius and d<distance:
 			var ray=PhysicsRayQueryParameters3D.create(player.position+Vector3.UP,h.p+Vector3.UP,1)
 			if get_world_3d().direct_space_state.intersect_ray(ray).is_empty():best=h;distance=d
-	var c=near_car() if not race_active else null
+	var c=near_car() if not race_active and boss_state not in [1,2] else null
 	if c and c.position.distance_to(player.position)<distance:best={"id":"car","label":"上全家车" if c==van else "上车","p":c.position}
 	return best
 
 func interact():
 	var h=nearest_hotspot()
 	if h.is_empty():return
+	if h.id.begins_with("story:"):story.interact(h.id);return
 	if h.id.begins_with("lift:") or h.id.begins_with("scope:") or h.id in ["family_photo","rhythm","parkour","luo_start","luo_take"]:quests.interact(h.id);return
 	match h.id:
 		"car":board()
@@ -292,7 +309,6 @@ func interact():
 			stage=2;cake_quality=100;had_rough_bark=false;delivery_elapsed=0;van.load_cake();van.set_occupied(true);cargo_last_hp=van.hp;cargo_last_yaw=van.rotation.y
 			for a in cast.values()+sons:a.visible=false
 			bark_group("cake_loaded");save_story();hud.say("蛋糕装好了 · 开车去滨江，完整度只影响评价")
-		"party":bark_queue=[];bark_text="";director.start("party")
 		"gate":
 			venue.gate.requested_open=not venue.gate.requested_open
 			if not venue.gate.requested_open:bark_group("gate_closed")
@@ -329,11 +345,13 @@ func _tick_family(dt: float):
 	if family_routes.is_empty():venue.door.requested_open=false
 
 func _clear_encounter():
+	boss=null
 	for a in fighters+staff:people.erase(a)
 	fighters.clear();staff.clear()
 	if encounter_root:encounter_root.free();encounter_root=null
 
 func _start_battle():
+	boss_state=0
 	_clear_encounter();failed_reason="";paused=false;pause_menu=false;battle_time=0;reinforcement_wave=0;family_boost=false;_restore_hero(Vector3(-135,.1,-224));medicine=maxi(medicine,3);player.heat=25 if talents.has("utility5") else 0
 	venue.gate.requested_open=true;venue.gate.opened=1;venue.gate.panel.position.y=3.8
 	encounter_root=Node3D.new();add_child(encounter_root)
@@ -342,7 +360,7 @@ func _start_battle():
 		a.path=[ChapterOneSet.HALL+Vector3(0,.05,12),Vector3(-136,.05,-222),Vector3(-124,.05,-222),Vector3(-124,.05,-206.5),Vector3(-116,.03,-206.5),ChapterOneSet.STAFF_SAFE+Vector3((i-1)*.6,0,0)];a.path_index=0;people.append(a);staff.append(a)
 	for item in [[Vector3(-130,.05,-224),"brawler","staff"],[Vector3(-141,.05,-219),"shield","player"],[Vector3(-122,.05,-219),"charger","player"],[Vector3(-129,.05,-213),"flanker","player"],[Vector3(-136,.05,-215),"brawler","player"]]:_fighter(item[0],item[1],item[2])
 	# Visible source of reinforcements, outside the actual service gate.
-	PrologueSet.minibus(encounter_root,Vector3(-104,0,-219));ToonKit.finish(encounter_root)
+	PrologueSet.minibus(encounter_root,Vector3(-104,0,-219),"后勤停靠");ToonKit.finish(encounter_root)
 	van.position=ChapterOneSet.VAN_PARK;van.speed=0;van.velocity=Vector3.ZERO;van.rotation=Vector3.ZERO;van.set_occupied(false)
 	_family_evacuate();venue.door.requested_open=true;_clear_input();_follow(1)
 
@@ -387,6 +405,10 @@ func aim_assist():
 func loot(_p: Vector3):pass
 
 func _tick_battle(dt: float):
+	if boss_state>0:
+		if player.hp<=0:_fail("豚师倒下了 · 可直接重试沈铁川战");return
+		if boss_state==2 and boss and boss.hp<=0:boss_state=3;director.start("boss_outro")
+		return
 	battle_time+=dt
 	if player.hp<=0:_fail("豚师需要休息 · 重试本次撤离");return
 	for a in staff:
@@ -400,16 +422,19 @@ func _tick_battle(dt: float):
 		for a in sons+[cast.queen,cast.tingge]:a.visible=false
 		van.set_occupied(true)
 	if staff.all(func(a):return a.evacuated) and not fighters.any(func(a):return a.hp>0 and a.position.x< -112 and a.position.distance_to(ChapterOneSet.VAN_PARK)<52):
-		bark_queue=[];bark_text="";voice.stop();director.start("ending")
+		bark_queue=[];bark_text="";voice.stop();_begin_boss()
 
 func _fail(reason: String):
 	failed_reason=reason;paused=true;pause_menu=false;voice.stop();_clear_input();Input.mouse_mode=Input.MOUSE_MODE_VISIBLE;Engine.time_scale=1
 func retry_battle():
+	if boss_state>0:
+		director.cancel();failed_reason="";pause_menu=false;_begin_boss();save_story();return
 	race_active=false;stage=4;_start_battle();bark_queue=[];bark_text="";save_story();hud.say("从院内撤离重新开始 · 竞速和送蛋糕已保留")
 
 func _process(dt):
 	if not player or not hud:return
 	if quests:quests.tick(dt)
+	if story:story.tick(dt)
 	if director.active():director.tick(dt)
 	for a in cast.values()+sons:a.animated=not paused and not pause_menu or director.active() and not pause_menu
 	if not paused:
@@ -429,6 +454,15 @@ func _respawn_hero():
 func _follow(dt: float):
 	if quests and quests.follow():return
 	if director and director.active():return
+	if stage==4 and boss_state==2 and boss and boss.hp>0:
+		var delta=boss.position-player.position;delta.y=0
+		if not paused and delta.length()>1:yaw=lerp_angle(yaw,atan2(delta.x,delta.z),minf(1,dt*2))
+		var direction=Vector3(sin(yaw),0,cos(yaw));var side=Vector3(direction.z,0,-direction.x)
+		var target=player.position.lerp(boss.position,.28)+Vector3.UP*1.3
+		var desired=target-direction*clampf(6+delta.length()*.25,6,9.5)+side*1.8+Vector3.UP*3.2
+		var hit=get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(target,desired,1))
+		if hit:desired=hit.position+(target-hit.position).normalized()*.3
+		camera.position=camera.position.lerp(desired,1-exp(-dt*10)) if dt<.5 else desired;camera.look_at(target);return
 	super._follow(dt)
 func movement() -> Vector3:
 	if quests and (quests.aim>=0 or quests.rhythm or quests.travel>=0):return Vector3.ZERO
@@ -444,7 +478,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed:
 		if pause_menu:hud.menu_click(get_viewport().get_mouse_position())
 		elif failed_reason!="":retry_battle()
-		elif director.active():director.skip()
+		elif director.active():director.advance()
 		elif not paused and event.button_index==MOUSE_BUTTON_LEFT and quests.shoot():pass
 		elif not paused and not (race_active and race_countdown>0):
 			if Input.mouse_mode!=Input.MOUSE_MODE_CAPTURED:Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
@@ -461,7 +495,7 @@ func _key(key: int):
 		return
 	if key==KEY_ESCAPE:
 		if hud.map_open:hud.map_open=false;paused=false;voice.set_paused(false);Input.mouse_mode=Input.MOUSE_MODE_CAPTURED;return
-		pause_menu=not pause_menu;paused=pause_menu or director.active() or failed_reason!="";voice.set_paused(pause_menu);_clear_input();menu_selection=0;Input.mouse_mode=Input.MOUSE_MODE_VISIBLE if paused else Input.MOUSE_MODE_CAPTURED;return
+		pause_menu=not pause_menu;paused=pause_menu or director.active() or failed_reason!="";director.set_paused(pause_menu);_clear_input();menu_selection=0;Input.mouse_mode=Input.MOUSE_MODE_VISIBLE if paused else Input.MOUSE_MODE_CAPTURED;return
 	if pause_menu:
 		if key in [KEY_W,KEY_UP]:menu_selection=posmod(menu_selection-1,hud.menu_buttons().size())
 		if key in [KEY_S,KEY_DOWN]:menu_selection=posmod(menu_selection+1,hud.menu_buttons().size())
@@ -472,7 +506,9 @@ func _key(key: int):
 		elif key==KEY_ESCAPE:pause_menu=true;menu_selection=0
 		return
 	if director.active():
-		if key in [KEY_E,KEY_ENTER,KEY_SPACE]:director.skip()
+		if key in [KEY_E,KEY_ENTER]:director.advance()
+		if key==KEY_TAB:director.skip()
+		if key==KEY_C:auto_dialogue=not auto_dialogue
 		return
 	if key==KEY_M:
 		hud.map_open=not hud.map_open;paused=hud.map_open;voice.set_paused(paused);_clear_input();Input.mouse_mode=Input.MOUSE_MODE_VISIBLE if paused else Input.MOUSE_MODE_CAPTURED;return
@@ -486,7 +522,7 @@ func _key(key: int):
 
 func menu_action(action: String):
 	match action:
-		"resume":pause_menu=false;paused=director.active() or failed_reason!="";voice.set_paused(false)
+		"resume":pause_menu=false;paused=director.active() or failed_reason!="";director.set_paused(false)
 		"retry":director.cancel();retry_battle()
 		"rescue":_rescue_van();pause_menu=false;paused=false
 		"load":load_story();pause_menu=false
@@ -509,7 +545,7 @@ func save_story():
 	if director.active() or failed_reason!="" or race_active or not quests.can_save():return
 	var p=player.position
 	if player.vehicle:p=player.vehicle.position-Vector3.RIGHT*2.2
-	var d={"landmarks":quests.save(),"version":1,"stage":stage,"arrival_seen":arrival_seen,"phone_heard":phone_heard,"p":[p.x,p.y,p.z],"hp":player.hp,"heat":player.heat,"yaw":yaw,"money":money,"medicine":medicine,"race_best":race_best,"race_result":race_result,"cake_best":cake_best,"cake_quality":cake_quality,"delivery_elapsed":delivery_elapsed,"voice":voice.enabled,"cars":[],"gate_open":venue.gate.requested_open,"gate_opened":venue.gate.opened,"battle_time":battle_time,"reinforcement_wave":reinforcement_wave,"fighters":[],"staff":[],"broken":broken}
+	var d={"boss_state":boss_state,"boss_hp":boss.hp if boss else 560,"boss_phase":boss.phase if boss else 1,"birthday":story.save(),"auto_dialogue":auto_dialogue,"landmarks":quests.save(),"version":1,"stage":stage,"arrival_seen":arrival_seen,"phone_heard":phone_heard,"p":[p.x,p.y,p.z],"hp":player.hp,"heat":player.heat,"yaw":yaw,"money":money,"medicine":medicine,"race_best":race_best,"race_result":race_result,"cake_best":cake_best,"cake_quality":cake_quality,"delivery_elapsed":delivery_elapsed,"voice":voice.enabled,"cars":[],"gate_open":venue.gate.requested_open,"gate_opened":venue.gate.opened,"battle_time":battle_time,"reinforcement_wave":reinforcement_wave,"fighters":[],"staff":[],"broken":broken}
 	for c in cars:d.cars.append({"p":[c.position.x,c.position.y,c.position.z],"yaw":c.rotation.y,"hp":c.hp})
 	for a in fighters:d.fighters.append({"p":[a.position.x,a.position.y,a.position.z],"hp":a.hp,"role":a.role,"assignment":a.assignment,"entrance_index":a.entrance_index,"knockdown":a.knockdown})
 	for a in staff:d.staff.append({"p":[a.position.x,a.position.y,a.position.z],"hp":a.hp,"path_index":a.path_index,"evacuated":a.evacuated})
@@ -520,7 +556,7 @@ func load_story():
 	var d=JSON.parse_string(FileAccess.get_file_as_string(story_path())) if FileAccess.file_exists(story_path()) else null
 	if not d is Dictionary or d.get("version",0)!=1:new_chapter();return
 	director.cancel();voice.stop();bark_queue=[];bark_text="";race_active=false;race_replay=false;failed_reason="";pause_menu=false;hud.map_open=false;_clear_encounter()
-	stage=clampi(int(d.get("stage",0)),0,5);arrival_seen=d.get("arrival_seen",true)==true;phone_heard=d.get("phone_heard",false)==true
+	boss_state=0;stage=clampi(int(d.get("stage",0)),0,5);arrival_seen=d.get("arrival_seen",true)==true;phone_heard=d.get("phone_heard",false)==true
 	race_best=maxf(0,float(d.get("race_best",0)));race_result=maxf(0,float(d.get("race_result",0)));cake_best=clampf(float(d.get("cake_best",-1)),-1,100);cake_quality=clampf(float(d.get("cake_quality",100)),0,100);delivery_elapsed=maxf(0,float(d.get("delivery_elapsed",0)))
 	voice.set_enabled(d.get("voice",true)==true);money=clampi(int(d.get("money",1200)),0,999999);medicine=clampi(int(d.get("medicine",3)),0,99)
 	_place_for_stage()
@@ -541,7 +577,9 @@ func load_story():
 				if not s is Dictionary:continue
 				staff[i].position=safe_position(s.get("p",[]));staff[i].hp=clampf(float(s.get("hp",90)),1,90);staff[i].path_index=clampi(int(s.get("path_index",0)),0,staff[i].path.size()-1);staff[i].evacuated=s.get("evacuated",false)==true;staff[i].visible=not staff[i].evacuated
 		venue.gate.requested_open=d.get("gate_open",true)==true;venue.gate.opened=clampf(float(d.get("gate_opened",1.0 if venue.gate.requested_open else 0.0)),0,1);venue.gate.panel.position.y=venue.gate.opened*3.8
-	quests.restore(d.get("landmarks",{}))
+	if stage==4 and int(d.get("boss_state",0))>0:
+		_begin_boss(false);boss.hp=clampf(float(d.get("boss_hp",560)),1,boss.max_hp);boss.phase=clampi(int(d.get("boss_phase",1)),1,2)
+	quests.restore(d.get("landmarks",{}));story.restore(d.get("birthday",{}));auto_dialogue=d.get("auto_dialogue",true)==true
 	# Older saves past the outing retain their birthday progression.
 	if not d.has("landmarks") and stage>=2:quests.states.shanghai=2;quests.photos=[0,1,2];quests.paid=["shanghai"]
 	var floor_p=quests.safe_floor(d.get("p",[]))
@@ -575,3 +613,23 @@ func backfill_rewards():
 	if stage>=5:talents.award("c1.m5")
 	for key in ["pearl","jinmao","luo"]:
 		if quests.states[key]==2:talents.award("c1.s"+str(["pearl","jinmao","luo"].find(key)+1))
+
+func _begin_boss(intro: bool=true):
+	_clear_encounter();boss_state=1 if intro else 2;failed_reason="";pause_menu=false;family_routes.clear()
+	encounter_root=Node3D.new();add_child(encounter_root)
+	for a in sons+cast.values():a.visible=false
+	van.set_occupied(true);venue.gate.requested_open=false
+	_restore_hero(ChapterBoss.ARENA+Vector3(0,0,3.8));medicine=maxi(medicine,2)
+	boss=ChapterBoss.new();boss.world=self;boss.position=ChapterBoss.ARENA+Vector3(0,0,-2);boss.rotation.y=0;encounter_root.add_child(boss);_actor_light(boss);people.append(boss);fighters.append(boss);boss.frozen=intro;boss.fought=true
+	# The actual staff remain safe, without putting fresh civilians into the duel.
+	for i in range(3):
+		var a=ChapterCivilian.new();a.world=self;a.position=ChapterOneSet.STAFF_SAFE;encounter_root.add_child(a);a.evacuated=true;a.visible=false;a.set_physics_process(false);staff.append(a)
+	if intro:director.start("boss_intro")
+	else:paused=false
+
+func _test_report(checks: Array):
+	paused=true;voice.stop();bark_queue=[]
+	for n in find_children("*","AudioStreamPlayer",true,false):n.stop();n.stream=null
+	for n in find_children("*","AudioStreamPlayer3D",true,false):n.stop();n.stream=null
+	await get_tree().process_frame
+	super._test_report(checks)

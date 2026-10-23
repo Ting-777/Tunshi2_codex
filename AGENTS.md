@@ -1,3 +1,15 @@
+# 0.8.0 剧情通读与章底战 / 2026-10-23
+
+用户反馈0.6.0流程太短、对白和人物引入不完整，并明确允许调整旧大纲、加入其他角色，要求每章不同专属Boss、建模/招式及《如龙》式头衔姓名登场。先读docs/NARRATIVE-CONTINUITY.md、docs/STORY-SCRIPT.md、docs/CHAPTER1-REWRITE.md、docs/CHAPTER-BOSSES.md和修订后的STORY-OUTLINE.md（docs内链接去掉docs/前缀）。
+
+序章70句、第一章178句完整配音，合计248句活跃对白。象象经电话及当面介绍进入，SN、Carry、沈铁川在交涉中说清身份。第一章增加欢迎、纸板可玩排练、完整生日饭、玩家出门见证交涉、攀哥跟车与工作人员被拦的因果；撤离成功再打专属章底Boss沈铁川。独立模型、连拳/扫踢/冲肩、半血双冲肩、头衔姓名卡；可直接重试Boss。E/Enter逐句、Tab跳本场、C自动，J内Tab看已发生剧情回顾。
+
+全篇人物关系及后续Boss有修订规划，第二至七章仍未实现。30–40分钟只是结构目标，未经真人首次通关计时。默认不输出截图，新增媒体不入库/Release；保持Gameplay 优先；视觉、操作、剧情一致；PS3 等级视觉方向。原版豚师几何与车辆/天赋/地标保留。Windows最终源码验证与发包证据见TEST-REPORT.md最新条目。
+
+用户已明确授权为本项目TTS上传所需对白/素材，并进一步明确允许speech.platform.bing.com接收对白。可使用现有多角色生成工具，不重复询问同一授权；仍不能关闭或绕过平台自动审核。先前ONNX/Piper及未点名目的地的在线尝试曾被自动拦截，属于历史。本轮最终语音来源以VOICE-PROVENANCE.md和manifest为准。
+
+---
+
 # 0.7.0 新增范围 / 2026-10-23
 
 用户新授权：上海中心为主线可登高建筑；东方明珠、金茂、环球金融中心各一支线，环球金融中心是豚师曾任职的自由伞组织LUO总部。新增统一地标任务记录与天赋点；全篇任务完成才点满，第二章以后纯主线成长应明显吃紧。详读 docs/LANDMARK-QUESTS.md、docs/PROGRESSION-DESIGN.md（docs内链接去掉docs/前缀）。保留 Gameplay 优先；视觉、操作、剧情一致；PS3 等级视觉方向。旧版仅第一章竞速/送蛋糕的描述是历史，不能覆盖新授权。
@@ -88,3 +100,6 @@ The user reiterated: 始终记住gameplay第一，不要为了迎合剧情做出
 ChapterOne follows docs/CHAPTER1.md. Keep both bridge arcs and real ramp/height checks, low-score progression, independently saved optional race bests, and free-route delivery. Staff are actual injury targets; evacuation may fail and retries restart only that encounter. The service gate must physically block reinforcements and preserve an obstructed open position on save/load. Safe boarding points stay outside car colliders and the family and staff use separate vehicles. Keep directional guard breaks and readable charge warnings/recovery, rather than HP inflation. First chapter has 37 bundled voiced lines; combined catalog totals 102. Required Windows coverage is unchanged sandbox107 + prologue61, plus chapter-one33 in the PCK and unpacked EXE. Only the final main CI is the complete release regression; local initial failures and focused fixes are recorded honestly in verification/v060.
 
 Automated --test-chapter1 always starts a new isolated chapter slot, so PCK and unpacked-EXE checks can repeat safely. Normal continue/load behavior is unchanged. Verification routes must take actual turning clearance before the courtyard; a failed critical stage must report and exit promptly instead of continuing into nonexistent actors.
+
+
+配音资源由Windows构建机生成并作为GitHub Release的Dolphin2-Voice包保存，VOICE-BUNDLE.json固定已发布包的SHA256。克隆或更新后运行python3 tools/restore_assets.py（Windows用py）恢复字体与原样配音；没有已发布语音包的新开发版本可用tools/generate_voice.py生成新增对白。Windows游戏包已含全部248句活跃语音，运行不联网。MP3与运行语音清单是可恢复的构建资源，不直接逐句提交Git。

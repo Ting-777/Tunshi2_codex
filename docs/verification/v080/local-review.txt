@@ -1,0 +1,10 @@
+2026-10-23 / Godot 4.5.2 / Linux
+Birthday focused sequence: 9/9 passed; physical practice and doorway route, manual advance, safe checkpoints.
+Boss focused checks: 12/12 passed; damage/guard/dodge/recovery/phase/checkpoint/retry and ordinary-input victory.
+The first boss review failed 3 checks: voice import missing, retry observation before process boundary; corrected by offline clip completion and waiting for the actual defeat event. The corrected run passed all 12.
+Native OpenGL Mesa review: birthday welcome, paper stage, confrontation, tower scope, custom boss model/name title and duel HUD. An initial capture fixture selected the pause menu; fixed fixture, reviewed the actual title. Captures remain ignored and are not uploaded.
+No Windows GPU hardware or human first-play timing conclusion.
+Local eSpeak-only generator completed 62 clips. Active speech: prologue70 + chapter178 =248; no missing files.
+
+After explicit user approval for speech.platform.bing.com, 186 active local clips were replaced through Microsoft multi-role TTS. Final active inventory remains 248, all bundled. The eSpeak-only 62-clip run above is an intermediate result, not the final release voice source.
+Staging follow-up: Pange boards a visible departure car, Xiangxiang joins the outside conversation, and the pushed staff member enters the evacuation injured at the same position.

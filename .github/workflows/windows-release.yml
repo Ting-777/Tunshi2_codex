@@ -23,7 +23,7 @@ concurrency:
 jobs:
   windows:
     runs-on: windows-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     permissions:
       contents: write
     steps:
@@ -36,6 +36,14 @@ jobs:
           python tools/fetch_engine.py --templates
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python tools/restore_assets.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Restore or generate authorized Chinese speech
+        run: |
+          python -m pip install edge-tts==7.3.1 mutagen==1.47.0
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python tools/generate_voice.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python tools/package_voice.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Import and export exact release pack
         run: |
@@ -55,7 +63,7 @@ jobs:
         run: |
           python tools/package_windows.py --pack builds/ci-pack/Dolphin2.pck
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          $zip = Get-ChildItem builds/artifacts/*.zip | Select-Object -First 1
+          $zip = Get-ChildItem builds/artifacts/Dolphin2-Shanghai-Windows-*.zip | Select-Object -First 1
           python tools/verify_windows_zip.py $zip.FullName
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Publish Windows ZIP and checksum
@@ -79,6 +87,7 @@ jobs:
         with:
           name: windows-verification-${{ github.sha }}
           path: |
+            builds/artifacts/voice-bundle.json
             builds/ci-*/runtime.log
             builds/ci-*/results.json
             builds/artifacts/unpacked-check/*-runtime.log

@@ -20,6 +20,7 @@ var mouth_width=.155
 func build(character: String):
 	role=character
 	if role=="pange":head_width=.365;jaw_ratio=.91;skin="#e8b58d";mouth_width=.17;phase=1.7
+	elif role=="shen":head_width=.39;jaw_ratio=.95;skin="#d9a780";mouth_width=.18;phase=3.6
 	elif role=="xuanshen":head_width=.335;jaw_ratio=.69;skin="#f0bf98";mouth_width=.16;phase=2.9
 	else:phase=.4
 	var head=Node3D.new();head.name="HeadVolume";add_child(head)
@@ -159,7 +160,9 @@ func _hair(head: Node3D):
 			var k=row*41+column;indices.append_array([k,k+1,k+41,k+1,k+42,k+41])
 	ToonKit.mesh(head,_arrays(v,n,indices),ToonKit.mat("#252e39"))
 	var fringe_group=_detail("HairSweep")
-	if role=="pange":
+	if role=="shen":
+		ToonKit.orb(fringe_group,Vector3(.23,.035,.1),"#252e39",Vector3(0,.29,.18))
+	elif role=="pange":
 		var fringe=ToonKit.orb(fringe_group,Vector3(.24,.085,.11),"#252e39",Vector3(-.075,.28,.205));fringe.rotation.z=.18
 	elif role=="xuanshen":
 		for i in range(5):

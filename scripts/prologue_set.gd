@@ -87,14 +87,16 @@ static func bench(root: Node3D,p: Vector3,angle: float):
 static func tree(root: Node3D,p: Vector3):
 	ToonKit.cyl(root,.24,3.3,"#92745a",p+Vector3.UP*1.65);ToonKit.orb(root,Vector3(2.1,2.2,1.9),"#75a878",p+Vector3.UP*4.1);ToonKit.orb(root,Vector3(1.7,1.4,1.6),"#95bd85",p+Vector3(.5,5.1,.2))
 
-static func minibus(root: Node3D,p: Vector3):
+static func minibus(root: Node3D,p: Vector3,label: String="全家出发"):
 	var n=Node3D.new();root.add_child(n);n.position=p;n.name="FamilyMinibus"
 	block(n,Vector3(2.7,1.8,6.7),"#5a99ad",Vector3(0,1.4,0));ToonKit.box(n,Vector3(2.5,.9,1.0),"#345563",Vector3(0,2,2.9))
 	for s in [-1,1]:
 		ToonKit.box(n,Vector3(.08,.8,4.4),"#3e6372",Vector3(s*1.38,2,-.2))
 		for z in [-2.2,2.2]:var w=ToonKit.cyl(n,.51,.23,"#293d4a",Vector3(s*1.34,.52,z));w.rotation.z=PI/2;var hub=ToonKit.cyl(n,.29,.25,"#d3d6c7",Vector3(s*1.35,.52,z));hub.rotation.z=PI/2
 	ToonKit.box(n,Vector3(2.7,.22,6.2),"#f1d6a0",Vector3(0,2.46,0))
-	ToonKit.text(n,"全家出发",Vector3(0,1.44,3.39),.004,"#fff1d3")
+	ToonKit.text(n,label,Vector3(0,1.44,3.39),.004,"#fff1d3")
+
+	return n
 
 static func home(root: Node3D) -> Dictionary:
 	block(root,Vector3(30,.5,26),"#d4b58a",Vector3(0,-.25,0))

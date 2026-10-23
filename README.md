@@ -1,13 +1,13 @@
-# 豚师2 · 上海风云 / 地标与天赋版 0.7.0
+# 豚师2 · 上海风云 / 生日饭与章底对决 0.8.0
 
 新对话接续请先读 [交接入口](docs/NEW-CHAT-HANDOFF.md)。第一部背景已整理为 [剧情与人物](docs/TUNSHI1-STORY.md)、[玩法](docs/TUNSHI1-GAMEPLAY.md)、[开发经验](docs/DEVELOPMENT-LESSONS.md)，并保留原始源码选集与证据范围。克隆仓库即可恢复源码，不依赖旧对话 ZIP。
 
-Godot 4.5.2 原生游戏。新增上海第一章《八个，一个都不少》：环形天桥竞速、十座全家车送蛋糕、滨江生日饭和院内撤离战。先前序章《一个都不少》：长沙医院、全家出院合照、数年后的家中生活与上海邀约；原陆家嘴自由漫游保留为独立入口。压缩、手工构建的陆家嘴街区，明快都市卡通画风。保留第一部网页游戏豚师的实际几何与比例，仅调整材质及动画。原来的 Sites 主站与测试站均未修改。
+Godot 4.5.2 原生游戏。新增上海第一章《八个，一个都不少》：环形天桥竞速、十座全家车送蛋糕、滨江相识、纸板排练、完整生日饭、后勤交涉、院内撤离与沈铁川章底战。先前序章《一个都不少》：长沙医院、全家出院合照、数年后的家中生活与上海邀约；原陆家嘴自由漫游保留为独立入口。压缩、手工构建的陆家嘴街区，明快都市卡通画风。保留第一部网页游戏豚师的实际几何与比例，仅调整材质及动画。原来的 Sites 主站与测试站均未修改。
 
 ## Windows 运行
 从 [GitHub Releases](https://github.com/Ting-777/Tunshi2_codex/releases) 下载最新 Windows ZIP（无需 Python 或 Godot），完整解压后双击 Start.cmd 或 Dolphin2.exe。不要在 ZIP 内直接启动；EXE 和 PCK 必须放在一起。使用 Godot Compatibility/OpenGL 渲染，64 位 Windows，显卡驱动需支持 OpenGL 3.3。Windows 发布流程会先完成独立 PCK 回归与解压后的 EXE 检查，成功后才发布。CI 为无显示运行；0.4.6 的 RTX 4060 Laptop 实测是历史证据，不等同于新序章的 GPU 验收。
 
-Start.cmd 将日志保存到 %LOCALAPPDATA%\Dolphin2ShanghaiToon\runtime.log。标题可直接进入/继续第一章，或开始/继续序章、进入漫游。第一章、序章与漫游分别保存，互不覆盖。第一章暂停菜单可重玩本章、重试本场撤离或在送货时请炫神接应。序章重玩请使用标题按钮，第一章重玩用暂停菜单。存档为本机 Godot user 数据，不含网页游戏存档。
+Start.cmd 将日志保存到 %LOCALAPPDATA%\Dolphin2ShanghaiToon\runtime.log。标题可直接进入/继续第一章，或开始/继续序章、进入漫游。第一章、序章与漫游分别保存，互不覆盖。第一章暂停菜单可重玩本章、重试本场撤离/Boss或在送货时请炫神接应。序章重玩请使用标题按钮，第一章重玩用暂停菜单。存档为本机 Godot user 数据，不含网页游戏存档。
 
 ## 序章操作
 
@@ -26,6 +26,8 @@ WASD 移动/驾驶，鼠标视角，E 互动/上下车，空格跳跃/手刹，R
 | M / Esc | 地图 / 暂停与返回 |
 | 1 | 使用一份回复道具 |
 | F5 / F9 / F11 / H | 保存 / 读取 / 全屏 / 操作提示 |
+
+第一章演出：E/Enter下一句，Tab跳过本场，C自动；J日志按Tab看已发生剧情回顾，T天赋。新剧情详见[完整对白](docs/STORY-SCRIPT.md)、[全篇通读修订](docs/NARRATIVE-CONTINUITY.md)和[章节Boss](docs/CHAPTER-BOSSES.md)。
 
 ## 从源码打开
 克隆后先运行 `python3 tools/restore_assets.py`（Windows：`py tools/restore_assets.py`）自动恢复原版 Noto 字体，无需上传文件。然后安装 Godot 4.5.2，导入 project.godot。Windows 可使用新增的 `python tools/run_native.py import`、`python tools/run_native.py run`；引擎放置、独立 PCK 测试与原生截图见 [Windows 开发入口](docs/WINDOWS-DEVELOPMENT.md)。工程不依赖原网页仓库，assets/original_dolphin.json 已保留实际模型几何。代码和模型均在源码包中，字体和 Godot 许可见 docs。引擎可执行文件及导出模板不放入源码包，需另行安装。
@@ -90,3 +92,6 @@ WASD 移动/驾驶，鼠标视角，E 互动/上下车，空格跳跃/手刹，R
 近战辅助朝向会跳过墙后的目标，优先朝可触及的人物出招。原版角色几何、地图、四条环道坡道、地面驾驶自由、保存/读取、破坏及 M 地图保留；未增加任务或改变任何 Sites。
 
 以上是0.4.4历史更新，原始验收记录保留在 docs/verification。图形与动作仍为程序化都市卡通样板，不是完整布娃娃物理或《如龙》成品动作系统。以上为0.4.6时期的历史结论；当前游戏版本为0.5.0序章开发版。
+
+
+配音资源由Windows构建机生成并作为GitHub Release的Dolphin2-Voice包保存，VOICE-BUNDLE.json固定已发布包的SHA256。克隆或更新后运行python3 tools/restore_assets.py（Windows用py）恢复字体与原样配音；没有已发布语音包的新开发版本可用tools/generate_voice.py生成新增对白。Windows游戏包已含全部248句活跃语音，运行不联网。MP3与运行语音清单是可恢复的构建资源，不直接逐句提交Git。

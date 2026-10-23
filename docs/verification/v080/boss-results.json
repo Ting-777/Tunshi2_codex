@@ -1,0 +1,54 @@
+{
+  "checks": [
+    [
+      true,
+      "evacuation leads to a separately modeled named chapter boss rather than completing the chapter"
+    ],
+    [
+      true,
+      "boss title interval and actors pause together before control is returned"
+    ],
+    [
+      true,
+      "skipping the boss entrance starts the same real duel without awarding chapter completion"
+    ],
+    [
+      true,
+      "boss triple combination deals timed physical damage and ends in a punish window"
+    ],
+    [
+      true,
+      "normal frontal guard meaningfully reduces the boss combination instead of making it harmless"
+    ],
+    [
+      true,
+      "telegraphed shoulder can be side-dodged through the ordinary dodge input and exposes recovery"
+    ],
+    [
+      true,
+      "a normal heavy strike physically connects with the boss during recovery"
+    ],
+    [
+      true,
+      "half health changes the move set to a genuinely moving second shoulder rather than refilling health"
+    ],
+    [
+      true,
+      "boss checkpoint restores health and phase without replaying the civilian evacuation"
+    ],
+    [
+      true,
+      "boss defeat offers a direct full-health duel retry while preserving the completed evacuation"
+    ],
+    [
+      true,
+      "ordinary movement, guard, heavy attacks and medicine can win the full named boss duel"
+    ],
+    [
+      true,
+      "boss aftermath hands over to the birthday table ending only after victory"
+    ]
+  ],
+  "failed": 0,
+  "passed": 12
+}

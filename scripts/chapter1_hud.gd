@@ -23,7 +23,7 @@ func _draw():
 		else:
 			txt("%.1f 秒"%world.race_elapsed,Vector2(1212,105),34)
 			txt("老三已到终点" if world.runner.finished else "老三也在跑 · 路线可自选",Vector2(1212,143),17)
-	elif world.stage==4:
+	elif world.stage==4 and world.boss_state==0:
 		panel(Rect2(1150,26,420,190));txt("工作人员撤离",Vector2(1172,63),23,ORANGE)
 		for i in range(world.staff.size()):
 			var a=world.staff[i];var y=96+i*38
@@ -44,11 +44,16 @@ func _draw():
 	elif not world.nearest_hotspot().is_empty():
 		var h=world.nearest_hotspot();var text_value="E  "+h.label;var width=ToonKit.font().get_string_size(text_value,HORIZONTAL_ALIGNMENT_LEFT,-1,23).x+50
 		panel(Rect2(800-width/2,744,width,53),ORANGE);txt(text_value,Vector2(825-width/2,779),23,INK)
-	if is_instance_valid(target) and target_time>0 and target.hp>0:
-		var label="冲撞手" if target.role=="charger" else "守备打手" if target.role=="shield" else "追击者" if target is ChapterFighter and target.assignment=="staff" else "街头打手"
+	if world.stage==4 and world.boss_state==2 and world.boss:
+		var b=world.boss;panel(Rect2(540,28,1010,100));txt("铁闸 / 沈铁川",Vector2(565,60),25,ORANGE);txt("第二架势 · 双冲肩" if b.phase==2 else "现场执行头目",Vector2(1260,60),18)
+		draw_rect(Rect2(565,77,960,17),Color("#4c5a73"));draw_rect(Rect2(565,77,960*b.hp/b.max_hp,17),Color("#ef9360"));draw_line(Vector2(1045,77),Vector2(1045,94),INK,3)
+		var move_label="反击机会" if b.recovery>.35 else "冲肩 · 侧闪" if b.move_time>=0 and b.move_name=="shoulder" else "扫踢 · 后撤或跳起" if b.move_time>=0 and b.move_name=="sweep" else "连拳 · 格挡后反击"
+		txt(move_label,Vector2(565,117),18,Color("#8de0ce") if b.recovery>.35 else PAPER)
+	if is_instance_valid(target) and target_time>0 and target.hp>0 and not target is ChapterBoss:
+		var label="纸板道具" if target is ChapterDummy else "冲撞手" if target.role=="charger" else "守备打手" if target.role=="shield" else "追击者" if target is ChapterFighter and target.assignment=="staff" else "街头打手"
 		panel(Rect2(625,26,350,62));txt(label,Vector2(645,53),18);draw_rect(Rect2(645,66,310,8),Color("#4c5a73"));draw_rect(Rect2(645,66,310*target.hp/target.max_hp,8),ORANGE)
 	if world.player.guard_flash>0:txt("格挡",Vector2(750,695),26,ORANGE)
-	if Time.get_ticks_msec()<notice_until:
+	if Time.get_ticks_msec()<notice_until and not (world.stage==4 and world.boss_state==2):
 		var lines=_wrap_text(notice,570,18);panel(Rect2(490,120,620,26+lines.size()*25))
 		for i in range(lines.size()):txt(lines[i],Vector2(512,148+i*25),18)
 	if world.bark_text!="":
@@ -72,7 +77,8 @@ func _cinema():
 	if d.subtitle!="":
 		var lines=_wrap_text(d.subtitle,1200,27);panel(Rect2(145,670,1310,143));txt(d.speaker,Vector2(180,708),23,ORANGE)
 		for i in range(lines.size()):txt(lines[i],Vector2(180,750+i*36),27)
-	txt("E / Enter 跳过 · Esc 暂停 · V 配音",Vector2(1210,874),16)
+	txt("E / Enter 下一句 · Tab 跳过本场 · C 自动 · Esc 暂停",Vector2(980,874),16)
+	if d.kind=="boss_intro" and d.elapsed>=d.title_begin:_boss_title(d.elapsed-d.title_begin)
 	if d.dark>0:draw_rect(Rect2(0,0,1600,900),Color(0,0,0,d.dark))
 
 func _map():
@@ -89,7 +95,7 @@ func _map():
 
 func menu_buttons() -> Array:
 	var buttons=[["继续游戏","resume"],["读取第一章检查点","load"]]
-	if world.stage==4:buttons.append(["重试本次撤离","retry"])
+	if world.stage==4:buttons.append(["重试沈铁川战" if world.boss_state>0 else "重试本次撤离","retry"])
 	elif world.stage==2:buttons.append(["请炫神接应车辆","rescue"])
 	buttons.append(["从抵沪重玩本章","new"]);buttons.append(["返回标题","title"]);return buttons
 func _menu():
@@ -129,3 +135,13 @@ func _markers(targets: Array):
 			if Rect2(x,y,width,31).intersects(rect.grow(5)):y=rect.end.y+8
 		if y>point.y+20:draw_line(point+Vector2(0,12),Vector2(x+width/2,y),color,1.5)
 		labels.append(Rect2(x,y,width,31));panel(Rect2(x,y,width,31),Color("#253149"));txt(label,Vector2(x+12,y+22),size_value,color)
+
+func _boss_title(time_value: float):
+	var slide=smoothstep(0,.24,time_value)
+	var x=lerpf(1720,980,slide)
+	# Broad ink-like silhouette. No copied logo, calligraphy texture, music or footage.
+	draw_colored_polygon(PackedVector2Array([Vector2(x-70,390),Vector2(1600,350),Vector2(1600,708),Vector2(x-110,730),Vector2(x-88,677),Vector2(x-150,650)]),Color(.035,.06,.09,.94))
+	txt("Carry旗下",Vector2(x+15,437),27,Color("#dac5a4"))
+	txt("现场执行头目",Vector2(x+15,485),36,Color("#f4d6a1"))
+	txt("沈 铁 川",Vector2(x-1,595),86,Color("#f4efe4"))
+	txt("铁 闸",Vector2(x+238,660),33,ORANGE)

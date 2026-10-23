@@ -72,7 +72,7 @@ static func run(w):
 		else:
 			var stream=load(path)
 			if not stream is AudioStreamMP3 or stream.get_length()<.3:bundled=false
-	checks.append([bundled and unique.size()==65,"all 65 authored Chinese voice clips are bundled and load offline"])
+	checks.append([bundled and unique.size()==70,"all 70 authored Chinese voice clips are bundled and load offline"])
 	await shot(w,"00-title")
 	w.menu_action("new")
 	await legacy(w,checks)

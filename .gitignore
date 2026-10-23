@@ -29,3 +29,11 @@ docs/verification/**/*.webm
 
 # Temporary outputs while synthesizing bundled dialogue
 assets/voice/*.part
+
+# Speech is restored losslessly from the checked source bundle.
+assets/voice/*.mp3
+assets/voice/dialogue.bundle.zip
+
+# Exact speech is restored from the pinned GitHub Release bundle.
+assets/voice/*
+!assets/voice/README.md

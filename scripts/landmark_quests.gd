@@ -11,6 +11,7 @@ var best=0.0
 var luo_best=0
 var paid=[]
 var journal=false
+var journal_page=0
 var selection=0
 var travel=-1.0
 var destination=""
@@ -159,6 +160,7 @@ func key(code: int) -> bool:
 		if travel>=0 or photo_time>0 or world.director.active() or world.pause_menu or world.failed_reason!="":return true
 		journal=not journal;world.hud.map_open=false;world.paused=journal;world.voice.set_paused(journal);world._clear_input();Input.mouse_mode=Input.MOUSE_MODE_VISIBLE if journal else Input.MOUSE_MODE_CAPTURED;return true
 	if journal:
+		if code==KEY_TAB:journal_page=1-journal_page;return true
 		if code in [KEY_W,KEY_UP]:selection=posmod(selection-1,4)
 		if code in [KEY_S,KEY_DOWN]:selection=posmod(selection+1,4)
 		if code in [KEY_ENTER,KEY_E]:tracked=KEYS[selection];journal=false;world.paused=false;world.hud.map_open=false;world.voice.set_paused(false);Input.mouse_mode=Input.MOUSE_MODE_CAPTURED

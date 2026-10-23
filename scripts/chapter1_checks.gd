@@ -72,10 +72,10 @@ static func run(w):
 	var voiced=true;var unique={}
 	for line in w.voice.all_lines():
 		var key=w.voice.key_for(line);unique[key]=true;voiced=voiced and ResourceLoader.exists("res://assets/voice/"+key+".mp3")
-	check(out,voiced and unique.size()==47,"all 47 chapter dialogue lines are bundled offline")
+	check(out,voiced and unique.size()==178,"all 178 chapter dialogue lines are bundled offline")
 	await ticks(w,85);w._key(KEY_ESCAPE);var elapsed=w.director.elapsed;await ticks(w,8)
 	check(out,w.director.elapsed==elapsed and w.voice.player.stream_paused,"pause holds opening timeline and speech")
-	w._key(KEY_ESCAPE);w._key(KEY_E);await ticks(w,3)
+	w._key(KEY_ESCAPE);w._key(KEY_TAB);await ticks(w,3)
 	check(out,not w.paused and not w.director.active() and w.arrival_seen,"skipping arrival returns immediate control and marks only chapter progress")
 	var reached=await walk(w,w.RACE_START);w._key(KEY_E);await ticks(w,185)
 	check(out,reached and w.race_active and w.runner.position.distance_to(w.RACE_START)>1,"race starts through E and rival moves through real physics")
@@ -121,15 +121,12 @@ static func run(w):
 	var entered=true
 	for p in [Vector3(-124,0,-204),Vector3(-124,0,-222),Vector3(-136,0,-222),ChapterOneSet.HALL+Vector3(0,.16,7)]:entered=(await walk(w,p)) and entered
 	w._key(KEY_E);await ticks(w,3)
-	check(out,entered and w.director.kind=="party" and w.sons.all(func(a):return a.visible),"real entrance and working door lead to eight-son birthday staging")
-	if w.director.kind!="party":w.call_deferred("_test_report",out);return
+	check(out,entered and w.director.kind=="welcome" and w.sons.all(func(a):return a.visible),"real entrance and working door lead to eight-son birthday staging")
+	if w.director.kind!="welcome":w.call_deferred("_test_report",out);return
 	await snapshot(w,"03-birthday");
-	# Let this transition finish normally; skips were covered on arrival.
-	for i in range(2400):
-		if not w.director.active():break
-		await ticks(w,1)
-	check(out,w.stage==4 and w.staff.size()==3 and w.fighters.size()==5,"birthday sequence normally hands control to the live evacuation battle")
-	if w.stage!=4 or w.staff.size()!=3:w.call_deferred("_test_report",out);return
+	var story_ok=await load("res://scripts/chapter_story_checks.gd").run(w,out)
+	check(out,story_ok and w.staff.size()==3 and w.fighters.size()==5,"birthday and witnessed confrontation hand control to the live evacuation battle")
+	if not story_ok or w.staff.size()!=3:w.call_deferred("_test_report",out);return
 	stop_barks(w);w._key(KEY_ESCAPE);var time=w.battle_time;var p=w.staff[0].position;await ticks(w,12)
 	check(out,w.battle_time==time and w.staff[0].position==p,"pause freezes escort, enemy AI and reinforcement clock")
 	w._key(KEY_ESCAPE);await place(w,Vector3(-150,0,-212))
@@ -167,9 +164,10 @@ static func run(w):
 	# Close the gate through its reachable control, then protect the group with actual attacks.
 	await walk(w,ChapterOneSet.SWITCH+Vector3(-.6,0,0));w._key(KEY_E)
 	await snapshot(w,"04-courtyard");var won=await fight(w)
-	check(out,won and w.staff.all(func(a):return a.evacuated) and w.director.kind=="ending","active melee, breaks, heat and route control complete a real evacuation")
+	check(out,won and w.staff.all(func(a):return a.evacuated) and w.director.kind=="boss_intro","active melee, breaks, heat and route control complete a real evacuation before the boss")
 	if not won:w.call_deferred("_test_report",out);return
-	if w.director.active():w._key(KEY_E)
+	await load("res://scripts/chapter_boss_checks.gd").run(w,out)
+	if w.director.active():w._key(KEY_TAB)
 	await ticks(w,4)
 	check(out,w.stage==5 and w.sons.size()==8 and w.sons.all(func(a):return a.visible),"ending skip restores all eight children and a completed playable chapter")
 	w.save_story();w.load_story();await ticks(w,4)

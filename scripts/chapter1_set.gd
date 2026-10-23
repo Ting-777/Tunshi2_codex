@@ -44,6 +44,11 @@ static func build(w: Node3D) -> Dictionary:
 	PrologueSet.block(room,Vector3(13,1.0,2.8),"#bf8d67",Vector3(0,.66,.55))
 	ToonKit.box(room,Vector3(13.2,.07,3),"#f6e5cf",Vector3(0,1.20,.55),.04)
 	var cake=Node3D.new();cake.position=Vector3(0,1.25,.55);room.add_child(cake);_cake(cake)
+	# Broad serving dishes make the birthday meal an actual set, not an empty meeting table.
+	for x in [-3.3,3.3]:
+		ToonKit.cyl(room,.55,.13,"#f8edda",Vector3(x,1.32,.55),-1,24)
+		for j in range(5):ToonKit.orb(room,Vector3(.16,.10,.18),"#bc7854",Vector3(x-.3+j*.15,1.46,.55+sin(j)*.15))
+	for x in [-5,5]:ToonKit.cyl(room,.15,.3,"#ccad80",Vector3(x,1.39,.5),-1,16)
 	# A service counter, storage, wash-up and coats complete the borrowed venue.
 	PrologueSet.block(room,Vector3(1.4,1.0,10),"#81a69d",Vector3(12.4,.66,1.0))
 	ToonKit.box(room,Vector3(1.6,.12,10.2),"#f5e6ce",Vector3(12.4,1.22,1.0))
@@ -63,7 +68,7 @@ static func build(w: Node3D) -> Dictionary:
 		var g=Node3D.new();g.position=Vector3(-143,0,z);root.add_child(g)
 		PrologueSet.block(g,Vector3(2.2,1.0,1.1),"#9b8670",Vector3.UP*.5);ToonKit.box(g,Vector3(2.3,.12,1.2),"#ddcaa7",Vector3.UP*1.06)
 		w.city.crates.append({"node":g,"p":g.position,"hp":38.0})
-	PrologueSet.minibus(root,STAFF_BUS)
+	PrologueSet.minibus(root,STAFF_BUS,"会场接应")
 	ToonKit.text(root,"工作人员接应",STAFF_BUS+Vector3(0,2.8,-3.4),.005,"#fff0d2").rotation.y=PI
 	# Full width entry signs face the real roads, rather than relying on HUD fiction.
 	var sign=ToonKit.text(root,"江畔会客厅  ←",Vector3(-104,2.6,-206),.007,"#fff0d2");sign.rotation.y=PI/2

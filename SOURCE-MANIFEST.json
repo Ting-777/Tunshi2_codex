@@ -10,9 +10,9 @@
       "git_blob": "cfa573a45787ece0d79fbe29aded373f65d7dfcc"
     },
     ".github/workflows/windows-release.yml": {
-      "bytes": 3873,
-      "sha256": "1810616976127840e3c8b0b68693cf4303cb3e046f43249b725cddd9f385646d",
-      "git_blob": "08529cb2199f788fcd205446d0886210ad69f1d5"
+      "bytes": 3835,
+      "sha256": "a5176b886e65837e43b61d3e6b2247bcc966f449b85405e98971c8eadb615025",
+      "git_blob": "8e8312eee251a033dcb546adaf5c6f403c5bd20b"
     },
     ".gitignore": {
       "bytes": 624,
@@ -640,9 +640,9 @@
       "git_blob": "318cb0c4d78eff10a7d05e844d03f9710d73bd6a"
     },
     "docs/WORK-CHECKPOINT.md": {
-      "bytes": 20397,
-      "sha256": "6a30659f9008b73ab031cd5469b392ae6cc0644142683af4e6fee15e3dfd2994",
-      "git_blob": "fd35f1e7bc743c186edd9e53282bc4a316f98dfd"
+      "bytes": 20662,
+      "sha256": "43a5797fa50e2ee1c304a976f4ea37c1b3e535ad590a1b99a9207f24d1fffd2c",
+      "git_blob": "43a969d11bb5e588bffa4a7fc1207d7419a045a1"
     },
     "docs/original-dolphin-source.js": {
       "bytes": 2345,
@@ -670,9 +670,9 @@
       "git_blob": "43ae0996bfef45131b6fe52761ab7c7fce345ebd"
     },
     "docs/verification/TEST-REPORT.md": {
-      "bytes": 27036,
-      "sha256": "28b0c579209187fed00513a46525c1eac8198510d9b4ea56e0db89e6d082f388",
-      "git_blob": "540954077b1fda19ccde57906287b38cb1cd5074"
+      "bytes": 27301,
+      "sha256": "54a63c09a31b58e1ff645048821b5bda8bcbdfdebc1e6e5503e9b763c162b970",
+      "git_blob": "dad52ef86e1b417bf2b69d13c3a7b4daa74e402e"
     },
     "docs/verification/baseline-v040/TEST-REPORT.md": {
       "bytes": 3447,
@@ -1985,9 +1985,9 @@
       "git_blob": "fd41c43e62981c109fd7dc35bb17d42541eb547d"
     },
     "scripts/chapter1.gd": {
-      "bytes": 32836,
-      "sha256": "4549ac1e6798aa1068e9207d9574e3f7e7c32412ecf650fae07da1b65d87ee0e",
-      "git_blob": "e3dfbd056c8e6feb4c2b9aa388a31e2d94e020b5"
+      "bytes": 32870,
+      "sha256": "de2f1083a1a691c28d9b4fcf9d4a3d059f70027394d1c8b9967b3c999742f3a0",
+      "git_blob": "bdb66abf2210ee63099b432d8f31b39554784089"
     },
     "scripts/chapter1.gd.uid": {
       "bytes": 20,

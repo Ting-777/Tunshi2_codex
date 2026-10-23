@@ -19,7 +19,7 @@ permissions:
   contents: read
 concurrency:
   group: windows-release-${{ github.event.pull_request.number || 'main' }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  cancel-in-progress: true
 jobs:
   windows:
     runs-on: windows-latest

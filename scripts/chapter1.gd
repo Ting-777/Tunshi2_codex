@@ -74,7 +74,7 @@ func _ready():
 	for a in people:a.respawn_enabled=false
 	var restart=get_tree().has_meta("chapter1_new")
 	if restart:get_tree().remove_meta("chapter1_new")
-	if FileAccess.file_exists(story_path()) and not "--fresh" in args and not restart:load_story()
+	if FileAccess.file_exists(story_path()) and not "--fresh" in args and not restart and not "--test-chapter1" in args:load_story()
 	else:new_chapter()
 	print("CHAPTER1_READY")
 	if "--test-chapter1" in args:

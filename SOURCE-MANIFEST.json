@@ -20,14 +20,14 @@
       "git_blob": "50a34b6749bf99bc2e98236dac58b9e4c1bce305"
     },
     "AGENTS.md": {
-      "bytes": 18271,
-      "sha256": "a4995ec2a92d039e571db2782a95746184aa865b8363c2962209760ebe086b7b",
-      "git_blob": "21678281a23cd52f34a137dc6ff0c9950d320dec"
+      "bytes": 18551,
+      "sha256": "10f4a9cf2d4a7449cd57c8f387968261aa70d3dcfbd81024f8dae5585e1c882c",
+      "git_blob": "beb19058133f5efe4564fd3e38e7a9d4a884df6d"
     },
     "README.md": {
-      "bytes": 11087,
-      "sha256": "9c0e8d983cc9845c1c0a482adefbf86e711fbdcf1a343ae126dba9673180b800",
-      "git_blob": "d2f3ee54d954c32f29619156ebae83bdf88eeb22"
+      "bytes": 11294,
+      "sha256": "035f8851efa58aef148ddfd1123c1dec46b2f37ad9fca24df837c9386e84d19a",
+      "git_blob": "25b765531604a3e3848e922845b1770faf018d2d"
     },
     "VERSION": {
       "bytes": 6,
@@ -109,15 +109,20 @@
       "sha256": "a0272daddcf61b28dfd2ad986621163b764dc09958af3a251da06bcbac078f2f",
       "git_blob": "86fbc801ce3c46bfdd44a23ac395f0b871a97474"
     },
+    "docs/LOCAL-CODEX-HANDOFF.md": {
+      "bytes": 36410,
+      "sha256": "a8d6c49e0177d0d63627043ed3a03a03fec6f470804bd657533bbd59d9633678",
+      "git_blob": "ced8494cc7131a25290d19f860e50c32ae8b991f"
+    },
     "docs/NARRATIVE-CONTINUITY.md": {
       "bytes": 18166,
       "sha256": "e132c84648db72202f83b8a7e807a10d472da695e6e871621c006c454cac6e70",
       "git_blob": "8070d2e6a5cf96cbcd7396012c90d9e7e92d8a43"
     },
     "docs/NEW-CHAT-HANDOFF.md": {
-      "bytes": 22745,
-      "sha256": "28a240c5ae0600a305f90170ba23ccbfafcf86740328c25707fc37b09d7a9948",
-      "git_blob": "1ce7769d332bde4ac600a3bed941fa007f179477"
+      "bytes": 22996,
+      "sha256": "3ff0f4a8da3be29d8de069f71a14603688407e91d95a06e49c5cf0538032a00b",
+      "git_blob": "a235814950ff0538afe7eed304f34679049debb9"
     },
     "docs/NOTO-LICENSE.txt": {
       "bytes": 4301,

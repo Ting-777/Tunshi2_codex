@@ -1,5 +1,7 @@
 # 0.8.0 剧情通读与章底战 / 2026-10-23
 
+本地 Codex 接手先完整阅读 [LOCAL-CODEX-HANDOFF.md](LOCAL-CODEX-HANDOFF.md)：项目知识、人物关系、源码地图、Windows运行、离线资源、验证和GitHub发布流程都在其中；本文件继续保留各轮历史与证据。
+
 v0.8.0 Windows Release已发布，游戏提交027a540，运行39954408985成功：PCK107/61/91、解压EXE61/91均零失败。下载与校验记录见docs/verification/v080（docs内去掉前缀）。VOICE-BUNDLE.json固定248句配音资源，先运行restore_assets.py恢复字体和语音。首玩时长未真人计时；后续章节仍仅规划。
 
 用户反馈0.6.0流程太短、对白和人物引入不完整，并明确允许调整旧大纲、加入其他角色，要求每章不同专属Boss、建模/招式及《如龙》式头衔姓名登场。先读docs/NARRATIVE-CONTINUITY.md、docs/STORY-SCRIPT.md、docs/CHAPTER1-REWRITE.md、docs/CHAPTER-BOSSES.md和修订后的STORY-OUTLINE.md（docs内链接去掉docs/前缀）。

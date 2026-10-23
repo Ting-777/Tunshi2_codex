@@ -2,7 +2,7 @@
 
 从main00b7bd0恢复。新增LegacyOpening/LegacySet：问天台晨光、蓝衣朋友归队、两句正式宣告、回家日常和八子计划，最后接原医院起身。11条新中文TTS（新增193,536字节），总65条；原版豚师和现有角色五官不改。约一分钟连续原生分镜、动作、淡入淡出及原创合成环境声/轻音乐。标题独立重看、跳过、暂停和V配音；version1旧档兼容，重看不动进度。
 
-最终原生OpenGL完整演出实看及新增10项集成检查通过，日志与结果见verification/v054。初检修复家中镜头插值偏移、天空资源切换泄漏，标题改为江景上排字；修正后无脚本/渲染错误。捕获只在ignored builds内部使用，遵守默认不输出截图要求。不重复本地全套回归；Windows61项序章与完整107项/解压EXE验证由main CI完成，发布结果待补录。
+最终原生OpenGL完整演出实看及新增10项集成检查通过，日志与结果见verification/v054。初检修复家中镜头插值偏移、天空资源切换泄漏，标题改为江景上排字；修正后无脚本/渲染错误。捕获只在ignored builds内部使用，遵守默认不输出截图要求。不重复本地全套回归；[v0.5.4 Windows Release](https://github.com/Ting-777/Tunshi2_codex/releases/tag/v0.5.4)已发布。游戏提交aebd090c0f7c5b85112e53052b95387e6c1fd151，main运行[39888885000](https://github.com/Ting-777/Tunshi2_codex/actions/runs/39888885000)成功：完整107/107、序章61/61、解压EXE61/61，退出0且自动寻找同目录PCK。ZIP为50,550,162字节，SHA256 f9e305c43ea2d38d4f5cb45cde4b5e6c03227679c94d1ea4a3ddebd32d6df6c7，与GitHub资产摘要一致；附独立SHA256文件。证据见verification/v054/release.json与windows-main-ci.txt。CI实际解压并运行EXE，本轮未额外下载公开ZIP重复检查；没有Windows GPU实机结论。
 
 ---
 

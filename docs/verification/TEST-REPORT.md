@@ -6,7 +6,7 @@ Godot4.5.2官方SHA512验证恢复引擎；本地Xvfb/Mesa原生OpenGL连续播�
 
 初检10项功能虽过，画面发现家中机位的坐标插值偏移到房外；退出另有天空贴图资源未释放。修复机位插值并在同一天空资源上切换/恢复材质后重新完整实看，错误消除。标题从遮挡场景的大板改为江景上排字。过程日志initial-opening.log如实保留，截图只供内部复查，不输出图集、不入库或Release。
 
-本地未重复完整旧回归。Windows main CI将验证独立PCK完整107项、序章61项及解压EXE61项；发布结果待补录。无本版Windows GPU实机结论，第一章仍未制作。
+本地未重复完整旧回归。[v0.5.4 Windows Release](https://github.com/Ting-777/Tunshi2_codex/releases/tag/v0.5.4)已发布。游戏提交aebd090c0f7c5b85112e53052b95387e6c1fd151，main运行[39888885000](https://github.com/Ting-777/Tunshi2_codex/actions/runs/39888885000)成功：完整107/107、序章61/61、解压EXE61/61，退出0且自动寻找同目录PCK。ZIP为50,550,162字节，SHA256 f9e305c43ea2d38d4f5cb45cde4b5e6c03227679c94d1ea4a3ddebd32d6df6c7，与GitHub资产摘要一致；附独立SHA256文件。证据见v054/release.json与windows-main-ci.txt。CI实际解压并运行EXE，本轮未额外下载公开ZIP重复检查；没有Windows GPU实机结论。无本版Windows GPU实机结论，第一章仍未制作。
 
 ---
 

@@ -2,7 +2,7 @@
 
 新增《天亮以后》开场：问天台黎明，蓝衣朋友归队，豚师先宣布“海豚帮解散”，再宣布“海豚蒂国成立”；接朋友回家与家里的八子计划，再淡入原医院起身。11段新配音，总计65段离线中文TTS。新游戏自动播放，标题可独立“重看开场”，E跳过、Esc暂停、V配音；不改旧进度、原版豚师或圆润眼型。
 
-LegacyOpening/LegacySet负责分镜、临时场景及环境恢复，正式结局依据TUNSHI1-STORY.md用户设定；第五章最终源码仍未恢复，不能宣称复制了原结局场景。旧version1档默认已看，新开场中退出可安全重新播放。正常与跳过、暂停、旧档、重看保护等10项原生检查通过；CI序章总数61。默认不输出截图，捕获只供内部复查。Windows发布结果待CI完成补录。
+LegacyOpening/LegacySet负责分镜、临时场景及环境恢复，正式结局依据TUNSHI1-STORY.md用户设定；第五章最终源码仍未恢复，不能宣称复制了原结局场景。旧version1档默认已看，新开场中退出可安全重新播放。正常与跳过、暂停、旧档、重看保护等10项原生检查通过；CI序章总数61。默认不输出截图，捕获只供内部复查。[v0.5.4 Windows Release](https://github.com/Ting-777/Tunshi2_codex/releases/tag/v0.5.4)已发布。游戏提交aebd090c0f7c5b85112e53052b95387e6c1fd151，main运行[39888885000](https://github.com/Ting-777/Tunshi2_codex/actions/runs/39888885000)成功：完整107/107、序章61/61、解压EXE61/61，退出0且自动寻找同目录PCK。ZIP为50,550,162字节，SHA256 f9e305c43ea2d38d4f5cb45cde4b5e6c03227679c94d1ea4a3ddebd32d6df6c7，与GitHub资产摘要一致；附独立SHA256文件。证据见verification/v054/release.json与windows-main-ci.txt。CI实际解压并运行EXE，本轮未额外下载公开ZIP重复检查；没有Windows GPU实机结论。
 
 ---
 

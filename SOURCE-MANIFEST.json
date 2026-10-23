@@ -400,9 +400,9 @@
       "git_blob": "0e3ba08d6b2e8cf435241829c96f10b74e4356fe"
     },
     "docs/NEW-CHAT-HANDOFF.md": {
-      "bytes": 15567,
-      "sha256": "a9333528627cedff903217b0095fbe85ced26e310d89b4b6697458ea4e72c87d",
-      "git_blob": "06b09912c4af7cad246109a0837de35ed148d9a3"
+      "bytes": 16189,
+      "sha256": "6bf9643e9a42579aeba47ae50654597abdd48d870ee67fe12abe3caf7967d11a",
+      "git_blob": "f7e99f1016c8a0b7de02dacf5e4cf30913107170"
     },
     "docs/NOTO-LICENSE.txt": {
       "bytes": 4301,
@@ -445,9 +445,9 @@
       "git_blob": "d8433ca06091956440d930d7ca2c81c885468766"
     },
     "docs/WORK-CHECKPOINT.md": {
-      "bytes": 18398,
-      "sha256": "6d739967415aaeb2fb2f62b3f649b686c8557ec965e1cf376f57594c9f303c96",
-      "git_blob": "c6ca22e6a8e7035e8e3025b3a30d2d90422434d6"
+      "bytes": 18967,
+      "sha256": "d15619f14f510499ff989f0cf58e74dc244ee56b3435fe42ee4821a673517754",
+      "git_blob": "a0cea3ea825261fd63f3a7ba1f38f7ef72ecbffb"
     },
     "docs/original-dolphin-source.js": {
       "bytes": 2345,
@@ -475,9 +475,9 @@
       "git_blob": "43ae0996bfef45131b6fe52761ab7c7fce345ebd"
     },
     "docs/verification/TEST-REPORT.md": {
-      "bytes": 24598,
-      "sha256": "34cb9e5d0de41261790364394400aadadef4934af55a8f1175187f480ac36f8e",
-      "git_blob": "43cdd9608edbd43a3c8f474680d9301c92fad199"
+      "bytes": 25143,
+      "sha256": "9242377bc20316387a91329888d21dabfa0f9601c608d24481bc04ad912d43ab",
+      "git_blob": "2a945e9000320dd25a01f4b905d271bdcc70e05e"
     },
     "docs/verification/baseline-v040/TEST-REPORT.md": {
       "bytes": 3447,
@@ -998,6 +998,16 @@
       "bytes": 1468,
       "sha256": "65967eb487a70b82eb8f5d76f83a905c29bb392f2c9cf1e2d4dc4b321ef9d85d",
       "git_blob": "9d1dabe1a07c802d8b7218f1acd00778c303670d"
+    },
+    "docs/verification/v054/release.json": {
+      "bytes": 795,
+      "sha256": "5027366ee316adfa38398d95672729858e00307fb64df9f1d5036df9e2216975",
+      "git_blob": "d35f3ada469f431d2e227395f83037f5c7e6e075"
+    },
+    "docs/verification/v054/windows-main-ci.txt": {
+      "bytes": 1267,
+      "sha256": "3b8c1490ae2b82b70c854e0666231fba30f4dfd0ac2a57a754493afd3f84a26f",
+      "git_blob": "e2e3dcd5c4b5fe96ccc45e62551f586c0a0c5aec"
     },
     "docs/verification/windows-20261021/export.log": {
       "bytes": 3656,

@@ -194,8 +194,12 @@ func aim_assist():
 		best=a;range_value=d.length()
 	if best:var d=best.position-player.position;player.rotation.y=atan2(d.x,d.z)
 
+func actor_target(_actor: StreetActor) -> StreetActor:return player
+
+func melee_targets(actor: StreetActor) -> Array:return people if actor==player else [player]
+
 func melee(actor: StreetActor):
-	var targets=people if actor==player else [player];var forward=Vector3(sin(actor.rotation.y),0,cos(actor.rotation.y));var kind=actor.kind;var reach=3.8 if kind=="heat" else 2.55 if kind=="kick" else 2.15;var damage=18.0 if kind=="jab" else 21.0 if kind=="cross" else 34.0 if kind=="finish" else 30.0 if kind=="heavy" else 23.0 if kind=="kick" else 42.0
+	var targets=melee_targets(actor);var forward=Vector3(sin(actor.rotation.y),0,cos(actor.rotation.y));var kind=actor.kind;var reach=3.8 if kind=="heat" else 2.55 if kind=="kick" else 2.15;var damage=18.0 if kind=="jab" else 21.0 if kind=="cross" else 34.0 if kind=="finish" else 30.0 if kind=="heavy" else 23.0 if kind=="kick" else 42.0
 	if actor!=player:damage=14 if kind=="heavy" else 10
 	sound("swing",.6)
 	for a in targets:

@@ -70,13 +70,15 @@ func _recolor(d: Dictionary,role: String):
 
 func _human(role: String):
 	var shirt="#8058aa" if role=="tingge" else "#438e60" if role=="pange" else "#e98437" if role=="xuanshen" else "#c74e45"
+	if role=="xiangxiang":shirt="#526c97"
 	if historic_uniform:shirt="#4c8cb9"
 	var skin="#f0c29d"
 	body=Node3D.new();rig.add_child(body)
 	ToonKit.box(body,Vector3(.82,.89,.46),shirt,Vector3(0,1.24,0),.17)
 	ToonKit.cyl(body,.13,.19,skin,Vector3(0,1.74,0))
-	if role in ["tingge","pange","xuanshen"]:
-		face=StoryFace.new();body.add_child(face);face.position.y=2.03;face.build(role)
+	if role in ["tingge","pange","xuanshen","xiangxiang"]:
+		face=StoryFace.new();body.add_child(face);face.position.y=2.03;face.build("pange" if role=="xiangxiang" else role)
+		if role=="xiangxiang":face.scale=Vector3(.95,1.08,1.0)
 	else:
 		ToonKit.orb(body,Vector3(.34,.38,.28),skin,Vector3(0,2.02,0))
 		ToonKit.orb(body,Vector3(.35,.20,.29),"#252a35",Vector3(0,2.25,-.03))
@@ -90,7 +92,10 @@ func _human(role: String):
 		ToonKit.box(body,Vector3(.29,.80,.05),"#f4e8cd",Vector3(0,1.27,.239),.03)
 	elif role=="xuanshen":
 		ToonKit.polygon(body,PackedVector2Array([Vector2(.03,.29),Vector2(-.18,-.01),Vector2(-.02,-.01),Vector2(-.09,-.28),Vector2(.20,.08),Vector2(.04,.08)]),"#ffe05a",Vector3(0,1.29,.244))
-	elif role!="tingge":
+	elif role=="xiangxiang":
+		ToonKit.box(body,Vector3(.66,.70,.06),"#e6d6b7",Vector3(0,1.12,.25),.07)
+		ToonKit.box(body,Vector3(.29,.22,.07),"#c19d7c",Vector3(0,1.05,.29),.025)
+	elif role=="laodongjie":
 		ToonKit.orb(body,Vector3(.45,.46,.31),"#eee7d6",Vector3(0,1.12,.12));ToonKit.cyl(body,.54,.08,"#dcb778",Vector3(0,2.30,0));ToonKit.cyl(body,.34,.24,"#e8c98b",Vector3(0,2.45,0));ToonKit.cyl(body,.35,.08,"#bc4948",Vector3(0,2.38,0));ToonKit.orb(body,Vector3(.10,.11,.025),"#252a35",Vector3(.13,2.04,.29))
 
 func _process(dt):
@@ -99,7 +104,8 @@ func _process(dt):
 	clock+=dt;body.position.y=sin(clock*1.8+number)*.013
 	if face:
 		var speaking=gesture=="talk"
-		if speaking and stage_world and not stage_world.dialogue.is_empty():speaking=stage_world.line_time<stage_world.voice.duration
+		if stage_world and stage_world.has_method("cast_is_speaking"):speaking=stage_world.cast_is_speaking(kind,number)
+		elif speaking and stage_world and not stage_world.dialogue.is_empty():speaking=stage_world.line_time<stage_world.voice.duration
 		face.animate(dt,speaking,gesture=="wave")
 	for i in range(arms.size()):arms[i].rotation.x=sin(clock*1.7+number+i*.4)*.045;arms[i].rotation.z=0
 	if gesture=="talk":

@@ -4,6 +4,8 @@ extends CharacterBody3D
 var world: Node3D
 var hero=false
 var friendly=false
+var respawn_enabled=true
+var locomotion_scale=1.0
 var hp=100.0
 var max_hp=100.0
 var heat=0.0
@@ -158,12 +160,13 @@ func _physics_process(dt):
 		cooldown-=dt
 		if hp<=0:
 			down_time-=dt
-			if down_time<=0 and world.player.position.distance_to(home)>35:position=home;hp=max_hp;stun=0;panic=0;fall_amount=0;recovery_wait=false
+			if respawn_enabled and down_time<=0 and world.player.position.distance_to(home)>35:position=home;hp=max_hp;stun=0;panic=0;fall_amount=0;recovery_wait=false
 		else:
-			var d=world.player.position-position;d.y=0
+			var target=world.actor_target(self)
+			var d=target.position-position;d.y=0
 			if traffic_evade>0:
 				move=world.steer_actor(self,traffic_direction)*1.25;tell=0
-			elif not friendly and d.length()<13 and absf(world.player.position.y-position.y)<1.8 and not world.player.vehicle:
+			elif not friendly and d.length()<13 and absf(target.position.y-position.y)<1.8 and not target.vehicle:
 				rotation.y=lerp_angle(rotation.y,atan2(d.x,d.z),minf(1,dt*7))
 				if d.length()>1.35:
 					var flank=Vector3.ZERO
@@ -189,7 +192,7 @@ func _physics_process(dt):
 
 	if stun>0 or hp<=0 or knockdown>0 or fall_amount>.05:move=Vector3.ZERO
 	if attack>=0:move*=.15
-	var run=6.4 if hero else 3.4
+	var run=(6.4 if hero else 3.4)*locomotion_scale
 	if crouch:run*=.45
 	velocity.x=move_toward(velocity.x,move.x*run,dt*28);velocity.z=move_toward(velocity.z,move.z*run,dt*28)
 	if attack>=0 and attack<contact_time() and stun<=0:

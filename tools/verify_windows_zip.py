@@ -13,15 +13,16 @@ def main():
     root = args.zip.resolve().parent / 'unpacked-check'
     with zipfile.ZipFile(args.zip) as archive:archive.extractall(root)
     folder = root / 'Dolphin2-Shanghai'
-    result = root / 'results.json';log = root / 'runtime.log'
-    command = [str(folder / 'Dolphin2.exe'), '--headless', '--audio-driver', 'Dummy',
-               '--log-file', str(log), '--', '--test', '--test-prologue', '--no-capture',
-               '--test-result', str(result)]
-    subprocess.run(command, cwd=folder, check=True, timeout=240)
-    data = json.loads(result.read_text(encoding='utf-8'))
-    assert data['failed'] == 0 and data['passed'] >= 61
-    assert not any(line.startswith(('ERROR:', 'SCRIPT ERROR:')) for line in log.read_text(encoding='utf-8').splitlines())
-    print(f"Unpacked Windows EXE: {data['passed']} passed; automatic PCK discovery verified.")
+    for suite, minimum in [('prologue', 61), ('chapter1', 33)]:
+        result = root / (suite + '-results.json');log = root / (suite + '-runtime.log')
+        command = [str(folder / 'Dolphin2.exe'), '--headless', '--audio-driver', 'Dummy',
+                   '--log-file', str(log), '--', '--test', '--test-' + suite, '--no-capture',
+                   '--test-result', str(result)]
+        subprocess.run(command, cwd=folder, check=True, timeout=600)
+        data = json.loads(result.read_text(encoding='utf-8'))
+        assert data['failed'] == 0 and data['passed'] >= minimum
+        assert not any(line.startswith(('ERROR:', 'SCRIPT ERROR:')) for line in log.read_text(encoding='utf-8').splitlines())
+        print(f"Unpacked Windows EXE {suite}: {data['passed']} passed; automatic PCK discovery verified.")
 
 
 if __name__ == '__main__':main()

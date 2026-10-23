@@ -1,4 +1,319 @@
 {
+  "07e0955075663ed40a2c": {
+    "speaker": "炫神",
+    "text": "十个座位，八个儿子，两位家长。这次真装得下。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+7%",
+    "pitch": "+2Hz",
+    "duration": 5.472,
+    "sha256": "1114f606b93e2f5c7dbf80260f5819ce0efe198b5607eaad3a74143cdab3d681"
+  },
+  "b54be7b3352dac32fc9a": {
+    "speaker": "攀哥",
+    "text": "人先数齐。生日饭在滨江，下午还有时间逛。",
+    "voice": "zh-CN-YunxiNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "duration": 5.376,
+    "sha256": "3c4d90ddf9f0b5ac20f297b6db9aa4d7c017f5714a04f2409e7056cdc9e10890"
+  },
+  "2d0d3576f31cd7e9dcea": {
+    "speaker": "老三",
+    "text": "爸爸，天桥上比一圈？我先看好路了！",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 4.56,
+    "sha256": "e8367572422ab02a728e22376bbd8352768f3ae373278c070d56068a9964e329"
+  },
+  "9b098da5edf0a6f9a428": {
+    "speaker": "小朋友",
+    "text": "只在天桥上跑。别拿过马路当近路。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "+0%",
+    "pitch": "+2Hz",
+    "duration": 4.248,
+    "sha256": "5f0a65c186d485774c01ef532850f9791d309c9aab8aa1a95759a84fad812df4"
+  },
+  "f39d11a5ca3dfd8c3a93": {
+    "speaker": "豚师",
+    "text": "元首亲自参赛。输了也不许找妈妈改成绩。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 4.968,
+    "sha256": "b03a0abfe9c75512bb0209a9d6372144adcca63cf88b8b64cc23b766ee0f5b3d"
+  },
+  "aad72189fa45a6baa686": {
+    "speaker": "老三",
+    "text": "三，二，一！",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 2.784,
+    "sha256": "fc9f0687b69c67ec27d6886cdf0e192cbe91e95ddf392bf99a2fdfb12eba8fe1"
+  },
+  "6c728f0d70d2c6561a8f": {
+    "speaker": "老三",
+    "text": "再来一次？这次你不能说在让着我。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 4.008,
+    "sha256": "7307d459d303f0dae60db7990b5e8b274088aa523f182f3b9e3d1a47198666b5"
+  },
+  "67d55db5fb9723e03950": {
+    "speaker": "炫神",
+    "text": "蛋糕已经订好了。我把全家车停在中心绿地旁边，你来开。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+7%",
+    "pitch": "+2Hz",
+    "duration": 6.072,
+    "sha256": "4bd500c869e5393a60a39268f0d726bf1137f9cb560f3636b907b052d93daffc"
+  },
+  "f795d37052a70b1b9eab": {
+    "speaker": "老五",
+    "text": "爸爸，快一点可以，蛋糕别翻。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 3.504,
+    "sha256": "7b3e7675ef85c9f24c21e8c7ed3b491e90667cfe71e83251886fa4fa3dc8a6d4"
+  },
+  "f98e244203f864d65674": {
+    "speaker": "小朋友",
+    "text": "都坐好了，八个。滨江见，不赶时间。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "+0%",
+    "pitch": "+2Hz",
+    "duration": 4.608,
+    "sha256": "33fb4f752042f16c1b16bc3a385f25223e5fc6652f60f474b7549de0e2505a3d"
+  },
+  "418efee1ebe3ca279c10": {
+    "speaker": "老五",
+    "text": "它刚才是不是歪了一下？",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 2.784,
+    "sha256": "ba2e428b25a53aa6aa7fe4e462d8ea158f39795b697d2c36cd7d2fb61ff421ef"
+  },
+  "e5e025ab89174561f53b": {
+    "speaker": "老七",
+    "text": "八个都到了。蛋糕也到了。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 3.408,
+    "sha256": "920d0b95ef7298abedc657e31223dfe23c362193d8513b33b4da142774266adf"
+  },
+  "d0c480d728f60c33439e": {
+    "speaker": "炫神",
+    "text": "奶油有点歪。能吃，别给元首拍特写。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+7%",
+    "pitch": "+2Hz",
+    "duration": 4.56,
+    "sha256": "00ff7887eb9b409fd2f7268e6db913ba37f46099398417057cbc1c60061cd81a"
+  },
+  "5f57d2ee29f05f93a4e9": {
+    "speaker": "象象",
+    "text": "店里坐不下这么多人，借了这个地方。今天先好好吃。",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "duration": 5.472,
+    "sha256": "2590661bafd57a40818fdf0ed2ea9553ab3b9183a8f7f452564732b183a16341"
+  },
+  "b8f1497c71c32c0fda00": {
+    "speaker": "老大",
+    "text": "第一幕，海豚帮成立！我演爸爸！",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 4.224,
+    "sha256": "e20f0ae5f6e753dff998659814d68dd33c77d41963c94eaa59e24e7be0836699"
+  },
+  "075fa92760bbcdb32867": {
+    "speaker": "老四",
+    "text": "等一下，音乐还没开始！",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 2.952,
+    "sha256": "2a366ade79eea4b697b8d1832d0ef87ef93da147bc6cbe47c0020119c8aec9cc"
+  },
+  "2e9d3787b0e745999f97": {
+    "speaker": "攀哥",
+    "text": "我出去接个人。你们先演，两分钟。",
+    "voice": "zh-CN-YunxiNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "duration": 4.152,
+    "sha256": "2abdb285c650fddf5294636372f8f88d13937fbb15309e8f44faf2e4fe6e98d5"
+  },
+  "ae2eea32f3fa4a8a8589": {
+    "speaker": "小朋友",
+    "text": "攀哥的手机落在这里了。豚师，出去看看。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "+0%",
+    "pitch": "+2Hz",
+    "duration": 4.896,
+    "sha256": "e1a7b9234db0fb4d0f739dbf037e13a4977b649db52096ce5521d9cc313fb3fa"
+  },
+  "20eca60fbd136bfecfff": {
+    "speaker": "工作人员",
+    "text": "他们把门堵了！后面还有人！",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "duration": 3.384,
+    "sha256": "eaebba4748bb1bc50c9c5c472bd7b5f98cda5fcb25107a3da7bd7dc45940a75b"
+  },
+  "162d1d71fabd0a47eb1e": {
+    "speaker": "小朋友",
+    "text": "听歌，带孩子上车。豚师，帮工作人员出来！",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "+0%",
+    "pitch": "+2Hz",
+    "duration": 5.04,
+    "sha256": "192db3f74ac6713502c83a83fad386430c606fd57e6d7ac8c3aea6b6b82b2fcb"
+  },
+  "3983f1e7b2d9342fc35d": {
+    "speaker": "炫神",
+    "text": "车在南出口！后勤门能挡住那边的人，开关在门内侧！",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+7%",
+    "pitch": "+2Hz",
+    "duration": 5.568,
+    "sha256": "096320a7ec7da6f78a43af040c30e90e7723699d6cb7bc351581a1380372a60e"
+  },
+  "2d66ef5ed022bef55fe7": {
+    "speaker": "炫神",
+    "text": "门挡住了。先救里面的人！",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+7%",
+    "pitch": "+2Hz",
+    "duration": 3.288,
+    "sha256": "ee84bfa7fc527231340dbd743ab8bc095a4fca558adcb037abe5c2a30ce244fe"
+  },
+  "03ad63f3790887937700": {
+    "speaker": "听歌",
+    "text": "孩子全在车上。还在院里的，跟着工作人员走！",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-4%",
+    "pitch": "+0Hz",
+    "duration": 6.0,
+    "sha256": "320ac3f9330d8069162d31d62e3313acc8308a1626f0c6d78ba80063045c48c7"
+  },
+  "496b59bf9d7e361de4eb": {
+    "speaker": "炫神",
+    "text": "攀哥被他们带走了。车已经出了这个街口。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+7%",
+    "pitch": "+2Hz",
+    "duration": 4.32,
+    "sha256": "697964311659556291e1fc409ba65bde57cfc9a68d4f5eb620fa85fdea3b059f"
+  },
+  "7b3f9d9ebc8d98ae4fcb": {
+    "speaker": "老七",
+    "text": "我们八个都在。攀叔叔还没回来。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 3.84,
+    "sha256": "ea68a41178a2dda718bd9a864f7f585fc76d577b24cf84aa1671cc84dc5c96ab"
+  },
+  "3a243b84e5f002989042": {
+    "speaker": "老八",
+    "text": "爸爸，你的蛋糕。我没让他们切走。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 4.2,
+    "sha256": "36ffa4fd41a1dccd0974a275563742e7f0bf7ccf03f4e701177544fcd6d8aa65"
+  },
+  "0cc0dede33fe41e7178f": {
+    "speaker": "豚师",
+    "text": "我去接攀哥。炫神跟我去，听歌留在这边。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 4.464,
+    "sha256": "694b9b51b5290dc8a587a14c94decdb5a3710a6dc15112629db74705213704b3"
+  },
+  "e4092e0d66bc2d78baaa": {
+    "speaker": "小朋友",
+    "text": "到了先联系我。孩子们的节目，下次要看完。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "+0%",
+    "pitch": "+2Hz",
+    "duration": 4.848,
+    "sha256": "ba044be3e6d0bab1bde09e6aec442dda62493df7007e077361ddd000f69fd93e"
+  },
+  "2c0313383dc92a5a10d1": {
+    "speaker": "豚师",
+    "text": "嗯。先把人接回来。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 2.904,
+    "sha256": "825e4680a90d7109215ee3dc070ec2edf2da274f6d9f2f2016080bc602bd266a"
+  },
+  "d3c48ea30346b5773558": {
+    "speaker": "老二",
+    "text": "我画的地图没画天桥，纸不够高。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 3.744,
+    "sha256": "44181ce7436f74b06e46c7aa72b64fc7f37001a07477c6161123bf80951b4026"
+  },
+  "278cfe4c7a69197e2ca8": {
+    "speaker": "老六",
+    "text": "攀叔叔说他喜欢这个味道，我帮他留一块。",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 4.368,
+    "sha256": "5c9f1750683a8eeff3211be12398bce80bdd3b9a4146792844fae285e4458961"
+  },
+  "a47845f94e9b42666900": {
+    "speaker": "老三",
+    "text": "爸爸，重拳是这样吗？",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 2.832,
+    "sha256": "f5db182b6d18f4ee72a698576c7c3927cd13bd888370fac9df1f7671a2dea05f"
+  },
+  "06b52d2287267c3b6881": {
+    "speaker": "豚师",
+    "text": "先别拿弟弟试。拿空气练。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 3.48,
+    "sha256": "16de92a44fbdf14f492c3bef7bcb0671d28bf61992eb40a2cad603ecb3d1a932"
+  },
+  "24615647e55fa4e0d804": {
+    "speaker": "听歌",
+    "text": "是日，元首亲自运送蛋糕。此事，宜据实记录。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-4%",
+    "pitch": "+0Hz",
+    "duration": 6.408,
+    "sha256": "b6d6fc24d50a076fe4db68538760ea8dc3188a9b09b738596fc28f15dc1f94fe"
+  },
+  "e7c7d346e7a416a65d2e": {
+    "speaker": "豚师",
+    "text": "记我开得稳一点。",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz",
+    "duration": 2.064,
+    "sha256": "2832be3d120969e26d58b9c5f3176ee27869f5f37343bcc35c262bec9ab7af26"
+  },
   "a1921f91af48dba8429f": {
     "speaker": "小朋友",
     "text": "醒了？八子计划完成了。你自己生的八个儿子，一个都不少。",
@@ -485,15 +800,6 @@
     "duration": 5.544,
     "sha256": "0b0fa06496f549f744b90a4100bd2f6aa2832a0771db3ccd0c49891641f98fd1"
   },
-  "b98b446ecee9e66222e5": {
-    "speaker": "攀哥",
-    "text": "人都到齐了。回去吧。",
-    "voice": "zh-CN-YunxiNeural",
-    "rate": "+0%",
-    "pitch": "+0Hz",
-    "duration": 3.408,
-    "sha256": "f03ea96c200ed22899acb00f7f28fdfb706a940ea259359f310f336b29e3d1a7"
-  },
   "5558316787a4f1face04": {
     "speaker": "豚师",
     "text": "海豚帮解散。",
@@ -512,23 +818,14 @@
     "duration": 2.016,
     "sha256": "728909d2ea6835742378a0ca6f4b7d858e4e5864f521e08b05013e3c12dc1409"
   },
-  "bd596e512342985a719e": {
-    "speaker": "旁白",
-    "text": "长沙的日子，慢慢回到了生活里。",
-    "voice": "zh-CN-XiaoyiNeural",
+  "b98b446ecee9e66222e5": {
+    "speaker": "攀哥",
+    "text": "人都到齐了。回去吧。",
+    "voice": "zh-CN-YunxiNeural",
     "rate": "+0%",
     "pitch": "+0Hz",
-    "duration": 3.576,
-    "sha256": "abb0a77c324d50911f6b21b4bd1f8094276afb771c13cfc44239974ebebeadc7"
-  },
-  "530e798b45d677ab8c6b": {
-    "speaker": "听歌",
-    "text": "是日，天亮了。众人回家。",
-    "voice": "zh-CN-YunjianNeural",
-    "rate": "-4%",
-    "pitch": "+0Hz",
-    "duration": 4.104,
-    "sha256": "b8c4c32472d607a0eec401ffabbbc2f17995ce8fd22996c8674412075841a137"
+    "duration": 3.408,
+    "sha256": "f03ea96c200ed22899acb00f7f28fdfb706a940ea259359f310f336b29e3d1a7"
   },
   "94e6035043287b232a3c": {
     "speaker": "炫神",
@@ -539,14 +836,23 @@
     "duration": 4.296,
     "sha256": "1590739fa1d9714e94999a4d293d5cbff1bdc0e8f8f66852ba4d570fa182a35a"
   },
-  "e5daae53c29f46c034da": {
-    "speaker": "小朋友",
-    "text": "那先起来，去医院。",
-    "voice": "zh-CN-XiaoxiaoNeural",
+  "530e798b45d677ab8c6b": {
+    "speaker": "听歌",
+    "text": "是日，天亮了。众人回家。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-4%",
+    "pitch": "+0Hz",
+    "duration": 4.104,
+    "sha256": "b8c4c32472d607a0eec401ffabbbc2f17995ce8fd22996c8674412075841a137"
+  },
+  "bd596e512342985a719e": {
+    "speaker": "旁白",
+    "text": "长沙的日子，慢慢回到了生活里。",
+    "voice": "zh-CN-XiaoyiNeural",
     "rate": "+0%",
-    "pitch": "+2Hz",
-    "duration": 2.28,
-    "sha256": "01281daeb4d022d8b84ab15ee1a927d2bf6d9c9b2ae77a8537180876d8742dc6"
+    "pitch": "+0Hz",
+    "duration": 3.576,
+    "sha256": "abb0a77c324d50911f6b21b4bd1f8094276afb771c13cfc44239974ebebeadc7"
   },
   "480913a141a4695a23e3": {
     "speaker": "小朋友",
@@ -566,14 +872,14 @@
     "duration": 4.032,
     "sha256": "722cfd7edd13d67b4d07b9eee2772624ca834f66f44aa89553a65930a2c913e3"
   },
-  "1991698a010f8da5ecd4": {
+  "e5daae53c29f46c034da": {
     "speaker": "小朋友",
-    "text": "不能。",
+    "text": "那先起来，去医院。",
     "voice": "zh-CN-XiaoxiaoNeural",
     "rate": "+0%",
     "pitch": "+2Hz",
-    "duration": 1.2,
-    "sha256": "6ff8b3bcead9b414f120a3623c17dc5a18f9b84f37477cf28e5d46c6633a95a4"
+    "duration": 2.28,
+    "sha256": "01281daeb4d022d8b84ab15ee1a927d2bf6d9c9b2ae77a8537180876d8742dc6"
   },
   "498e874b42c43f990005": {
     "speaker": "豚师",
@@ -583,5 +889,32 @@
     "pitch": "-4Hz",
     "duration": 2.52,
     "sha256": "2e51b7b4ff735bf6f4c919312900c3951730f4f1d16884ddc80e7f13eef54788"
+  },
+  "1991698a010f8da5ecd4": {
+    "speaker": "小朋友",
+    "text": "不能。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "+0%",
+    "pitch": "+2Hz",
+    "duration": 1.2,
+    "sha256": "6ff8b3bcead9b414f120a3623c17dc5a18f9b84f37477cf28e5d46c6633a95a4"
+  },
+  "900ec78199e0750d3f5d": {
+    "speaker": "攀哥 · 电话",
+    "text": "你先在后屋待着，别去门口。我晚点过来。",
+    "voice": "zh-CN-YunxiNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "duration": 4.464,
+    "sha256": "ffab5de7e80b652e003ee5ae6d1c774cf3b79da1f4f99b8e4a86e11040bae3e3"
+  },
+  "e7c4b5217f7013433f46": {
+    "speaker": "老八",
+    "text": "攀叔叔是不是很忙？",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+4%",
+    "pitch": "+18Hz",
+    "duration": 2.448,
+    "sha256": "0369b3557e326bdd51df9e2454fa13c5ef3f26477c90f7f9da417d669b340c5a"
   }
 }

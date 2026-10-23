@@ -49,6 +49,8 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python tools/run_native.py test --pack builds/ci-pack/Dolphin2.pck --suite prologue --headless --output builds/ci-prologue
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python tools/run_native.py test --pack builds/ci-pack/Dolphin2.pck --suite chapter1 --headless --output builds/ci-chapter1
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Package and run the unpacked Windows EXE
         run: |
           python tools/package_windows.py --pack builds/ci-pack/Dolphin2.pck
@@ -66,10 +68,10 @@ jobs:
           gh release view $tag --repo $env:GITHUB_REPOSITORY 2>$null
           if ($LASTEXITCODE -eq 0) { $tag = "v$version-build.$env:GITHUB_RUN_NUMBER" }
           $body = Get-Content docs/RELEASE-NOTES.md -Raw
-          $body += "`n`nSource commit: $env:GITHUB_SHA`nWindows runner: complete PCK regression and unpacked EXE prologue checks passed. No screenshots are uploaded."
+          $body += "`n`nSource commit: $env:GITHUB_SHA`nWindows runner: complete PCK regression and unpacked EXE prologue/chapter-one checks passed. No screenshots are uploaded."
           Set-Content builds/release-notes.md $body -Encoding utf8
           $assets = Get-ChildItem builds/artifacts/*.zip,builds/artifacts/*.sha256 | ForEach-Object { $_.FullName }
-          gh release create $tag @assets --repo $env:GITHUB_REPOSITORY --target $env:GITHUB_SHA --title "豚师2 · 序章 $version" --notes-file builds/release-notes.md --prerelease
+          gh release create $tag @assets --repo $env:GITHUB_REPOSITORY --target $env:GITHUB_SHA --title "豚师2 · 上海风云 $version" --notes-file builds/release-notes.md --prerelease
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Keep text verification logs
         if: always()
@@ -79,5 +81,5 @@ jobs:
           path: |
             builds/ci-*/runtime.log
             builds/ci-*/results.json
-            builds/artifacts/unpacked-check/runtime.log
-            builds/artifacts/unpacked-check/results.json
+            builds/artifacts/unpacked-check/*-runtime.log
+            builds/artifacts/unpacked-check/*-results.json

@@ -1,0 +1,12 @@
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+
+CHAPTER1_READY
+LEG true (90.76657, 0.000943, -136.1796)
+LEG true (-91.07166, 0.00094, -118.5359)
+LEG true (-96.50085, 0.000942, -197.1183)
+LEG true (-118.3537, 0.000942, -203.0217)
+DRIVE_REVIEW true STAGE 3
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2514)
+ERROR: 1 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:804)

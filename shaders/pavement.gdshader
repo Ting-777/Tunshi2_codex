@@ -5,6 +5,7 @@ uniform vec4 road_segments[6];
 uniform float road_widths[6];
 uniform vec4 grass_rects[4];
 uniform vec4 curb_bands[2];
+uniform vec4 story_pad=vec4(0.0);
 varying vec3 p;
 void vertex(){p=(MODEL_MATRIX*vec4(VERTEX,1.0)).xyz;}
 void fragment(){
@@ -35,6 +36,11 @@ void fragment(){
   vec2 band=abs(p.xz-curb_bands[i].xy)-curb_bands[i].zw*.5;
   float paint=(1.0-smoothstep(-edge,edge,max(band.x,band.y)))*(1.0-asphalt);
   ALBEDO=mix(ALBEDO,vec3(.9529,.7765,.3569),paint);
+ }
+ if(story_pad.z>0.1){
+  vec2 pad=abs(p.xz-story_pad.xy)-story_pad.zw*.5;
+  float area=1.0-smoothstep(-edge,edge,max(pad.x,pad.y));
+  ALBEDO=mix(ALBEDO,vec3(.494,.686,.690),area);
  }
  ROUGHNESS=1.0;
 }

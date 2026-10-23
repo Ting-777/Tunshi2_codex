@@ -1,7 +1,7 @@
 """Generate the authored Chinese dialogue as bundled TTS (build-time network only).
 
 Install edge-tts==7.3.1. Game playback is fully offline and never calls a service.
-Only the fictional dialogue in assets/dialogue/prologue.json is synthesized.
+Only authored fictional dialogue in assets/dialogue is synthesized.
 """
 import argparse
 import asyncio
@@ -31,7 +31,10 @@ async def main():
     parser.add_argument('--verify-only', action='store_true')
     args = parser.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
-    catalog = json.loads((ROOT / 'assets/dialogue/prologue.json').read_text(encoding='utf-8'))
+    catalog = {}
+    for source in sorted((ROOT / 'assets/dialogue').glob('*.json')):
+        for name, group in json.loads(source.read_text(encoding='utf-8')).items():
+            catalog[source.stem + ':' + name] = group
     lines = {hashlib.sha256((who+'|'+text).encode()).hexdigest()[:20]: (who,text)
              for group in catalog.values() for who,text in group}
     gate=asyncio.Semaphore(3)

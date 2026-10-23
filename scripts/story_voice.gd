@@ -1,6 +1,7 @@
 class_name StoryVoice
 extends Node
 
+var catalog_path="res://assets/dialogue/prologue.json"
 var catalog={}
 var manifest={}
 var player: AudioStreamPlayer
@@ -11,7 +12,7 @@ var spoken_count=0
 var streams={}
 
 func _ready():
-	catalog=JSON.parse_string(FileAccess.get_file_as_string("res://assets/dialogue/prologue.json"))
+	catalog=JSON.parse_string(FileAccess.get_file_as_string(catalog_path))
 	if FileAccess.file_exists("res://assets/voice/manifest.json"):manifest=JSON.parse_string(FileAccess.get_file_as_string("res://assets/voice/manifest.json"))
 	player=AudioStreamPlayer.new();player.volume_db=-1.5;add_child(player)
 

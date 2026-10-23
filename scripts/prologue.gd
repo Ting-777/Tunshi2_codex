@@ -153,7 +153,7 @@ func objective() -> String:
 		2:return "去门口拍一张全家合照"
 		3:return "听听八兄弟在忙什么  "+str(groups.size())+"/3" if groups.size()<3 else "桌上的电话响了 · 攀哥找你"
 		4:return "答应八兄弟，好好看完他们的小戏"
-	return "序章完成 · 一家人即将出发去上海"
+	return "序章完成 · 走到玄关，前往上海第一章"
 
 func navigation_targets() -> Array:
 	if hud.menu or not dialogue.is_empty() or director.active():return []
@@ -267,6 +267,8 @@ func _clear_input():
 func menu_action(action: String):
 	menu_selection=0
 	match action:
+		"chapter1":
+			save_story();director.cancel();voice.stop();_clear_input();Engine.time_scale=1;Input.mouse_mode=Input.MOUSE_MODE_VISIBLE;get_tree().change_scene_to_file("res://scenes/chapter1.tscn");return
 		"sandbox":
 			save_story();director.cancel();_clear_input();Engine.time_scale=1;Input.mouse_mode=Input.MOUSE_MODE_VISIBLE;get_tree().change_scene_to_file("res://scenes/main.tscn");return
 		"quit":director.cancel();get_tree().quit();return
@@ -316,7 +318,7 @@ func interact():
 			say_group("phone","invited")
 		"leave":
 			if phase<5:say_group("leave","complete")
-			else:hud.say("序章已完成 · Esc 可重玩或进入陆家嘴漫游")
+			else:menu_action("chapter1")
 
 func _boys(index: int):
 	if not index in groups:groups.append(index);save_story();_refresh_hotspots()

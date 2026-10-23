@@ -106,6 +106,7 @@ func menu_buttons() -> Array:
 	var buttons=[]
 	if world.has_story_save():buttons.append(["继续序章" if world.saved_phase()<5 else "回家看看", "continue"])
 	buttons.append(["开始序章" if not world.has_story_save() else "重玩序章", "new"])
+	buttons.append(["第一章 · 八个，一个都不少", "chapter1"])
 	buttons.append(["重看开场 · 长沙的黎明", "replay"])
 	buttons.append(["陆家嘴自由漫游", "sandbox"])
 	buttons.append(["退出游戏", "quit"])
@@ -114,20 +115,20 @@ func menu_buttons() -> Array:
 func _menu():
 	draw_rect(Rect2(0,0,610,900),Color(.09,.15,.24,.95))
 	txt("DOLPHIN  2",Vector2(62,93),27,ORANGE);txt("豚师2",Vector2(54,199),82);txt("上海风云",Vector2(61,257),46)
-	txt("序章  ·  一个都不少",Vector2(64,335),29)
+	txt("长沙序章  →  上海第一章",Vector2(64,335),29)
 	txt("湘江天亮，八子俱全。",Vector2(64,383),22,Color("#b6d8ce"))
-	txt("从长沙的黎明，回到家里。",Vector2(64,418),22,Color("#b6d8ce"))
+	txt("八子抵沪，生日饭起风波。",Vector2(64,418),22,Color("#b6d8ce"))
 	txt("V 配音："+("开" if world.voice.enabled else "关")+"    C 自动对白："+("开" if world.auto_dialogue else "关"),Vector2(64,447),17,Color("#82ccef"))
 	var buttons=menu_buttons()
 	for i in range(buttons.size()):
 		var rect=_button_rect(i);panel(rect,ORANGE if i==0 else Color("#3a4e64"));txt(buttons[i][0],rect.position+Vector2(24,38),24,INK if i==0 else PAPER)
 	txt("W/S 选择 · Enter 确定 · 支持鼠标",Vector2(64,824),17)
-	txt("0.5.4 · 原生 Godot · Windows / Linux",Vector2(64,861),15,Color("#91b5bd"))
+	txt("0.6.0 · 原生 Godot · Windows / Linux",Vector2(64,861),15,Color("#91b5bd"))
 	draw_circle(Vector2(555,_button_rect(world.menu_selection).get_center().y),8,ORANGE)
 
 func _button_rect(index: int) -> Rect2:
-	var compact=menu_buttons().size()>4
-	return Rect2(63,466+index*(66 if compact else 77),475,56 if compact else 62)
+	var count=menu_buttons().size()
+	return Rect2(63,466+index*(55 if count>5 else 66 if count>4 else 77),475,48 if count>5 else 56 if count>4 else 62)
 
 func menu_click(p: Vector2):
 	for i in range(menu_buttons().size()):

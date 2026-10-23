@@ -70,3 +70,7 @@ python tools/run_native.py test --pack builds/windows-pck/Dolphin2.pck --suite i
 
 本轮实际证据见 [验收报告](verification/TEST-REPORT.md) 最新章节。截图只保留于
 ignored `builds/` 并在对话中展示，仓库仅收录代码和文字验收记录。
+
+## 第一章专项 / 0.6.0
+
+`python tools/run_native.py test --suite chapter1 --headless --output builds/chapter1-check` 运行独立章节槽的33项检查。原生实看可去掉headless；只在明确需要内部捕获时加`--shots`，图像留在ignored builds/。Linux现有X服务器脚本支持`python3 tools/capture.py --test --chapter1 --no-shots`。直接游玩可向Godot追加`-- --chapter1`，或使用游戏标题中的第一章入口。Windows发布CI先独立PCK运行107/61/33，再从ZIP解压EXE运行61/33后发包。

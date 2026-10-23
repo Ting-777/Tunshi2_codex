@@ -1,0 +1,138 @@
+{
+  "checks": [
+    [
+      true,
+      "normal first-chapter entry uses an isolated slot and staged arrival"
+    ],
+    [
+      true,
+      "eight sons, queen and original-geometry driver have ten real van seats"
+    ],
+    [
+      true,
+      "all 37 chapter dialogue lines are bundled offline"
+    ],
+    [
+      true,
+      "pause holds opening timeline and speech"
+    ],
+    [
+      true,
+      "skipping arrival returns immediate control and marks only chapter progress"
+    ],
+    [
+      true,
+      "race starts through E and rival moves through real physics"
+    ],
+    [
+      true,
+      "player climbs the real south ramp into the first elevated checkpoint"
+    ],
+    [
+      true,
+      "ground-level shortcuts cannot collect elevated bridge checkpoints"
+    ],
+    [
+      true,
+      "either bridge arc is playable and a slow finish still advances the chapter"
+    ],
+    [
+      true,
+      "optional race replay cannot overwrite active chapter progress"
+    ],
+    [
+      true,
+      "loading during a replay returns to chapter checkpoint with best time"
+    ],
+    [
+      true,
+      "cake pickup loads the actual ten-seat family vehicle after a continuous walk"
+    ],
+    [
+      true,
+      "family van accelerates and brakes through normal input and collision"
+    ],
+    [
+      true,
+      "real frontal collision injures occupants, damages van and reduces cake quality"
+    ],
+    [
+      true,
+      "delivery saves keep damage and cake condition"
+    ],
+    [
+      true,
+      "free-route driving and safe exit finish delivery even with zero cake score"
+    ],
+    [
+      true,
+      "real entrance and working door lead to eight-son birthday staging"
+    ],
+    [
+      true,
+      "birthday sequence normally hands control to the live evacuation battle"
+    ],
+    [
+      true,
+      "pause freezes escort, enemy AI and reinforcement clock"
+    ],
+    [
+      true,
+      "doing nothing allows actual enemy attacks to hurt staff and fail evacuation"
+    ],
+    [
+      true,
+      "retry resets only this encounter, preserving completed outing scores"
+    ],
+    [
+      true,
+      "closing the service gate creates a real collision across reinforcement access"
+    ],
+    [
+      true,
+      "a vehicle under the gate prevents closing instead of being crushed"
+    ],
+    [
+      true,
+      "checkpoint preserves an obstructed open gate without spawning it through a vehicle"
+    ],
+    [
+      true,
+      "reinforcement physically approaches and remains outside a closed gate"
+    ],
+    [
+      true,
+      "combat checkpoint retains wounds, enemy state and gate choice"
+    ],
+    [
+      true,
+      "front guard reduces a physically connected light strike"
+    ],
+    [
+      true,
+      "a physically connected heavy strike breaks guard for a punish window"
+    ],
+    [
+      true,
+      "telegraphed straight charge can be dodged through the normal dodge controller"
+    ],
+    [
+      true,
+      "active melee, breaks, heat and route control complete a real evacuation"
+    ],
+    [
+      true,
+      "ending skip restores all eight children and a completed playable chapter"
+    ],
+    [
+      true,
+      "completed chapter persists without changing the prologue slot"
+    ],
+    [
+      true,
+      "original hero geometry remains byte-identical"
+    ]
+  ],
+  "failed": 0,
+  "passed": 33
+}

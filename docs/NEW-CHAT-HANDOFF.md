@@ -6,7 +6,7 @@
 
 天桥竞速走真实坡道，左右半圈都能过，高度判定防止在地面穿点，老三使用真实物理跑动。中心绿地取货顺路经过高楼，驾驶不绑固定线路；碰撞/高速急转影响蛋糕，车况与乘员受伤规则沿用。滨江新会客厅有顶、自动门、家具/舞台/照明；后勤院落有实际车行门、南出口与单独工作人员接应车。工作人员会被攻击、会倒下，安全上车点在车身之外；关门实际挡住增援，门下有人/车则暂缓，存档保留未关上的位置。正面守备可破防，冲撞有地面预兆与反击窗口。
 
-本地按风险做原生视图与输入检查；33项第一章集成检查覆盖完整链路，迭代记录与边界见verification/TEST-REPORT.md。最终Windows main CI与Release待补录。第二章及以后未制作，不把第一章称作整部游戏完成。继续按成品体验标准，Gameplay 优先；视觉、操作、剧情一致；PS3 等级视觉方向。截图仅内部复查，不上传仓库/Release，不默认展示。
+本地按风险做原生视图与输入检查；33项第一章集成检查覆盖完整链路，迭代记录与边界见verification/TEST-REPORT.md。[v0.6.0 Windows运行包](https://github.com/Ting-777/Tunshi2_codex/releases/tag/v0.6.0)已发布。游戏提交b994694ecd6ad6f5660a106b5d2a473d0138da8f，main运行[39898301779](https://github.com/Ting-777/Tunshi2_codex/actions/runs/39898301779)成功：独立PCK完整107/107、序章61/61、第一章33/33；解压EXE序章61/61、第一章33/33，退出0且自动发现同目录PCK。ZIP 51,387,125字节，SHA256 bd24e5d5cc672343affde9e1cddec15a209814967ecba9c1b83774be312757e5，与GitHub资产摘要一致，附独立校验文件。文字证据见verification/v060/release.json、windows-main-ci.txt及chapter-final-results.json。本轮没有额外下载公开ZIP重复检查，无Windows GPU硬件验收结论。第二章及以后未制作，不把第一章称作整部游戏完成。继续按成品体验标准，Gameplay 优先；视觉、操作、剧情一致；PS3 等级视觉方向。截图仅内部复查，不上传仓库/Release，不默认展示。
 
 ---
 

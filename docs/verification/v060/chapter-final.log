@@ -1,0 +1,73 @@
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+
+CHAPTER1_READY
+CHECK true normal first-chapter entry uses an isolated slot and staged arrival
+CHECK true eight sons, queen and original-geometry driver have ten real van seats
+CHECK true all 37 chapter dialogue lines are bundled offline
+CHECK true pause holds opening timeline and speech
+CHECK true skipping arrival returns immediate control and marks only chapter progress
+CHECK true race starts through E and rival moves through real physics
+CHECK true player climbs the real south ramp into the first elevated checkpoint
+CHECK true ground-level shortcuts cannot collect elevated bridge checkpoints
+CHECK true either bridge arc is playable and a slow finish still advances the chapter
+CHECK true optional race replay cannot overwrite active chapter progress
+CHECK true loading during a replay returns to chapter checkpoint with best time
+CHECK true cake pickup loads the actual ten-seat family vehicle after a continuous walk
+CHECK true family van accelerates and brakes through normal input and collision
+CHECK true real frontal collision injures occupants, damages van and reduces cake quality
+CHECK true delivery saves keep damage and cake condition
+CHECK true free-route driving and safe exit finish delivery even with zero cake score
+CHECK true real entrance and working door lead to eight-son birthday staging
+CHECK true birthday sequence normally hands control to the live evacuation battle
+CHECK true pause freezes escort, enemy AI and reinforcement clock
+CHECK true doing nothing allows actual enemy attacks to hurt staff and fail evacuation
+CHECK true retry resets only this encounter, preserving completed outing scores
+CHECK true closing the service gate creates a real collision across reinforcement access
+CHECK true a vehicle under the gate prevents closing instead of being crushed
+CHECK true checkpoint preserves an obstructed open gate without spawning it through a vehicle
+CHECK true reinforcement physically approaches and remains outside a closed gate
+CHECK true combat checkpoint retains wounds, enemy state and gate choice
+CHECK true front guard reduces a physically connected light strike
+CHECK true a physically connected heavy strike breaks guard for a punish window
+CHECK true telegraphed straight charge can be dodged through the normal dodge controller
+CHECK true active melee, breaks, heat and route control complete a real evacuation
+CHECK true ending skip restores all eight children and a completed playable chapter
+CHECK true completed chapter persists without changing the prologue slot
+CHECK true original hero geometry remains byte-identical
+PASS normal first-chapter entry uses an isolated slot and staged arrival
+PASS eight sons, queen and original-geometry driver have ten real van seats
+PASS all 37 chapter dialogue lines are bundled offline
+PASS pause holds opening timeline and speech
+PASS skipping arrival returns immediate control and marks only chapter progress
+PASS race starts through E and rival moves through real physics
+PASS player climbs the real south ramp into the first elevated checkpoint
+PASS ground-level shortcuts cannot collect elevated bridge checkpoints
+PASS either bridge arc is playable and a slow finish still advances the chapter
+PASS optional race replay cannot overwrite active chapter progress
+PASS loading during a replay returns to chapter checkpoint with best time
+PASS cake pickup loads the actual ten-seat family vehicle after a continuous walk
+PASS family van accelerates and brakes through normal input and collision
+PASS real frontal collision injures occupants, damages van and reduces cake quality
+PASS delivery saves keep damage and cake condition
+PASS free-route driving and safe exit finish delivery even with zero cake score
+PASS real entrance and working door lead to eight-son birthday staging
+PASS birthday sequence normally hands control to the live evacuation battle
+PASS pause freezes escort, enemy AI and reinforcement clock
+PASS doing nothing allows actual enemy attacks to hurt staff and fail evacuation
+PASS retry resets only this encounter, preserving completed outing scores
+PASS closing the service gate creates a real collision across reinforcement access
+PASS a vehicle under the gate prevents closing instead of being crushed
+PASS checkpoint preserves an obstructed open gate without spawning it through a vehicle
+PASS reinforcement physically approaches and remains outside a closed gate
+PASS combat checkpoint retains wounds, enemy state and gate choice
+PASS front guard reduces a physically connected light strike
+PASS a physically connected heavy strike breaks guard for a punish window
+PASS telegraphed straight charge can be dodged through the normal dodge controller
+PASS active melee, breaks, heat and route control complete a real evacuation
+PASS ending skip restores all eight children and a completed playable chapter
+PASS completed chapter persists without changing the prologue slot
+PASS original hero geometry remains byte-identical
+DRAW_CALLS 0.0
+TEST_RESULT 33 passed; 0 failed
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2514)

@@ -8,11 +8,13 @@
 
 原生Godot4.5.2 / OpenGL / Xvfb / Mesa llvmpipe内部实看天桥竞速、全家车与37条离线语音、会客厅、院落、暂停菜单；修复过亮的院外地面、上车点在车体内、门的存档防夹、驾驶HUD遮路和后窗。停车色块进入原地面shader同一深度表面，避免新增贴片接缝。捕获不入库/Release，默认不输出图集。没有新版本Windows GPU硬件验收结论。
 
-最终Windows main CI负责完整107项、序章61项、第一章33项、解压EXE序章61项/第一章33项，结果与Release待补录。第二章及以后尚未制作。
+[v0.6.0 Windows运行包](https://github.com/Ting-777/Tunshi2_codex/releases/tag/v0.6.0)已发布。游戏提交b994694ecd6ad6f5660a106b5d2a473d0138da8f，main运行[39898301779](https://github.com/Ting-777/Tunshi2_codex/actions/runs/39898301779)成功：独立PCK完整107/107、序章61/61、第一章33/33；解压EXE序章61/61、第一章33/33，退出0且自动发现同目录PCK。ZIP 51,387,125字节，SHA256 bd24e5d5cc672343affde9e1cddec15a209814967ecba9c1b83774be312757e5，与GitHub资产摘要一致，附独立校验文件。文字证据见v060/release.json、windows-main-ci.txt及chapter-final-results.json。本轮没有额外下载公开ZIP重复检查，无Windows GPU硬件验收结论。第二章及以后尚未制作。
 
 发布前修订：自动--test-chapter1入口必须从独立测试槽的新章状态开始，不读取前一次PCK/EXE检查留下的进度。普通玩家继续读档规则不变。main工作流改为只保留最新提交在跑，避免过期构建抢先发布。
 
 首次Windows运行39896659591完整107/107、序章61/61通过；章节验证驾驶员到会场外才转弯，碰上实体围墙，后续继续索引未生成的撤离人员而超时，未发包。已提前停车转弯点（按实际导航从较南位置驶向停车处），并让关键阶段失败立刻生成失败结果退出，不再空等超时；原始日志first-windows-chapter.log保留。
+
+最新本地完整第一章验证33/33，退出0，37条章节语音全部随包可加载，4段驾驶、正常演出到战斗、实际作战/撤离/读档全链路通过。见chapter-final.log和chapter-final-results.json；日志无SCRIPT ERROR/ERROR，进程退出仍有ObjectDB警告，未删除。正常原生场景释放日志native-polish.log干净，不将其等同于全面内存验收。
 
 ---
 

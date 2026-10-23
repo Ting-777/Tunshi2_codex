@@ -20,9 +20,9 @@
       "git_blob": "50a34b6749bf99bc2e98236dac58b9e4c1bce305"
     },
     "AGENTS.md": {
-      "bytes": 17918,
-      "sha256": "5a6c440e2a6c9ef12730c0e2858db616d845e1a8eb1a4d98a5019e8ac5455864",
-      "git_blob": "e0f3e357c6d885a05a0bd80430f64f94fe122baa"
+      "bytes": 18271,
+      "sha256": "a4995ec2a92d039e571db2782a95746184aa865b8363c2962209760ebe086b7b",
+      "git_blob": "21678281a23cd52f34a137dc6ff0c9950d320dec"
     },
     "README.md": {
       "bytes": 11087,
@@ -33,6 +33,11 @@
       "bytes": 6,
       "sha256": "a66780da23103beaf12432b418508966b31a2a3a787f9468a5b6cdaa8667c1ef",
       "git_blob": "a3df0a6959e154733da89a5d6063742ce6d5b851"
+    },
+    "VOICE-BUNDLE.json": {
+      "bytes": 204,
+      "sha256": "c0f6311b88a14716d454f8388b8856beea380ca223eaa96d4ab9c990fa3ecfa0",
+      "git_blob": "d6330fe43d844cde38553e41f78b86c881352d9a"
     },
     "assets/data/progression.json": {
       "bytes": 14287,
@@ -110,9 +115,9 @@
       "git_blob": "8070d2e6a5cf96cbcd7396012c90d9e7e92d8a43"
     },
     "docs/NEW-CHAT-HANDOFF.md": {
-      "bytes": 22392,
-      "sha256": "ac74b39d142ff63731dbb0c0917bff1e7f04179b0f26543eeb3a15ab86c756f4",
-      "git_blob": "2e15a927140eafcd983fb98f0eab7bcc5d01a6fc"
+      "bytes": 22745,
+      "sha256": "28a240c5ae0600a305f90170ba23ccbfafcf86740328c25707fc37b09d7a9948",
+      "git_blob": "1ce7769d332bde4ac600a3bed941fa007f179477"
     },
     "docs/NOTO-LICENSE.txt": {
       "bytes": 4301,
@@ -160,9 +165,9 @@
       "git_blob": "b33f89b7ec19ef4cbad6d9317ce409b576d44a7c"
     },
     "docs/VOICE-PROVENANCE.md": {
-      "bytes": 2330,
-      "sha256": "bf9c90ca480839bf2d7ece5f1e1769aa63a09082a600269124521bad20242b08",
-      "git_blob": "fb213fde8f702aed63545ab95ee9a069aa96010f"
+      "bytes": 2388,
+      "sha256": "ac84a0f3f5f4150bbef22040f5f8736118ee36a7e44d27fe89bbbfb02f629e0f",
+      "git_blob": "5e037949e00f51f359fde699ac21c1e286e530cc"
     },
     "docs/WINDOWS-DEVELOPMENT.md": {
       "bytes": 5422,
@@ -170,9 +175,9 @@
       "git_blob": "318cb0c4d78eff10a7d05e844d03f9710d73bd6a"
     },
     "docs/WORK-CHECKPOINT.md": {
-      "bytes": 25670,
-      "sha256": "06b245d012334fe7adef8efd615528d763d43ce0bdcb2766f26310dfe3facb73",
-      "git_blob": "1e6cd26825434f3b69e8f3bc0ccf9bf788f59008"
+      "bytes": 26023,
+      "sha256": "abb1d9e8bb870f0af0865e939b4efded4b39582552eac363647c5366a6b34d4f",
+      "git_blob": "17a9d2f6163c217d95a16b29903e1dfcf4f4d957"
     },
     "docs/original-dolphin-source.js": {
       "bytes": 2345,
@@ -200,9 +205,9 @@
       "git_blob": "43ae0996bfef45131b6fe52761ab7c7fce345ebd"
     },
     "docs/verification/TEST-REPORT.md": {
-      "bytes": 30490,
-      "sha256": "9b3548e23df9c86d69e10bc9ff2973856102f408e29042d4a2d62dee6551fcac",
-      "git_blob": "8e821d724cf6356dc6f933b68a819db1d7498c09"
+      "bytes": 31016,
+      "sha256": "aea60860f5292bb3f3871cef1b256b1ec5859e17dd3110b4db247ff68adaefc3",
+      "git_blob": "aec5c08a5c60bb0dc37f382524c3754e3a8f4ecf"
     },
     "docs/verification/baseline-v040/TEST-REPORT.md": {
       "bytes": 3447,
@@ -813,6 +818,16 @@
       "bytes": 1372,
       "sha256": "bec8a62974d4cc74223b170825f8b8d71ce6610d35014e9e8481ecd9216b282c",
       "git_blob": "caac27198d3f66eca32c7421af2dfd91196138c0"
+    },
+    "docs/verification/v080/release.json": {
+      "bytes": 1845,
+      "sha256": "e03bc25f7c511b9cef0c844de34f89414a7d48ce4afa5797b2469aa69d0d2e24",
+      "git_blob": "35f94c8cdb6220e23965d9d2b12d22c960032d1a"
+    },
+    "docs/verification/v080/windows-main-ci.txt": {
+      "bytes": 914,
+      "sha256": "58526d61519289cf373c67854e7866b08a024b3a9cd847e88325b31c500773cc",
+      "git_blob": "f888bca051e2b21386d064c049cb2cdd57607106"
     },
     "docs/verification/windows-20261021/export.log": {
       "bytes": 3656,

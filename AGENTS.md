@@ -1,5 +1,7 @@
 # 0.8.0 剧情通读与章底战 / 2026-10-23
 
+v0.8.0 Windows Release已发布，游戏提交027a540，运行39954408985成功：PCK107/61/91、解压EXE61/91均零失败。下载与校验记录见docs/verification/v080（docs内去掉前缀）。VOICE-BUNDLE.json固定248句配音资源，先运行restore_assets.py恢复字体和语音。首玩时长未真人计时；后续章节仍仅规划。
+
 用户反馈0.6.0流程太短、对白和人物引入不完整，并明确允许调整旧大纲、加入其他角色，要求每章不同专属Boss、建模/招式及《如龙》式头衔姓名登场。先读docs/NARRATIVE-CONTINUITY.md、docs/STORY-SCRIPT.md、docs/CHAPTER1-REWRITE.md、docs/CHAPTER-BOSSES.md和修订后的STORY-OUTLINE.md（docs内链接去掉docs/前缀）。
 
 序章70句、第一章178句完整配音，合计248句活跃对白。象象经电话及当面介绍进入，SN、Carry、沈铁川在交涉中说清身份。第一章增加欢迎、纸板可玩排练、完整生日饭、玩家出门见证交涉、攀哥跟车与工作人员被拦的因果；撤离成功再打专属章底Boss沈铁川。独立模型、连拳/扫踢/冲肩、半血双冲肩、头衔姓名卡；可直接重试Boss。E/Enter逐句、Tab跳本场、C自动，J内Tab看已发生剧情回顾。

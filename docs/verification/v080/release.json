@@ -1,0 +1,53 @@
+{
+  "version": "0.8.0",
+  "source": "027a540bafa4d5435a4b82cc8a8e670c1cd1e027",
+  "run": 39954408985,
+  "job": 120416538434,
+  "pck": {
+    "sandbox": 107,
+    "prologue": 61,
+    "chapter1": 91,
+    "failed": 0
+  },
+  "unpacked_exe": {
+    "prologue": 61,
+    "chapter1": 91,
+    "automatic_pck": true,
+    "failed": 0
+  },
+  "assets": [
+    {
+      "name": "Dolphin2-Shanghai-Windows-v0.8.0.sha256",
+      "size": 104,
+      "digest": "sha256:ca6bfa1469447950f0fc2be3558a111b1a060144c56d3d43322528f7ad1c0dba",
+      "url": "https://github.com/Ting-777/Tunshi2_codex/releases/download/v0.8.0/Dolphin2-Shanghai-Windows-v0.8.0.sha256"
+    },
+    {
+      "name": "Dolphin2-Shanghai-Windows-v0.8.0.zip",
+      "size": 56240798,
+      "digest": "sha256:1f243aa9159aee2292f86b8d8ff389a0a7d20c55c54d58741d3e9239847a184b",
+      "url": "https://github.com/Ting-777/Tunshi2_codex/releases/download/v0.8.0/Dolphin2-Shanghai-Windows-v0.8.0.zip"
+    },
+    {
+      "name": "Dolphin2-Voice-v0.8.0.zip",
+      "size": 6887700,
+      "digest": "sha256:21592c4794942c56d9e7f2dc2e327da68f2a569f378dfe5622a557049e293dad",
+      "url": "https://github.com/Ting-777/Tunshi2_codex/releases/download/v0.8.0/Dolphin2-Voice-v0.8.0.zip"
+    },
+    {
+      "name": "Dolphin2-Voice-v0.8.0.zip.sha256",
+      "size": 93,
+      "digest": "sha256:d1afd9f6a6b67ef59f0dbc549978e6467ae1000df8918f510af9da685d3f2e1b",
+      "url": "https://github.com/Ting-777/Tunshi2_codex/releases/download/v0.8.0/Dolphin2-Voice-v0.8.0.zip.sha256"
+    }
+  ],
+  "limits": [
+    "No Windows GPU hardware certification",
+    "No human first-play timing measurement"
+  ],
+  "voice": {
+    "url": "https://github.com/Ting-777/Tunshi2_codex/releases/download/v0.8.0/Dolphin2-Voice-v0.8.0.zip",
+    "sha256": "21592c4794942c56d9e7f2dc2e327da68f2a569f378dfe5622a557049e293dad",
+    "clips": 248
+  }
+}

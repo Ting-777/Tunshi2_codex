@@ -1,0 +1,8 @@
+2026-10-23T12:36:55.9677209Z VOICE_BUNDLE {"url": "https://github.com/Ting-777/Tunshi2_codex/releases/download/v0.8.0/Dolphin2-Voice-v0.8.0.zip", "sha256": "21592c4794942c56d9e7f2dc2e327da68f2a569f378dfe5622a557049e293dad", "clips": 248}
+2026-10-23T12:40:15.0816872Z Tests: 107 passed, 0 failed
+2026-10-23T12:40:44.6247803Z Tests: 61 passed, 0 failed
+2026-10-23T12:45:00.0993741Z Tests: 91 passed, 0 failed
+2026-10-23T12:45:07.5885375Z D:\a\Tunshi2_codex\Tunshi2_codex\builds\artifacts\Dolphin2-Shanghai-Windows-v0.8.0.zip (56240798 bytes; SHA256 1f243aa9159aee2292f86b8d8ff389a0a7d20c55c54d58741d3e9239847a184b)
+2026-10-23T12:49:53.5250889Z Unpacked Windows EXE prologue: 61 passed; automatic PCK discovery verified.
+2026-10-23T12:49:53.5252056Z Unpacked Windows EXE chapter1: 91 passed; automatic PCK discovery verified.
+2026-10-23T12:50:03.8699156Z https://github.com/Ting-777/Tunshi2_codex/releases/tag/v0.8.0

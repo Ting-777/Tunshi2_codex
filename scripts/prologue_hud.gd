@@ -71,14 +71,26 @@ func _markers(targets: Array):
 func _cinema():
 	var d=world.director
 	draw_rect(Rect2(0,0,1600,65),Color("#111b29"));draw_rect(Rect2(0,835,1600,65),Color("#111b29"))
-	if d.show_photo and d.shot_texture:
+	if d.kind=="legacy":_legacy_cinema(d)
+	elif d.show_photo and d.shot_texture:
 		draw_rect(Rect2(0,0,1600,900),Color("#243449"));draw_rect(Rect2(200,105,1200,695),PAPER);draw_texture_rect(d.shot_texture,Rect2(220,125,1160,652),false)
-	var width=ToonKit.font().get_string_size(d.caption,HORIZONTAL_ALIGNMENT_LEFT,-1,27).x
-	panel(Rect2(770-width/2,776,width+60,51),Color("#253149"))
-	txt(d.caption,Vector2(800-width/2,812),27)
-	txt("E / Enter 跳过演出 · Esc 暂停",Vector2(1250,875),16)
+	if d.kind!="legacy":
+		var width=ToonKit.font().get_string_size(d.caption,HORIZONTAL_ALIGNMENT_LEFT,-1,27).x
+		panel(Rect2(770-width/2,776,width+60,51),Color("#253149"));txt(d.caption,Vector2(800-width/2,812),27)
+	txt("E / Enter 跳过演出 · V 配音 · Esc 暂停",Vector2(1170,875),16)
 	if d.dark>0:draw_rect(Rect2(0,0,1600,900),Color(0,0,0,d.dark))
 	if d.flash>0:draw_rect(Rect2(0,0,1600,900),Color(1,1,1,d.flash))
+
+func _legacy_cinema(d):
+	var width=ToonKit.font().get_string_size(d.caption,HORIZONTAL_ALIGNMENT_LEFT,-1,20).x
+	panel(Rect2(44,87,width+40,42),Color("#253149"));txt(d.caption,Vector2(64,116),20)
+	if d.card_title!="":
+		txt("豚师2",Vector2(94,614),82,INK);txt("豚师2",Vector2(90,610),82,ORANGE)
+		txt("上海风云",Vector2(104,677),42,INK);txt("上海风云",Vector2(100,673),42)
+	if d.subtitle!="":
+		panel(Rect2(145,675,1310,138),Color("#253149"));txt(d.speaker,Vector2(180,714),23,ORANGE)
+		var lines=_wrap_text(d.subtitle,1200,27)
+		for i in range(lines.size()):txt(lines[i],Vector2(180,757+i*36),27)
 
 func _wrap_text(value: String,width: float,size_value: int) -> Array:
 	var lines=[];var current=""
@@ -94,6 +106,7 @@ func menu_buttons() -> Array:
 	var buttons=[]
 	if world.has_story_save():buttons.append(["继续序章" if world.saved_phase()<5 else "回家看看", "continue"])
 	buttons.append(["开始序章" if not world.has_story_save() else "重玩序章", "new"])
+	buttons.append(["重看开场 · 长沙的黎明", "replay"])
 	buttons.append(["陆家嘴自由漫游", "sandbox"])
 	buttons.append(["退出游戏", "quit"])
 	return buttons
@@ -102,16 +115,20 @@ func _menu():
 	draw_rect(Rect2(0,0,610,900),Color(.09,.15,.24,.95))
 	txt("DOLPHIN  2",Vector2(62,93),27,ORANGE);txt("豚师2",Vector2(54,199),82);txt("上海风云",Vector2(61,257),46)
 	txt("序章  ·  一个都不少",Vector2(64,335),29)
-	txt("八只篮子，一张合照。",Vector2(64,383),22,Color("#b6d8ce"))
-	txt("从长沙的家，出发去上海。",Vector2(64,418),22,Color("#b6d8ce"))
+	txt("湘江天亮，八子俱全。",Vector2(64,383),22,Color("#b6d8ce"))
+	txt("从长沙的黎明，回到家里。",Vector2(64,418),22,Color("#b6d8ce"))
 	txt("V 配音："+("开" if world.voice.enabled else "关")+"    C 自动对白："+("开" if world.auto_dialogue else "关"),Vector2(64,447),17,Color("#82ccef"))
 	var buttons=menu_buttons()
 	for i in range(buttons.size()):
-		var rect=Rect2(63,466+i*77,475,62);panel(rect,ORANGE if i==0 else Color("#3a4e64"));txt(buttons[i][0],rect.position+Vector2(24,41),25,INK if i==0 else PAPER)
+		var rect=_button_rect(i);panel(rect,ORANGE if i==0 else Color("#3a4e64"));txt(buttons[i][0],rect.position+Vector2(24,38),24,INK if i==0 else PAPER)
 	txt("W/S 选择 · Enter 确定 · 支持鼠标",Vector2(64,824),17)
-	txt("0.5.3 · 原生 Godot · Windows / Linux",Vector2(64,861),15,Color("#91b5bd"))
-	draw_circle(Vector2(555,497+world.menu_selection*77),8,ORANGE)
+	txt("0.5.4 · 原生 Godot · Windows / Linux",Vector2(64,861),15,Color("#91b5bd"))
+	draw_circle(Vector2(555,_button_rect(world.menu_selection).get_center().y),8,ORANGE)
+
+func _button_rect(index: int) -> Rect2:
+	var compact=menu_buttons().size()>4
+	return Rect2(63,466+index*(66 if compact else 77),475,56 if compact else 62)
 
 func menu_click(p: Vector2):
 	for i in range(menu_buttons().size()):
-		if Rect2(63,466+i*77,475,62).has_point(p):world.menu_action(menu_buttons()[i][1]);return
+		if _button_rect(i).has_point(p):world.menu_action(menu_buttons()[i][1]);return

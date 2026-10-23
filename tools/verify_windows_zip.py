@@ -19,7 +19,7 @@ def main():
                '--test-result', str(result)]
     subprocess.run(command, cwd=folder, check=True, timeout=240)
     data = json.loads(result.read_text(encoding='utf-8'))
-    assert data['failed'] == 0 and data['passed'] >= 51
+    assert data['failed'] == 0 and data['passed'] >= 61
     assert not any(line.startswith(('ERROR:', 'SCRIPT ERROR:')) for line in log.read_text(encoding='utf-8').splitlines())
     print(f"Unpacked Windows EXE: {data['passed']} passed; automatic PCK discovery verified.")
 

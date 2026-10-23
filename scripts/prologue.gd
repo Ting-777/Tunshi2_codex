@@ -28,6 +28,8 @@ var director: PrologueDirector
 var pause_menu=false
 var auto_dialogue=true
 var line_time=0.0
+var opening_seen=true
+var legacy_replay=false
 
 func _ready():
 	Engine.max_fps=60;_bind_keys();_audio()
@@ -86,6 +88,11 @@ func _shutter_sound():
 
 func _sequence_done(kind: String):
 	match kind:
+		"legacy":
+			if legacy_replay:
+				legacy_replay=false;hud.menu=true;paused=true;_follow(1)
+			else:
+				opening_seen=true;save_story();director.start("wake")
 		"wake":say_group("opening")
 		"exit":
 			if room.has("door"):room.door.requested_open=false
@@ -227,11 +234,12 @@ func _key(key: int):
 	if key==KEY_F11:super._key(key);return
 	if key==KEY_V:
 		voice.set_enabled(not voice.enabled)
+		if director.opening:director.opening.restore_voice()
 		if voice.enabled and not dialogue.is_empty():voice.speak(dialogue[line_index]);line_time=0;voice.set_paused(pause_menu)
 		return
 	if key==KEY_C:auto_dialogue=not auto_dialogue;return
 	if key==KEY_ESCAPE and not hud.menu:
-		pause_menu=not pause_menu;paused=pause_menu or not dialogue.is_empty() or director.active();voice.set_paused(pause_menu);menu_selection=0;_clear_input();Input.mouse_mode=Input.MOUSE_MODE_VISIBLE if paused else Input.MOUSE_MODE_CAPTURED;return
+		pause_menu=not pause_menu;paused=pause_menu or not dialogue.is_empty() or director.active();voice.set_paused(pause_menu);director.set_paused(pause_menu);menu_selection=0;_clear_input();Input.mouse_mode=Input.MOUSE_MODE_VISIBLE if paused else Input.MOUSE_MODE_CAPTURED;return
 	if hud.menu or pause_menu:
 		var count=hud.menu_buttons().size()
 		if key in [KEY_W,KEY_UP]:menu_selection=posmod(menu_selection-1,count)
@@ -260,17 +268,20 @@ func menu_action(action: String):
 	menu_selection=0
 	match action:
 		"sandbox":
-			save_story();_clear_input();Engine.time_scale=1;Input.mouse_mode=Input.MOUSE_MODE_VISIBLE;get_tree().change_scene_to_file("res://scenes/main.tscn");return
-		"quit":get_tree().quit();return
+			save_story();director.cancel();_clear_input();Engine.time_scale=1;Input.mouse_mode=Input.MOUSE_MODE_VISIBLE;get_tree().change_scene_to_file("res://scenes/main.tscn");return
+		"quit":director.cancel();get_tree().quit();return
 		"title":
-			if director.active():load_story()
+			if director.kind=="legacy":director.cancel();legacy_replay=false
+			elif director.active():load_story();director.cancel()
 			dialogue=[];voice.stop();pause_menu=false;hud.menu=true;paused=true;return
-		"resume":pause_menu=false;paused=not dialogue.is_empty() or director.active();voice.set_paused(false)
-		"load","continue":load_story();hud.menu=false;paused=false;pause_menu=false
+		"resume":pause_menu=false;paused=not dialogue.is_empty() or director.active();voice.set_paused(false);director.set_paused(false)
+		"load","continue":load_story();hud.menu=false;paused=director.active();pause_menu=false
+		"replay":
+			pause_menu=false;legacy_replay=true;hud.menu=false;dialogue=[];director.start("legacy");return
 		"new":
-			pause_menu=false;director.kind="";voice.stop();dialogue=[]
+			pause_menu=false;director.cancel();voice.stop();dialogue=[];legacy_replay=false;opening_seen=false
 			phase=0;babies_seen=false;parked=false;loaded=false;groups=[];tutorial_started=true;_build_phase();hud.menu=false;paused=false;save_story()
-			director.start("wake");return
+			director.start("legacy");return
 	if not hud.menu:Input.mouse_mode=Input.MOUSE_MODE_CAPTURED;_follow(1)
 
 func interact():
@@ -375,15 +386,17 @@ func save_story():
 	# Opening the title or free-roam must never invent/overwrite story progress.
 	if not tutorial_started or director.active():return
 	var f=FileAccess.open(story_path(),FileAccess.WRITE)
-	if f:f.store_string(JSON.stringify({"version":1,"phase":phase,"babies_seen":babies_seen,"parked":parked,"loaded":loaded,"groups":groups,"voice":voice.enabled,"auto_dialogue":auto_dialogue}))
+	if f:f.store_string(JSON.stringify({"version":1,"phase":phase,"babies_seen":babies_seen,"parked":parked,"loaded":loaded,"groups":groups,"voice":voice.enabled,"auto_dialogue":auto_dialogue,"opening_seen":opening_seen}))
 func load_story():
-	director.kind="";voice.stop();pause_menu=false
+	director.cancel();voice.stop();pause_menu=false;legacy_replay=false
 	var d=read_story()
 	if d.is_empty():menu_action("new");return
 	phase=clampi(int(d.get("phase",0)),0,5);babies_seen=d.get("babies_seen",false)==true or phase>0;parked=d.get("parked",false)==true or phase>1;loaded=d.get("loaded",false)==true or phase>1;groups=[]
 	var saved_groups=d.get("groups",[])
 	voice.set_enabled(d.get("voice",true)==true);auto_dialogue=d.get("auto_dialogue",true)==true
+	opening_seen=d.get("opening_seen",true)==true
 	if saved_groups is Array:
 		for g in saved_groups:
 			if (g is int or g is float) and int(g) in [0,1,2] and not int(g) in groups:groups.append(int(g))
 	tutorial_started=true;dialogue=[];paused=false;_build_phase();hud.menu=false;_follow(1);hud.say("已回到序章检查点")
+	if phase==0 and not opening_seen:director.start("legacy")

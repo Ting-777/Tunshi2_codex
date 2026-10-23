@@ -14,16 +14,23 @@ var shot_texture: Texture2D
 var show_photo=false
 var start_camera=Vector3.ZERO
 var baby_end=0.0
+var opening: LegacyOpening
+var speaker=""
+var subtitle=""
+var card_title=""
 
 func active() -> bool:return kind!=""
 
 func start(sequence: String):
+	if active():cancel()
 	kind=sequence;elapsed=0;switched=false;dark=0;flash=0;show_photo=false;caption=""
 	duration={"wake":4.0,"exit":2.8,"gather":2.8,"photo":3.6,"years":8.0,"leave":5.0}.get(kind,2.0)
 	if kind=="years":baby_end=2.4+world.voice.clip_length("montage_baby")+.45;duration=baby_end+world.voice.clip_length("montage_grown")+.7
 	world.paused=true;world.photo_camera=true;world._clear_input();world.voice.stop();Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 	start_camera=world.camera.position
+	if kind=="legacy":opening=LegacyOpening.new();opening.build(world);duration=opening.duration
 	if kind=="wake":
+		dark=1
 		world.player.position=Vector3(-9.1,.9,-11);world.player.rig.rotation.z=PI/2
 	if kind=="photo":
 		world.player.position=Vector3(0,.14,1);world.player.rotation.y=0
@@ -34,6 +41,10 @@ func start(sequence: String):
 func tick(dt: float):
 	if not active() or world.pause_menu:return
 	elapsed+=dt
+	if kind=="legacy":
+		opening.tick(elapsed,dt)
+		if elapsed>=duration:finish()
+		return
 	var t=clampf(elapsed/duration,0,1);var smooth=t*t*(3-2*t)
 	match kind:
 		"wake":
@@ -95,7 +106,10 @@ func skip():
 	if active():finish()
 
 func finish():
+	if not active():return
 	var done=kind;kind="";show_photo=false;dark=0;flash=0;caption="";world.voice.stop()
+	if opening:opening.dispose();opening=null
+	speaker="";subtitle="";card_title=""
 	world.player.rig.rotation=Vector3.ZERO
 	if done=="wake":world.player.position=Vector3(-7.8,.14,-9.5)
 	if done=="gather":world._arrange_photo()
@@ -106,3 +120,11 @@ func finish():
 	for actor in world.cast.values():actor.gesture="idle"
 	for actor in world.sons:actor.gesture="idle"
 	world.photo_camera=false;world.paused=false;completed.emit(done)
+
+func cancel():
+	if opening:opening.dispose();opening=null
+	kind="";speaker="";subtitle="";card_title="";caption="";dark=0;flash=0;show_photo=false
+	world.voice.stop();world.photo_camera=false
+
+func set_paused(value: bool):
+	if opening:opening.set_paused(value)

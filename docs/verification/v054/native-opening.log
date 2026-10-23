@@ -1,0 +1,21 @@
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+     at: get_executable_path (drivers/unix/os_unix.cpp:1136)
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+     at: get_executable_path (drivers/unix/os_unix.cpp:1136)
+WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
+     at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:364)
+OpenGL API 4.5 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+PROLOGUE_READY
+PASS new game stages the first-game ending before the hospital
+PASS blue-uniform friends actually regroup at the dawn terrace
+PASS canonical declarations play in order with the actual bundled voice
+PASS pause holds the opening camera, dialogue and ambient sound together
+PASS unfinished intro checkpoint resumes safely without committing cinematic progress
+PASS normal ending crosses home then restores the world and starts hospital wake-up once
+PASS skipping a title replay restores the title without changing the save
+PASS leaving replay through the pause menu cleans up without touching progress
+PASS older version-one checkpoints continue without forcing the new intro
+PASS skipping a new-game intro preserves the hospital beginning and cleans its temporary stage
+LEGACY_OPENING_RESULT 10 passed; 0 failed

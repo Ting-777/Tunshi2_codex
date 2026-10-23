@@ -29,6 +29,37 @@ static func shot(w,name_value: String):
 	DirAccess.make_dir_recursive_absolute(dir)
 	await w._shot(dir+"/"+name_value+".png")
 
+static func legacy(w,checks: Array):
+	checks.append([w.director.kind=="legacy" and w.director.opening!=null and not w.scene_root.visible,"new game stages the first-game ending before the hospital"])
+	var d=w.director;var o=d.opening;var start=o.friends.pange.position;var sky=o.saved_sky
+	d.elapsed=5.15;d.tick(0)
+	checks.append([o.friends.pange.position.distance_to(start)>2 and o.friends.values().all(func(a):return a.historic_uniform),"blue-uniform friends actually regroup at the dawn terrace"])
+	d.elapsed=o.events[0].start+.08;d.tick(0)
+	var first=d.subtitle=="海豚帮解散。" and w.voice.current_key==w.voice.key_for(["豚师","海豚帮解散。"])
+	d.elapsed=o.events[1].start+.08;d.tick(0)
+	checks.append([first and d.subtitle=="海豚蒂国成立。" and w.voice.player.playing,"canonical declarations play in order with the actual bundled voice"])
+	var elapsed=d.elapsed;w._key(KEY_ESCAPE);await ticks(w,8)
+	checks.append([w.pause_menu and is_equal_approx(d.elapsed,elapsed) and o.ambient.stream_paused and w.voice.player.stream_paused,"pause holds the opening camera, dialogue and ambient sound together"])
+	w._key(KEY_ESCAPE);var pending=FileAccess.get_sha256(w.story_path());w.save_story()
+	var protected=FileAccess.get_sha256(w.story_path())==pending and not w.read_story().opening_seen
+	w.load_story()
+	checks.append([protected and d.kind=="legacy" and not w.opening_seen,"unfinished intro checkpoint resumes safely without committing cinematic progress"])
+	o=d.opening;var old_stage=o.stage;d.elapsed=o.home_begin+2;d.tick(0)
+	var home_ready=o.home.visible and o.hero.get_parent()==o.home and o.queen.position.z<5.3
+	d.elapsed=d.duration;d.tick(0)
+	checks.append([home_ready and d.kind=="wake" and w.opening_seen and not is_instance_valid(old_stage) and w.scene_root.visible and o.environment.sky==sky,"normal ending crosses home then restores the world and starts hospital wake-up once"])
+	d.skip();await finish(w);w.menu_action("title")
+	var stable=FileAccess.get_sha256(w.story_path());var phase=w.phase
+	w.menu_action("replay");old_stage=d.opening.stage;d.elapsed=d.opening.home_begin+2;d.tick(0);d.skip()
+	checks.append([w.hud.menu and w.phase==phase and not is_instance_valid(old_stage) and FileAccess.get_sha256(w.story_path())==stable,"skipping a title replay restores the title without changing the save"])
+	w.menu_action("replay");old_stage=d.opening.stage;w.menu_action("title")
+	checks.append([w.hud.menu and not d.active() and not is_instance_valid(old_stage) and FileAccess.get_sha256(w.story_path())==stable,"leaving replay through the pause menu cleans up without touching progress"])
+	var old_save=w.read_story();old_save.erase("opening_seen")
+	var f=FileAccess.open(w.story_path(),FileAccess.WRITE);f.store_string(JSON.stringify(old_save));f.close();w.menu_action("continue")
+	checks.append([w.opening_seen and not d.active() and w.phase==phase,"older version-one checkpoints continue without forcing the new intro"])
+	w.menu_action("new");old_stage=d.opening.stage;d.skip()
+	checks.append([d.kind=="wake" and w.read_story().opening_seen and not is_instance_valid(old_stage),"skipping a new-game intro preserves the hospital beginning and cleans its temporary stage"])
+
 static func run(w):
 	var checks=[]
 	var normal="user://shanghai-prologue-v1.json";var old_hash=FileAccess.get_sha256(normal) if FileAccess.file_exists(normal) else ""
@@ -41,9 +72,10 @@ static func run(w):
 		else:
 			var stream=load(path)
 			if not stream is AudioStreamMP3 or stream.get_length()<.3:bundled=false
-	checks.append([bundled and unique.size()==54,"all 54 authored Chinese voice clips are bundled and load offline"])
+	checks.append([bundled and unique.size()==65,"all 65 authored Chinese voice clips are bundled and load offline"])
 	await shot(w,"00-title")
 	w.menu_action("new")
+	await legacy(w,checks)
 	var p=w.player.position;Input.action_press("forward");await ticks(w,15);Input.action_release("forward")
 	checks.append([w.player.position.distance_to(p)<.1 and w.paused,"dialogue freezes movement"])
 	checks.append([w.director.kind=="wake","new game begins with a staged hospital wake-up"])

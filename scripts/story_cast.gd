@@ -15,6 +15,7 @@ var gesture="idle"
 var walk_legs=[]
 var face: StoryFace
 var stage_world: Node
+var historic_uniform=false
 
 func build(role: String,index: int=0):
 	kind=role;number=index;rig=Node3D.new();add_child(rig)
@@ -69,6 +70,7 @@ func _recolor(d: Dictionary,role: String):
 
 func _human(role: String):
 	var shirt="#8058aa" if role=="tingge" else "#438e60" if role=="pange" else "#e98437" if role=="xuanshen" else "#c74e45"
+	if historic_uniform:shirt="#4c8cb9"
 	var skin="#f0c29d"
 	body=Node3D.new();rig.add_child(body)
 	ToonKit.box(body,Vector3(.82,.89,.46),shirt,Vector3(0,1.24,0),.17)

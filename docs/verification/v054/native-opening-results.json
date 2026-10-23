@@ -1,0 +1,46 @@
+{
+  "checks": [
+    [
+      true,
+      "new game stages the first-game ending before the hospital"
+    ],
+    [
+      true,
+      "blue-uniform friends actually regroup at the dawn terrace"
+    ],
+    [
+      true,
+      "canonical declarations play in order with the actual bundled voice"
+    ],
+    [
+      true,
+      "pause holds the opening camera, dialogue and ambient sound together"
+    ],
+    [
+      true,
+      "unfinished intro checkpoint resumes safely without committing cinematic progress"
+    ],
+    [
+      true,
+      "normal ending crosses home then restores the world and starts hospital wake-up once"
+    ],
+    [
+      true,
+      "skipping a title replay restores the title without changing the save"
+    ],
+    [
+      true,
+      "leaving replay through the pause menu cleans up without touching progress"
+    ],
+    [
+      true,
+      "older version-one checkpoints continue without forcing the new intro"
+    ],
+    [
+      true,
+      "skipping a new-game intro preserves the hospital beginning and cleans its temporary stage"
+    ]
+  ],
+  "failed": 0,
+  "passed": 10
+}

@@ -1,0 +1,660 @@
+{
+  "version": 1,
+  "total_points": 80,
+  "missions": [
+    {
+      "id": "c0.m1",
+      "chapter": 0,
+      "kind": "main",
+      "name": "一家人出院",
+      "points": 2,
+      "implemented": true
+    },
+    {
+      "id": "c0.m2",
+      "chapter": 0,
+      "kind": "main",
+      "name": "一起去上海",
+      "points": 2,
+      "implemented": true
+    },
+    {
+      "id": "c1.m1",
+      "chapter": 1,
+      "kind": "main",
+      "name": "天桥一圈",
+      "points": 1,
+      "implemented": true
+    },
+    {
+      "id": "c1.m2",
+      "chapter": 1,
+      "kind": "main",
+      "name": "八子看上海",
+      "points": 1,
+      "implemented": true
+    },
+    {
+      "id": "c1.m3",
+      "chapter": 1,
+      "kind": "main",
+      "name": "生日蛋糕",
+      "points": 1,
+      "implemented": true
+    },
+    {
+      "id": "c1.m4",
+      "chapter": 1,
+      "kind": "main",
+      "name": "生日节目",
+      "points": 1,
+      "implemented": true
+    },
+    {
+      "id": "c1.m5",
+      "chapter": 1,
+      "kind": "main",
+      "name": "院内撤离",
+      "points": 1,
+      "implemented": true
+    },
+    {
+      "id": "c1.s1",
+      "chapter": 1,
+      "kind": "side",
+      "name": "听得见的上海",
+      "points": 3,
+      "implemented": true
+    },
+    {
+      "id": "c1.s2",
+      "chapter": 1,
+      "kind": "side",
+      "name": "中庭快递",
+      "points": 3,
+      "implemented": true
+    },
+    {
+      "id": "c1.s3",
+      "chapter": 1,
+      "kind": "side",
+      "name": "老员工回来了",
+      "points": 3,
+      "implemented": true
+    },
+    {
+      "id": "c2.m1",
+      "chapter": 2,
+      "kind": "main",
+      "name": "南京路入口",
+      "points": 1,
+      "implemented": false
+    },
+    {
+      "id": "c2.m2",
+      "chapter": 2,
+      "kind": "main",
+      "name": "活动场寻人",
+      "points": 1,
+      "implemented": false
+    },
+    {
+      "id": "c2.m3",
+      "chapter": 2,
+      "kind": "main",
+      "name": "支巷突破",
+      "points": 2,
+      "implemented": false
+    },
+    {
+      "id": "c2.m4",
+      "chapter": 2,
+      "kind": "main",
+      "name": "保护象象",
+      "points": 1,
+      "implemented": false
+    },
+    {
+      "id": "c2.m5",
+      "chapter": 2,
+      "kind": "main",
+      "name": "外滩追截",
+      "points": 2,
+      "implemented": false
+    },
+    {
+      "id": "c2.s1",
+      "chapter": 2,
+      "kind": "side",
+      "name": "第2章支线 1",
+      "points": 3,
+      "implemented": false
+    },
+    {
+      "id": "c2.s2",
+      "chapter": 2,
+      "kind": "side",
+      "name": "第2章支线 2",
+      "points": 3,
+      "implemented": false
+    },
+    {
+      "id": "c2.s3",
+      "chapter": 2,
+      "kind": "side",
+      "name": "第2章支线 3",
+      "points": 3,
+      "implemented": false
+    },
+    {
+      "id": "c3.m1",
+      "chapter": 3,
+      "kind": "main",
+      "name": "准备会面",
+      "points": 1,
+      "implemented": false
+    },
+    {
+      "id": "c3.m2",
+      "chapter": 3,
+      "kind": "main",
+      "name": "会战旧敌",
+      "points": 2,
+      "implemented": false
+    },
+    {
+      "id": "c3.m3",
+      "chapter": 3,
+      "kind": "main",
+      "name": "带攀哥离开",
+      "points": 1,
+      "implemented": false
+    },
+    {
+      "id": "c3.m4",
+      "chapter": 3,
+      "kind": "main",
+      "name": "迟到的团聚",
+      "points": 2,
+      "implemented": false
+    },
+    {
+      "id": "c3.s1",
+      "chapter": 3,
+      "kind": "side",
+      "name": "第3章支线 1",
+      "points": 3,
+      "implemented": false
+    },
+    {
+      "id": "c3.s2",
+      "chapter": 3,
+      "kind": "side",
+      "name": "第3章支线 2",
+      "points": 3,
+      "implemented": false
+    },
+    {
+      "id": "c3.s3",
+      "chapter": 3,
+      "kind": "side",
+      "name": "第3章支线 3",
+      "points": 3,
+      "implemented": false
+    },
+    {
+      "id": "c4.m1",
+      "chapter": 4,
+      "kind": "main",
+      "name": "梧桐树下",
+      "points": 1,
+      "implemented": false
+    },
+    {
+      "id": "c4.m2",
+      "chapter": 4,
+      "kind": "main",
+      "name": "引开尾随者",
+      "points": 1,
+      "implemented": false
+    },
+    {
+      "id": "c4.m3",
+      "chapter": 4,
+      "kind": "main",
+      "name": "保护饭馆",
+      "points": 2,
+      "implemented": false
+    },
+    {
+      "id": "c4.s1",
+      "chapter": 4,
+      "kind": "side",
+      "name": "第4章支线 1",
+      "points": 3,
+      "implemented": false
+    },
+    {
+      "id": "c4.s2",
+      "chapter": 4,
+      "kind": "side",
+      "name": "第4章支线 2",
+      "points": 3,
+      "implemented": false
+    },
+    {
+      "id": "c4.s3",
+      "chapter": 4,
+      "kind": "side",
+      "name": "第4章支线 3",
+      "points": 3,
+      "implemented": false
+    },
+    {
+      "id": "c5.m1",
+      "chapter": 5,
+      "kind": "main",
+      "name": "五角场会面",
+      "points": 1,
+      "implemented": false
+    },
+    {
+      "id": "c5.m2",
+      "chapter": 5,
+      "kind": "main",
+      "name": "大学路演出",
+      "points": 1,
+      "implemented": false
+    },
+    {
+      "id": "c5.m3",
+      "chapter": 5,
+      "kind": "main",
+      "name": "SN的决定",
+      "points": 1,
+      "implemented": false
+    },
+    {
+      "id": "c5.m4",
+      "chapter": 5,
+      "kind": "main",
+      "name": "送朋友离开",
+      "points": 2,
+      "implemented": false
+    },
+    {
+      "id": "c5.s1",
+      "chapter": 5,
+      "kind": "side",
+      "name": "第5章支线 1",
+      "points": 3,
+      "implemented": false
+    },
+    {
+      "id": "c5.s2",
+      "chapter": 5,
+      "kind": "side",
+      "name": "第5章支线 2",
+      "points": 3,
+      "implemented": false
+    },
+    {
+      "id": "c6.m1",
+      "chapter": 6,
+      "kind": "main",
+      "name": "重返南京路",
+      "points": 1,
+      "implemented": false
+    },
+    {
+      "id": "c6.m2",
+      "chapter": 6,
+      "kind": "main",
+      "name": "最后的接应",
+      "points": 1,
+      "implemented": false
+    },
+    {
+      "id": "c6.s1",
+      "chapter": 6,
+      "kind": "side",
+      "name": "第6章支线 1",
+      "points": 3,
+      "implemented": false
+    },
+    {
+      "id": "c7.m1",
+      "chapter": 7,
+      "kind": "main",
+      "name": "船上撤离",
+      "points": 1,
+      "implemented": false
+    },
+    {
+      "id": "c7.m2",
+      "chapter": 7,
+      "kind": "main",
+      "name": "上海风云",
+      "points": 1,
+      "implemented": false
+    }
+  ],
+  "nodes": [
+    {
+      "id": "attack1",
+      "branch": "attack",
+      "branch_name": "攻击",
+      "name": "拳脚根基",
+      "description": "近战伤害 +8%",
+      "cost": 1,
+      "requires": "",
+      "chapter": 0
+    },
+    {
+      "id": "attack2",
+      "branch": "attack",
+      "branch_name": "攻击",
+      "name": "发力训练",
+      "description": "近战伤害再 +10%",
+      "cost": 2,
+      "requires": "attack1",
+      "chapter": 1
+    },
+    {
+      "id": "attack3",
+      "branch": "attack",
+      "branch_name": "攻击",
+      "name": "破阵重击",
+      "description": "重击、踢击伤害 +20%",
+      "cost": 3,
+      "requires": "attack2",
+      "chapter": 2
+    },
+    {
+      "id": "attack4",
+      "branch": "attack",
+      "branch_name": "攻击",
+      "name": "逆风反打",
+      "description": "体力低于35%时伤害 +15%",
+      "cost": 4,
+      "requires": "attack3",
+      "chapter": 4
+    },
+    {
+      "id": "attack5",
+      "branch": "attack",
+      "branch_name": "攻击",
+      "name": "豚拳宗师",
+      "description": "近战伤害再 +15%",
+      "cost": 6,
+      "requires": "attack4",
+      "chapter": 6
+    },
+    {
+      "id": "defense1",
+      "branch": "defense",
+      "branch_name": "防御",
+      "name": "站稳脚跟",
+      "description": "受到伤害降低8%，包括乘车碰撞",
+      "cost": 1,
+      "requires": "",
+      "chapter": 0
+    },
+    {
+      "id": "defense2",
+      "branch": "defense",
+      "branch_name": "防御",
+      "name": "架稳双鳍",
+      "description": "正面格挡漏伤从30%降到18%",
+      "cost": 2,
+      "requires": "defense1",
+      "chapter": 1
+    },
+    {
+      "id": "defense3",
+      "branch": "defense",
+      "branch_name": "防御",
+      "name": "精准架挡",
+      "description": "按下B后的0.18秒内正面格挡免伤",
+      "cost": 3,
+      "requires": "defense2",
+      "chapter": 2
+    },
+    {
+      "id": "defense4",
+      "branch": "defense",
+      "branch_name": "防御",
+      "name": "坚韧",
+      "description": "受到伤害额外降低8%",
+      "cost": 4,
+      "requires": "defense3",
+      "chapter": 4
+    },
+    {
+      "id": "defense5",
+      "branch": "defense",
+      "branch_name": "防御",
+      "name": "不倒之心",
+      "description": "低于35%体力时再减伤20%",
+      "cost": 6,
+      "requires": "defense4",
+      "chapter": 6
+    },
+    {
+      "id": "vitality1",
+      "branch": "vitality",
+      "branch_name": "体力",
+      "name": "体能入门",
+      "description": "最大体力 +15",
+      "cost": 1,
+      "requires": "",
+      "chapter": 0
+    },
+    {
+      "id": "vitality2",
+      "branch": "vitality",
+      "branch_name": "体力",
+      "name": "耐力训练",
+      "description": "最大体力再 +20",
+      "cost": 2,
+      "requires": "vitality1",
+      "chapter": 1
+    },
+    {
+      "id": "vitality3",
+      "branch": "vitality",
+      "branch_name": "体力",
+      "name": "熟练急救",
+      "description": "每份回复道具多回复15体力",
+      "cost": 3,
+      "requires": "vitality2",
+      "chapter": 2
+    },
+    {
+      "id": "vitality4",
+      "branch": "vitality",
+      "branch_name": "体力",
+      "name": "长线体能",
+      "description": "最大体力再 +25",
+      "cost": 4,
+      "requires": "vitality3",
+      "chapter": 4
+    },
+    {
+      "id": "vitality5",
+      "branch": "vitality",
+      "branch_name": "体力",
+      "name": "全家顶梁柱",
+      "description": "最大体力再 +20",
+      "cost": 6,
+      "requires": "vitality4",
+      "chapter": 6
+    },
+    {
+      "id": "action1",
+      "branch": "action",
+      "branch_name": "动作",
+      "name": "闪身反击",
+      "description": "闪避后0.9秒内R重击额外伤害40%",
+      "cost": 1,
+      "requires": "",
+      "chapter": 0
+    },
+    {
+      "id": "action2",
+      "branch": "action",
+      "branch_name": "动作",
+      "name": "空中踢击",
+      "description": "跳跃中F踢击增加威力和纵向命中范围",
+      "cost": 2,
+      "requires": "action1",
+      "chapter": 1
+    },
+    {
+      "id": "action3",
+      "branch": "action",
+      "branch_name": "动作",
+      "name": "精准闪身",
+      "description": "闪避无伤窗口增加0.08秒",
+      "cost": 3,
+      "requires": "action2",
+      "chapter": 2
+    },
+    {
+      "id": "action4",
+      "branch": "action",
+      "branch_name": "动作",
+      "name": "架挡反击",
+      "description": "成功格挡后0.8秒内R重击额外伤害30%",
+      "cost": 4,
+      "requires": "action3",
+      "chapter": 4
+    },
+    {
+      "id": "action5",
+      "branch": "action",
+      "branch_name": "动作",
+      "name": "热血爆发",
+      "description": "Q热血消耗从60降到45，作用范围扩大",
+      "cost": 6,
+      "requires": "action4",
+      "chapter": 6
+    },
+    {
+      "id": "utility1",
+      "branch": "utility",
+      "branch_name": "其他",
+      "name": "城市向导",
+      "description": "M地图额外标出三条地标支线的完成状态",
+      "cost": 1,
+      "requires": "",
+      "chapter": 0
+    },
+    {
+      "id": "utility2",
+      "branch": "utility",
+      "branch_name": "其他",
+      "name": "随车急救",
+      "description": "车内使用回复道具额外回复10体力",
+      "cost": 2,
+      "requires": "utility1",
+      "chapter": 1
+    },
+    {
+      "id": "utility3",
+      "branch": "utility",
+      "branch_name": "其他",
+      "name": "全家调度",
+      "description": "送蛋糕救援扣分从15降为5",
+      "cost": 3,
+      "requires": "utility2",
+      "chapter": 2
+    },
+    {
+      "id": "utility4",
+      "branch": "utility",
+      "branch_name": "其他",
+      "name": "稳稳当当",
+      "description": "急转对蛋糕的损耗降低30%，撞击仍照常",
+      "cost": 4,
+      "requires": "utility3",
+      "chapter": 4
+    },
+    {
+      "id": "utility5",
+      "branch": "utility",
+      "branch_name": "其他",
+      "name": "临阵提气",
+      "description": "新的撤离战开始时获得25热血",
+      "cost": 6,
+      "requires": "utility4",
+      "chapter": 6
+    }
+  ],
+  "balance": [
+    {
+      "chapter": 0,
+      "main_only_points": 4,
+      "all_points": 4,
+      "enemy_hp_multiplier": 1,
+      "enemy_damage_multiplier": 1,
+      "recommended_entry_points": 0
+    },
+    {
+      "chapter": 1,
+      "main_only_points": 9,
+      "all_points": 18,
+      "enemy_hp_multiplier": 1,
+      "enemy_damage_multiplier": 1,
+      "recommended_entry_points": 4
+    },
+    {
+      "chapter": 2,
+      "main_only_points": 16,
+      "all_points": 34,
+      "enemy_hp_multiplier": 1.12,
+      "enemy_damage_multiplier": 1.18,
+      "recommended_entry_points": 14
+    },
+    {
+      "chapter": 3,
+      "main_only_points": 22,
+      "all_points": 49,
+      "enemy_hp_multiplier": 1.18,
+      "enemy_damage_multiplier": 1.32,
+      "recommended_entry_points": 27
+    },
+    {
+      "chapter": 4,
+      "main_only_points": 26,
+      "all_points": 62,
+      "enemy_hp_multiplier": 1.22,
+      "enemy_damage_multiplier": 1.48,
+      "recommended_entry_points": 42
+    },
+    {
+      "chapter": 5,
+      "main_only_points": 31,
+      "all_points": 73,
+      "enemy_hp_multiplier": 1.3,
+      "enemy_damage_multiplier": 1.62,
+      "recommended_entry_points": 54
+    },
+    {
+      "chapter": 6,
+      "main_only_points": 33,
+      "all_points": 78,
+      "enemy_hp_multiplier": 1.38,
+      "enemy_damage_multiplier": 1.78,
+      "recommended_entry_points": 66
+    },
+    {
+      "chapter": 7,
+      "main_only_points": 35,
+      "all_points": 80,
+      "enemy_hp_multiplier": 1.45,
+      "enemy_damage_multiplier": 1.95,
+      "recommended_entry_points": 72
+    }
+  ]
+}

@@ -63,7 +63,7 @@ func _physics_process(dt):
 				body.rotation.x=.4
 				if not charge_hit and position.distance_to(target.position)<1.65:
 					var ray=PhysicsRayQueryParameters3D.create(position+Vector3.UP,target.position+Vector3.UP,1)
-					if world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty():target.hurt(17,charge_direction*7);world.impact(target.position+Vector3.UP,true);charge_hit=true
+					if world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty():target.hurt(world.enemy_damage(17),charge_direction*7);world.impact(target.position+Vector3.UP,true);charge_hit=true
 				for i in range(get_slide_collision_count()):
 					if absf(get_slide_collision(i).get_normal().y)<.3:charge_time=1.7
 			if charge_time>=1.65:charge_time=-1;charge_cooldown=4;stun=1.25;tell=0;world.hud.say("冲撞落空 · 可以反击")

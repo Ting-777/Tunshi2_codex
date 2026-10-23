@@ -1,0 +1,150 @@
+{
+  "checks": [
+    [
+      true,
+      "journal has one required outing and three independent landmark side quests"
+    ],
+    [
+      true,
+      "task journal freezes the playable world"
+    ],
+    [
+      true,
+      "journal tracking chooses an actual entrance without starting or completing a quest"
+    ],
+    [
+      true,
+      "tower lobby has a usable automatic doorway and reachable elevator control"
+    ],
+    [
+      true,
+      "pause holds elevator transition before relocation"
+    ],
+    [
+      true,
+      "elevator reaches a supported high floor in the real city"
+    ],
+    [
+      true,
+      "all eight original-geometry sons actually accompany the tower outing"
+    ],
+    [
+      true,
+      "checkpoint restores the correct high floor and eight-child outing"
+    ],
+    [
+      true,
+      "malformed high-floor location cannot put a saved hero outside the shell"
+    ],
+    [
+      true,
+      "misaligned camera cannot count a landmark photograph"
+    ],
+    [
+      true,
+      "real camera aiming records three distinct city views"
+    ],
+    [
+      true,
+      "family photograph completes the main outing and reward cannot be farmed"
+    ],
+    [
+      true,
+      "downward elevator restores the street and family placements"
+    ],
+    [
+      true,
+      "Oriental Pearl side quest has a physically supported upper room"
+    ],
+    [
+      true,
+      "wrong musical input replays the phrase without granting completion"
+    ],
+    [
+      true,
+      "four remembered notes complete the Pearl side quest"
+    ],
+    [
+      true,
+      "Jinmao's eight ascending physical platforms record a completed courier time"
+    ],
+    [
+      true,
+      "LUO live training beam detects an exposed former employee"
+    ],
+    [
+      true,
+      "crouching provides a real alternative to waiting for security timing"
+    ],
+    [
+      true,
+      "taking the LUO keepsake still requires returning through the training floor"
+    ],
+    [
+      true,
+      "LUO return completes an independent side quest without advancing chapter stages"
+    ],
+    [
+      true,
+      "all landmark quests and one-time rewards survive save/load independently"
+    ],
+    [
+      true,
+      "full-campaign finite reward ledger exactly funds the entire 80-point talent tree"
+    ],
+    [
+      true,
+      "omitting any single planned quest prevents buying the whole tree"
+    ],
+    [
+      true,
+      "unimplemented chapters and arbitrary IDs cannot mint talent points"
+    ],
+    [
+      true,
+      "quest replay cannot duplicate points and prerequisite purchases are enforced"
+    ],
+    [
+      true,
+      "shared points support a mixed attack, health and defense build"
+    ],
+    [
+      true,
+      "purchased health and mitigation change real hero damage reception"
+    ],
+    [
+      true,
+      "attack talent increases a physically connected melee hit"
+    ],
+    [
+      true,
+      "ordinary medicine still consumes a real item and respects the upgraded maximum"
+    ],
+    [
+      true,
+      "movement talent arms an actual post-dodge heavy counter window"
+    ],
+    [
+      true,
+      "advanced nodes cannot be bought before their chapter unlock"
+    ],
+    [
+      true,
+      "talent allocation and unique task rewards persist in a separate campaign profile"
+    ],
+    [
+      true,
+      "talent menu pauses world simulation and combat timing"
+    ],
+    [
+      true,
+      "free respec refunds invested points without erasing completed quests"
+    ],
+    [
+      true,
+      "late campaign has an explicit side-quest growth gap without relying on excessive enemy HP"
+    ]
+  ],
+  "failed": 0,
+  "passed": 36
+}

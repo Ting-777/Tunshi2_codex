@@ -916,5 +916,95 @@
     "pitch": "+18Hz",
     "duration": 2.448,
     "sha256": "0369b3557e326bdd51df9e2454fa13c5ef3f26477c90f7f9da417d669b340c5a"
+  },
+  "2b999065d0cb67ac3aee": {
+    "speaker": "老七",
+    "text": "八个都在！爸爸，这次你别闭眼。",
+    "voice": "Piper zh_CN-huayan-medium (local)",
+    "model_sha256": "9929917bf8cabb26fd528ea44d3a6699c11e87317a14765312420be230be0f3d",
+    "length_scale": 0.9,
+    "duration": 3.056,
+    "sha256": "5a2144de16b424329290d77799ce2c4abf198d9a6a9df9215a962ef3fbc85b10"
+  },
+  "4356814d672ba5aa3c51": {
+    "speaker": "小朋友",
+    "text": "看完上海，再下去取蛋糕。",
+    "voice": "Piper zh_CN-huayan-medium (local)",
+    "model_sha256": "9929917bf8cabb26fd528ea44d3a6699c11e87317a14765312420be230be0f3d",
+    "length_scale": 1.0,
+    "duration": 2.664,
+    "sha256": "047f9917180ae2289a3d4cc593219cbdaeb08968cf1c34d08f4e80ac35be2b7a"
+  },
+  "53db755aa7868a47a595": {
+    "speaker": "豚师",
+    "text": "看清楚了，待会儿爸爸负责认路。",
+    "voice": "Piper zh_CN-huayan-medium (local)",
+    "model_sha256": "9929917bf8cabb26fd528ea44d3a6699c11e87317a14765312420be230be0f3d",
+    "length_scale": 1.08,
+    "duration": 2.691,
+    "sha256": "560e48d17fd1a3481f3e3e9e7a4ced9a487029f48ee37a5ad4f9b32f1ce584c7"
+  },
+  "5e1c29c0b789ced22f97": {
+    "speaker": "老四",
+    "text": "听歌叔叔，你刚才抢拍了。",
+    "voice": "Piper zh_CN-huayan-medium (local)",
+    "model_sha256": "9929917bf8cabb26fd528ea44d3a6699c11e87317a14765312420be230be0f3d",
+    "length_scale": 0.9,
+    "duration": 2.09,
+    "sha256": "aebffad85de744f21133a0efcd483b86fb571a4945524b782c29d8c0bf32c99d"
+  },
+  "80066ad4afdf94c64c31": {
+    "speaker": "豚师",
+    "text": "这枚纪念章，总算拿回来了。以前的工位，就留给后来的人吧。",
+    "voice": "Piper zh_CN-huayan-medium (local)",
+    "model_sha256": "9929917bf8cabb26fd528ea44d3a6699c11e87317a14765312420be230be0f3d",
+    "length_scale": 1.08,
+    "duration": 5.277,
+    "sha256": "73fe6cda24be47705e055789faffa418c876b548afdebf892bcd7917b9335547"
+  },
+  "8f1da5e0f07aebde40e2": {
+    "speaker": "豚师",
+    "text": "自由伞，LUO。我以前就在这儿任职。",
+    "voice": "Piper zh_CN-huayan-medium (local)",
+    "model_sha256": "9929917bf8cabb26fd528ea44d3a6699c11e87317a14765312420be230be0f3d",
+    "length_scale": 1.08,
+    "duration": 3.448,
+    "sha256": "c37b60d3a4642565bf98a6c3d99f5b6bed6b8a21f5f88ec20eecbeda8b4ebe59"
+  },
+  "cbc0b96608c893412f60": {
+    "speaker": "听歌",
+    "text": "旧员工回来，还得按现在的安保规矩走。",
+    "voice": "Piper zh_CN-huayan-medium (local)",
+    "model_sha256": "9929917bf8cabb26fd528ea44d3a6699c11e87317a14765312420be230be0f3d",
+    "length_scale": 1.0,
+    "duration": 3.762,
+    "sha256": "9960e17b140bb689c8a63119909bd7feb44b66aa507b2837673d43a7fea9db24"
+  },
+  "d831b47dcee259861933": {
+    "speaker": "老二",
+    "text": "从这里看，上海真的能画成一张地图！",
+    "voice": "Piper zh_CN-huayan-medium (local)",
+    "model_sha256": "9929917bf8cabb26fd528ea44d3a6699c11e87317a14765312420be230be0f3d",
+    "length_scale": 0.9,
+    "duration": 3.03,
+    "sha256": "7db4455c52416d16b691c6f53f853f173b877db3d070456c8a87af1c6e147d15"
+  },
+  "eb3333143b803ee974c6": {
+    "speaker": "听歌",
+    "text": "是日，八子为上海打了四拍。",
+    "voice": "Piper zh_CN-huayan-medium (local)",
+    "model_sha256": "9929917bf8cabb26fd528ea44d3a6699c11e87317a14765312420be230be0f3d",
+    "length_scale": 1.0,
+    "duration": 2.586,
+    "sha256": "c3e66074d6735ac7c77e3011327c1d1b521a08adbccfecbf2c149384dfcfec14"
+  },
+  "f9f14021c0ab089e5550": {
+    "speaker": "炫神",
+    "text": "包裹送到了，电梯其实就在旁边。",
+    "voice": "Piper zh_CN-huayan-medium (local)",
+    "model_sha256": "9929917bf8cabb26fd528ea44d3a6699c11e87317a14765312420be230be0f3d",
+    "length_scale": 1.0,
+    "duration": 2.873,
+    "sha256": "d02480800678d50fe9db8e507c80a0e2a3529ae2941e3dc2fc47940e97401a57"
   }
 }

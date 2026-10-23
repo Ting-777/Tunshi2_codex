@@ -2,15 +2,17 @@ extends "res://scripts/prologue_hud.gd"
 
 func _draw():
 	if not world or not world.player or photo:return
+	if world.talents and world.talents.menu:TalentHUD.draw(self);return
+	if world.quests and world.quests.journal:LandmarkHUD.draw(self);return
 	if map_open:_map();return
 	if world.pause_menu:_menu();return
 	if world.director.active():_cinema();return
 	panel(Rect2(30,26,430,80));draw_rect(Rect2(30,26,6,80),ORANGE)
-	txt("第一章 / 八个，一个都不少",Vector2(53,60),25);txt("陆家嘴 · 滨江与环形天桥",Vector2(53,90),17,Color("#b6d8ce"))
+	txt("第一章 / 八个，一个都不少",Vector2(53,60),25);txt("陆家嘴 · J 任务 / T 天赋 / M 地图",Vector2(53,90),17,Color("#b6d8ce"))
 	panel(Rect2(30,121,430,106));txt(world.objective(),Vector2(49,153),20)
 	for i in range(_wrap_text(world.subobjective(),390,16).size()):txt(_wrap_text(world.subobjective(),390,16)[i],Vector2(49,181+i*24),16,Color("#b6d8ce"))
-	panel(Rect2(30,243,235,70));txt("豚师  "+str(int(ceil(world.player.hp)))+" / 100",Vector2(45,266),16)
-	draw_rect(Rect2(45,277,203,8),Color("#4c5a73"));draw_rect(Rect2(45,277,203*world.player.hp/100,8),Color("#62d7b5"))
+	panel(Rect2(30,243,235,70));txt("豚师  "+str(int(ceil(world.player.hp)))+" / "+str(int(world.player.max_hp)),Vector2(45,266),16)
+	draw_rect(Rect2(45,277,203,8),Color("#4c5a73"));draw_rect(Rect2(45,277,203*world.player.hp/world.player.max_hp,8),Color("#62d7b5"))
 	txt("热血",Vector2(45,302),14,ORANGE);draw_rect(Rect2(90,293,158,8),Color("#4c5a73"));draw_rect(Rect2(90,293,158*world.player.heat/100,8),ORANGE)
 	_minimap();_markers(world.navigation_targets())
 	if world.race_active:
@@ -60,6 +62,8 @@ func _draw():
 	if world.failed_reason!="":
 		draw_rect(Rect2(0,0,1600,900),Color(.03,.06,.1,.65));panel(Rect2(430,325,740,220));txt("这次没能护住",Vector2(620,380),34,ORANGE);txt(world.failed_reason,Vector2(476,433),24);txt("E / Enter 重试撤离 · 竞速和送蛋糕保留",Vector2(505,495),22)
 
+	LandmarkHUD.draw(self)
+
 func _cinema():
 	var d=world.director;draw_rect(Rect2(0,0,1600,65),Color("#111b29"));draw_rect(Rect2(0,835,1600,65),Color("#111b29"))
 	panel(Rect2(44,87,450,43));txt(d.caption,Vector2(64,117),23,ORANGE)
@@ -72,6 +76,9 @@ func _cinema():
 func _map():
 	super._map()
 	var origin=Vector2(840,590);var scale_value=1.45
+	if world.talents.has("utility1"):
+		for key in ["pearl","jinmao","luo"]:
+			var p=LandmarkSet.DATA[key].entry;var point=origin+Vector2(p.x,p.z)*scale_value;draw_circle(point,10,ORANGE);txt("✓" if world.quests.states[key]==2 else "支",point+Vector2(-5,6),14,INK)
 	for target in world.navigation_targets():
 		var p=origin+Vector2(target.p.x,target.p.z)*scale_value;draw_circle(p,10,ORANGE);draw_circle(p,4,INK)
 	txt(world.objective(),Vector2(370,145),22,ORANGE)
@@ -112,7 +119,7 @@ func _markers(targets: Array):
 			var direction=(point-Vector2(800,450)).normalized();var side=Vector2(-direction.y,direction.x)
 			draw_colored_polygon(PackedVector2Array([point+direction*14,point-direction*9+side*9,point-direction*9-side*9]),color)
 		else:draw_colored_polygon(PackedVector2Array([point+Vector2(0,-r),point+Vector2(r,0),point+Vector2(0,r),point+Vector2(-r,0)]),color)
-		var dist=Vector2(world.player.position.x-target.p.x,world.player.position.z-target.p.z).length()
+		var dist=world.player.position.distance_to(target.p)
 		var label=target.label+" · "+str(int(ceil(dist)))+"m"
 		var size_value=17 if i==0 else 15;var width=ToonKit.font().get_string_size(label,HORIZONTAL_ALIGNMENT_LEFT,-1,size_value).x+24
 		var x=clampf(point.x-width/2,30,1570-width);var y=point.y+16

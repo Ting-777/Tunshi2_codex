@@ -1,0 +1,81 @@
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+     at: get_executable_path (drivers/unix/os_unix.cpp:1136)
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+
+CHAPTER1_READY
+CHECK true journal has one required outing and three independent landmark side quests
+CHECK true task journal freezes the playable world
+CHECK true journal tracking chooses an actual entrance without starting or completing a quest
+CHECK true tower lobby has a usable automatic doorway and reachable elevator control
+CHECK true pause holds elevator transition before relocation
+CHECK true elevator reaches a supported high floor in the real city
+CHECK true all eight original-geometry sons actually accompany the tower outing
+CHECK true checkpoint restores the correct high floor and eight-child outing
+CHECK true malformed high-floor location cannot put a saved hero outside the shell
+CHECK true misaligned camera cannot count a landmark photograph
+CHECK true real camera aiming records three distinct city views
+CHECK true family photograph completes the main outing and reward cannot be farmed
+CHECK true downward elevator restores the street and family placements
+CHECK true Oriental Pearl side quest has a physically supported upper room
+CHECK true wrong musical input replays the phrase without granting completion
+CHECK true four remembered notes complete the Pearl side quest
+CHECK true Jinmao's eight ascending physical platforms record a completed courier time
+CHECK true LUO live training beam detects an exposed former employee
+CHECK true crouching provides a real alternative to waiting for security timing
+CHECK true taking the LUO keepsake still requires returning through the training floor
+CHECK true LUO return completes an independent side quest without advancing chapter stages
+CHECK true all landmark quests and one-time rewards survive save/load independently
+CHECK true full-campaign finite reward ledger exactly funds the entire 80-point talent tree
+CHECK true omitting any single planned quest prevents buying the whole tree
+CHECK true unimplemented chapters and arbitrary IDs cannot mint talent points
+CHECK true quest replay cannot duplicate points and prerequisite purchases are enforced
+CHECK true shared points support a mixed attack, health and defense build
+CHECK true purchased health and mitigation change real hero damage reception
+CHECK true attack talent increases a physically connected melee hit
+CHECK true ordinary medicine still consumes a real item and respects the upgraded maximum
+CHECK true movement talent arms an actual post-dodge heavy counter window
+CHECK true advanced nodes cannot be bought before their chapter unlock
+CHECK true talent allocation and unique task rewards persist in a separate campaign profile
+CHECK true talent menu pauses world simulation and combat timing
+CHECK true free respec refunds invested points without erasing completed quests
+CHECK true late campaign has an explicit side-quest growth gap without relying on excessive enemy HP
+PASS journal has one required outing and three independent landmark side quests
+PASS task journal freezes the playable world
+PASS journal tracking chooses an actual entrance without starting or completing a quest
+PASS tower lobby has a usable automatic doorway and reachable elevator control
+PASS pause holds elevator transition before relocation
+PASS elevator reaches a supported high floor in the real city
+PASS all eight original-geometry sons actually accompany the tower outing
+PASS checkpoint restores the correct high floor and eight-child outing
+PASS malformed high-floor location cannot put a saved hero outside the shell
+PASS misaligned camera cannot count a landmark photograph
+PASS real camera aiming records three distinct city views
+PASS family photograph completes the main outing and reward cannot be farmed
+PASS downward elevator restores the street and family placements
+PASS Oriental Pearl side quest has a physically supported upper room
+PASS wrong musical input replays the phrase without granting completion
+PASS four remembered notes complete the Pearl side quest
+PASS Jinmao's eight ascending physical platforms record a completed courier time
+PASS LUO live training beam detects an exposed former employee
+PASS crouching provides a real alternative to waiting for security timing
+PASS taking the LUO keepsake still requires returning through the training floor
+PASS LUO return completes an independent side quest without advancing chapter stages
+PASS all landmark quests and one-time rewards survive save/load independently
+PASS full-campaign finite reward ledger exactly funds the entire 80-point talent tree
+PASS omitting any single planned quest prevents buying the whole tree
+PASS unimplemented chapters and arbitrary IDs cannot mint talent points
+PASS quest replay cannot duplicate points and prerequisite purchases are enforced
+PASS shared points support a mixed attack, health and defense build
+PASS purchased health and mitigation change real hero damage reception
+PASS attack talent increases a physically connected melee hit
+PASS ordinary medicine still consumes a real item and respects the upgraded maximum
+PASS movement talent arms an actual post-dodge heavy counter window
+PASS advanced nodes cannot be bought before their chapter unlock
+PASS talent allocation and unique task rewards persist in a separate campaign profile
+PASS talent menu pauses world simulation and combat timing
+PASS free respec refunds invested points without erasing completed quests
+PASS late campaign has an explicit side-quest growth gap without relying on excessive enemy HP
+DRAW_CALLS 0.0
+TEST_RESULT 36 passed; 0 failed
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object/object.cpp:2514)

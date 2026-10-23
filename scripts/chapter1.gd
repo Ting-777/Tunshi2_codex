@@ -1,6 +1,7 @@
 extends "res://scripts/main.gd"
 
 # Self-contained chapter slot; prologue/free-roam saves remain independent.
+var quests: LandmarkQuests
 var stage=0
 var pause_menu=false
 var menu_selection=0
@@ -50,8 +51,10 @@ const RACE_END=Vector3(29,.05,-42.5)
 const CAR_START=Vector3(91,.12,-86)
 
 func _ready():
+	talents=TalentProgress;chapter_number=1
 	Engine.max_fps=60;_bind_keys();_audio()
 	var args=OS.get_cmdline_user_args();chapter_test=chapter_test or "--test-chapter1" in args or "--capture-chapter1" in args;capture_mode=chapter_test
+	if chapter_test:talents.testing=true;talents.restore(null)
 	city=ShanghaiCity.new();add_child(city);await city.build()
 	venue=ChapterOneSet.build(self)
 	player=StreetActor.new();player.hero=true;player.world=self;player.position=START;add_child(player)
@@ -68,6 +71,7 @@ func _ready():
 	var layer=CanvasLayer.new();add_child(layer);hud=load("res://scripts/chapter1_hud.gd").new();hud.world=self;layer.add_child(hud);hud.menu=false
 	voice=StoryVoice.new();voice.catalog_path="res://assets/dialogue/chapter1.json";add_child(voice)
 	director=ChapterOneDirector.new();director.world=self;add_child(director);director.completed.connect(_sequence_done)
+	quests=LandmarkQuests.new();add_child(quests);quests.setup(self)
 	_pedestrians()
 	for a in people+[player]+cast.values()+sons:_actor_light(a)
 	# Keep the family entrance calm; unrelated pedestrians are not random attackers.
@@ -95,6 +99,7 @@ func _story_collision(a: StoryCast,value: bool):
 	for n in a.find_children("*","StaticBody3D",true,false):n.collision_layer=1 if value else 0
 
 func new_chapter():
+	quests.reset()
 	director.cancel();voice.stop();bark_queue=[];bark_text="";stage=0;arrival_seen=false;phone_heard=false;race_active=false;race_replay=false;race_result=0;cake_quality=100;cake_best=-1;race_best=0;money=1200;medicine=3;broken=[];failed_reason="";pause_menu=false
 	_clear_encounter();_restore_hero(START);van.position=CAR_START;van.rotation=Vector3.ZERO;van.hp=van.max_hp;van.speed=0;van.velocity=Vector3.ZERO;van.set_occupied(false)
 	if van.cargo:van.cargo.free();van.cargo=null
@@ -102,7 +107,7 @@ func new_chapter():
 
 func _restore_hero(p: Vector3):
 	if player.vehicle:player.vehicle.driver=null;player.vehicle=null
-	player.position=p;player.home=p;player.hp=100;player.heat=0;player.stun=0;player.knockdown=0;player.impulse=Vector3.ZERO;player.velocity=Vector3.ZERO;player.attack=-1;player.queued="";player.dodge_time=0;player.immunity=1;player.visible=true;player.collision_layer=2;player.collision_mask=7
+	player.position=p;player.home=p;player.max_hp=talents.health();player.hp=player.max_hp;player.heat=0;player.stun=0;player.knockdown=0;player.impulse=Vector3.ZERO;player.velocity=Vector3.ZERO;player.attack=-1;player.queued="";player.dodge_time=0;player.immunity=1;player.visible=true;player.collision_layer=2;player.collision_mask=7
 	yaw=PI;pitch=.30;paused=false;_clear_input();_follow(1)
 
 func _place_for_stage():
@@ -138,8 +143,8 @@ func _ending_cast(restore_player: bool=false):
 func _sequence_done(kind: String):
 	match kind:
 		"arrival":arrival_seen=true;_place_for_stage();save_story();hud.say("老三要在天桥上比一圈 · 走近起点按 E")
-		"party":stage=4;_start_battle();save_story();bark_group("attack")
-		"ending":stage=5;_clear_encounter();_place_for_stage();save_story();hud.say("第一章完成 · 八个，一个都不少")
+		"party":reward_task("c1.m4");stage=4;_start_battle();save_story();bark_group("attack")
+		"ending":reward_task("c1.m5");stage=5;_clear_encounter();_place_for_stage();save_story();hud.say("第一章完成 · 八个，一个都不少")
 	_follow(1);Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 
 func _speaker_pose(who: String):
@@ -198,7 +203,7 @@ func _finish_race():
 	if race_best<=0 or race_result<race_best:race_best=race_result
 	runner.running=false;runner.visible=false;sons[2].visible=true
 	hud.say("天桥一圈 "+("%.1f"%race_result)+" 秒 · "+("抢先到达" if not runner.finished else "老三先到了")+" · 完成就算数")
-	if not race_replay:stage=1;_place_for_stage();bark_group("race_finish");bark_group("cake_ready")
+	if not race_replay:reward_task("c1.m1");stage=1;_place_for_stage();bark_group("race_finish");bark_group("cake_ready")
 	else:_place_for_stage()
 	race_replay=false;save_story();_draw_race_gate()
 
@@ -214,6 +219,7 @@ func _draw_race_gate():
 
 func navigation_targets() -> Array:
 	if director.active() or pause_menu or failed_reason!="":return []
+	if quests and not quests.targets().is_empty():return quests.targets()
 	if race_active:return race_targets()
 	match stage:
 		0:return [{"label":"老三 · 天桥竞速起点","p":RACE_START}]
@@ -240,19 +246,23 @@ func navigation_targets() -> Array:
 
 func objective() -> String:
 	if failed_reason!="":return failed_reason
+	if quests and quests.objective()!="":return quests.objective()
 	if race_active:return "和老三比一圈 · "+str(mini(race_step+1,4))+" / 4"
 	if stage==4 and staff.all(func(a):return a.evacuated):return "人员已撤离 · 清掉院内剩余打手"
 	return ["先和老三在天桥上比一圈","到中心绿地取生日蛋糕","把全家和蛋糕送到滨江","进会客厅，看八兄弟的节目","护送工作人员撤到南侧接应车","第一章完成 · 八个，一个都不少"][stage]
 func subobjective() -> String:
+	if quests and quests.objective()!="":return quests.hint()
 	if race_active:return "南侧上桥，任选半圈，北侧下桥 · 成绩不影响主线"
 	return ["起点就在南坡道脚下 · 走近 E 开始","蓝色全家车已停在取货处附近","路线自选 · 急转和碰撞影响蛋糕，低分仍可继续","车停稳，下车从正门进去","关后勤门可挡增援 · R/F破防，G躲冲撞","攀哥被带走了 · 下一站南京路"][stage]
 
 func nearest_hotspot() -> Dictionary:
 	if paused or director.active():return {}
 	if player.vehicle:return {"id":"car","label":"下车","p":player.position}
+	var quest_hotspot=quests.hotspot() if quests else {}
+	if not quest_hotspot.is_empty():return quest_hotspot
 	var targets=[]
 	if stage==0 and not race_active:targets.append({"id":"race","label":"和老三比一圈","p":RACE_START,"radius":3.2})
-	if stage==1:targets.append({"id":"cake","label":"把蛋糕装进全家车","p":ChapterOneSet.BAKERY,"radius":3.3})
+	if stage==1 and quests.main_done():targets.append({"id":"cake","label":"把蛋糕装进全家车","p":ChapterOneSet.BAKERY,"radius":3.3})
 	if stage in [1,2,3,5] and not race_active:targets.append({"id":"race_again","label":"再比一圈 · 刷新最好成绩","p":RACE_START,"radius":3.0})
 	if stage==3:targets.append({"id":"party","label":"坐下来，看孩子们的节目","p":ChapterOneSet.HALL+Vector3(0,.16,5.5),"radius":3.3})
 	if stage==4:targets.append({"id":"gate","label":"打开后勤门" if not venue.gate.requested_open else "关闭后勤门","p":ChapterOneSet.SWITCH,"radius":2.5})
@@ -272,6 +282,7 @@ func nearest_hotspot() -> Dictionary:
 func interact():
 	var h=nearest_hotspot()
 	if h.is_empty():return
+	if h.id.begins_with("lift:") or h.id.begins_with("scope:") or h.id in ["family_photo","rhythm","parkour","luo_start","luo_take"]:quests.interact(h.id);return
 	match h.id:
 		"car":board()
 		"race":start_race()
@@ -292,12 +303,12 @@ func _tick_delivery(dt: float):
 	delivery_elapsed+=dt
 	if delivery_elapsed>9 and not phone_heard:phone_heard=true;bark_group("pange_call")
 	var impact_damage=maxf(0,cargo_last_hp-van.hp);var turn=absf(angle_difference(cargo_last_yaw,van.rotation.y))/maxf(dt,.001)
-	cake_quality=maxf(0,cake_quality-impact_damage*.75-maxf(0,absf(van.speed)*turn-5.5)*dt*.7)
+	cake_quality=maxf(0,cake_quality-impact_damage*.75-maxf(0,absf(van.speed)*turn-5.5)*dt*.7*(.7 if talents.has("utility4") else 1.0))
 	cargo_last_hp=van.hp;cargo_last_yaw=van.rotation.y
 	if cake_quality<70 and not had_rough_bark:had_rough_bark=true;bark_group("cake_damage")
 	if van.hp<=0:hud.say("全家车失去动力 · Esc 菜单可请炫神接应，不重跑竞速")
 	if player.vehicle==null and van.position.distance_to(ChapterOneSet.VAN_PARK)<8 and absf(van.speed)<1 and player.position.distance_to(van.position)<6:
-		stage=3;cake_best=maxf(cake_best,cake_quality);van.set_occupied(false)
+		reward_task("c1.m3");stage=3;cake_best=maxf(cake_best,cake_quality);van.set_occupied(false)
 		if van.cargo:van.cargo.free();van.cargo=null
 		_party_cast();_family_to_venue();venue.cake.visible=true;bark_group("delivery_good" if cake_quality>=70 else "delivery_rough");save_story();hud.say("到了 · 下车进会客厅，孩子们已经等不及了")
 
@@ -323,7 +334,7 @@ func _clear_encounter():
 	if encounter_root:encounter_root.free();encounter_root=null
 
 func _start_battle():
-	_clear_encounter();failed_reason="";paused=false;pause_menu=false;battle_time=0;reinforcement_wave=0;family_boost=false;_restore_hero(Vector3(-135,.1,-224));medicine=maxi(medicine,3)
+	_clear_encounter();failed_reason="";paused=false;pause_menu=false;battle_time=0;reinforcement_wave=0;family_boost=false;_restore_hero(Vector3(-135,.1,-224));medicine=maxi(medicine,3);player.heat=25 if talents.has("utility5") else 0
 	venue.gate.requested_open=true;venue.gate.opened=1;venue.gate.panel.position.y=3.8
 	encounter_root=Node3D.new();add_child(encounter_root)
 	for i in range(3):
@@ -336,7 +347,7 @@ func _start_battle():
 	_family_evacuate();venue.door.requested_open=true;_clear_input();_follow(1)
 
 func _fighter(p: Vector3,role_value: String,task: String):
-	var a=ChapterFighter.new();a.world=self;a.role=role_value;a.assignment=task;a.position=p;a.hp=76;a.max_hp=76;encounter_root.add_child(a);_actor_light(a);people.append(a);fighters.append(a);return a
+	var a=ChapterFighter.new();a.world=self;a.role=role_value;a.assignment=task;a.position=p;a.hp=enemy_health(76);a.max_hp=a.hp;encounter_root.add_child(a);_actor_light(a);people.append(a);fighters.append(a);return a
 
 func _family_evacuate():
 	family_routes.clear();cast.pange.visible=false;cast.xiangxiang.position=ChapterOneSet.HALL+Vector3(6,.16,6)
@@ -398,9 +409,11 @@ func retry_battle():
 
 func _process(dt):
 	if not player or not hud:return
+	if quests:quests.tick(dt)
 	if director.active():director.tick(dt)
 	for a in cast.values()+sons:a.animated=not paused and not pause_menu or director.active() and not pause_menu
 	if not paused:
+		talents.tick(dt)
 		if bark_text!="":
 			bark_elapsed+=dt
 			if bark_elapsed>voice.duration+.7:_next_bark()
@@ -414,9 +427,11 @@ func _respawn_hero():
 	if stage==4:_fail("豚师需要休息 · 重试本次撤离")
 	else:_rescue_van()
 func _follow(dt: float):
+	if quests and quests.follow():return
 	if director and director.active():return
 	super._follow(dt)
 func movement() -> Vector3:
+	if quests and (quests.aim>=0 or quests.rhythm or quests.travel>=0):return Vector3.ZERO
 	if race_active and race_countdown>0:return Vector3.ZERO
 	return super.movement()
 
@@ -430,11 +445,15 @@ func _unhandled_input(event):
 		if pause_menu:hud.menu_click(get_viewport().get_mouse_position())
 		elif failed_reason!="":retry_battle()
 		elif director.active():director.skip()
+		elif not paused and event.button_index==MOUSE_BUTTON_LEFT and quests.shoot():pass
 		elif not paused and not (race_active and race_countdown>0):
 			if Input.mouse_mode!=Input.MOUSE_MODE_CAPTURED:Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 			elif event.button_index==MOUSE_BUTTON_LEFT:player.strike()
 			elif event.button_index==MOUSE_BUTTON_RIGHT:dodge()
 func _key(key: int):
+	if talents and TalentHUD.key(self,key):return
+	if quests and quests.key(key):return
+	if key==KEY_B and not paused:talents.guard_window=.18
 	if key==KEY_F11:super._key(key);return
 	if key==KEY_V:
 		voice.set_enabled(not voice.enabled)
@@ -477,19 +496,20 @@ func menu_action(action: String):
 	if not paused:Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 
 func _rescue_van():
+	quests.reset_visit()
 	var p=CAR_START if stage<3 else ChapterOneSet.VAN_PARK
 	_restore_hero(p+Vector3(-2.2,.12,0));van.position=p;van.rotation=Vector3.ZERO;van.hp=van.max_hp;van.speed=0;van.velocity=Vector3.ZERO;cargo_last_hp=van.hp;cargo_last_yaw=0
-	if stage==2:cake_quality=maxf(0,cake_quality-15)
+	if stage==2:cake_quality=maxf(0,cake_quality-(5 if talents.has("utility3") else 15))
 	hud.say("炫神接应，把车摆正了 · 已完成内容保留");save_story()
 
 func story_path() -> String:return "user://chapter1-test.json" if chapter_test else "user://shanghai-chapter1-v1.json"
 func save_game(show_notice: bool=true):save_story()
 func load_game(show_notice: bool=true):load_story()
 func save_story():
-	if director.active() or failed_reason!="" or race_active:return
+	if director.active() or failed_reason!="" or race_active or not quests.can_save():return
 	var p=player.position
 	if player.vehicle:p=player.vehicle.position-Vector3.RIGHT*2.2
-	var d={"version":1,"stage":stage,"arrival_seen":arrival_seen,"phone_heard":phone_heard,"p":[p.x,p.y,p.z],"hp":player.hp,"heat":player.heat,"yaw":yaw,"money":money,"medicine":medicine,"race_best":race_best,"race_result":race_result,"cake_best":cake_best,"cake_quality":cake_quality,"delivery_elapsed":delivery_elapsed,"voice":voice.enabled,"cars":[],"gate_open":venue.gate.requested_open,"gate_opened":venue.gate.opened,"battle_time":battle_time,"reinforcement_wave":reinforcement_wave,"fighters":[],"staff":[],"broken":broken}
+	var d={"landmarks":quests.save(),"version":1,"stage":stage,"arrival_seen":arrival_seen,"phone_heard":phone_heard,"p":[p.x,p.y,p.z],"hp":player.hp,"heat":player.heat,"yaw":yaw,"money":money,"medicine":medicine,"race_best":race_best,"race_result":race_result,"cake_best":cake_best,"cake_quality":cake_quality,"delivery_elapsed":delivery_elapsed,"voice":voice.enabled,"cars":[],"gate_open":venue.gate.requested_open,"gate_opened":venue.gate.opened,"battle_time":battle_time,"reinforcement_wave":reinforcement_wave,"fighters":[],"staff":[],"broken":broken}
 	for c in cars:d.cars.append({"p":[c.position.x,c.position.y,c.position.z],"yaw":c.rotation.y,"hp":c.hp})
 	for a in fighters:d.fighters.append({"p":[a.position.x,a.position.y,a.position.z],"hp":a.hp,"role":a.role,"assignment":a.assignment,"entrance_index":a.entrance_index,"knockdown":a.knockdown})
 	for a in staff:d.staff.append({"p":[a.position.x,a.position.y,a.position.z],"hp":a.hp,"path_index":a.path_index,"evacuated":a.evacuated})
@@ -521,7 +541,11 @@ func load_story():
 				if not s is Dictionary:continue
 				staff[i].position=safe_position(s.get("p",[]));staff[i].hp=clampf(float(s.get("hp",90)),1,90);staff[i].path_index=clampi(int(s.get("path_index",0)),0,staff[i].path.size()-1);staff[i].evacuated=s.get("evacuated",false)==true;staff[i].visible=not staff[i].evacuated
 		venue.gate.requested_open=d.get("gate_open",true)==true;venue.gate.opened=clampf(float(d.get("gate_opened",1.0 if venue.gate.requested_open else 0.0)),0,1);venue.gate.panel.position.y=venue.gate.opened*3.8
-	_restore_hero(safe_position(d.get("p",[])));player.hp=clampf(float(d.get("hp",100)),1,100);player.heat=clampf(float(d.get("heat",0)),0,100);yaw=float(d.get("yaw",PI))
+	quests.restore(d.get("landmarks",{}))
+	# Older saves past the outing retain their birthday progression.
+	if not d.has("landmarks") and stage>=2:quests.states.shanghai=2;quests.photos=[0,1,2];quests.paid=["shanghai"]
+	var floor_p=quests.safe_floor(d.get("p",[]))
+	_restore_hero(floor_p if floor_p!=null else safe_position(d.get("p",[])));player.hp=clampf(float(d.get("hp",100)),1,player.max_hp);player.heat=clampf(float(d.get("heat",0)),0,100);yaw=float(d.get("yaw",PI))
 	var saved_cars=d.get("cars",[])
 	if saved_cars is Array:
 		for i in range(mini(saved_cars.size(),cars.size())):
@@ -535,5 +559,19 @@ func load_story():
 		broken=saved_broken
 		for c in city.crates.duplicate():
 			if [c.p.x,c.p.z] in broken:c.node.queue_free();city.crates.erase(c)
-	_follow(1);hud.say("已回到第一章检查点")
+	backfill_rewards();_follow(1);hud.say("已回到第一章检查点")
 	if stage==0 and not arrival_seen:director.start("arrival")
+
+func reward_task(id: String) -> int:
+	var points=talents.award(id)
+	if points>0:hud.say("任务完成 · 获得 %d 天赋点 · T 学习"%points)
+	return points
+
+func backfill_rewards():
+	if stage>=1:talents.award("c1.m1")
+	if quests.main_done():talents.award("c1.m2")
+	if stage>=3:talents.award("c1.m3")
+	if stage>=4:talents.award("c1.m4")
+	if stage>=5:talents.award("c1.m5")
+	for key in ["pearl","jinmao","luo"]:
+		if quests.states[key]==2:talents.award("c1.s"+str(["pearl","jinmao","luo"].find(key)+1))

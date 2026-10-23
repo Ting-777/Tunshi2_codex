@@ -385,6 +385,8 @@ func read_story() -> Dictionary:
 	if not d is Dictionary or d.get("version",0)!=1:return {}
 	return d
 func save_story():
+	if phase>=1:TalentProgress.award("c0.m1")
+	if phase>=5:TalentProgress.award("c0.m2")
 	# Opening the title or free-roam must never invent/overwrite story progress.
 	if not tutorial_started or director.active():return
 	var f=FileAccess.open(story_path(),FileAccess.WRITE)
@@ -400,5 +402,7 @@ func load_story():
 	if saved_groups is Array:
 		for g in saved_groups:
 			if (g is int or g is float) and int(g) in [0,1,2] and not int(g) in groups:groups.append(int(g))
+	if phase>=1:TalentProgress.award("c0.m1")
+	if phase>=5:TalentProgress.award("c0.m2")
 	tutorial_started=true;dialogue=[];paused=false;_build_phase();hud.menu=false;_follow(1);hud.say("已回到序章检查点")
 	if phase==0 and not opening_seen:director.start("legacy")

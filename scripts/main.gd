@@ -1,5 +1,8 @@
 extends Node3D
 
+var talents=null
+var chapter_number=0
+
 var city: ShanghaiCity
 var player: StreetActor
 var people=[]
@@ -136,14 +139,14 @@ func _key(key: int):
 		KEY_R:player.strike("heavy")
 		KEY_F:player.strike("kick")
 		KEY_Q:
-			if player.heat>=60 and player.attack<0 and player.stun<=0 and not player.vehicle and player.dodge_time<=0:player.heat-=60;player.strike("heat")
+			if player.heat>=(45 if talents and talents.has("action5") else 60) and player.attack<0 and player.stun<=0 and not player.vehicle and player.dodge_time<=0:player.heat-=45 if talents and talents.has("action5") else 60;player.strike("heat")
 			else:hud.say("打出有效命中，积攒热血")
 		KEY_G:dodge()
 		KEY_X:player.crouch=not player.crouch
 		KEY_SPACE:
 			if player.is_on_floor() and not player.vehicle:player.velocity.y=8.2
 		KEY_1:
-			if medicine>0 and player.hp<100:medicine-=1;player.hp=minf(100,player.hp+40);hud.say("体力恢复 · 剩余 "+str(medicine)+" 份")
+			if medicine>0 and player.hp<player.max_hp:medicine-=1;player.hp=minf(player.max_hp,player.hp+(talents.heal(player.vehicle!=null) if talents else 40));hud.say("体力恢复 · 剩余 "+str(medicine)+" 份")
 		KEY_F5:save_game()
 		KEY_F9:load_game()
 
@@ -183,7 +186,8 @@ func _follow(dt: float):
 
 func dodge():
 	if player.vehicle or player.dodge_time>0 or player.stun>0:return
-	var v=movement();player.dodge_dir=v if v.length()>.2 else -Vector3(sin(player.rotation.y),0,cos(player.rotation.y));player.dodge_time=.28;player.immunity=.27;player.attack=-1;player.queued="";player.combo_step=0;player.combo_window=0;sound("swing",.4)
+	var v=movement();player.dodge_dir=v if v.length()>.2 else -Vector3(sin(player.rotation.y),0,cos(player.rotation.y));player.dodge_time=.28;player.immunity=.27+(.08 if talents and talents.has("action3") else 0);player.attack=-1;player.queued="";player.combo_step=0;player.combo_window=0;sound("swing",.4)
+	if talents:talents.dodge_window=1.18
 
 func aim_assist():
 	var best: StreetActor;var range_value=2.6;var forward=Vector3(sin(player.rotation.y),0,cos(player.rotation.y))
@@ -200,11 +204,15 @@ func melee_targets(actor: StreetActor) -> Array:return people if actor==player e
 
 func melee(actor: StreetActor):
 	var targets=melee_targets(actor);var forward=Vector3(sin(actor.rotation.y),0,cos(actor.rotation.y));var kind=actor.kind;var reach=3.8 if kind=="heat" else 2.55 if kind=="kick" else 2.15;var damage=18.0 if kind=="jab" else 21.0 if kind=="cross" else 34.0 if kind=="finish" else 30.0 if kind=="heavy" else 23.0 if kind=="kick" else 42.0
-	if actor!=player:damage=14 if kind=="heavy" else 10
+	if actor!=player:damage=enemy_damage(14 if kind=="heavy" else 10)
+	elif talents:
+		damage*=talents.damage(kind,player.hp,player.max_hp,not player.is_on_floor())
+		if kind=="heat" and talents.has("action5"):reach=4.5
+		if kind=="kick" and talents.has("action2") and not player.is_on_floor():reach=2.9
 	sound("swing",.6)
 	for a in targets:
 		var d=a.position-actor.position
-		if a.hp<=0 or a.knockdown>.35 or a.vehicle or d.length()>reach or absf(d.y)>.95:continue
+		if a.hp<=0 or a.knockdown>.35 or a.vehicle or d.length()>reach or absf(d.y)>(1.6 if actor==player and talents and talents.has("action2") and kind=="kick" else .95):continue
 		if kind!="heat" and forward.dot(d.normalized())<.4:continue
 		if kind!="heat":
 			var limb=actor.knees[actor.hand] if kind=="kick" else actor.elbows[actor.hand];var tip=limb.to_global(Vector3(0,-.43 if actor.hero else -.30,.03));var axis=Vector3(a.position.x,clampf(tip.y,a.position.y+.4,a.position.y+1.65),a.position.z)
@@ -453,3 +461,9 @@ func _test_report(checks: Array):
 	var result=FileAccess.open(result_path,FileAccess.WRITE)
 	if result:result.store_string(JSON.stringify({"passed":passed,"failed":failed,"checks":checks},"  "))
 	print("DRAW_CALLS ",Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME));print("TEST_RESULT ",passed," passed; ",failed," failed");get_tree().quit(0 if failed==0 else 1)
+
+func enemy_damage(base: float) -> float:
+	return base*float(TalentProgress.data.balance[clampi(chapter_number,0,7)].enemy_damage_multiplier) if talents else base
+
+func enemy_health(base: float) -> float:
+	return base*float(TalentProgress.data.balance[clampi(chapter_number,0,7)].enemy_hp_multiplier) if talents else base

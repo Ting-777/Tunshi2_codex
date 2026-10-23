@@ -1,6 +1,7 @@
 class_name ShanghaiCity
 extends Node3D
 
+var landmark_nodes={}
 var pois=[]
 var roads=[]
 var bridge_routes=[]
@@ -80,18 +81,22 @@ func tower(p: Vector3,size: Vector3,color: String,frame: String="#264968"):
 	ToonKit.mesh(self,ToonKit.rounded(size,.3),facade(color,frame),p+Vector3.UP*size.y/2);ToonKit.solid(self,size,p+Vector3.UP*size.y/2);blocks.append(Rect2(Vector2(p.x-size.x/2,p.z-size.z/2),Vector2(size.x,size.z)));ToonKit.box(self,Vector3(size.x+1.5,.7,size.z+1.5),"#d6d0b1",p+Vector3.UP*1.1,.15)
 
 func _landmarks():
-	var p=Vector3(-64,0,-85);OrientalPearl.build(self,p);pois.append({"name":"东方明珠","p":Vector2(-64,-85),"color":"#d885ac"})
+	var before=get_children()
+	var p=Vector3(-64,0,-85);OrientalPearl.build(self,p);_remember_landmark("pearl",before);pois.append({"name":"东方明珠","p":Vector2(-64,-85),"color":"#d885ac"})
 
 	tower(Vector3(39,0,-29),Vector3(18,65,18),"#17789a");tower(Vector3(65,0,-27),Vector3(17,72,19),"#3f9ab0");tower(Vector3(60,0,-15),Vector3(43,8,30),"#215b7b","#efdfc4");ToonKit.text(self,"ifc  ·  国金中心",Vector3(60,7.2,.16),.028)
 	for x in [45,60,75]:lobby(Vector3(x,0,.8),7)
 	pois.append({"name":"国金中心","p":Vector2(52,-20),"color":"#77a8a1"})
+	before=get_children()
 	var jm=Vector3(129,0,-43)
 	for i in range(14):var w=24-i*1.2;ToonKit.mesh(self,ToonKit.rounded(Vector3(w,7.2,w),.35),facade("#6d8fb3","#b7d0df"),jm+Vector3.UP*(i*7+3.6));ToonKit.box(self,Vector3(w+1,.7,w+1),"#e1d7bb",jm+Vector3.UP*(i*7+7),.2)
 	ToonKit.cyl(self,2,15,"#dce0c7",jm+Vector3.UP*105,.3);ToonKit.solid(self,Vector3(24,110,24),jm+Vector3.UP*55);pois.append({"name":"金茂大厦","p":Vector2(129,-43),"color":"#a4b8ac"})
+	_remember_landmark("jinmao",before);before=get_children()
 	var sw=Vector3(178,0,-31);tower(sw,Vector3(23,112,18),"#227ca9","#23476c")
 	for side in [-1,1]:tower(sw+Vector3(side*9.4,112,0),Vector3(4.2,24,18),"#227ca9","#23476c")
 	tower(sw+Vector3(0,133,0),Vector3(23,4,18),"#227ca9","#23476c");pois.append({"name":"环球金融中心","p":Vector2(178,-31),"color":"#5b9da7"})
-	_loft(Vector3(132,0,3));pois.append({"name":"上海中心","p":Vector2(132,3),"color":"#8fc4be"})
+	_remember_landmark("luo",before);before=get_children()
+	_loft(Vector3(132,0,3));_remember_landmark("shanghai",before);pois.append({"name":"上海中心","p":Vector2(132,3),"color":"#8fc4be"})
 	for i in range(9):var q=Node3D.new();q.position=Vector3(76+i*7,.17,-54-i*6);q.rotation.y=-.7;add_child(q);ToonKit.box(q,Vector3(7,.05,11),"#f8e9cc",Vector3.ZERO,.02)
 	for x in [78,104,133]:
 		for z in [-60,-93]:tree(Vector3(x,.16,z),1.2)
@@ -159,14 +164,16 @@ func _batch():
 		for c in crates:
 			if n.get_parent()==c.node:keep=true
 		if keep or n.material_override==null:continue
-		var p=n.global_position;var key=str(n.material_override.get_instance_id())+":"+str(floor(p.x/80))+":"+str(floor(p.z/80))
-		if not groups.has(key):groups[key]={"mat":n.material_override,"nodes":[]}
+		var owner_node=n.get_parent()
+		while owner_node!=self and not owner_node.has_meta("landmark"):owner_node=owner_node.get_parent()
+		var p=n.global_position;var key=str(owner_node.get_instance_id())+":"+str(n.material_override.get_instance_id())+":"+str(floor(p.x/80))+":"+str(floor(p.z/80))
+		if not groups.has(key):groups[key]={"mat":n.material_override,"nodes":[],"owner":owner_node}
 		groups[key].nodes.append(n)
 	for g in groups.values():
 		if g.nodes.size()<2:continue
 		var st=SurfaceTool.new();st.begin(Mesh.PRIMITIVE_TRIANGLES)
 		for n in g.nodes:st.append_from(n.mesh,0,n.global_transform)
-		ToonKit.mesh(self,st.commit(),g.mat)
+		ToonKit.mesh(g.owner,st.commit(),g.mat)
 		for n in g.nodes:n.queue_free()
 
 func _street_details():
@@ -203,3 +210,16 @@ func _street_details():
 	# Solid seating and low retaining walls frame the riverside instead of a featureless plane.
 	for z in [-126,-82,-38,62,105]:
 		ToonKit.box(self,Vector3(5,.45,2),"#d9caaa",Vector3(-160,.3,z),.14);ToonKit.solid(self,Vector3(5,.45,2),Vector3(-160,.3,z));flower(Vector3(-156,.15,z+3))
+
+func _remember_landmark(key: String,before: Array):
+	var nodes=get_children().filter(func(n):return n not in before)
+	var root=Node3D.new();root.name="Landmark_"+key;add_child(root);root.set_meta("landmark",key)
+	for n in nodes:n.reparent(root)
+	landmark_nodes[key]=[root]
+
+func reveal_interior(key: String,inside: bool):
+	for n in landmark_nodes.get(key,[]):
+		if n is Node3D:n.visible=not inside
+		var bodies=n.find_children("*","StaticBody3D",true,false)
+		if n is StaticBody3D:bodies.append(n)
+		for body in bodies:body.collision_layer=0 if inside else 1

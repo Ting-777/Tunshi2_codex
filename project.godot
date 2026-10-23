@@ -1,9 +1,11 @@
 config_version=5
 [application]
 config/name="豚师2 · 上海风云"
-config/version="0.6.0-chapter1"
+config/version="0.7.0-landmarks"
 run/main_scene="res://scenes/boot.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+[autoload]
+TalentProgress="*res://scripts/talent_progress.gd"
 [display]
 window/size/viewport_width=1600
 window/size/viewport_height=900

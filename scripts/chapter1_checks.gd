@@ -72,7 +72,7 @@ static func run(w):
 	var voiced=true;var unique={}
 	for line in w.voice.all_lines():
 		var key=w.voice.key_for(line);unique[key]=true;voiced=voiced and ResourceLoader.exists("res://assets/voice/"+key+".mp3")
-	check(out,voiced and unique.size()==37,"all 37 chapter dialogue lines are bundled offline")
+	check(out,voiced and unique.size()==47,"all 47 chapter dialogue lines are bundled offline")
 	await ticks(w,85);w._key(KEY_ESCAPE);var elapsed=w.director.elapsed;await ticks(w,8)
 	check(out,w.director.elapsed==elapsed and w.voice.player.stream_paused,"pause holds opening timeline and speech")
 	w._key(KEY_ESCAPE);w._key(KEY_E);await ticks(w,3)
@@ -96,6 +96,7 @@ static func run(w):
 	check(out,FileAccess.get_sha256(w.story_path())==hash,"optional race replay cannot overwrite active chapter progress")
 	w.load_story();await ticks(w,4)
 	check(out,w.stage==1 and is_equal_approx(w.race_best,best) and not w.race_active,"loading during a replay returns to chapter checkpoint with best time")
+	await load("res://scripts/landmark_checks.gd").run_main(w,out)
 	var travel=true
 	for p in [Vector3(36,0,-47),Vector3(70,0,-62),ChapterOneSet.BAKERY]:travel=(await walk(w,p)) and travel
 	w._key(KEY_E);await ticks(w,3)
@@ -175,4 +176,6 @@ static func run(w):
 	var old_hash=FileAccess.get_sha256("user://shanghai-prologue-v1.json") if FileAccess.file_exists("user://shanghai-prologue-v1.json") else ""
 	check(out,w.stage==5 and is_equal_approx(w.race_best,best) and old_hash==prologue_hash,"completed chapter persists without changing the prologue slot")
 	check(out,FileAccess.get_sha256("res://assets/original_dolphin.json")=="7333d7666dd647f9fd858b7001bce2821705b9f6134425b0f399faacc451a08e","original hero geometry remains byte-identical")
+	await load("res://scripts/landmark_checks.gd").run_sides(w,out)
+	await load("res://scripts/talent_checks.gd").run(w,out)
 	w.call_deferred("_test_report",out)

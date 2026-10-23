@@ -125,9 +125,13 @@ func strike(value: String="jab"):
 
 func hurt(amount: float,direction: Vector3,vehicle_hit: bool=false):
 	if hp<=0 or (immunity>0 and not vehicle_hit):return false
+	var talents=world.get("talents") if hero else null
+	if talents:amount*=talents.reduction(hp,max_hp)
 	if hero and not vehicle_hit and Input.is_action_pressed("guard"):
 		var facing=Vector3(sin(rotation.y),0,cos(rotation.y))
-		if facing.dot(-direction.normalized())>.05:amount*=.3;guard_flash=.22;heat=minf(100,heat+5)
+		if facing.dot(-direction.normalized())>.05:
+			amount*=0.0 if talents and talents.has("defense3") and talents.guard_window>0 else .18 if talents and talents.has("defense2") else .3;guard_flash=.22;heat=minf(100,heat+5)
+			if talents:talents.counter_window=.8
 	reaction_direction=(global_basis.inverse()*direction).normalized();reaction_direction.y=0
 	hp=maxf(0,hp-amount);stun=.28 if hp>0 else 2.0;impulse=direction;attack=-1;queued="";combo_step=0;combo_window=0;tell=0
 	if hero:immunity=.4

@@ -1,0 +1,7 @@
+Godot 4.5.2 Compatibility OpenGL / Mesa llvmpipe, native Xvfb.
+Internal views: four rooms, lobby, task log, talents, telescope camera, family photograph.
+Actual normal controller input: all eight Jinmao platforms traversed by WASD+jump; LUO keepsake reached and returned with crouched walking.
+8 individual native side-quest checks passed. Aggregate all-four-complete check was false in the visual fixture because this fixture intentionally skipped the Shanghai Tower main outing; the full main Windows suite checks the actual continuous main-then-side chain.
+Native screenshots stay in ignored builds/ and are not tracked or released.
+Scope review found original hero geometry occluding a first-person camera; renderer now hides the hero rig only while aiming and restores it for movement and the staged family photograph. Family placement avoids obscuring the central sons.
+Failed-encounter respec: 15 targeted headless talent checks passed after allowing the failed state to configure talents while keeping the encounter paused. Active battle remains locked.

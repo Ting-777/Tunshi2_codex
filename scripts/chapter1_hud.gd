@@ -6,6 +6,7 @@ func _draw():
 	if world.quests and world.quests.journal:LandmarkHUD.draw(self);return
 	if map_open:_map();return
 	if world.pause_menu:_menu();return
+	if world.quests.photo_time>0:LandmarkHUD.photo(self);return
 	if world.director.active():_cinema();return
 	panel(Rect2(30,26,430,80));draw_rect(Rect2(30,26,6,80),ORANGE)
 	txt("第一章 / 八个，一个都不少",Vector2(53,60),25);txt("陆家嘴 · J 任务 / T 天赋 / M 地图",Vector2(53,90),17,Color("#b6d8ce"))
@@ -14,7 +15,8 @@ func _draw():
 	panel(Rect2(30,243,235,70));txt("豚师  "+str(int(ceil(world.player.hp)))+" / "+str(int(world.player.max_hp)),Vector2(45,266),16)
 	draw_rect(Rect2(45,277,203,8),Color("#4c5a73"));draw_rect(Rect2(45,277,203*world.player.hp/world.player.max_hp,8),Color("#62d7b5"))
 	txt("热血",Vector2(45,302),14,ORANGE);draw_rect(Rect2(90,293,158,8),Color("#4c5a73"));draw_rect(Rect2(90,293,158*world.player.heat/100,8),ORANGE)
-	_minimap();_markers(world.navigation_targets())
+	_minimap()
+	if world.quests.aim<0:_markers(world.navigation_targets())
 	if world.race_active:
 		panel(Rect2(1190,26,380,136));txt("天桥一圈",Vector2(1212,62),24,ORANGE)
 		if world.race_countdown>0:txt(str(int(ceil(world.race_countdown))),Vector2(1325,125),54)
@@ -60,7 +62,7 @@ func _draw():
 		var lines=["WASD 移动 / 驾驶 · 鼠标视角 · 空格 跳跃/手刹","左键连击 · R重击 · F踢击 · G/右键闪避 · B格挡","1 回复体力 · Q 热血 · V 配音 · F5/F9 保存/读取","关后勤门会挡住通路，车辆也能堵门。","H 收起帮助 · Esc 可重试撤离或请炫神接应"]
 		for i in range(lines.size()):txt(lines[i],Vector2(975,377+i*28),18)
 	if world.failed_reason!="":
-		draw_rect(Rect2(0,0,1600,900),Color(.03,.06,.1,.65));panel(Rect2(430,325,740,220));txt("这次没能护住",Vector2(620,380),34,ORANGE);txt(world.failed_reason,Vector2(476,433),24);txt("E / Enter 重试撤离 · 竞速和送蛋糕保留",Vector2(505,495),22)
+		draw_rect(Rect2(0,0,1600,900),Color(.03,.06,.1,.65));panel(Rect2(430,325,740,220));txt("这次没能护住",Vector2(620,380),34,ORANGE);txt(world.failed_reason,Vector2(476,433),24);txt("E / Enter 重试 · T 调整天赋 · 竞速送蛋糕保留",Vector2(505,495),22)
 
 	LandmarkHUD.draw(self)
 

@@ -13,7 +13,7 @@ def main():
     root = args.zip.resolve().parent / 'unpacked-check'
     with zipfile.ZipFile(args.zip) as archive:archive.extractall(root)
     folder = root / 'Dolphin2-Shanghai'
-    for suite, minimum in [('prologue', 61), ('chapter1', 69)]:
+    for suite, minimum in [('prologue', 61), ('chapter1', 70)]:
         result = root / (suite + '-results.json');log = root / (suite + '-runtime.log')
         command = [str(folder / 'Dolphin2.exe'), '--headless', '--audio-driver', 'Dummy',
                    '--log-file', str(log), '--', '--test', '--test-' + suite, '--no-capture',

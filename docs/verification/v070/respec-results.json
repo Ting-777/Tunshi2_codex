@@ -1,0 +1,66 @@
+{
+  "checks": [
+    [
+      true,
+      "full-campaign finite reward ledger exactly funds the entire 80-point talent tree"
+    ],
+    [
+      true,
+      "omitting any single planned quest prevents buying the whole tree"
+    ],
+    [
+      true,
+      "unimplemented chapters and arbitrary IDs cannot mint talent points"
+    ],
+    [
+      true,
+      "quest replay cannot duplicate points and prerequisite purchases are enforced"
+    ],
+    [
+      true,
+      "shared points support a mixed attack, health and defense build"
+    ],
+    [
+      true,
+      "purchased health and mitigation change real hero damage reception"
+    ],
+    [
+      true,
+      "attack talent increases a physically connected melee hit"
+    ],
+    [
+      true,
+      "ordinary medicine still consumes a real item and respects the upgraded maximum"
+    ],
+    [
+      true,
+      "movement talent arms an actual post-dodge heavy counter window"
+    ],
+    [
+      true,
+      "advanced nodes cannot be bought before their chapter unlock"
+    ],
+    [
+      true,
+      "talent allocation and unique task rewards persist in a separate campaign profile"
+    ],
+    [
+      true,
+      "talent menu pauses world simulation and combat timing"
+    ],
+    [
+      true,
+      "free respec refunds invested points without erasing completed quests"
+    ],
+    [
+      true,
+      "active combat prevents respec while a failed encounter permits preparing talents without unpausing threats"
+    ],
+    [
+      true,
+      "late campaign has an explicit side-quest growth gap without relying on excessive enemy HP"
+    ]
+  ],
+  "failed": 0,
+  "passed": 15
+}

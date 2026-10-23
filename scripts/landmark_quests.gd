@@ -62,9 +62,9 @@ func family(enter: bool):
 		family_positions=[]
 		for a in world.sons+[world.cast.queen,world.cast.tingge]:family_positions.append({"p":a.position,"v":a.visible,"r":a.rotation})
 		for i in range(8):
-			var a=world.sons[i];a.visible=true;a.position=LandmarkSet.DATA.shanghai.floor+Vector3(-3.5+i,0,-1.5);a.rotation.y=0;a.gesture="wave"
-		world.cast.queen.position=LandmarkSet.DATA.shanghai.floor+Vector3(4.5,0,-1.5);world.cast.queen.visible=true
-		world.cast.tingge.position=LandmarkSet.DATA.shanghai.floor+Vector3(-4.8,0,-1.5);world.cast.tingge.visible=true
+			var a=world.sons[i];a.visible=true;a.position=LandmarkSet.DATA.shanghai.floor+Vector3([-4.3,-3.3,-2.3,-1.3,1.3,2.3,3.3,4.3][i],0,-1.5);a.rotation.y=0;a.gesture="wave"
+		world.cast.queen.position=LandmarkSet.DATA.shanghai.floor+Vector3(5.5,0,-1.5);world.cast.queen.visible=true;world.cast.queen.rotation.y=0
+		world.cast.tingge.position=LandmarkSet.DATA.shanghai.floor+Vector3(-5.5,0,-1.5);world.cast.tingge.visible=true;world.cast.tingge.rotation.y=0
 	else:
 		var actors=world.sons+[world.cast.queen,world.cast.tingge]
 		for i in range(mini(actors.size(),family_positions.size())):
@@ -73,6 +73,7 @@ func family(enter: bool):
 
 func ride(key: String):
 	if travel>=0 or photo_time>0 or world.player.vehicle:return
+	if key=="shanghai" and not world.family_routes.is_empty():world.hud.say("等家人进场落座，再一起登高");return
 	destination=key;travel=0;world.paused=true;world._clear_input();world.voice.stop();world.bark_queue=[];world.bark_text="";aim=-1;running=false;rhythm=false
 	world.sound("shutter",.4)
 
@@ -146,6 +147,7 @@ func shoot() -> bool:
 	return true
 
 func follow() -> bool:
+	world.player.rig.visible=aim<0
 	if photo_time>0:
 		var b=LandmarkSet.DATA.shanghai.floor;world.camera.position=b+Vector3(0,2.4,6.5);world.camera.look_at(b+Vector3(0,1.1,-.8));return true
 	if aim<0:return false

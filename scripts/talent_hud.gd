@@ -6,9 +6,9 @@ static func selected(t) -> String:return BRANCHES[t.column]+str(t.row+1)
 static func key(w,code: int) -> bool:
 	var t=w.talents
 	if code==KEY_T:
-		if w.director.active() or w.pause_menu or w.failed_reason!="" or w.quests.active() and (w.quests.travel>=0 or w.quests.photo_time>0):return true
-		if not t.menu and w.stage==4:w.hud.say("先完成撤离，再调整天赋 · 战斗中保留当前配置");return true
-		t.menu=not t.menu;w.quests.journal=false;w.hud.map_open=false;w.paused=t.menu;w.voice.set_paused(t.menu);w._clear_input();Input.mouse_mode=Input.MOUSE_MODE_VISIBLE if t.menu else Input.MOUSE_MODE_CAPTURED;return true
+		if w.director.active() or w.pause_menu or w.quests.active() and (w.quests.travel>=0 or w.quests.photo_time>0):return true
+		if not t.menu and w.stage==4 and w.failed_reason=="":w.hud.say("先完成撤离，再调整天赋 · 战斗中保留当前配置");return true
+		t.menu=not t.menu;w.quests.journal=false;w.hud.map_open=false;w.paused=t.menu or w.failed_reason!="";w.voice.set_paused(w.paused);w._clear_input();Input.mouse_mode=Input.MOUSE_MODE_VISIBLE if w.paused else Input.MOUSE_MODE_CAPTURED;return true
 	if not t.menu:return false
 	if code in [KEY_A,KEY_LEFT]:t.column=posmod(t.column-1,5)
 	if code in [KEY_D,KEY_RIGHT]:t.column=posmod(t.column+1,5)
@@ -17,7 +17,7 @@ static func key(w,code: int) -> bool:
 	if code in [KEY_E,KEY_ENTER]:
 		if t.buy(selected(t)):t.sync_player(w.player)
 	if code==KEY_R:t.respec();t.sync_player(w.player)
-	if code==KEY_ESCAPE:t.menu=false;w.paused=false;w.voice.set_paused(false);Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+	if code==KEY_ESCAPE:t.menu=false;w.paused=w.failed_reason!="";w.voice.set_paused(w.paused);Input.mouse_mode=Input.MOUSE_MODE_VISIBLE if w.paused else Input.MOUSE_MODE_CAPTURED
 	return true
 static func draw(h):
 	var t=h.world.talents

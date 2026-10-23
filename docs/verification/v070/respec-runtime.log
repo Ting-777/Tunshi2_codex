@@ -1,0 +1,39 @@
+WARNING: Couldn't get executable path from /proc/self/exe, using argv[0]
+     at: get_executable_path (drivers/unix/os_unix.cpp:1136)
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+
+CHAPTER1_READY
+CHECK true full-campaign finite reward ledger exactly funds the entire 80-point talent tree
+CHECK true omitting any single planned quest prevents buying the whole tree
+CHECK true unimplemented chapters and arbitrary IDs cannot mint talent points
+CHECK true quest replay cannot duplicate points and prerequisite purchases are enforced
+CHECK true shared points support a mixed attack, health and defense build
+CHECK true purchased health and mitigation change real hero damage reception
+CHECK true attack talent increases a physically connected melee hit
+CHECK true ordinary medicine still consumes a real item and respects the upgraded maximum
+CHECK true movement talent arms an actual post-dodge heavy counter window
+CHECK true advanced nodes cannot be bought before their chapter unlock
+CHECK true talent allocation and unique task rewards persist in a separate campaign profile
+CHECK true talent menu pauses world simulation and combat timing
+CHECK true free respec refunds invested points without erasing completed quests
+CHECK true active combat prevents respec while a failed encounter permits preparing talents without unpausing threats
+CHECK true late campaign has an explicit side-quest growth gap without relying on excessive enemy HP
+PASS full-campaign finite reward ledger exactly funds the entire 80-point talent tree
+PASS omitting any single planned quest prevents buying the whole tree
+PASS unimplemented chapters and arbitrary IDs cannot mint talent points
+PASS quest replay cannot duplicate points and prerequisite purchases are enforced
+PASS shared points support a mixed attack, health and defense build
+PASS purchased health and mitigation change real hero damage reception
+PASS attack talent increases a physically connected melee hit
+PASS ordinary medicine still consumes a real item and respects the upgraded maximum
+PASS movement talent arms an actual post-dodge heavy counter window
+PASS advanced nodes cannot be bought before their chapter unlock
+PASS talent allocation and unique task rewards persist in a separate campaign profile
+PASS talent menu pauses world simulation and combat timing
+PASS free respec refunds invested points without erasing completed quests
+PASS active combat prevents respec while a failed encounter permits preparing talents without unpausing threats
+PASS late campaign has an explicit side-quest growth gap without relying on excessive enemy HP
+DRAW_CALLS 0.0
+TEST_RESULT 15 passed; 0 failed
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object/object.cpp:2514)

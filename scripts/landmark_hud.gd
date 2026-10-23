@@ -45,3 +45,12 @@ static func draw(h):
 		h.draw_rect(Rect2(0,0,1600,900),Color(.03,.07,.11,alpha))
 		if q.travel>.3 and q.travel<1.3:h.txt("观光电梯 · "+("返回大厅" if q.destination=="" else LandmarkSet.DATA[q.destination].name),Vector2(565,460),30,h.PAPER)
 	if q.flash>0:h.draw_rect(Rect2(0,0,1600,900),Color(1,1,.93,q.flash*.6))
+
+static func photo(h):
+ h.draw_rect(Rect2(0,0,1600,65),Color("#152235"));h.draw_rect(Rect2(0,835,1600,65),Color("#152235"))
+ h.txt("八个，一个都不少 · 上海中心",Vector2(56,44),25,h.ORANGE)
+ if h.world.bark_text!="":
+  h.panel(Rect2(190,720,1220,99));h.txt(h.world.bark_speaker,Vector2(215,751),20,h.ORANGE)
+  h.txt(h.world.bark_text,Vector2(215,791),25)
+ var q=h.world.quests
+ if q.flash>0:h.draw_rect(Rect2(0,0,1600,900),Color(1,1,.93,q.flash*.6))

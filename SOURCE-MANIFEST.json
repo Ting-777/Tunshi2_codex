@@ -740,9 +740,9 @@
       "git_blob": "43ae0996bfef45131b6fe52761ab7c7fce345ebd"
     },
     "docs/verification/TEST-REPORT.md": {
-      "bytes": 29523,
-      "sha256": "ca2075b771c81167c766a13a5b7273354f15ac5ccebf206ce1997f7077c296c7",
-      "git_blob": "61946d95138f8cf207552bd52da16fa064789627"
+      "bytes": 29760,
+      "sha256": "730ee76573c05ea6cbafaad87130468814c9f90d4a62c97c7457c888be99427e",
+      "git_blob": "23e7011d3a143c6b8acaea58f6dbf9956e3733fe"
     },
     "docs/verification/baseline-v040/TEST-REPORT.md": {
       "bytes": 3447,
@@ -1323,6 +1323,21 @@
       "bytes": 5791,
       "sha256": "30b55e54f5a18617e531e0da4d7788e5cde82ed04a26f8ce2b967dcb0f0f4faa",
       "git_blob": "e2cb8b712c815a22037a0756069055e917a62323"
+    },
+    "docs/verification/v070/native-input.txt": {
+      "bytes": 1062,
+      "sha256": "ba468d63e7219d1a0918b8821e3a30524b3ef64ce18ceebdd231ae98548f458b",
+      "git_blob": "472ab8cb204ec98fc175af098e2a688d05ef1352"
+    },
+    "docs/verification/v070/respec-results.json": {
+      "bytes": 1625,
+      "sha256": "663dab1cdc4ac5ea0ab97391f70355d8f9731c8dbc33cf6ccfa14da952374779",
+      "git_blob": "cc2272e40fecbdd7f2408da71ca67201f2902c4c"
+    },
+    "docs/verification/v070/respec-runtime.log": {
+      "bytes": 2791,
+      "sha256": "77b824dce4a065f11faa830b7fa52605c14f4af67ef0b2436fd8771b133a8779",
+      "git_blob": "8d20a8ff1041763518e05ae358d243d724923716"
     },
     "docs/verification/windows-20261021/export.log": {
       "bytes": 3656,
@@ -2120,9 +2135,9 @@
       "git_blob": "5a33ab57dcd8703010a8bd0856de8ccf37defe02"
     },
     "scripts/chapter1_hud.gd": {
-      "bytes": 9648,
-      "sha256": "7521cf220f1f81b0aa900528db7374aca753da777a65fa281e0906e5c1beb40c",
-      "git_blob": "369d39fad12d73991cff0eff52dc5dc5108cb32a"
+      "bytes": 9741,
+      "sha256": "d4d850e3250eeff0b927e5c56e3a4d1911da168292845f7814b51205b0d83604",
+      "git_blob": "bcb12cce620858bfbb4db708414982f70c5dc216"
     },
     "scripts/chapter1_hud.gd.uid": {
       "bytes": 20,
@@ -2270,9 +2285,9 @@
       "git_blob": "7d5e7d2d003a7cc6e540439bbad60e785d08397f"
     },
     "scripts/landmark_hud.gd": {
-      "bytes": 3555,
-      "sha256": "ad8c1f893721e39a8d4b0db3e088e59b7646791f247011373d5ecec22dd21948",
-      "git_blob": "18f63232c30758cd74f12a43e9f3268d86635f0b"
+      "bytes": 4017,
+      "sha256": "1febde3388a0bab08474621a9105029dbd4bccc8b611e8455e2b1f08f376b090",
+      "git_blob": "b3abd6e7530e11922b2186c1c7a2f28782596942"
     },
     "scripts/landmark_hud.gd.uid": {
       "bytes": 20,
@@ -2280,9 +2295,9 @@
       "git_blob": "8110d0e9fc1dfdb8d1721fb8fca42bf472fb9f2f"
     },
     "scripts/landmark_quests.gd": {
-      "bytes": 15212,
-      "sha256": "736123138d0b8b0a4de3995cdc2e24ed1034bcd21e3814acec7485eb7e84505c",
-      "git_blob": "d82509905d31fe0e03ed241c45f6129eec6d9ef4"
+      "bytes": 15462,
+      "sha256": "80413a9ff309f05bfa3f51c65992982a7512acb4e04492eca83d1cdb019c8f85",
+      "git_blob": "3cff85c8e500d374751224844d234038468b3dfd"
     },
     "scripts/landmark_quests.gd.uid": {
       "bytes": 19,
@@ -2440,9 +2455,9 @@
       "git_blob": "f7574cffe4f1bdd0dc606f77540ffc76b75340e6"
     },
     "scripts/talent_checks.gd": {
-      "bytes": 4011,
-      "sha256": "c8a0e4ff56fc0161075f56f7ed24f5c38a684f263f6ac569828a5b74b1306ff7",
-      "git_blob": "608deeea21153bf1ad95a7d6245dcc25ac1b424f"
+      "bytes": 4395,
+      "sha256": "8db6978ffe4b433ac03647ff76993567f28acdfffee4ad630b1ff090faba2f52",
+      "git_blob": "ddc8c592721225bcc25db61a7ba47fcc6ecbde04"
     },
     "scripts/talent_checks.gd.uid": {
       "bytes": 20,
@@ -2450,9 +2465,9 @@
       "git_blob": "ba70f49a873fbd32284a6826e694da689a3419c1"
     },
     "scripts/talent_hud.gd": {
-      "bytes": 2939,
-      "sha256": "a492ca87f689cef14475b0e31754646fb7adeab1f2f5d5caf09f13bd058de8cb",
-      "git_blob": "3e8fd4bfba09411554c51d9dae8015128f11a9a1"
+      "bytes": 3026,
+      "sha256": "fb1cce1a8bcfa141a9700815dec5807bceb2a7e9603ddce79b060edd9c014475",
+      "git_blob": "97f6ee2c54c3ecb53921477c759462206cc36e3f"
     },
     "scripts/talent_hud.gd.uid": {
       "bytes": 20,
@@ -2686,8 +2701,8 @@
     },
     "tools/verify_windows_zip.py": {
       "bytes": 1330,
-      "sha256": "aaa0a4486de742b5a404af7346eb61217c4834948b15c2a654e5d85cd928043a",
-      "git_blob": "86f00a724aea910a1b191ce6428e3eac3b67cf0e"
+      "sha256": "65e6e65b9c881d1aaff40b072597a3f8fd04f4f5f050dba717481beafa150733",
+      "git_blob": "8f33096e69a09eeaaf0abc5b86084786a1d33ac8"
     }
   }
 }

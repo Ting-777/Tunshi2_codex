@@ -38,5 +38,8 @@ static func run(w,out: Array):
 	check(out,t.menu and w.paused and t.dodge_window==d,"talent menu pauses world simulation and combat timing")
 	w._key(KEY_R);check(out,t.owned.is_empty() and t.available()==t.total(),"free respec refunds invested points without erasing completed quests")
 	w._key(KEY_T)
+	var old_stage=w.stage;w.stage=4;w._key(KEY_T);var blocked=not t.menu;w.failed_reason="测试撤离";w.paused=true;w._key(KEY_T);var configurable=t.menu;w._key(KEY_ESCAPE)
+	check(out,blocked and configurable and w.paused,"active combat prevents respec while a failed encounter permits preparing talents without unpausing threats")
+	w.stage=old_stage;w.failed_reason="";w.paused=false
 	var ch=t.data.balance[7];check(out,ch.main_only_points==35 and ch.all_points==80 and ch.recommended_entry_points>ch.main_only_points and ch.enemy_hp_multiplier<1.5,"late campaign has an explicit side-quest growth gap without relying on excessive enemy HP")
 	t.restore(before);t.save_profile();t.sync_player(w.player);w.player.position=old_pos;w.player.hp=minf(old_hp,w.player.max_hp);w.player.immunity=1;w.player.stun=0;w.player.impulse=Vector3.ZERO;w.player.dodge_time=0

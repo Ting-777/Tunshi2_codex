@@ -91,6 +91,7 @@ static func run(w):
 	w.race_elapsed=maxf(w.race_elapsed,180)
 	loop_ok=(await walk(w,w.RACE_END)) and loop_ok;await ticks(w,4)
 	check(out,loop_ok and w.stage==1 and not w.race_active and w.race_result>=180,"either bridge arc is playable and a slow finish still advances the chapter")
+	if w.stage!=1:w.call_deferred("_test_report",out);return
 	var best=w.race_best;var hash=FileAccess.get_sha256(w.story_path());w.start_race(true);w.save_story()
 	check(out,FileAccess.get_sha256(w.story_path())==hash,"optional race replay cannot overwrite active chapter progress")
 	w.load_story();await ticks(w,4)
@@ -99,6 +100,7 @@ static func run(w):
 	for p in [Vector3(36,0,-47),Vector3(70,0,-62),ChapterOneSet.BAKERY]:travel=(await walk(w,p)) and travel
 	w._key(KEY_E);await ticks(w,3)
 	check(out,travel and w.stage==2 and w.van.cargo!=null and w.van.occupied,"cake pickup loads the actual ten-seat family vehicle after a continuous walk")
+	if w.stage!=2:w.call_deferred("_test_report",out);return
 	await walk(w,w.van.position+w.van.basis.x*signf((w.player.position-w.van.position).dot(w.van.basis.x))*1.9);w._key(KEY_E);await ticks(w,2)
 	await snapshot(w,"02-family-van");var car_start=w.van.position;Input.action_press("forward");await ticks(w,90);w._clear_input();Input.action_press("jump");await ticks(w,45);w._clear_input()
 	check(out,w.player.vehicle==w.van and w.van.position.distance_to(car_start)>5,"family van accelerates and brakes through normal input and collision")
@@ -111,19 +113,22 @@ static func run(w):
 	check(out,is_equal_approx(w.van.hp,damaged) and is_equal_approx(w.cake_quality,quality_saved) and w.stage==2,"delivery saves keep damage and cake condition")
 	await walk(w,w.van.position+w.van.basis.x*signf((w.player.position-w.van.position).dot(w.van.basis.x))*1.9);w._key(KEY_E);await ticks(w,3)
 	var drove=true
-	for p in [Vector3(90,0,-140),Vector3(-95,0,-120),Vector3(-95,0,-201),ChapterOneSet.VAN_PARK]:drove=(await drive(w,p)) and drove
+	for p in [Vector3(90,0,-140),Vector3(-95,0,-120),Vector3(-95,0,-180),ChapterOneSet.VAN_PARK]:drove=(await drive(w,p)) and drove
 	w.cake_quality=0;w._key(KEY_E);await ticks(w,8)
 	check(out,drove and w.stage==3 and w.cake_best==0 and not w.player.vehicle,"free-route driving and safe exit finish delivery even with zero cake score")
+	if not drove or w.stage!=3:w.call_deferred("_test_report",out);return
 	var entered=true
 	for p in [Vector3(-124,0,-204),Vector3(-124,0,-222),Vector3(-136,0,-222),ChapterOneSet.HALL+Vector3(0,.16,7)]:entered=(await walk(w,p)) and entered
 	w._key(KEY_E);await ticks(w,3)
 	check(out,entered and w.director.kind=="party" and w.sons.all(func(a):return a.visible),"real entrance and working door lead to eight-son birthday staging")
+	if w.director.kind!="party":w.call_deferred("_test_report",out);return
 	await snapshot(w,"03-birthday");
 	# Let this transition finish normally; skips were covered on arrival.
 	for i in range(2400):
 		if not w.director.active():break
 		await ticks(w,1)
 	check(out,w.stage==4 and w.staff.size()==3 and w.fighters.size()==5,"birthday sequence normally hands control to the live evacuation battle")
+	if w.stage!=4 or w.staff.size()!=3:w.call_deferred("_test_report",out);return
 	stop_barks(w);w._key(KEY_ESCAPE);var time=w.battle_time;var p=w.staff[0].position;await ticks(w,12)
 	check(out,w.battle_time==time and w.staff[0].position==p,"pause freezes escort, enemy AI and reinforcement clock")
 	w._key(KEY_ESCAPE);await place(w,Vector3(-150,0,-212))
@@ -162,10 +167,7 @@ static func run(w):
 	await walk(w,ChapterOneSet.SWITCH+Vector3(-.6,0,0));w._key(KEY_E)
 	await snapshot(w,"04-courtyard");var won=await fight(w)
 	check(out,won and w.staff.all(func(a):return a.evacuated) and w.director.kind=="ending","active melee, breaks, heat and route control complete a real evacuation")
-	if not won:
-		for a in w.fighters:a.hp=0
-		for a in w.staff:a.evacuated=true
-		w.failed_reason="";w.paused=false;w._tick_battle(0)
+	if not won:w.call_deferred("_test_report",out);return
 	if w.director.active():w._key(KEY_E)
 	await ticks(w,4)
 	check(out,w.stage==5 and w.sons.size()==8 and w.sons.all(func(a):return a.visible),"ending skip restores all eight children and a completed playable chapter")

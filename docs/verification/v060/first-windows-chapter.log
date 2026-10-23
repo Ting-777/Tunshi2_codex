@@ -1,0 +1,31 @@
+Godot Engine v4.5.2.stable.official.6ce3de25a - https://godotengine.org
+
+CHAPTER1_READY
+CHECK true normal first-chapter entry uses an isolated slot and staged arrival
+CHECK true eight sons, queen and original-geometry driver have ten real van seats
+CHECK true all 37 chapter dialogue lines are bundled offline
+CHECK true pause holds opening timeline and speech
+CHECK true skipping arrival returns immediate control and marks only chapter progress
+CHECK true race starts through E and rival moves through real physics
+CHECK true player climbs the real south ramp into the first elevated checkpoint
+CHECK true ground-level shortcuts cannot collect elevated bridge checkpoints
+CHECK true either bridge arc is playable and a slow finish still advances the chapter
+CHECK true optional race replay cannot overwrite active chapter progress
+CHECK true loading during a replay returns to chapter checkpoint with best time
+CHECK true cake pickup loads the actual ten-seat family vehicle after a continuous walk
+CHECK true family van accelerates and brakes through normal input and collision
+CHECK true real frontal collision injures occupants, damages van and reduces cake quality
+CHECK true delivery saves keep damage and cake condition
+DRIVE_STUCK (-108.3823, 0.000944, -209.8822) => (-122.0, 0.12, -201.0) hp 202.425737817406
+CHECK false free-route driving and safe exit finish delivery even with zero cake score
+WALK_STUCK (-111.3499, 0.000657, -210.5632) => (-124.0, 0.0, -204.0)
+WALK_STUCK (-111.3483, -0.004952, -212.3675) => (-124.0, 0.0, -222.0)
+WALK_STUCK (-111.3483, -0.00496, -212.3675) => (-136.0, 0.0, -222.0)
+WALK_STUCK (-111.3483, -0.004952, -212.3675) => (-136.0, 0.16, -235.0)
+CHECK false real entrance and working door lead to eight-son birthday staging
+CHECK false birthday sequence normally hands control to the live evacuation battle
+SCRIPT ERROR: Invalid access of index '0' on a base object of type: 'Array'.
+   at: run (res://scripts/chapter1_checks.gd:127)
+   GDScript backtrace (most recent call first):
+       [0] run (res://scripts/chapter1_checks.gd:127)
+       [1] ticks (res://scripts/chapter1_checks.gd:4)

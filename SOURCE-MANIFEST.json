@@ -640,9 +640,9 @@
       "git_blob": "318cb0c4d78eff10a7d05e844d03f9710d73bd6a"
     },
     "docs/WORK-CHECKPOINT.md": {
-      "bytes": 20662,
-      "sha256": "43a5797fa50e2ee1c304a976f4ea37c1b3e535ad590a1b99a9207f24d1fffd2c",
-      "git_blob": "43a969d11bb5e588bffa4a7fc1207d7419a045a1"
+      "bytes": 21064,
+      "sha256": "8e92c69618a71debc4bc65e0ab929102473e1d577248cdb62d7de18ba9d9c6e6",
+      "git_blob": "3e370fea2d2ec12a044a7f25212d255883df17bd"
     },
     "docs/original-dolphin-source.js": {
       "bytes": 2345,
@@ -670,9 +670,9 @@
       "git_blob": "43ae0996bfef45131b6fe52761ab7c7fce345ebd"
     },
     "docs/verification/TEST-REPORT.md": {
-      "bytes": 27301,
-      "sha256": "54a63c09a31b58e1ff645048821b5bda8bcbdfdebc1e6e5503e9b763c162b970",
-      "git_blob": "dad52ef86e1b417bf2b69d13c3a7b4daa74e402e"
+      "bytes": 27703,
+      "sha256": "1b7b61261713c69b019262a19e3fe288bbc9853bf07076d2d836bf4ea779bcef",
+      "git_blob": "1a410ac59ebdd0dd6dc7d12b1864e54772d5e486"
     },
     "docs/verification/baseline-v040/TEST-REPORT.md": {
       "bytes": 3447,
@@ -1208,6 +1208,11 @@
       "bytes": 5369,
       "sha256": "b560aeb0ba7ba34298f422aa98504457cd89104477b6caffc13eeb91d4e0b796",
       "git_blob": "67672bb5bafd907f59c5639450a7530f21940608"
+    },
+    "docs/verification/v060/first-windows-chapter.log": {
+      "bytes": 2129,
+      "sha256": "7ef486e274c9a8c2a7caa4ee6b1cffb5220dfb7985e2b306de04d9e6d1c378ce",
+      "git_blob": "78abf9e3d1d0f1ff0997b9cc0e9a114edbbc9fe8"
     },
     "docs/verification/v060/focused-driver.log": {
       "bytes": 516,
@@ -1995,9 +2000,9 @@
       "git_blob": "6d34c9232a14376102ba1bc025a33b1331989de3"
     },
     "scripts/chapter1_checks.gd": {
-      "bytes": 14167,
-      "sha256": "89633765fb0acea7af9f663e09b8a15c74172e98cc826bd692f2911b546bbd9b",
-      "git_blob": "d16eafc654b06738e4f00c67d0d25f5dc50af02b"
+      "bytes": 14428,
+      "sha256": "3021ba7883cd4adbc16b742f736ef6bd1473a52b9ab188b43d1c2f95e9dd3fbf",
+      "git_blob": "ab29a56132b19d24355332662d7f04c89191de2f"
     },
     "scripts/chapter1_checks.gd.uid": {
       "bytes": 19,

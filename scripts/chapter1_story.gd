@@ -47,7 +47,7 @@ func meeting_cast():
 	passenger=StoryCast.new();departure_car.add_child(passenger);passenger.build("pange");world._story_collision(passenger,false);passenger.scale=Vector3.ONE*.45;passenger.position=Vector3(.58,.38,-.3);passenger.visible=false;world._actor_light(passenger)
 	ToonKit.finish(scene_root)
 func hotspots() -> Array:
-	if world.stage!=3 or world.director.active() or world.quests.inside!="" or not world.family_routes.is_empty():return []
+	if world.stage!=3 or world.director.active() or world.quests.inside!="":return []
 	match birthday:
 		0:return [{"id":"story:welcome","label":"和象象、攀哥坐下说会儿话","p":DINNER,"radius":3.2}]
 		1:return [{"id":"story:rehearsal_intro","label":"到舞台边，帮孩子们试演","p":PRACTICE_START,"radius":2.4}]

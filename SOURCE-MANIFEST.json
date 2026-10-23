@@ -10,9 +10,9 @@
       "git_blob": "e394f79f611be8601aae7706adca40077dbaf9f5"
     },
     ".github/workflows/windows-release.yml": {
-      "bytes": 4302,
-      "sha256": "ff1d0c33c29b2884bf97a97747030763ee7e9752c6c7cf5c401d1a7b0944796d",
-      "git_blob": "264d65c01033624cee326cc87a1fd743c091b686"
+      "bytes": 4871,
+      "sha256": "0bec511d810448ba64f99dbdbdec6985cbc29e5aac1bdc268aaeee45105613ef",
+      "git_blob": "f5de604255e7338eda079f50625ab6ae6c1baf26"
     },
     ".gitignore": {
       "bytes": 847,
@@ -1630,9 +1630,9 @@
       "git_blob": "ee49b4cd61a24db10e87fe5dbd61e370e59dc16b"
     },
     "scripts/chapter1_story.gd": {
-      "bytes": 8083,
-      "sha256": "54800f18318f6ec1e848d2da694f615d70ebc192e5b4c15f138f3e5b3485d321",
-      "git_blob": "a61b68fb7176f0e9eb97f07f01a6dd6e2b104c4b"
+      "bytes": 8045,
+      "sha256": "1aec5b4b93478ccb3ade6c4c69327c5fb70cfa913bda22155a220154bf7c28d8",
+      "git_blob": "537f28159e3d5f420c2de5ade6b9c2cfd7e934f6"
     },
     "scripts/chapter1_story.gd.uid": {
       "bytes": 20,
@@ -2200,9 +2200,9 @@
       "git_blob": "cf131f1e608b75d9b9f8cf1008e7204b0cbdf756"
     },
     "tools/generate_voice.py": {
-      "bytes": 4043,
-      "sha256": "f4fc57c408ca397233655c0145c8fea1aeee476d268a42d43bf2cd693c595767",
-      "git_blob": "401b6720f265c996b4127cb1b45912748b3f01a1"
+      "bytes": 4059,
+      "sha256": "124bc682c0916c7dce887f73ffe739aa75e9b557073ff99cce85254c0c5af569",
+      "git_blob": "a1f400a94cf01edf4df626aa48f1f2f4aa653159"
     },
     "tools/package_source.py": {
       "bytes": 1073,
@@ -2210,9 +2210,9 @@
       "git_blob": "5b14440c41693ac9a9e3a923e424945655f7e1c2"
     },
     "tools/package_voice.py": {
-      "bytes": 1331,
-      "sha256": "b936d9b46c3fe8477a58e249ffad5bc4412996ac3eb179c9efe376a22d7d3859",
-      "git_blob": "7f72b2b2c26c51a6122c6fd605a14a8992c19193"
+      "bytes": 1379,
+      "sha256": "8d342311ca2aa7ffc57fc4cc5921567582e6baec13a746880b03412f18347d13",
+      "git_blob": "6d71185fa1e5a2653f142e51a4d251cb8f8f4615"
     },
     "tools/package_windows.py": {
       "bytes": 2281,
@@ -2220,9 +2220,9 @@
       "git_blob": "d3d5a83d3ed93e3731ee78937dad974ba2a639dc"
     },
     "tools/restore_assets.py": {
-      "bytes": 3243,
-      "sha256": "2eee60f4f4e2dda9e15429273609ecf5451919a6524d6def24851c98e0d1a75b",
-      "git_blob": "fd20f23a8a89a1d80f9462aac7fc128257ad87da"
+      "bytes": 3308,
+      "sha256": "b37a90455c76bbd785ecf9478e42c79b8f2204bc12d73aefc90c8121855aaad2",
+      "git_blob": "cbc452bd2f3078b7a8aa1babe752aa39fe7897b4"
     },
     "tools/run_native.py": {
       "bytes": 7035,

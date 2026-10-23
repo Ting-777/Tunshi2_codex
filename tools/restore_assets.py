@@ -26,11 +26,11 @@ else:
 voice_dir = root / 'assets/voice'
 metadata_path = root / 'VOICE-BUNDLE.json'
 if metadata_path.exists():
-    metadata = json.loads(metadata_path.read_text())
+    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
     voice_dir.mkdir(parents=True, exist_ok=True)
     manifest_path = voice_dir / 'manifest.json'
-    present = json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
-    required = {hashlib.sha256((a+'|'+b).encode()).hexdigest()[:20] for source in (root/'assets/dialogue').glob('*.json') for lines in json.loads(source.read_text()).values() for a,b in lines}
+    present = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.exists() else {}
+    required = {hashlib.sha256((a+'|'+b).encode()).hexdigest()[:20] for source in (root/'assets/dialogue').glob('*.json') for lines in json.loads(source.read_text(encoding="utf-8")).values() for a,b in lines}
     complete = all(k in present and (voice_dir/(k+'.mp3')).exists() and hashlib.sha256((voice_dir/(k+'.mp3')).read_bytes()).hexdigest()==present[k]['sha256'] for k in required)
     if complete:
         print('Current speech already present and verified.')
@@ -51,7 +51,7 @@ if metadata_path.exists():
                 if hashlib.sha256(raw).hexdigest()!=item['sha256']:
                     raise SystemExit('Voice clip SHA256 mismatch.')
                 (voice_dir/(key+'.mp3')).write_bytes(raw)
-            manifest_path.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+            manifest_path.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         print(f'Restored {len(manifest)} verified offline voice clips.')
 else:
     print('Speech bundle not yet pinned; build-time tools/generate_voice.py generates missing dialogue.')

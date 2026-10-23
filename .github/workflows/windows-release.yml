@@ -24,6 +24,8 @@ jobs:
   windows:
     runs-on: windows-latest
     timeout-minutes: 45
+    env:
+      PYTHONUTF8: '1'
     permissions:
       contents: write
     steps:
@@ -37,6 +39,13 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python tools/restore_assets.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Restore cached speech
+        id: speech-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: assets/voice
+          key: speech-${{ hashFiles('assets/dialogue/*.json', 'tools/generate_voice.py') }}
+          restore-keys: speech-
       - name: Restore or generate authorized Chinese speech
         run: |
           python -m pip install edge-tts==7.3.1 mutagen==1.47.0
@@ -45,6 +54,12 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python tools/package_voice.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Save verified speech cache
+        if: steps.speech-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: assets/voice
+          key: speech-${{ hashFiles('assets/dialogue/*.json', 'tools/generate_voice.py') }}
       - name: Import and export exact release pack
         run: |
           python tools/run_native.py import --output builds/ci-import

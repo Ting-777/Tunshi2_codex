@@ -43,7 +43,7 @@ async def main():
     lines = {hashlib.sha256((who+'|'+text).encode()).hexdigest()[:20]: (who,text)
              for group in catalog.values() for who,text in group}
     gate=asyncio.Semaphore(3)
-    manifest=json.loads((OUT/'manifest.json').read_text()) if (OUT/'manifest.json').exists() else {}
+    manifest=json.loads((OUT/'manifest.json').read_text(encoding="utf-8")) if (OUT/'manifest.json').exists() else {}
 
     async def generate(key, line):
         who,text=line
